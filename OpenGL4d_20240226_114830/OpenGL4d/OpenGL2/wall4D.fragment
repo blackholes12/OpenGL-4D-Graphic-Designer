@@ -420,7 +420,7 @@ for(i=0;i < D4_PointLightAmount;i++)
            diffuseColor+=diffuseFinal[i]*pointLight4D[i].color;
            if(isSpecular==true)
            {
-           specularFinal[i] = diffuseFinal[i]*pointLight4D[i].intensity*calculate_specular(vs_position, vs_normal, vs_position-pointLight4D[i].position4D, cameraPos);
+           specularFinal[i] = pointLight4D[i].intensity*calculate_specular(vs_position, vs_normal, vs_position-pointLight4D[i].position4D, cameraPos);
            specularFinal[i]*=attenuation[i]/2.f;
            specularColor+=specularFinal[i]*pointLight4D[i].color;
            }
@@ -431,7 +431,7 @@ float directionStrength=calculate_direction(vs_normal, directionLight4D.directio
 if(directionStrength>0.f)//&&fract(vs_position.x)<0.5f)
 {
 directionColor=directionLight4D.intensity*directionLightColor*directionStrength;
-if(isSpecular==true){specularColor+=directionStrength*directionLight4D.intensity*calculate_specular(vs_position, vs_normal, directionLight4D.direction4D, cameraPos)*directionLightColor/2.f;}
+if(isSpecular==true){specularColor+=directionLight4D.intensity*calculate_specular(vs_position, vs_normal, directionLight4D.direction4D, cameraPos)*directionLightColor/2.f;}
 }
 
 	ambientColor=get_ambient_color(vs_normal);
