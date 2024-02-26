@@ -55,4 +55,4 @@ M/N:Zoom in and out of perspective
 ## Issues:
 1. This application currently only supports the Windows operating system and does not currently support Linus or Macs operating systems.
 2. There may be non-standard writing in this C++application, which may result in failure to open or memory overflow. Please understand if any issues are found.
-3. Open the executable file at OpenGL4d\OpenGL2\NewEngine.exe
+3. Open the executable file at OpenGL4d\OpenGL2\NewEngine.exe.
