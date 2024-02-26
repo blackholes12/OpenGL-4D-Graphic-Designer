@@ -50,6 +50,7 @@ C: Turn on or off the world coordinate system lines
 G: Show or turn off wireframe
 
 M/N:Zoom in and out of perspective
+
 123456 Switching mode
 
 ## Issues:
