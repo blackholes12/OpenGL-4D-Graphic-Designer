@@ -2,10 +2,10 @@
   This C++OpenGL application uses 3D slicing and 3D projection wireframe methods to visualize various scenes in four-dimensional physical space, such as walls, terrain, water bodies, lights, dynamic physical rigid bodies, particles, dynamic sky boxes, and simple decorations. These scenes include the calculation of various texture maps, four-dimensional normals, and the use of a built-in CPU four-dimensional physics engine, allowing players to rotate, walk, and run freely, Jumping and flying to explore scenes can interact with objects such as dynamic physical rigid bodies, as well as basic editing functions such as building, controlling, modifying, and deleting 4d objects.
 
 ## Features
-Rotate and move players to observe the scene.
-Control and drag dynamic rigid bodies.
-Terrain coloring.
-Building and deleting objects.
+1.Rotate and move players to observe the scene.
+2.Control and drag dynamic rigid bodies.
+3.Terrain coloring.
+4.Building and deleting objects.
 ## Controling
 WASDRF：players move forward, backward, left, and right ana kata
 
