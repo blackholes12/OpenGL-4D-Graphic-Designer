@@ -49,7 +49,7 @@ C: Turn on or off the world coordinate system lines
 
 G: Show or turn off wireframe
 
-Press M/N:Zoom in and out of perspective
+M/N: Zoom in and out of perspective
 
 1/2/3/4/5/6: Switching behavior mode
 
