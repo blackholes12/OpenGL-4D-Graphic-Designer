@@ -1,11 +1,25 @@
 # OpenGL-4D-Graph-Extension
   This C++OpenGL application uses 3D slicing and 3D projection wireframe methods to visualize various scenes in four-dimensional physical space, such as walls, terrain, water bodies, lights, dynamic physical rigid bodies, particles, dynamic sky boxes, and simple decorations. These scenes include the calculation of various texture maps, four-dimensional normals, and the use of a built-in CPU four-dimensional physics engine, allowing players to rotate, walk, and run freely, Jumping and flying to explore scenes can interact with objects such as dynamic physical rigid bodies, as well as basic editing functions such as building, controlling, modifying, and deleting 4d objects.
 
+## Playing Methods
+* Rotate and move players to observe the scene
+* Control and drag dynamic rigid bodies
+* Terrain coloring
+* Building and deleting objects
+* Shooting and detonating objects and triggering rigid body behavior
 ## Features
-* Rotate and move players to observe the scene.
-* Control and drag dynamic rigid bodies.
-* Terrain coloring.
-* Building and deleting objects.
+* Use vertex shader to slice 4d objects
+* Some 4d space rooms to explore
+* 4d terrain and mulitple textures.
+* Coordinate system projection lines and 4d objects wireframes
+* 3d texture mapping and smooth four-dimensional normals caculating at 4d objects and particles
+* 4d point lights and direction light display on 3d section
+* Physical simulation of 4d rigid bodies and simple joints
+* Some animations of translation and rotation of 4d objects
+* 4d particle system
+* Sky box and sun light color calculation in 4d space
+* Water surface reflection in 4d space
+* Highlights and specular reflections of 4d objects
 ## Controling
 WASDRF：players move forward, backward, left, and right ana kata
 
@@ -39,5 +53,6 @@ M/N:Zoom in and out of perspective
 123456 Switching mode
 
 ## Issues:
-1.This application currently only supports the Windows operating system and does not currently support Linus or Macs operating systems.
-2.There may be non-standard writing in this C++application, which may result in failure to open or memory overflow. Please understand if any issues are found.
+1. This application currently only supports the Windows operating system and does not currently support Linus or Macs operating systems.
+2. There may be non-standard writing in this C++application, which may result in failure to open or memory overflow. Please understand if any issues are found.
+3. Open the executable file at OpenGL4d\OpenGL2\NewEngine.exe
