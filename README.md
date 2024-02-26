@@ -21,7 +21,7 @@
 * Water surface reflection in 4d space
 * Highlights and specular reflections of 4d objects
 ## Controling
-WASDRF：players move forward, backward, left, and right ana kata
+Press W/S/A/D/R/F：players move forward, backward, left, and right ana kata
 
 Space：jump
 
@@ -49,9 +49,9 @@ C: Turn on or off the world coordinate system lines
 
 G: Show or turn off wireframe
 
-M/N:Zoom in and out of perspective
+Press M/N:Zoom in and out of perspective
 
-Press  1/2/3/4/5/6: Switching behavior mode
+1/2/3/4/5/6: Switching behavior mode
 
 ## Issues:
 1. This application currently only supports the Windows operating system and does not currently support Linus or Macs operating systems.
