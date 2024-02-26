@@ -1,0 +1,36 @@
+#version 440
+
+in vec4 vs_position;
+in vec4 vs_normal;
+in vec3 vs_texcoord;
+out vec4 fs_color;
+vec4 col4;
+uniform vec4 paintingColor;
+layout (binding = 0) uniform sampler3D Tex3D;
+uniform bool isFog;
+uniform float fogDensity;
+
+uniform vec4 cameraPos;
+
+float viewDistance;
+
+float factor;
+vec3 fog(vec3 A,vec3 B,float far)
+{
+factor=exp(-far);
+return vec3(A.r*factor+B.r*(1.f-factor),
+A.g*factor+B.g*(1.f-factor),
+A.b*factor+B.b*(1.f-factor)
+);
+}
+void main()
+{
+col4=texture(Tex3D,vs_texcoord);
+col4*=paintingColor;
+
+viewDistance=length(cameraPos-vs_position);
+if(isFog)
+col4.xyz=fog(col4.xyz,vec3(0.1875f,0.4f,0.79f),viewDistance*0.1f);
+
+fs_color=col4;
+}

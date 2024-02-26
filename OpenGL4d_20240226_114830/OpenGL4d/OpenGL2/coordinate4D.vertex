@@ -1,0 +1,16 @@
+#version 440
+layout (location = 0) in vec4 line_position4D;
+layout (location = 1) in vec3 line_color;
+out float vs_distance;
+out vec3 vs_color;
+uniform mat4 viewMat,projectionMat;
+vec4 glPos0,rPos,rPos0;
+void main()
+{
+rPos0=viewMat*line_position4D;
+rPos=0.1f*rPos0+vec4(0,0,-0.5f,0);
+glPos0=projectionMat*rPos;
+vs_distance=rPos0.w;
+vs_color=line_color;
+gl_Position = vec4(glPos0.xyz+vec3(-0.85f,-0.7f,0.f),1.f);
+};

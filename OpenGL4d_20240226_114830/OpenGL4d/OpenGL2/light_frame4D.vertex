@@ -1,0 +1,18 @@
+#version 440
+layout (location = 0) in vec4 line_position4D;
+out float vs_distance;
+uniform mat4 mesh4DMat,viewMat,projectionMat;
+uniform vec4 Translate4D;
+uniform vec4 cameraPos;
+uniform float intensity;
+vec4 rPos0;
+
+mat4 lightMat4;
+
+void main()
+{
+lightMat4=2.f*pow(intensity,1.f/3.f)*mesh4DMat;
+rPos0=viewMat*(Translate4D-cameraPos+lightMat4*line_position4D);
+vs_distance=rPos0.w;
+gl_Position = projectionMat*vec4(rPos0.xyz,1.f);
+};

@@ -1,0 +1,73 @@
+#version 440
+
+#define Max_4DPoint_Light_Amount 12
+
+in vec4 vs_position;
+in vec4 vs_normal;
+in vec3 vs_texcoord;
+out vec4 fs_color;
+vec3 diffuse_color,specular_color,ambient_color,direction_color;
+vec4 col4;
+const vec4 GRID_DIMS = vec4(0.5f, 0.5f, 0.5f, 0.5f);
+vec4 a,m,pToL;
+bool isBright;
+float diffuse2,direction2,viewDistance;
+float directionFinal2;
+
+struct PointLight4D
+{
+	vec4 position4D;
+	float intensity;
+	vec3 color;
+	float constant;
+	float linear;
+	float quadratic;
+	float cubic;
+};
+struct DirectionLight4D
+{
+	vec4 direction4D;
+	float intensity;
+	vec3 color;
+};
+uniform bool isReflect;
+uniform int D4_PointLightAmount;
+uniform PointLight4D[Max_4DPoint_Light_Amount] pointLight4D;
+uniform vec4 cameraPos;
+uniform vec3 paintingColor;
+layout (binding = 0) uniform sampler3D Tex3D;
+
+uniform float iTime;
+uniform DirectionLight4D directionLight4D;
+
+float calculateDirection(vec4 vs_normal, vec4 direction)
+{
+	direction2 = -dot(normalize(direction),vs_normal);
+	if(direction2>0){
+	directionFinal2 = direction2;
+	return directionFinal2;
+	}
+	else{
+	return 0.f;
+	}
+}
+
+
+void main()
+{
+col4=texture(Tex3D,vs_texcoord);
+col4.xyz*=paintingColor;
+
+viewDistance=length(cameraPos-vs_position);
+
+if(length(vs_position)<1000000000000000.f){
+/////////////////
+direction_color=0.95f*directionLight4D.intensity*directionLight4D.color*calculateDirection(vs_normal, directionLight4D.direction4D);
+//////////////
+}
+	ambient_color=vec3(0.55f);
+col4.xyz=col4.xyz*(ambient_color+direction_color);
+col4.xyz+=vec3(0.f,1.f,1.f);
+col4.w=0.5f+0.25f*sin(iTime);
+fs_color=col4;
+}
