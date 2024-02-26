@@ -51,7 +51,7 @@ G: Show or turn off wireframe
 
 M/N:Zoom in and out of perspective
 
-123456 Switching behavior mode
+Press  1/2/3/4/5/6: Switching behavior mode
 
 ## Issues:
 1. This application currently only supports the Windows operating system and does not currently support Linus or Macs operating systems.
