@@ -10,7 +10,7 @@
 ## Features
 * Use vertex shader to slice 4d objects
 * Some 4d space rooms to explore
-* 4d terrain and mulitple textures.
+* 4d terrain with mulitple textures rendering.
 * Coordinate system projection lines and 4d objects wireframes
 * 3d texture mapping and smooth four-dimensional normals caculating at 4d objects and particles
 * 4d point lights and direction light display on 3d section
