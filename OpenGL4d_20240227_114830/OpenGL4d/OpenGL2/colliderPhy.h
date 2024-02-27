@@ -1712,12 +1712,15 @@ static vector<Collision*> capsule_to_cube(Object4D* a0, Object4D* b0, int index1
                     {
                         if (normal.y < 0.f)
                         {
-                            float height = support(b, -normal).y - b->position4D.y + a->position4D.y - support(a, normal).y;
-                            a->set_position4D(glm::vec4(a->position4D.x, b->position4D.y + height, a->position4D.z, a->position4D.w));
-                            collisions.push_back(new Collision(index1, index2, 1.f, 1.f, inverse(glm::vec4(0, -1, 0, 0), isInverse), depth, contact));
+                            float height = support(b, -normal).y - support(a, normal).y + a->position4D.y - b->position4D.y;
+                            if (height > 0.f)
+                            {
+                                a->set_position4D(glm::vec4(a->position4D.x, b->position4D.y + height, a->position4D.z, a->position4D.w));
+                            }
+                            collisions.push_back(new Collision(index1, index2, 1.f, 1.f, inverse(glm::vec4(0, -1, 0, 0), isInverse), depth, supportPoints1[0] - depth * normal / 2.f));
                         }
                         else
-                            collisions.push_back(new Collision(index1, index2, 1.f, 1.f, inverse(normal, isInverse), depth, contact));
+                            collisions.push_back(new Collision(index1, index2, 1.f, 1.f, inverse(normal, isInverse), depth, supportPoints1[0] - depth * normal / 2.f));
                     }
                     else
                     {

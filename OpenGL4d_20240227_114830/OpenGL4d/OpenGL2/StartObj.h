@@ -66,9 +66,9 @@ void Game::startObjects(int level)
 		generate_table4D(glm::vec4(13.5f + 2 - 10 - 0.7, 64, 0, 24.5f - 4), glm::vec4(1, 1.2f, 3, 2), 1.f, true, this->wallTexs3D[C1], true, this->wallTexs3D[PURE_WHITE], &this->walls4D, this->shaders[WALLD4]);
 		generate_table4D(glm::vec4(13.5f + 2 - 10 - 0.7, 64, 0, 24.5f), glm::vec4(1, 1.2f, 3, 2), 1.f, true, this->wallTexs3D[C1], true, this->wallTexs3D[PURE_WHITE], &this->walls4D, this->shaders[WALLD4]);
 		for (int i = 0;i < 5;i++) {
-			generate_table4D(glm::vec4(13.5f + 10 - 0.6 - i * 4, 64, 0, 24.5f), glm::vec4(1, 1.2f, 3, 2), 1.f, true, this->wallTexs3D[PURE_BLUE], true, this->wallTexs3D[PURE_WHITE], &this->walls4D, this->shaders[WALLD4]);
-			generate_table4D(glm::vec4(13.5f + 10 - 0.6 - i * 4, 64, 0, 24.5f - 4), glm::vec4(1, 1.2f, 3, 2), 1.f, true, this->wallTexs3D[PURE_BLUE], true, this->wallTexs3D[PURE_WHITE], &this->walls4D, this->shaders[WALLD4]);
-			generate_table4D(glm::vec4(13.5f + 10 - 0.6 - i * 4, 64, 0, 24.5f + 4), glm::vec4(1, 1.2f, 3, 2), 1.f, true, this->wallTexs3D[PURE_BLUE], true, this->wallTexs3D[PURE_WHITE], &this->walls4D, this->shaders[WALLD4]);
+			generate_table4D(glm::vec4(13.5f + 10 - 1 - i * 4, 64, 0, 24.5f), glm::vec4(1, 1.2f, 3, 2), 1.f, true, this->wallTexs3D[PURE_BLUE], true, this->wallTexs3D[PURE_WHITE], &this->walls4D, this->shaders[WALLD4]);
+			generate_table4D(glm::vec4(13.5f + 10 - 1 - i * 4, 64, 0, 24.5f - 4), glm::vec4(1, 1.2f, 3, 2), 1.f, true, this->wallTexs3D[PURE_BLUE], true, this->wallTexs3D[PURE_WHITE], &this->walls4D, this->shaders[WALLD4]);
+			generate_table4D(glm::vec4(13.5f + 10 - 1 - i * 4, 64, 0, 24.5f + 4), glm::vec4(1, 1.2f, 3, 2), 1.f, true, this->wallTexs3D[PURE_BLUE], true, this->wallTexs3D[PURE_WHITE], &this->walls4D, this->shaders[WALLD4]);
 		}
 		this->walls4D.push_back(new Wall4D("Hypercube", Hypercube(glm::vec4(1, 6, 1, 1)/2.f), glm::vec4(13.5f + 3, 67, -3, 24.5f - 3), alg::bivec4(), glm::vec4(1, 6, 1, 1), 1.6f, 0.25f, true, this->wallTexs3D[YELLOWMARBLE],0.f, glm::vec4(1.f), BOX4D, this->shaders[WALLD4]));
 		this->walls4D.push_back(new Wall4D("Hypercube", Hypercube(glm::vec4(1, 6, 1, 1)/2.f), glm::vec4(13.5f - 3, 67, -3, 24.5f - 3), alg::bivec4(), glm::vec4(1, 6, 1, 1), 1.6f, 0.25f, true, this->wallTexs3D[STARS],0.f, glm::vec4(1.f), BOX4D, this->shaders[WALLD4]));

@@ -302,16 +302,16 @@ C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h
 C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1574,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1888,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1891,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1876,27): warning C4101: 'detectPos4D0': unreferenced local variable
+C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1879,27): warning C4101: 'detectPos4D0': unreferenced local variable
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(2109,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(2112,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(2135,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(2138,31): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
 C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\collision.h(13,2): warning C4091: 'static ': ignored on left of 'ContactState' when no variable is declared
@@ -772,13 +772,6 @@ C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\Keyboard.h(79
 C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\Keyboard.h(267,30): warning C4390: ';': empty controlled statement found; is this the intent?
   (compiling source file 'Game.cpp')
   
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_impl_glfw.cpp
-  imgui_impl_opengl3.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
   main.cpp
 C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
 C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244:         with
@@ -1082,16 +1075,16 @@ C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h
 C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1574,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1888,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1891,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1876,27): warning C4101: 'detectPos4D0': unreferenced local variable
+C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(1879,27): warning C4101: 'detectPos4D0': unreferenced local variable
   (compiling source file 'main.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(2109,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(2112,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'main.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(2135,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\colliderPhy.h(2138,31): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'main.cpp')
   
 C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\collision.h(13,2): warning C4091: 'static ': ignored on left of 'ContactState' when no variable is declared
@@ -1278,14 +1271,9 @@ soil2-debug.lib(SOIL2.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\InputLists.h(100): warning C4715: 'transformInput': not all control paths return a value
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\Geometry.h(135): warning C4715: 'texcoord_position2': not all control paths return a value
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\gjk.h(622): warning C4715: 'Simplex::nearest_simplex': not all control paths return a value
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\gjk.h(234): warning C4715: 'support': not all control paths return a value
-C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\OpenGL2\ObjectLists.h(304): warning C4715: 'find_wall4d': not all control paths return a value
-  4992 of 5031 functions (99.2%) were compiled, the rest were copied from previous compilation.
-    77 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+  1 of 5031 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    101 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 glew32s.lib(glew.obj) : warning LNK4099: PDB '' was not found with 'glew32s.lib(glew.obj)' or at ''; linking object as if no debug info
   OpenGL2.vcxproj -> C:\Users\86180\Documents\OpenGL4d_20240227_114830\OpenGL4d\x64\Release\NewEngine.exe
