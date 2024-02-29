@@ -20,7 +20,7 @@
 * Sky box and sun light color calculation in 4d space
 * Water surface reflection in 4d space
 * Highlights and specular reflections of 4d objects
-## Controling
+## Controls
 Press W/S/A/D/R/F：players move forward, backward, left, right, ana, and kata
 
 Space：jump
