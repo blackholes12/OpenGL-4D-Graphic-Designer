@@ -360,7 +360,6 @@ directionLightColor=vec3(0.f);
 vec3 globalSkyColor=global_sky_color();
 vec3 fogColor=(globalSkyColor+0.55f*(directionLight4D.color*directionLight4D.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4D.direction4D)+globalSkyColor))/2.f+directionLightColor/PI;
 factor=fog(vec3(0.f),vec3(1.f),viewDistance*0.03861f*fogDensity).x;
-color.xyz*=1.f-factor;
 if(viewDistance<100000)
 color.xyz=fog(color.xyz,fogColor,viewDistance*0.03861f*fogDensity);
 else
