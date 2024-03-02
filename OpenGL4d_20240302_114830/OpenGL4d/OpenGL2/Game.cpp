@@ -156,6 +156,7 @@ void Game::startTextures()
 	this->textures3D.push_back(new Texture3D("images/maps/NOISE_NORMAL4D.png"));
 	this->textures3D.push_back(new Texture3D("images/animation/caustics.png"));
 	this->textures3D.push_back(new Texture3D("images/maps/BLEND.png"));
+	this->textures3D.push_back(new Texture3D("images/maps/AREA.png"));
 
 	this->particleTexs3D.push_back(new Texture3D("images/particle/PARTICLE1.png"));
 	this->particleTexs3D.push_back(new Texture3D("images/particle/FIRE.png"));
@@ -244,15 +245,16 @@ void Game::startTextures()
 	this->textures3D[TEX_NORMAL_4D]->bind(5);
 	this->textures3D[CAUSTICS]->bind(6);
 	this->textures3D[BLEND]->bind(7);
+	this->textures3D[AREA]->bind(8);
 
 	this->wallTexs3D[GLASS]->isTransparent = true;
 	this->wallTexs3D[GRID]->isTransparent = true;
 
-	this->deleteMap3D->bind(8);
+	this->deleteMap3D->bind(9);
 
 	for (int i = 0; i < 20; i++)
 	{
-		this->groundTexs3D[i]->bind(i+9);
+		this->groundTexs3D[i]->bind(i+10);
 	}
 }
 
@@ -451,6 +453,7 @@ void Game::startLevel(int level)
 	glfwSwapBuffers(this->window);
 	this->curserMode = false;
 	glfwSetInputMode(this->window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	this->isCloseUI = true;
 	this->walls4D.clear();
 	this->terrains4D.clear();
 	this->sticks4D.clear();
@@ -625,6 +628,8 @@ void::Game::updateModes(int mode,int shift)
 		this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 		this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 		this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+		this->shaders[SKY_BOXD4]->use();
+		this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 	}
 }
 

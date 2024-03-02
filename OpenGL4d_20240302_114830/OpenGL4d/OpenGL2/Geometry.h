@@ -637,7 +637,7 @@ static glm::vec4 wallScale4D;
 
 static glm::vec4 get_cap_position4D(glm::vec4 hittingPos)
 {
-	wallPos4D = glm::vec4(floor(hittingPos.x) + 0.5f, floor(hittingPos.y * 4.f) / 4.f + 0.25f / 2.f, floor(hittingPos.z) + 0.5f, floor(hittingPos.w) + 0.5f);
+	wallPos4D = glm::vec4(floor(hittingPos.x) + 0.5f, floor(hittingPos.y * 4.f) / 4.f, floor(hittingPos.z) + 0.5f, floor(hittingPos.w) + 0.5f);
 	wallScale4D = glm::vec4(1.f, 0.25f, 1.f, 1.f);
 	return wallPos4D;
 }

@@ -37,8 +37,9 @@ uniform int PointLight4DAmount;
 uniform PointLight4D[MaxPointLight4DAmount] pointLight4D;
 uniform vec4 cameraPos;
 layout (binding = 6) uniform sampler3D caustics3D;
-layout (binding = 8) uniform sampler3D deleteMap3D;
-layout (binding = 9) uniform sampler3D diffuse3D[20];
+layout (binding = 8) uniform sampler3D area;
+layout (binding = 9) uniform sampler3D deleteMap3D;
+layout (binding = 10) uniform sampler3D diffuse3D[20];
 uniform bool isFog;
 uniform float fogDensity;
 uniform bool isPainting=false;
@@ -325,20 +326,9 @@ if(abs(hittingPos4D.x - floor(vs_position.x)-0.5f)<=0.5f&&
 //
 if(isAreaDeleting)
 {
-int isDeleteArea=int(255.f*texelFetch(deleteMap3D,ivec3(floor(vs_position.xzw))+ivec3(64,64,64),0).r);
+int isDeleteArea=int(255.f*texelFetch(deleteMap3D,ivec3(vs_position.xzw+vec3(64)),0).r);
 if(isDeleteArea==1){
-if(fract(vs_position.x)<0.03f||fract(vs_position.x)>0.97f||
-	fract(vs_position.z)<0.03f||fract(vs_position.z)>0.97f||
-	fract(vs_position.w)<0.03f||fract(vs_position.w)>0.97f||
-	(
-	fract(vs_position.x)>0.12f&&fract(vs_position.x)<0.88f&&
-	fract(vs_position.z)>0.12f&&fract(vs_position.z)<0.88f&&
-	fract(vs_position.w)>0.12f&&fract(vs_position.w)<0.88f
-	)
-	)
-	{
-color+=vec3(0.f,1.f,1.f);
-}
+color+=texture(area,vs_position.xzw).xyz;
 }
 }
 //

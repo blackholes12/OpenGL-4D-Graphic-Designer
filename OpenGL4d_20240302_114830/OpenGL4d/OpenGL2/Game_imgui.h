@@ -80,6 +80,8 @@ void Game::imgui_use() {
 			this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 			this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 			this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+			this->shaders[SKY_BOXD4]->use();
+			this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 		}
 		if (ImGui::RadioButton("Controling Mode", &this->mode,CONTROLING)) {
 			this->targetIcon->logo = this->pointerTexs[CONTROLING];
@@ -91,6 +93,8 @@ void Game::imgui_use() {
 			this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 			this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 			this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+			this->shaders[SKY_BOXD4]->use();
+			this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 		}
 		if (ImGui::BeginCombo("Control Type", controlText))
 		{
@@ -179,6 +183,8 @@ void Game::imgui_use() {
 	    		this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 	    		this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 	    		this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+				this->shaders[SKY_BOXD4]->use();
+				this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 	    	}
 	    
 	    	
@@ -292,6 +298,8 @@ void Game::imgui_use() {
 			this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 			this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 			this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+			this->shaders[SKY_BOXD4]->use();
+			this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 		}
 
 		if (ImGui::TreeNodeEx("Build", 1))
@@ -879,6 +887,8 @@ void Game::imgui_use() {
 				this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 				this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 				this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+				this->shaders[SKY_BOXD4]->use();
+				this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 			}
 			ImGui::SameLine(); ImGui::Text("Object4D");
 
@@ -921,6 +931,8 @@ void Game::imgui_use() {
 				this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 				this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 				this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+				this->shaders[SKY_BOXD4]->use();
+				this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 			}
 			ImGui::SameLine();ImGui::Text("Rigid Body4D");
 			
@@ -939,6 +951,8 @@ void Game::imgui_use() {
 				this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 				this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 				this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+				this->shaders[SKY_BOXD4]->use();
+				this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 			}
 			ImGui::SameLine();ImGui::Text("Pool Table4D");
 
@@ -956,6 +970,8 @@ void Game::imgui_use() {
 				this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 				this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 				this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+				this->shaders[SKY_BOXD4]->use();
+				this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 			}
 			ImGui::SameLine(); ImGui::Text("Billiard4D");
 
@@ -987,6 +1003,8 @@ void Game::imgui_use() {
 				this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 				this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 				this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+				this->shaders[SKY_BOXD4]->use();
+				this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 			}
 			ImGui::SameLine(); ImGui::Text("Dynamite4D");
 			
@@ -1005,6 +1023,8 @@ void Game::imgui_use() {
 				this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 				this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 				this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+				this->shaders[SKY_BOXD4]->use();
+				this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 			}
 			ImGui::SameLine(); ImGui::Text("Stick Joint");
 			
@@ -1025,6 +1045,8 @@ void Game::imgui_use() {
 				this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 				this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 				this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+				this->shaders[SKY_BOXD4]->use();
+				this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 			}
 			ImGui::SameLine(); ImGui::Text("Spring Joint");
 			
@@ -1045,6 +1067,8 @@ void Game::imgui_use() {
 			this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 			this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 			this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+			this->shaders[SKY_BOXD4]->use();
+			this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 		}
 		if (ImGui::RadioButton("Select Area To Delete Mode", &this->mode, AREA_DELETING))
 		{
@@ -1058,6 +1082,8 @@ void Game::imgui_use() {
 			this->shaders[TERRAIND4]->set1i(this->mode == PAINTING, "isPainting");
 			this->shaders[TERRAIND4]->set1i(this->mode == BUILDING, "isBuilding");
 			this->shaders[TERRAIND4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
+			this->shaders[SKY_BOXD4]->use();
+			this->shaders[SKY_BOXD4]->set1i(this->mode == AREA_DELETING, "isAreaDeleting");
 		}
 
 		if (this->mode==AREA_DELETING) 

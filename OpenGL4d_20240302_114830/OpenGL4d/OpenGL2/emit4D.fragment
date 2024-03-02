@@ -22,7 +22,8 @@ vec4 scale4D;
 
 uniform vec4 paintingColor;
 layout (binding = 0) uniform sampler3D Tex3D;
-layout (binding = 8) uniform sampler3D deleteMap3D;
+layout (binding = 8) uniform sampler3D area;
+layout (binding = 9) uniform sampler3D deleteMap3D;
 uniform bool isFog;
 uniform float fogDensity;
 uniform bool isAreaDeleting=false;
@@ -165,20 +166,9 @@ col4.xyz=fog(col4.xyz,vec3(0.1875f,0.4f,0.79f),viewDistance*0.1f);
 //
 if(isAreaDeleting)
 {
-int isDeleteArea=int(255.f*texelFetch(deleteMap3D,ivec3(floor(vs_position.xzw))+ivec3(64,64,64),0).r);
+int isDeleteArea=int(255.f*texelFetch(deleteMap3D,ivec3(vs_position.xzw+vec3(64)),0).r);
 if(isDeleteArea==1){
-if(fract(vs_position.x)<0.03f||fract(vs_position.x)>0.97f||
-	fract(vs_position.z)<0.03f||fract(vs_position.z)>0.97f||
-	fract(vs_position.w)<0.03f||fract(vs_position.w)>0.97f||
-	(
-	fract(vs_position.x)>0.12f&&fract(vs_position.x)<0.88f&&
-	fract(vs_position.z)>0.12f&&fract(vs_position.z)<0.88f&&
-	fract(vs_position.w)>0.12f&&fract(vs_position.w)<0.88f
-	)
-	)
-	{
-col4.xyz+=vec3(0.f,1.f,1.f);
-}
+col4.xyz+=texture(area,vs_position.xzw).xyz;
 }
 }
 //

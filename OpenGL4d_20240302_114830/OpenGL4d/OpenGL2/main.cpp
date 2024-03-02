@@ -19,9 +19,9 @@ int main(){
 	{
 		//UPDATE INPUT ---
 		game->update0();
-		if(game->isCloseUI)
-			glfwSetScrollCallback(game->window, scroll_callback);
 		game->render0();
+		if (game->isCloseUI)
+			glfwSetScrollCallback(game->window, scroll_callback);
 	}
 	delete game;
 	return 0;
