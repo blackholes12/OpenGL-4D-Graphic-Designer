@@ -49,6 +49,8 @@ C: Turn on or off the world coordinate system lines
 
 G: Show or turn off wireframe
 
+Delete: delete the half build joint or delete objects in the selection area
+
 M/N: Zoom in and out of perspective
 
 1/2/3/4/5/6 or Mouse wheel: Switching behavior mode
