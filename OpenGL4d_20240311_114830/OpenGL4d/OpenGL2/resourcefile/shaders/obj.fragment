@@ -1,0 +1,117 @@
+#version 440
+#define Max_Point_Light_Amount 12
+struct Obj_Property
+{
+	sampler2D diffuseTex;
+	sampler2D specularTex;
+};
+
+struct PointLight
+{
+	vec3 position;
+	float intensity;
+	vec3 color;
+	float constant;
+	float linear;
+	float quadratic;
+};
+struct DirectionLight
+{
+	vec3 direction;
+	float intensity;
+	vec3 color;
+};
+in vec3 vs_position;
+in vec3 vs_color;
+in vec2 vs_texcoord;
+in vec3 vs_normal;
+
+out vec4 fs_color;
+
+//Uniforms
+uniform Obj_Property material;
+uniform int PointLightAmount;
+uniform PointLight[Max_Point_Light_Amount] pointLight;
+uniform vec3 cameraPos;
+
+//Functions
+vec3 calculateAmbient(Obj_Property material)
+{
+	//return material.ambient;
+	return vec3(0.0f);
+}
+vec3 posToLightDirVec2;
+float diffuse2;
+vec3 diffuseFinal2;
+vec3 calculateDiffuse(Obj_Property material, vec3 vs_position, vec3 vs_normal, vec3 lightPos0)
+{
+	posToLightDirVec2 = normalize(lightPos0 - vs_position);
+	diffuse2 = clamp(dot(posToLightDirVec2, normalize(vs_normal)), 0, 1);
+	//diffuseFinal2 = material.diffuse * diffuse2;
+	diffuseFinal2 = vec3(1.f)*diffuse2;
+	return diffuseFinal2;
+}
+    vec3 lightToPosDirVec2;
+	vec3 reflectDirVec2;
+	vec3 posToViewDirVec2;
+	float specularConstant2;
+	vec3 specularFinal2;
+vec3 calculateSpecular(Obj_Property material, vec3 vs_position, vec3 vs_normal, vec3 lightPos0, vec3 cameraPos)
+{
+	lightToPosDirVec2 = normalize(vs_position - lightPos0);
+	reflectDirVec2 = normalize(reflect(lightToPosDirVec2, normalize(vs_normal)));
+	posToViewDirVec2 = normalize(cameraPos - vs_position);
+	specularConstant2 = pow(max(dot(posToViewDirVec2, reflectDirVec2), 0), 35);
+	//specularFinal2 = material.specular * specularConstant2;
+	specularFinal2 = vec3(1.f)*specularConstant2;
+	return specularFinal2;
+}
+vec3 ambientFinal;
+	vec3[Max_Point_Light_Amount] diffuseFinal;
+	vec3[Max_Point_Light_Amount] specularFinal;
+	float[Max_Point_Light_Amount] distance;
+	float[Max_Point_Light_Amount] attenuation;
+	vec3 diffuse_color;
+	vec3 specular_color;
+void main()
+{
+	//Ambient light
+	ambientFinal = calculateAmbient(material);
+
+
+
+	for(int i=0;i < PointLightAmount;i++)
+	{
+	if(dot((pointLight[i].position-vs_position),vs_normal)>0.f)
+	{
+	//Diffuse light
+	diffuseFinal[i] = calculateDiffuse(material, vs_position, vs_normal, pointLight[i].position);
+
+	//Specular light
+	specularFinal[i] = calculateSpecular(material, vs_position, vs_normal, pointLight[i].position, cameraPos);
+    }
+	else
+	{
+	//Diffuse light
+	diffuseFinal[i] = vec3(0.f);
+
+	//Specular light
+	specularFinal[i] = vec3(0.f);
+	}
+	//Attenuation
+	distance[i] = length(pointLight[i].position - vs_position);
+	//constant linear quadratic
+	attenuation[i] = pointLight[i].intensity / (pointLight[i].constant+ pointLight[i].linear * distance[i] + pointLight[i].quadratic * (distance[i] * distance[i]));
+
+	//Final light
+	diffuseFinal[i] *= attenuation[i];
+	specularFinal[i] *= attenuation[i];
+	diffuse_color+=diffuseFinal[i]*pointLight[i].color;
+	specular_color+=specularFinal[i]*pointLight[i].color;
+	}
+	
+	specular_color=specular_color* texture(material.specularTex, vs_texcoord).rgb;
+	fs_color = 
+	texture(material.diffuseTex, vs_texcoord)
+	*vec4(ambientFinal+diffuse_color, 1.f)+vec4(specular_color,1) ;
+}
