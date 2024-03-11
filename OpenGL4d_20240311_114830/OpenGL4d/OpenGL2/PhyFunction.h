@@ -46,7 +46,7 @@ static CollisionConstraint collisionConstraint(
 	float relVelNormal = dot(relVel, manifold.normal);
 
 	float slop = 0.f;
-	float baumgarte = 0.2f;
+	float baumgarte = 0.42f;
 	float bias = -baumgarte * 60.f * min((slop - manifold.depth), 0.f) + (relVelNormal < -1.0 ?-e * relVelNormal: 0.f);
 	float invAMass = a->mass > 0.f ?mass_adjustment_a / a->mass :0.f;
 	float invBMass = b->mass > 0.f ?mass_adjustment_b / b->mass :0.f;
@@ -102,7 +102,7 @@ static CollisionConstraint collisionConstraint(
 	float relVelNormal = dot(relVel, manifold.normal);
 
 	float slop = 0.f;
-	float baumgarte = 0.2f;
+	float baumgarte = 0.42f;
 	float bias = -baumgarte * 60.f * min((slop - manifold.depth), 0.f) + (relVelNormal < -1.f ? -e * relVelNormal : 0.f);
 	float invAMass = a->mass > 0.f ? mass_adjustment_a / a->mass : 0.f;
 

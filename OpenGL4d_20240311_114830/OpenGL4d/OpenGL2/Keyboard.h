@@ -474,6 +474,11 @@ void Game::updateKeyboardInput()
 						case HEXADECACHORON:this->rigidBodies4D.push_back(new RigidBody4D(this->buildTag, Hexadecachoron(this->buildScale / 2.f), this->hittingPos4D + glm::vec4(0.f, this->buildScale.y / 2.f - 0.01f, 0.f, 0.f), this->buildRotation, this->buildScale,this->buildParameter.x, this->buildParameter.y, this->buildParameter.z, this->buildParameter.w,this->isGravity, false, this->initialVelocity, this->initialAngularVelocity, this->isSpecular, this->wallTexs3D[this->buildTexture], this->metal, this->buildColor, CAPSULE4D, true, this->shaders[this->buildShader]));break;
 						case HEXACOSICHORON:this->rigidBodies4D.push_back(new RigidBody4D(this->buildTag, Hexacosichoron(this->buildScale / 2.f), this->hittingPos4D + glm::vec4(0.f, this->buildScale.y / 2.f - 0.01f, 0.f, 0.f), this->buildRotation, this->buildScale,this->buildParameter.x, this->buildParameter.y, this->buildParameter.z, this->buildParameter.w,this->isGravity, false, this->initialVelocity, this->initialAngularVelocity, this->isSpecular, this->wallTexs3D[this->buildTexture], this->metal, this->buildColor, CAPSULE4D, true, this->shaders[this->buildShader]));break;
 						}
+						if (this->isIlluminate)
+						{
+							this->pointLights4D.push_back(new PointLight4D(this->particleTexs3D[PARTICLE1], glm::vec4(), this->rigidBodies4D.size() - 1, this->lightIntensity, this->lightColor, this->lightScale.x, this->lightScale.y, this->lightScale.z, this->lightScale.w));
+							update_point_light4d(this->pointLights4D, this->shaders[WALLD4], this->shaders[TERRAIND4]);
+						}
 					}
 					if (this->buildMode == BUILD_POOL_TABLE)
 					{

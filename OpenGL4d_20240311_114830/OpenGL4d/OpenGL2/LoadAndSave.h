@@ -30,14 +30,25 @@ static unsigned shader_list(Shader* shader, vector<Shader*> shaders)
 	}
 }
 
-static const char* name_list(std::string name)
+static unsigned name_index(const char* name)
 {
-	if (name == "Glass4D") return "Glass4D";
-	else if (name == "Can-Be-Destroyed") return "Can-Be-Destroyed";
-	else if (name == "Ground") return "Ground";
-	else if (name == "Celestial4D") return "Celestial4D";
-	else if (name == "Player") return "Player";
-	else if (name == "4D-Object") return "4D-Object";
+	if (name == "4D-Object") return 0;
+	else if (name == "Can-Be-Destroyed") return 1;
+	else if (name == "Glass4D") return 2;
+	else if (name == "Ground") return 3;
+	else if (name == "Celestial4D") return 4;
+	else if (name == "Player") return 5;
+	else return 0;
+}
+
+static const char* name_list(unsigned nameIndex)
+{
+	if (nameIndex == 0) return "4D-Object";
+	else if (nameIndex == 1) return "Can-Be-Destroyed";
+	else if (nameIndex == 2) return "Glass4D";
+	else if (nameIndex == 3) return "Ground";
+	else if (nameIndex == 4) return "Celestial4D";
+	else if (nameIndex == 5) return "Player";
 }
 
 static void save_file(const char* filePath, vector<Texture3D*> wallTextures3D, vector<Texture3D*> particleTextures3D, vector<Shader*> shaders, vector<RigidBody4D*> rigidBodies4D, vector<RigidBody4D*> dynamites4D2, std::vector<Group*> groups, vector<Wall4D*> walls4D, vector<Wall4D*> dynamites4D, vector < Water4D*> waters4D,
@@ -51,7 +62,7 @@ static void save_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 		RigidBody4D* r = find_rigidbody4d(rigidBodies4D, dynamites4D2, i);
 		if (i < rigidBodies4D.size())type = 0;
 		else type = 1;
-		std::cout <<type<< " " << r->objectName <<" " << primitive_index(r->primitive4D.primitiveName) <<" " <<
+		std::cout <<type<< " " << name_index(r->objectName) <<" " << primitive_index(r->primitive4D.primitiveName) <<" " <<
 			r->primitive4D.scale4D.x << " " << r->primitive4D.scale4D.y << " " << r->primitive4D.scale4D.z << " " << r->primitive4D.scale4D.w << " " <<
 			r->position4D.x<<" "<< r->position4D.y << " " << r->position4D.z << " " << r->position4D.w << " " <<
 			r->rotation4D.s << " "<<r->rotation4D.b.xy<<" "<< r->rotation4D.b.xz << " " << r->rotation4D.b.xw << " "
@@ -72,7 +83,7 @@ static void save_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 		Wall4D* w = find_wall4d(groups, walls4D, dynamites4D,i);
 		if(i< size_of_objects4d(groups, walls4D))type = 2;
 		else type = 3;
-		std::cout << type << " " << w->objectName << " " << primitive_index(w->primitive4D.primitiveName) << " " <<
+		std::cout << type << " " << name_index(w->objectName) << " " << primitive_index(w->primitive4D.primitiveName) << " " <<
 			w->primitive4D.scale4D.x << " " << w->primitive4D.scale4D.y << " " << w->primitive4D.scale4D.z << " " << w->primitive4D.scale4D.w << " " <<
 			w->position4D.x << " " << w->position4D.y << " " << w->position4D.z << " " << w->position4D.w << " " <<
 			w->rotation4D.s << " " << w->rotation4D.b.xy << " " << w->rotation4D.b.xz << " " << w->rotation4D.b.xw << " "
@@ -89,7 +100,7 @@ static void save_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 		{
 			Terrain4D* t = groups[i]->terrains4D[j];
 			type = 4;
-			std::cout << type <<" "<< t->objectName<<" "<< primitive_index(t->primitive4D.primitiveName)<<" "<<
+			std::cout << type <<" "<< name_index(t->objectName)<<" "<< primitive_index(t->primitive4D.primitiveName)<<" "<<
 				t->position4D.x << " " << t->position4D.y << " " << t->position4D.z << " " << t->position4D.w << " " <<
 				t->scale4D.x << " " << t->scale4D.y << " " << t->scale4D.z << " " << t->scale4D.w << " " <<
 				t->mu<<" "<<t->bounce<<" "<< t->colType << " " << shader_list(t->shader, shaders) << "\n";
@@ -99,7 +110,7 @@ static void save_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 	{
 		Water4D* w2 = waters4D[i];
 		type = 5;
-		std::cout << type << " " << w2->objectName << " " << primitive_index(w2->primitive4D.primitiveName) << " " <<
+		std::cout << type << " " << name_index(w2->objectName) << " " << primitive_index(w2->primitive4D.primitiveName) << " " <<
 			w2->primitive4D.scale4D.x << " " << w2->primitive4D.scale4D.y << " " << w2->primitive4D.scale4D.z << " " << w2->primitive4D.scale4D.w << " " <<
 			w2->position4D.x << " " << w2->position4D.y << " " << w2->position4D.z << " " << w2->position4D.w << " " <<
 			w2->scale4D.x << " " << w2->scale4D.y << " " << w2->scale4D.z << " " << w2->scale4D.w << " " <<
@@ -212,7 +223,7 @@ static void load_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 			ss2 >> prefix2;
 			if (prefix2 == 0|| prefix2 == 1) //rigid body
 			{
-				std::string objectName;
+				unsigned nameIndex;
 				unsigned primitiveIndex;
 				glm::vec4 primitiveScale4D;
 				glm::vec4 position4D;
@@ -234,7 +245,7 @@ static void load_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 				unsigned int colType;
 				bool isTrail4D;
 				unsigned shader;
-				ss2 >> objectName >> primitiveIndex >> primitiveScale4D.x >> primitiveScale4D.y >> primitiveScale4D.z >> primitiveScale4D.w >>
+				ss2 >> nameIndex >> primitiveIndex >> primitiveScale4D.x >> primitiveScale4D.y >> primitiveScale4D.z >> primitiveScale4D.w >>
 					position4D.x >> position4D.y >> position4D.z >> position4D.w>>
 					rotation4D.s >> rotation4D.b.xy >> rotation4D.b.xz >> rotation4D.b.xw>> rotation4D.b.yz>> rotation4D.b.yw>> rotation4D.b.zw>> rotation4D.q.xyzw>>
 					scale4D.x>> scale4D.y>> scale4D.z>> scale4D.w >> mass >> momentInertiaScalar >> mu >> bounce >> isGravity >> isFrozen >> 
@@ -244,13 +255,13 @@ static void load_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 					paintingColor.x>> paintingColor.y>> paintingColor.z>> paintingColor.w>>
 					colType>> isTrail4D>> shader>> animatePosition4D.x>> animatePosition4D.y>> animatePosition4D.z>> animatePosition4D.w;
 				if(prefix2 == 0)
-				    rigidBodies4D->push_back(new RigidBody4D(name_list(objectName), primitive_list(primitiveIndex, primitiveScale4D), position4D, rotation4D, scale4D, mass, momentInertiaScalar, mu, bounce, isGravity, isFrozen, velocity4D, angularVelocity4D, isSpecular, wallTextures3D[diffuse3D], metal, paintingColor, colType, isTrail4D, shaders[shader], animatePosition4D));
+				    rigidBodies4D->push_back(new RigidBody4D(name_list(nameIndex), primitive_list(primitiveIndex, primitiveScale4D), position4D, rotation4D, scale4D, mass, momentInertiaScalar, mu, bounce, isGravity, isFrozen, velocity4D, angularVelocity4D, isSpecular, wallTextures3D[diffuse3D], metal, paintingColor, colType, isTrail4D, shaders[shader], animatePosition4D));
 			    if(prefix2 == 1)
-					dynamites4D2->push_back(new RigidBody4D(name_list(objectName), primitive_list(primitiveIndex, primitiveScale4D), position4D, rotation4D, scale4D, mass, momentInertiaScalar, mu, bounce, isGravity, isFrozen, velocity4D, angularVelocity4D, isSpecular, wallTextures3D[diffuse3D], metal, paintingColor, colType, isTrail4D, shaders[shader], animatePosition4D));
+					dynamites4D2->push_back(new RigidBody4D(name_list(nameIndex), primitive_list(primitiveIndex, primitiveScale4D), position4D, rotation4D, scale4D, mass, momentInertiaScalar, mu, bounce, isGravity, isFrozen, velocity4D, angularVelocity4D, isSpecular, wallTextures3D[diffuse3D], metal, paintingColor, colType, isTrail4D, shaders[shader], animatePosition4D));
 			}
 			if (prefix2 == 2 || prefix2 == 3) //wall
 			{
-				std::string objectName;
+				unsigned nameIndex;
 				unsigned primitiveIndex;
 				glm::vec4 primitiveScale4D;
 				glm::vec4 position4D;
@@ -264,7 +275,7 @@ static void load_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 				glm::vec4 paintingColor;
 				unsigned int colType;
 				unsigned shader;
-				ss2 >> objectName >> primitiveIndex >> primitiveScale4D.x >> primitiveScale4D.y >> primitiveScale4D.z >> primitiveScale4D.w >>
+				ss2 >> nameIndex >> primitiveIndex >> primitiveScale4D.x >> primitiveScale4D.y >> primitiveScale4D.z >> primitiveScale4D.w >>
 					position4D.x >> position4D.y >> position4D.z >> position4D.w >>
 					rotation4D.s >> rotation4D.b.xy >> rotation4D.b.xz >> rotation4D.b.xw >> rotation4D.b.yz >> rotation4D.b.yw >> rotation4D.b.zw >> rotation4D.q.xyzw >>
 					scale4D.x >> scale4D.y >> scale4D.z >> scale4D.w >> mu >> bounce >>
@@ -273,13 +284,13 @@ static void load_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 					colType >> shader;
 				//std::cout <<"///" << objectName2 << "///" << "\n";
 				if (prefix2 == 2)
-					walls4D->push_back(new Wall4D(name_list(objectName), primitive_list(primitiveIndex, primitiveScale4D), position4D, rotation4D, scale4D, mu, bounce, isSpecular, wallTextures3D[diffuse3D], metal, paintingColor, colType, shaders[shader]));
+					walls4D->push_back(new Wall4D(name_list(nameIndex), primitive_list(primitiveIndex, primitiveScale4D), position4D, rotation4D, scale4D, mu, bounce, isSpecular, wallTextures3D[diffuse3D], metal, paintingColor, colType, shaders[shader]));
 				if (prefix2 == 3)
-					dynamites4D->push_back(new Wall4D(name_list(objectName), primitive_list(primitiveIndex, primitiveScale4D), position4D, rotation4D, scale4D, mu, bounce, isSpecular, wallTextures3D[diffuse3D], metal, paintingColor, colType, shaders[shader]));
+					dynamites4D->push_back(new Wall4D(name_list(nameIndex), primitive_list(primitiveIndex, primitiveScale4D), position4D, rotation4D, scale4D, mu, bounce, isSpecular, wallTextures3D[diffuse3D], metal, paintingColor, colType, shaders[shader]));
 			}
 			if (prefix2 == 4) //terrain
 			{
-				std::string objectName;
+				unsigned nameIndex;
 				unsigned primitiveIndex;
 				glm::vec4 primitiveScale4D;
 				glm::vec4 position4D;
@@ -288,24 +299,24 @@ static void load_file(const char* filePath, vector<Texture3D*> wallTextures3D, v
 				float bounce;
 				unsigned int colType;
 				unsigned shader;
-				ss2 >> objectName >> primitiveIndex >> primitiveScale4D.x >> primitiveScale4D.y >> primitiveScale4D.z >> primitiveScale4D.w >>
+				ss2 >> nameIndex >> primitiveIndex >> primitiveScale4D.x >> primitiveScale4D.y >> primitiveScale4D.z >> primitiveScale4D.w >>
 					position4D.x >> position4D.y >> position4D.z >> position4D.w >>
 					scale4D.x >> scale4D.y >> scale4D.z >> scale4D.w >> mu>>bounce>> colType >> shader;
-				terrains4D->push_back(new Terrain4D(name_list(objectName), primitive_list(primitiveIndex, primitiveScale4D), position4D, scale4D,mu,bounce, colType, shaders[shader]));
+				terrains4D->push_back(new Terrain4D(name_list(nameIndex), primitive_list(primitiveIndex, primitiveScale4D), position4D, scale4D,mu,bounce, colType, shaders[shader]));
 			}
 			if (prefix2 == 5) //water
 			{
-				std::string objectName;
+				unsigned nameIndex;
 				unsigned primitiveIndex;
 				glm::vec4 primitiveScale4D;
 				glm::vec4 position4D;
 				glm::vec4 scale4D;
 				unsigned int colType;
 				unsigned shader;
-				ss2 >> objectName >> primitiveIndex >> primitiveScale4D.x >> primitiveScale4D.y >> primitiveScale4D.z >> primitiveScale4D.w >>
+				ss2 >> nameIndex >> primitiveIndex >> primitiveScale4D.x >> primitiveScale4D.y >> primitiveScale4D.z >> primitiveScale4D.w >>
 					position4D.x >> position4D.y >> position4D.z >> position4D.w >>
 					scale4D.x >> scale4D.y >> scale4D.z >> scale4D.w >> colType >> shader;
-				waters4D->push_back(new Water4D(name_list(objectName), primitive_list(primitiveIndex, primitiveScale4D), position4D, scale4D, colType, shaders[shader]));
+				waters4D->push_back(new Water4D(name_list(nameIndex), primitive_list(primitiveIndex, primitiveScale4D), position4D, scale4D, colType, shaders[shader]));
 			}
 			if (prefix2 == 6)
 			{
