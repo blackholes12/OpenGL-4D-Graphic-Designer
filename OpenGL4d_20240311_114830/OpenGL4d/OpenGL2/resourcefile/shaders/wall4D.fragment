@@ -126,7 +126,7 @@ vec3 get_ambient_color(vec4 normal4D)
 {
     globalSkyColor=global_sky_color();
     groundColor=0.55f*(directionLight4D.color*directionLight4D.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4D.direction4D)+globalSkyColor);
-    return mix(globalSkyColor,groundColor,(1.f-normal4D.y)/2.f);
+    return mix(groundColor,globalSkyColor,asin(normal4D.y)/PI+0.5f);
 }
 
 /* const matrices for 3d rotation */
