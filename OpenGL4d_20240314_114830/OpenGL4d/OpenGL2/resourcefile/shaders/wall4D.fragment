@@ -1,0 +1,515 @@
+#version 440
+#define PI 3.1415926535f
+#define MaxPointLight4DAmount 12
+#define MaxWater4DAmount 12
+const float n =1.333f;
+
+in vec4 vs_position;
+in vec4 vs_normal;
+in vec3 vs_texcoord;
+out vec4 fs_color;
+layout (binding = 3) uniform sampler3D diffuse3D;
+layout (binding = 4) uniform sampler3D starsField3D;
+layout (binding = 8) uniform sampler3D area;
+layout (binding = 9) uniform sampler3D deleteMap3D;
+vec3 diffuseColor,specularColor,ambientColor,directionColor,caustics_color;
+vec4 col4=vec4(0.f,0.f,0.f,1.f);
+vec4 pToL;
+bool isBright;
+float diffuse2,viewDistance;
+float directionFinal2;
+
+float height;
+struct PointLight4D
+{
+	vec4 position4D;
+	float intensity;
+	vec3 color;
+	float constant;
+	float linear;
+	float quadratic;
+	float cubic;
+};
+struct DirectionLight4D
+{
+	vec4 direction4D;
+	float intensity;
+	vec3 color;
+};
+
+struct WaterArea4D
+{
+vec4 position4D;
+vec4 scale4D;
+};
+uniform bool isSpecular;
+uniform int PointLight4DAmount;
+uniform PointLight4D[MaxPointLight4DAmount] pointLight4D;
+uniform int Water4DAmount;
+uniform WaterArea4D[MaxWater4DAmount] waterArea4D;
+uniform vec4 cameraPos;
+uniform float metal;
+uniform vec4 paintingColor;
+layout (binding = 0) uniform sampler3D Tex3D;
+layout (binding = 6) uniform sampler3D caustics3D;
+uniform bool isCloud;
+uniform bool isFog;
+uniform float fogDensity;
+uniform bool isAreaDeleting=false;
+uniform float iTime;
+uniform DirectionLight4D directionLight4D;
+int i;
+float[MaxPointLight4DAmount] diffuseFinal;
+float[MaxPointLight4DAmount] specularFinal;
+float[MaxPointLight4DAmount] distance;
+float[MaxPointLight4DAmount] attenuation;
+float[MaxWater4DAmount] waterHeight;
+float[MaxWater4DAmount] waterDepth;
+bool[MaxWater4DAmount] isWater;
+bool isWater0=false;
+float factor;
+
+float calculate_diffuse(vec4 vs_position, vec4 vs_normal, vec4 lightPos0)
+{
+	pToL = normalize(lightPos0 - vs_position);	
+	diffuse2 = dot(pToL,vs_normal);
+	return diffuse2;
+}
+ vec4 lightToPosDirVec2;
+	vec4 reflectDirVec2;
+	vec4 posToViewDirVec2;
+	float specularFinal2;
+float calculate_specular(vec4 vs_position, vec4 vs_normal, vec4 direction, vec4 cameraPos)
+{
+	lightToPosDirVec2 = normalize(direction);
+	reflectDirVec2 = normalize(reflect(lightToPosDirVec2, normalize(vs_normal)));
+	posToViewDirVec2 = normalize(cameraPos - vs_position);
+	specularFinal2 = pow(max(dot(posToViewDirVec2, reflectDirVec2), 0), 35);
+	return specularFinal2;
+}
+float calculate_direction(vec4 vs_normal, vec4 direction)
+{
+	directionFinal2 = -dot(normalize(direction),vs_normal);
+	return max(directionFinal2,0.f);
+}
+const vec3 skyColor1=vec3(0.35079825f,0.4746775f,0.66865325f);
+const vec3 skyColor2=vec3(0.23607575f,0.22702425f,0.2133891125f);
+const vec3 skyColor3=vec3(0.354134675f,0.399529f,0.449479387f);
+const vec3 skyColor4=vec3(0.40405475f,0.4858009515f,0.594765645f);
+const vec3 skyColor5=vec3(0.522123621125f,0.6401673375f,0.83536925f);
+vec3 global_sky_color()
+{
+    float sunLightHeight=-normalize(directionLight4D.direction4D).y;
+    if(sunLightHeight<-0.07f)
+    {
+    return skyColor1;
+    }
+    else if(sunLightHeight>=-0.07f&&sunLightHeight<0.f)
+    {
+    return mix(skyColor1,skyColor2,(sunLightHeight+0.07f)/0.07f);
+    }
+    else if(sunLightHeight>=0.f&&sunLightHeight<0.1f)
+    {
+    return mix(skyColor2,skyColor3,(sunLightHeight)/0.1f);
+    }
+    else if(sunLightHeight>=0.1f&&sunLightHeight<0.2f)
+    {
+    return mix(skyColor3,skyColor4,(sunLightHeight-0.1f)/0.1f);
+    }
+    else if(sunLightHeight>=0.2f)
+    {
+    return mix(skyColor4,skyColor5,(sunLightHeight-0.2f)/0.8f);
+    }
+}
+vec3 globalSkyColor;
+vec3 groundColor;
+vec3 get_ambient_color(vec4 normal4D)
+{
+    globalSkyColor=global_sky_color();
+    groundColor=0.55f*(directionLight4D.color*directionLight4D.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4D.direction4D)+globalSkyColor);
+    return mix(groundColor,globalSkyColor,asin(normal4D.y)/PI+0.5f);
+}
+
+/* const matrices for 3d rotation */
+const mat3 rot1 = mat3(-0.37, 0.36, 0.85,-0.14,-0.93, 0.34,0.92, 0.01,0.4);
+const mat3 rot2 = mat3(-0.55,-0.39, 0.74, 0.33,-0.91,-0.24,0.77, 0.12,0.63);
+const mat3 rot3 = mat3(-0.71, 0.52,-0.47,-0.08,-0.72,-0.68,-0.7,-0.45,0.56);
+
+/* directional artifacts can be reduced by rotating each octave */
+float fbm(vec3 p) {
+    
+    float f = 0.5000 * texture(diffuse3D,p/128.f).r; p = rot1 * p * 2.02;
+    f += 0.2500 * texture(diffuse3D,p/128.f).r; p = rot1 * p * 2.03;
+    f += 0.1250 * texture(diffuse3D,p/128.f).r; p = rot1 * p * 2.01;
+    f += 0.0625 * texture(diffuse3D,p/128.f).r;
+    return f / 0.9375;
+}
+
+vec3 ground_color()
+{
+   return vec3(0.392f,0.494f,0.039f)*(directionLight4D.color*directionLight4D.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4D.direction4D)+global_sky_color());
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#define atmosphereHeight 8228.
+#define earthRadius 6371000.
+#define mieHeight 1200
+//http://www.vendian.org/mncharity/dir3/starcolor/
+#define sunColor pow(vec3(0xff,0xf5,0xf2)/255.,vec3(2.2))
+#define ozoneHeight 30000.
+// http://skyrenderer.blogspot.com/2012/10/ozone-absorption.html
+// https://www.spectroscopyeurope.com/article/new-broadband-high-resolution-ozone-absorption-cross-sections
+#define ozoneCoefficient (vec3(3.426, 8.298, .356) * 6e-5 / 100.)
+#define mieCoefficient 3.3e-6 // adjust for foggier look
+#define earthAlbedo pow(vec3(0x99,0x92,0x80)/255.,vec3(2.2))
+
+// ( Riley, Ebert, Kraus )
+//#define rayleighCoefficient vec3(5.8e-6  , 1.35e-5 , 3.31e-5 )
+// ( Bucholtz )
+//#define rayleighCoefficient vec3(4.847e-6, 1.149e-5, 2.87e-5 ) 
+// ( Thalman, Zarzana, Tolbert, Volkamer )
+//#define rayleighCoefficient vec3(5.358e-6, 1.253e-5, 3.062e-5)
+// ( Penndorf )
+#define rayleighCoefficient vec3(5.178e-6, 1.226e-5, 3.06e-5 )
+
+#define up vec4(0,1,0,0)
+
+//b = dotup
+vec3 get_sky_thicknesses(float b){
+    const vec4 sr = earthRadius + vec4(
+        atmosphereHeight,
+        mieHeight,
+        ozoneHeight,
+        ozoneHeight + atmosphereHeight
+    );
+    b*=earthRadius;
+    const float r2 = earthRadius * earthRadius;
+    vec4 z = sqrt( sr * sr + (b * b - r2) );
+    return vec3(b+z.xy, z.w-z.z);
+}
+
+// Improved Rayleigh phase for single scattering
+// https://old.cescg.org/CESCG-2009/papers/PragueCUNI-Elek-Oskar09.pdf
+// note: integral from -1 to 1 of function in the paper is 2.24
+#define phaseRayleigh(a) (( .4 * (a) + 1.12 )/2.24)
+//#define phaseRayleigh(a) ((3./8.)*(1.+(a)*(a)))
+
+// (Henyey Greenstein)
+// https://www.astro.umd.edu/~jph/HG_note.pdf
+float phaseg(float x,float g){
+    const float  b = 1./2.;
+    float a = inversesqrt(1.+g*g-2.*g*x);
+	return b*(1.-g*g)*a*a*a;
+}
+float phase_mie(const float VdotL, const float depth){
+    //curve fit with turingbot
+    float g = atan(sin(pow(0.7,depth*mieCoefficient)));
+    return 2.f*phaseg(VdotL, g);
+}
+
+
+// https://iquilezles.org/articles/sphereshadow
+float sph_soft_shadow(vec4 position,vec4 L){
+    const float k = 5.;
+    //vec4 sph = vec4(-up*earthRadius,earthRadius);
+    vec4 oc = position + up * earthRadius;
+    float b = dot( oc, L );
+    float c = dot( oc, oc ) - earthRadius*earthRadius;
+    float h = b*b - c;
+    
+    float d = -earthRadius + sqrt( max(0.0,earthRadius*earthRadius-h));
+    float t = -b - sqrt( max(0.0,h) );
+    return (t<0.0) ? 1.0 : smoothstep(0.0, 1.0, 2.5*k*d/t );
+}
+
+float get_cloud_distance(vec4 ray,float radious,float height)
+{
+return sqrt(radious*radious*ray.y*ray.y+2.f*height*radious+height*height)-radious*ray.y;
+}
+
+vec3 linearToSrgb(const vec3 x){
+    return sqrt((-2.8450663e-1*x+1.2580714)*x-2.4727747e-3);
+}
+
+vec3 get_sky(const vec4 V, const vec4 L) {
+    vec3 color3=vec3(0.f);
+    float VdotUp = -V.y;
+    float LdotUp = -L.y;
+    if(-VdotUp>-0.02f)
+    {
+    if(-LdotUp>-0.15f)
+    {
+      const mat3 coeffs = mat3(
+        rayleighCoefficient      ,
+        vec3(mieCoefficient), // mie absorbs (Bruneton)
+        ozoneCoefficient
+    );
+
+    vec3 thicknesses = get_sky_thicknesses(VdotUp);
+    float VdotL = dot(V, L);
+    float phaseMie=phase_mie(VdotL, thicknesses.y);
+    vec3 rayleighScatter =(thicknesses.x * phaseRayleigh(VdotL))          * rayleighCoefficient;
+    float     mieScatter = thicknesses.y * phaseMie *      mieCoefficient;
+
+	vec3 scattering = rayleighScatter + mieScatter;
+    
+    vec3 sunCoeff = coeffs * get_sky_thicknesses(LdotUp);
+    vec3 viewCoeff = coeffs * thicknesses;
+    vec3 absorption = (exp(-viewCoeff)-exp(-sunCoeff)) / (sunCoeff - viewCoeff);
+    
+    //  integral of x from 0 to 1
+    //  exp( -a*x - b*(1-x) )
+    //
+    //  e?? - e??
+    // ---------
+    //  (a - b) 
+    
+    float earthShadow = sph_soft_shadow(thicknesses.x*V,L);
+    
+    //if(VdotUp>0.f)return ground_color();
+    color3=sunColor * scattering * absorption * earthShadow;
+    color3=1.4f*linearToSrgb(color3);
+    //color3=max(color3,0.f);
+    //if(-LdotUp<0.f)
+    //{
+    //    color3 += clamp(LdotUp/0.15f,0.f,1.f) * stars_color(V);
+    //}
+    if(VdotL>0.7f)
+    {
+    color3+=1.5042f*directionLight4D.color/(6000.f*(1.f-VdotL))/2.f;
+        if(VdotL>0.99999f)
+    {
+    color3+=150.42f*directionLight4D.color;
+    }
+    }
+    color3*=1.273525f;
+    if(isCloud==true)
+    {
+    if(VdotUp<0.f)
+    {
+    float cloudDistance=get_cloud_distance(V,earthRadius,10000.f);
+    vec4 cloudPlaneCoordinate=cloudDistance*V;
+    float cloudDensity = max(0.5 * smoothstep(0.5f, 0.8f, -0.09+1.53f*fbm(1.255f*(cloudPlaneCoordinate.xzw+vec3(28.284f*iTime,0.f,28.284f*iTime))/10000.f)),0.f);
+
+    vec3 sunCoeff2 = sunCoeff/3.95f;
+    vec3 viewCoeff2 = viewCoeff/3.95f;
+    vec3 absorption2 = (exp(-viewCoeff2)-exp(-sunCoeff2)) / (sunCoeff2 - viewCoeff2);
+    vec3 cloudColor3=(vec3(directionLight4D.color.g)*(1.171897656f+0.088156f*directionLight4D.color*phaseMie))*linearToSrgb(absorption2 *vec3(1.f,0.95f,1.f));
+    float transmittance=exp(-0.00000635f*cloudDistance);                                   //1.0525f*1.1f*1.09f*1.15f*1.044503f*1.38/1.4f/1.275 //// 1.0525f*1.1f*1.09f*1.15f*1.044503f*1.38/1.4f*0.059
+    color3=mix(color3,cloudColor3,cloudDensity*transmittance);
+    }
+    }
+    }
+    if(-VdotUp>0.02f)
+    {
+       return max(color3,0.f);
+    }
+    if(-VdotUp>-0.02f&&-VdotUp<0.02f)
+	{
+	   return mix(ground_color(),max(color3,0.f),25.f*(-VdotUp+0.02));
+	}
+    }  
+    else
+    {
+    return ground_color();
+    }
+}
+
+vec3 fog(vec3 A,vec3 B,float far)
+{
+return mix(B,A,exp(-far));
+}
+void swap(float A,float B)
+{
+float C=A;
+A=B;
+B=C;
+}
+float fresnel(const vec4 ray, const vec4 normal, const float ior)
+{
+    float kr;
+    float cosi = clamp(-1.f, 1.f,dot(normalize(ray), normal));
+    float etai = 1.f, etat = ior;
+    if (cosi > 0.f) { swap(etai, etat); }
+    // Compute sini using Snell's law
+    float sint = etai / etat * sqrt(max(0.f, 1.f - cosi * cosi));
+    // Total internal reflection
+    if (sint >= 1.f) {
+        kr = 1.f;
+    }
+    else {
+        float cost = sqrt(max(0.f, 1.f - sint * sint));
+        cosi = abs(cosi);
+        float Rs = ((etat * cosi) - (etai * cost)) / ((etat * cosi) + (etai * cost));
+        float Rp = ((etai * cosi) - (etat * cost)) / ((etai * cosi) + (etat * cost));
+        kr = (Rs * Rs + Rp * Rp) / 2.f;
+    }
+return kr;
+}
+vec3 texPos;
+float value,value1,value2,value3;
+void main()
+{
+
+vec3 directionLightColor;
+if(directionLight4D.direction4D.y<0.0043633f)
+{
+directionLightColor=directionLight4D.color;
+if(directionLight4D.direction4D.y>-0.0043633f)
+{
+directionLightColor=mix(directionLightColor,vec3(0.f),smoothstep(0.f,1.f,(directionLight4D.direction4D.y+0.0043633f)/(0.0043633f*2.f)));
+}
+}
+else
+{
+directionLightColor=vec3(0.f);
+}
+
+if(Water4DAmount>0)
+for(int j=0;j < Water4DAmount;j++)
+	{
+	isWater[j]=false;
+	if(
+	abs(vs_position.x-waterArea4D[j].position4D.x)<=waterArea4D[j].scale4D.x/2.f&&
+	abs(vs_position.y-waterArea4D[j].position4D.y+waterArea4D[j].scale4D.y/4.f)<=waterArea4D[j].scale4D.y/4.f&&
+	abs(vs_position.z-waterArea4D[j].position4D.z)<=waterArea4D[j].scale4D.z/2.f&&
+	abs(vs_position.w-waterArea4D[j].position4D.w)<=waterArea4D[j].scale4D.w/2.f)
+	{
+	isWater[j]=true;
+    isWater0=true;
+	waterHeight[j]=waterArea4D[j].position4D.y;
+	}
+}
+if(metal!=1.f)
+{
+col4=paintingColor*texture(Tex3D,vs_texcoord);
+
+/////////////////
+if(Water4DAmount>0)
+{
+height=vs_position.y;
+for(int k=0;k < Water4DAmount;k++)
+{
+   if(isWater[k]==true)
+   {
+      if(height<waterHeight[k])
+      {
+         waterDepth[k]=-height+waterHeight[k];
+         //iTime*0.779423/4.5f
+         if(directionLight4D.direction4D.y<0.f)
+         {
+            texPos=vs_position.xzw/3.f/0.7f+vec3(-1,1,-1)*0.641878/4.5f/3.f*iTime;
+            value1 = texture(caustics3D,texPos).r;
+            texPos=vs_position.xzw/3.f/0.8f+vec3(1,-1,-1)*0.656356/4.5f/3.f*iTime;
+            value2 = texture(caustics3D,texPos).r;
+            texPos=vs_position.xzw/3.f/0.85f+vec3(-1,1,1)*0.630961/4.5f/3.f*iTime;
+            value3 = texture(caustics3D,texPos).r;
+            value=(value1+0.15f)*(value2+0.15f)*(value3+0.15f);
+         }
+         else
+         value=0.003375f;
+         caustics_color=mix(vec3(0.5f),1.159f*vec3(dot(vs_normal,vec4(0,1,0,0))*(value-0.003375f)),clamp(0.4675166969581f*waterDepth[k]-0.05625f,0.f,1.f))*1.999f;
+      }
+   }
+}
+}
+/////////////////
+///////////////
+if(PointLight4DAmount>0)
+for(i=0;i < PointLight4DAmount;i++)
+{
+	diffuseFinal[i]=calculate_diffuse(vs_position, vs_normal, pointLight4D[i].position4D);
+    if(diffuseFinal[i]>0.f)
+    {
+        distance[i]=length(pointLight4D[i].position4D - vs_position);
+	    if(distance[i]<16.f*pointLight4D[i].intensity)
+	    {
+	       attenuation[i]=pointLight4D[i].intensity / (pointLight4D[i].constant+ pointLight4D[i].linear * distance[i] + pointLight4D[i].quadratic * pow(distance[i],2.f)+ pointLight4D[i].cubic * pow(distance[i],3.f));
+          
+           diffuseFinal[i]*=attenuation[i];
+           diffuseColor+=diffuseFinal[i]*pointLight4D[i].color;
+           if(isSpecular==true)
+           {
+           specularFinal[i] = pointLight4D[i].intensity*calculate_specular(vs_position, vs_normal, vs_position-pointLight4D[i].position4D, cameraPos);
+           specularFinal[i]*=attenuation[i]/2.f;
+           specularColor+=specularFinal[i]*pointLight4D[i].color;
+           }
+        }
+    }
+}
+float directionStrength=calculate_direction(vs_normal, directionLight4D.direction4D);
+if(directionStrength>0.f)//&&fract(vs_position.x)<0.5f)
+{
+directionColor=directionLight4D.intensity*directionLightColor*directionStrength;
+if(isSpecular==true){specularColor+=directionLight4D.intensity*calculate_specular(vs_position, vs_normal, directionLight4D.direction4D, cameraPos)*directionLightColor/2.f;}
+}
+
+	ambientColor=get_ambient_color(vs_normal);
+col4.xyz=col4.xyz*(ambientColor+diffuseColor+directionColor)+specularColor;
+//////////////
+
+if(isWater0==true)
+{
+   col4.xyz=col4.xyz*(ambientColor+diffuseColor+directionColor*(1.f-fresnel(directionLight4D.direction4D,vec4(0,1,0,0),n))*caustics_color)+specularColor;
+}
+
+}
+
+
+if(metal!=0.f)
+{
+	vec4 ray=normalize(vs_position-cameraPos);
+	vec4 reRay=reflect(ray, vs_normal);
+	vec3 color=get_sky(reRay,-directionLight4D.direction4D);
+	col4.xyz=mix(col4.xyz,color,metal);
+}
+    
+
+
+if(isFog==true)
+{
+if(isWater0==false)
+{
+vec3 fogColor=(globalSkyColor+groundColor)/2.f+directionLightColor/PI;
+viewDistance=length(cameraPos-vs_position);
+factor=fog(vec3(0.f),vec3(1.f),viewDistance*0.03861f*fogDensity).x;
+if(viewDistance<100000)
+col4.xyz=fog(col4.xyz,fogColor,viewDistance*0.03861f*fogDensity);
+else
+col4.xyz=fog(col4.xyz,fogColor,0.5f);
+}
+}
+if(Water4DAmount>0)
+{
+viewDistance=length(cameraPos-vs_position);
+for(int k=0;k < Water4DAmount;k++)
+{
+   if(isWater[k]==true)
+   {
+if(height<waterHeight[k])
+{
+if(cameraPos.y>waterHeight[k])
+{
+col4.xyz=mix(col4.xyz,0.72f*vec3(0.28f),clamp(1.f-exp(-0.53333f*waterDepth[k]),0.f,1.f));
+}
+if(cameraPos.y<=waterHeight[k])
+{
+col4.xyz=fog(col4.xyz,vec3(0.1875f,0.4f,0.79f),viewDistance*0.1f);
+}
+}
+   }
+}
+}
+
+//
+if(isAreaDeleting)
+{
+int isDeleteArea=int(255.f*texelFetch(deleteMap3D,ivec3(vs_position.xzw+vec3(64)),0).r);
+if(isDeleteArea==1){
+col4.xyz+=texture(area,vs_position.xzw).xyz;
+}
+}
+//
+
+fs_color=col4;
+}
