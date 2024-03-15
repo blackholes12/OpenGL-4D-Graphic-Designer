@@ -221,10 +221,10 @@ return weight20;
 void main()
 {
 relativePos0=Translate4D-cameraPos;
-pA=viewMat*(mesh4DMat/4.f*vertex_A+relativePos0);
-pB=viewMat*(mesh4DMat/4.f*vertex_B+relativePos0);
-pC=viewMat*(mesh4DMat/4.f*vertex_C+relativePos0);
-pD=viewMat*(mesh4DMat/4.f*vertex_D+relativePos0);
+pA=viewMat*(vertex_A+relativePos0);
+pB=viewMat*(vertex_B+relativePos0);
+pC=viewMat*(vertex_C+relativePos0);
+pD=viewMat*(vertex_D+relativePos0);
 
 disA=pA.w;
 disB=pB.w;
