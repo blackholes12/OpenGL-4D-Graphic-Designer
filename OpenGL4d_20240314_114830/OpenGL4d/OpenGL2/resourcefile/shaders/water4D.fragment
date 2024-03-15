@@ -326,7 +326,7 @@ return mix(B,A,exp(-far));
 vec4 normal4d;
 
 float brightness,fresnel0,viewDistance;
-const float waterHeight=65.5f;
+const float waterHeight=55.5f;
 void main()
 {
 viewDistance=length(cameraPos-vs_position);
