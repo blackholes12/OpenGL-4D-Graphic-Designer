@@ -288,7 +288,7 @@ vec3 get_sky(const vec4 V, const vec4 L) {
     color3*=1.273525f;
     if(isCloud==true)
     {
-    if(VdotUp<0.02f)
+    if(VdotUp<0.f)
     {
     float cloudDistance=get_cloud_distance(V,earthRadius,10000.f);
     vec4 cloudPlaneCoordinate=cloudDistance*V;
