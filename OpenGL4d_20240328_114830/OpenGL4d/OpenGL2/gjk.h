@@ -855,13 +855,13 @@ static glm::vec4 get_collision_information(Object4D* s1, Object4D* s2, unsigned 
         *supportPoints2 = support_points(s2, -normal3);
         return normal3;
     }
-    //else
-    //{
-    //    *depth = 0.000001f;
-    //    *supportPoints1 = support_points(s1, glm::vec4(0.f, -1.f, 0.f, 0.f));
-    //    *supportPoints2 = support_points(s2, glm::vec4(0.f, 1.f, 0.f, 0.f));
-    //    return glm::vec4(0.f, -1.f, 0.f, 0.f);
-    //}
+    else
+    {
+        *depth = 0.000001f;
+        *supportPoints1 = support_points(s1, glm::vec4(0.f, -1.f, 0.f, 0.f));
+        *supportPoints2 = support_points(s2, glm::vec4(0.f, 1.f, 0.f, 0.f));
+        return glm::vec4(0.f, -1.f, 0.f, 0.f);
+    }
 }
 
 struct EPCell
