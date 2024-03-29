@@ -137,6 +137,7 @@ namespace ray {
 	static bool ray_detect_collider4D(Object4D* j, glm::vec4 camPos, glm::vec4 forward, glm::vec4 right, glm::vec4* hitPosNear, glm::vec4* hitPosFar)
 	{
 		bool isDetected = false;
+		*hitPosNear = glm::vec4(10000.f);
 		switch (j->colType)
 		{
 		case SPHERE4D:
@@ -303,7 +304,6 @@ namespace ray {
 	{
 		bool isDetected = false;
 		int hitIndex = -1;
-		*hitPosNear = glm::vec4(10000.f);
 		glm::vec4 detectedObjectPos;
 		glm::vec4 hitPosFar;
 		for (size_t i = 1; i < rigidBodies4D.size(); i++) {

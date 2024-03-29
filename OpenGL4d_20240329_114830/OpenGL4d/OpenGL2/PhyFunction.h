@@ -307,6 +307,7 @@ static void solve_and_shift(
 			if (offsetVb > 0.f)
 			{
 				a->velocity4D += (1.f + (b->bounce == 0.f ? 0.f : max(a->bounce, b->bounce))) * offsetVb * normalAtoB;
+				a->set_position4D(a->position4D + collision->collisionManifold.depth * normalAtoB);
 			}
 		}
 		else
