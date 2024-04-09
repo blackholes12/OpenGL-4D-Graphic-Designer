@@ -49,6 +49,8 @@ C: Turn on or off the world coordinate system lines
 
 G: Show or turn off wireframe
 
+Ctrl: Lift up the construction site
+
 Delete: delete the half build joint or delete objects in the selection area
 
 M/N: Zoom in and out of perspective
