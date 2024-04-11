@@ -169,11 +169,11 @@ namespace phy {
 						dir_a_to_b_e = normalize(dir_a_to_b);
 						if (dis >= 0.5f)
 						{
-							force4D = 10.f * dir_a_to_b_e / pow(dis, 2.f);
+							force4D = 10.f * a->mass * b->mass * dir_a_to_b_e / pow(dis, 2.f);
 						}
 						else
 						{
-							force4D = 40.f * dir_a_to_b_e * a->mass*b->mass;
+							force4D = 40.f * a->mass * b->mass * dir_a_to_b_e;
 						}
 						a->forceSystems4D.push_back(new ForceSystem4D(force4D, glm::vec4(0.f)));
 						b->forceSystems4D.push_back(new ForceSystem4D(-force4D, glm::vec4(0.f)));
