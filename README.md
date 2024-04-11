@@ -51,6 +51,8 @@ G: Show or turn off wireframe
 
 Ctrl: Lift up the construction site
 
+F2:Captures the window (RGB) and save the image
+
 Delete: delete the half build joint or delete objects in the selection area
 
 M/N: Zoom in and out of perspective
