@@ -262,14 +262,14 @@ vec3 get_sky(const vec4 V, const vec4 L) {
     {
     float cloudDistance=get_cloud_distance(V,earthRadius,10000.f);
     vec4 cloudPlaneCoordinate=cloudDistance*V;
-    float cloudDensity = max(0.5 * smoothstep(0.5f, 0.8f, -0.09+1.53f*fbm(1.255f*(cloudPlaneCoordinate.xzw+vec3(230.f*iTime,0.f,230.f*iTime))/10000.f)),0.f);
+    float cloudDensity = max(0.5 * smoothstep(0.55f, 0.85f, -0.09+1.53f*fbm(1.255f*(cloudPlaneCoordinate.xzw+vec3(230.f*iTime,0.f,230.f*iTime))/10000.f)),0.f);
 
     vec3 sunCoeff2 = sunCoeff/3.95f;
     vec3 viewCoeff2 = viewCoeff/3.95f;
     vec3 absorption2 = (exp(-viewCoeff2)-exp(-sunCoeff2)) / (sunCoeff2 - viewCoeff2);
     vec3 cloudColor3=(vec3(directionLight4D.color.g)*(1.171897656f+0.088156f*directionLight4D.color*phaseMie))*linearToSrgb(absorption2 *vec3(1.f,0.95f,1.f));
     float transmittance=exp(-0.00000635f*cloudDistance);                                   //1.0525f*1.1f*1.09f*1.15f*1.044503f*1.38/1.4f/1.275 //// 1.0525f*1.1f*1.09f*1.15f*1.044503f*1.38/1.4f*0.059
-    color3=mix(color3,cloudColor3,cloudDensity*transmittance);
+    color3=mix(color3,1.15f*cloudColor3/exp(max(cloudDensity/3.2f,0.f)),min(cloudDensity*transmittance,1.f));
     }
     }
     }
