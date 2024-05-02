@@ -1,765 +1,1243 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (OpenGL2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Game.cpp
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(113,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(113,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(114,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(114,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(116,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(116,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(117,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(117,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(125,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(125,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(123,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(123,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(223,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(223,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(229,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(229,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(250,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(250,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(255,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(255,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(262,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(262,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(278,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(278,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\mod.h(340,3): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(340,3): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:         with
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:         [
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:             T=float
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:         ]
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:         ]
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:         with
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:         [
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:             T=float
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:         ]
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:         ]
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:         with
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:         [
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:             T=float
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:         ]
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:         ]
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:         with
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:         [
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:             T=float
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:         ]
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:         ]
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:         with
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:         [
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:             T=float
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:         ]
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:         ]
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:         with
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:         [
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:             T=float
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:         ]
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:         ]
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(271,83): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(271,83): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(271,61): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(271,61): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Texture.h(271,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(271,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Primitives4D.h(1321,29): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Primitives4D.h(1321,29): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Primitives4D.h(1340,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Primitives4D.h(1340,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Primitives4D.h(1341,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Primitives4D.h(1341,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Primitives4D.h(1342,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Primitives4D.h(1342,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Line.h(112,39): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Line.h(112,39): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
   (compiling source file 'Game.cpp')
-  C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\Dependencies_64x\GLFW\include\GLFW\glfw3.h(123,1):
+  C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\Dependencies_64x\GLFW\include\GLFW\glfw3.h(123,1):
   see previous definition of 'APIENTRY'
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Light.h(282,33): warning C4267: 'argument': conversion from 'size_t' to 'GLint', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Light.h(282,33): warning C4267: 'argument': conversion from 'size_t' to 'GLint', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Light.h(284,33): warning C4267: 'argument': conversion from 'size_t' to 'GLint', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Light.h(284,33): warning C4267: 'argument': conversion from 'size_t' to 'GLint', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\body.h(42,33): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\body.h(42,33): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Joint.h(237,2): warning C4091: 'static ': ignored on left of 'HingeConstraint4D' when no variable is declared
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Joint.h(237,2): warning C4091: 'static ': ignored on left of 'HingeConstraint4D' when no variable is declared
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(60,29): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(60,29): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(64,29): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(64,29): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(71,30): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(71,30): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(75,30): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(75,30): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(82,37): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(82,37): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(86,37): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(86,37): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(104,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(104,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(121,19): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(121,19): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(122,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(122,15): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(133,60): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(133,60): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(155,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(155,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(179,62): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(179,62): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(309,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(307,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(325,62): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(323,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(343,60): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(339,62): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(366,60): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(357,60): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(394,27): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(380,60): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(395,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(408,27): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(410,2): warning C4091: 'static ': ignored on left of 'RenderIndex' when no variable is declared
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(409,15): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(455,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(424,2): warning C4091: 'static ': ignored on left of 'RenderIndex' when no variable is declared
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\ObjectLists.h(476,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(469,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(160,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(160,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(197,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(197,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(275,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(275,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(284,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(284,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(382,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(382,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(419,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(419,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(463,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(463,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(696,2): warning C4091: 'static ': ignored on left of 'Simplex' when no variable is declared
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(696,2): warning C4091: 'static ': ignored on left of 'Simplex' when no variable is declared
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(551,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(551,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(841,33): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(841,33): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(952,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(952,35): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\gjk.h(1087,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(1087,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(11,2): warning C4091: 'static ': ignored on left of 'Collider' when no variable is declared
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(11,2): warning C4091: 'static ': ignored on left of 'Collider' when no variable is declared
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(18,2): warning C4091: 'static ': ignored on left of 'CollisionManifold' when no variable is declared
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(18,2): warning C4091: 'static ': ignored on left of 'CollisionManifold' when no variable is declared
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(37,2): warning C4091: 'static ': ignored on left of 'Collision' when no variable is declared
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(37,2): warning C4091: 'static ': ignored on left of 'Collision' when no variable is declared
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(321,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(321,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(537,47): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(537,47): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(525,23): warning C4101: 'detectPos4D0': unreferenced local variable
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(525,23): warning C4101: 'detectPos4D0': unreferenced local variable
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(864,95): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(864,95): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(865,95): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(865,95): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(911,39): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(911,39): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(936,39): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(936,39): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(976,39): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(976,39): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1023,39): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1023,39): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1103,97): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1103,97): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1104,97): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1104,97): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1139,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1139,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1223,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1223,35): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1240,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1240,35): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1257,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1257,35): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1287,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1287,35): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1317,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1317,35): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1352,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1352,35): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1387,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1387,35): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1401,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1401,35): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1482,93): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1482,93): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1483,93): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1483,93): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1504,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1504,31): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1517,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1517,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1839,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1839,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(1827,27): warning C4101: 'detectPos4D0': unreferenced local variable
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1827,27): warning C4101: 'detectPos4D0': unreferenced local variable
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(2063,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(2063,27): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\colliderPhy.h(2089,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(2089,31): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\collision.h(13,2): warning C4091: 'static ': ignored on left of 'ContactState' when no variable is declared
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\collision.h(13,2): warning C4091: 'static ': ignored on left of 'ContactState' when no variable is declared
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\collision.h(21,2): warning C4091: 'static ': ignored on left of 'CollisionConstraint' when no variable is declared
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\collision.h(21,2): warning C4091: 'static ': ignored on left of 'CollisionConstraint' when no variable is declared
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\collision.h(34,2): warning C4091: 'static ': ignored on left of 'Constraint' when no variable is declared
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\collision.h(34,2): warning C4091: 'static ': ignored on left of 'Constraint' when no variable is declared
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(152,138): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(152,138): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(154,45): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(154,45): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(161,120): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(161,120): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(165,133): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(165,133): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(241,121): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(241,121): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(279,92): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(279,92): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(292,67): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(292,67): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(297,69): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(297,69): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(364,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(364,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(381,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(381,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(425,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(425,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(440,70): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(440,70): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(573,86): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(573,86): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(586,151): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(586,151): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(593,87): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(593,87): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(597,87): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(597,87): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(597,195): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(597,195): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(618,89): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(618,89): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(631,156): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(631,156): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(638,91): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(638,91): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(642,91): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(642,91): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Phys4D.h(642,201): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(642,201): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(24,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(24,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(30,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(30,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(31,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(31,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(193,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(193,22): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(321,18): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(321,18): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(327,18): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(327,18): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(346,20): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(346,20): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(352,20): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(352,20): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(362,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(362,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(364,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(364,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(366,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(366,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(367,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(367,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(368,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(368,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(372,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(372,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(377,23): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(377,23): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(383,23): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(383,23): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(404,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(404,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(410,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(410,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(429,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(429,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(435,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(435,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(446,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(446,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(448,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(448,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(453,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(453,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\DetectRay.h(459,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(459,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Animation.h(248,22): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Animation.h(248,22): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Animation.h(255,24): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Animation.h(255,24): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Animation.h(259,24): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Animation.h(259,24): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\LoadAndSave.h(146,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\LoadAndSave.h(146,21): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\LoadAndSave.h(150,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\LoadAndSave.h(150,21): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\LoadAndSave.h(357,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\LoadAndSave.h(357,23): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\LoadAndSave.h(361,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\LoadAndSave.h(361,23): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(175,61): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(175,61): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(176,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(176,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(183,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(183,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1531,40): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1531,40): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1573,107): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1573,107): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1576,73): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1576,73): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1579,76): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1579,76): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1580,73): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1580,73): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1581,80): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1581,80): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1582,77): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1582,77): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1583,97): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1583,97): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1584,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1584,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1585,67): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1585,67): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1592,74): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1592,74): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1595,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1595,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1598,138): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1598,138): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1599,135): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1599,135): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1600,32): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1600,32): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1612,152): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1612,152): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1613,149): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1613,149): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1624,166): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1624,166): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game_imgui.h(1625,163): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game_imgui.h(1625,163): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Structures4D.h(173,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Structures4D.h(173,31): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244:         with
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244:         [
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244:             T=float
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244:         ]
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Structures4D.h(456,127): warning C4244:         ]
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\StartObj.h(72,182): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\StartObj.h(72,182): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\StartObj.h(73,181): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\StartObj.h(73,181): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\StartObj.h(74,180): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\StartObj.h(74,180): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\StartObj.h(75,179): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\StartObj.h(75,179): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(63,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(63,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(67,75): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(67,75): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(67,147): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(67,147): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(69,89): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(69,89): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(69,161): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(69,161): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(70,65): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(70,65): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(70,189): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(70,189): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(70,261): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(70,261): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(77,73): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(77,73): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(77,145): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(77,145): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(79,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(79,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(83,24): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(87,110): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(89,119): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(89,78): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(91,80): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(90,75): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(92,77): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(91,81): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(93,83): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(92,79): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(94,81): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(93,99): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(95,101): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(94,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(96,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(104,116): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(102,24): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(106,83): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(108,125): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(107,81): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(110,92): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(113,103): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(111,90): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(116,151): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(117,103): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(117,149): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(120,151): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(121,107): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(121,149): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(122,104): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(125,107): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(123,110): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(126,104): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(124,108): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(127,110): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(125,128): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(128,108): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(126,78): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(129,128): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(128,122): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(130,78): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(129,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(132,122): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(159,25): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(133,63): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(170,199): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(170,199): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(170,199): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(170,199): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(170,199): warning C4244:         ]
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(163,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(175,199): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(175,199): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(175,199): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(175,199): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(175,199): warning C4244:         ]
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(174,199): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(174,199): warning C4244:         with
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(174,199): warning C4244:         [
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(174,199): warning C4244:             T=float
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(174,199): warning C4244:         ]
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Collider.h(230,25): warning C4018: '<': signed/unsigned mismatch
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(179,199): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(179,199): warning C4244:         with
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(179,199): warning C4244:         [
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(179,199): warning C4244:             T=float
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(179,199): warning C4244:         ]
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(201,66): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Collider.h(234,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(205,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(200,66): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(399,40): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(204,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(444,133): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(397,40): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(445,137): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(442,133): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(468,98): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(443,137): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(469,102): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(466,98): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(488,128): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(467,102): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(494,133): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(486,128): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(495,137): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(492,133): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(501,98): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(493,137): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(502,102): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(499,98): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(509,92): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(500,102): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(510,96): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(507,92): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(515,92): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(508,96): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(516,96): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(513,92): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(538,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(514,96): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(573,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(536,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(653,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(571,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Keyboard.h(657,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Game.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(651,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Game.cpp')
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Game.cpp(1321,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(113,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Keyboard.h(655,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Game.cpp')
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(114,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(116,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(117,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(125,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(123,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(223,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(229,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(250,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(255,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(262,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(278,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\mod.h(340,3): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(220,16): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(222,17): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(224,18): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(239,16): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(241,17): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(243,18): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(271,83): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(271,61): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Texture.h(271,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Primitives4D.h(1321,29): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Primitives4D.h(1340,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Primitives4D.h(1341,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Primitives4D.h(1342,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Line.h(112,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+  (compiling source file 'main.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\Dependencies_64x\GLFW\include\GLFW\glfw3.h(123,1):
+  see previous definition of 'APIENTRY'
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Light.h(282,33): warning C4267: 'argument': conversion from 'size_t' to 'GLint', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Light.h(284,33): warning C4267: 'argument': conversion from 'size_t' to 'GLint', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\body.h(42,33): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Joint.h(237,2): warning C4091: 'static ': ignored on left of 'HingeConstraint4D' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(60,29): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(64,29): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(71,30): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(75,30): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(82,37): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(86,37): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(104,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(121,19): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(122,15): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(133,60): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(155,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(179,62): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(307,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(323,56): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(339,62): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(357,60): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(380,60): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(408,27): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(409,15): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(424,2): warning C4091: 'static ': ignored on left of 'RenderIndex' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\ObjectLists.h(469,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(160,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(197,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(275,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(284,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(382,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(419,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(463,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(696,2): warning C4091: 'static ': ignored on left of 'Simplex' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(551,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(841,33): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(952,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\gjk.h(1087,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(11,2): warning C4091: 'static ': ignored on left of 'Collider' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(18,2): warning C4091: 'static ': ignored on left of 'CollisionManifold' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(37,2): warning C4091: 'static ': ignored on left of 'Collision' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(321,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(537,47): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(525,23): warning C4101: 'detectPos4D0': unreferenced local variable
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(864,95): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(865,95): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(911,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(936,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(976,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1023,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1103,97): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1104,97): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1139,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1223,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1240,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1257,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1287,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1317,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1352,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1387,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1401,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1482,93): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1483,93): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1504,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1517,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1839,51): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(1827,27): warning C4101: 'detectPos4D0': unreferenced local variable
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(2063,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\colliderPhy.h(2089,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\collision.h(13,2): warning C4091: 'static ': ignored on left of 'ContactState' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\collision.h(21,2): warning C4091: 'static ': ignored on left of 'CollisionConstraint' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\collision.h(34,2): warning C4091: 'static ': ignored on left of 'Constraint' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(152,138): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(154,45): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(161,120): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(165,133): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(241,121): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(279,92): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(292,67): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(297,69): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(364,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(381,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(425,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(440,70): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(573,86): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(586,151): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(593,87): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(597,87): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(597,195): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(618,89): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(631,156): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(638,91): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(642,91): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Phys4D.h(642,201): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(24,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(30,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(31,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(193,22): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(321,18): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(327,18): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(346,20): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(352,20): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(362,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(364,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(366,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(367,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(368,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(372,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(377,23): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(383,23): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(404,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(410,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(429,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(435,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(446,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(448,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(453,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\DetectRay.h(459,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Animation.h(248,22): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Animation.h(255,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\Animation.h(259,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\LoadAndSave.h(146,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\LoadAndSave.h(150,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\LoadAndSave.h(357,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\LoadAndSave.h(361,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
   
-C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\OpenGL2\Game.cpp(1321,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\OpenGL2\main.cpp(37,24): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 soil2-debug.lib(SOIL2.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  1 of 5676 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  2 of 5673 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    102 functions had inline decision re-evaluated but remain unchanged
+    106 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 glew32s.lib(glew.obj) : warning LNK4099: PDB '' was not found with 'glew32s.lib(glew.obj)' or at ''; linking object as if no debug info
-  OpenGL2.vcxproj -> C:\Users\86180\Documents\OpenGL4d_20240430_114830\OpenGL4d\x64\Release\NewEngine.exe
+  OpenGL2.vcxproj -> C:\Users\86180\Documents\OpenGL4d_20240502_114830\OpenGL4d\x64\Release\NewEngine.exe

@@ -181,6 +181,7 @@ void Game::updateKeyboardInput()
 						erase_joint4d(&this->sticks4D, &this->springs4D, &this->hingeConstraints, this->hitIndex);
 						shift_joint4d(this->sticks4D, this->springs4D, this->hingeConstraints, this->hitIndex, -1);
 						this->rigidBodies4D.erase(this->rigidBodies4D.begin() + this->hitIndex);
+						update_render_indices(this->rigidBodies4D, this->dynamites4D2, this->groups, this->walls4D, this->dynamites4D, &this->renderIndices, this->camera.position4D);
 						this->sounds[8]->play(length(this->camera.position4D - this->rigidBodies4D[this->hitIndex]->position4D), this->soundVolume);
 					}
 					else {
@@ -202,6 +203,7 @@ void Game::updateKeyboardInput()
 						erase_joint4d(&this->sticks4D, &this->springs4D, &this->hingeConstraints, this->hitIndex);
 						shift_joint4d(this->sticks4D, this->springs4D, this->hingeConstraints, this->hitIndex, -1);
 						erase_wall4d(this->groups, &this->walls4D, this->hitIndex - size_of_objects4d(this->rigidBodies4D, this->dynamites4D2));
+						update_render_indices(this->rigidBodies4D, this->dynamites4D2, this->groups, this->walls4D, this->dynamites4D, &this->renderIndices, this->camera.position4D);
 						this->sounds[8]->play(length(this->camera.position4D - this->hitPosNear), this->soundVolume);
 					}
 					this->sounds[5]->play(length(this->camera.position4D - this->hitPosNear), this->soundVolume);

@@ -208,7 +208,7 @@ static void erase_animation4D(std::vector <Shift4D*>* shifts4D, std::vector <Flo
 {
 	for (size_t k = 0; k < shifts4D->size(); k++)
 	{
-		if (shifts4D[0][k]->index == index0)
+		if ((*shifts4D)[k]->index == index0)
 		{
 			shifts4D->erase(shifts4D->begin() + k);
 			k--;
@@ -217,7 +217,7 @@ static void erase_animation4D(std::vector <Shift4D*>* shifts4D, std::vector <Flo
 
 	for (size_t k = 0; k < floats4D->size(); k++)
 	{
-		if (floats4D[0][k]->index == index0)
+		if ((*floats4D)[k]->index == index0)
 		{
 			floats4D->erase(floats4D->begin() + k);
 			k--;
@@ -226,7 +226,7 @@ static void erase_animation4D(std::vector <Shift4D*>* shifts4D, std::vector <Flo
 
 	for (size_t k = 0; k < rotates4D->size(); k++)
 	{
-		if (rotates4D[0][k]->index1 == index0|| rotates4D[0][k]->index2 == index0)
+		if ((*rotates4D)[k]->index1 == index0|| (*rotates4D)[k]->index2 == index0)
 		{
 			rotates4D->erase(rotates4D->begin() + k);
 			k--;

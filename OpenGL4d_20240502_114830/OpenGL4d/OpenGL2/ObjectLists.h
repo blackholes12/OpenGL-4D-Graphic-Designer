@@ -295,6 +295,20 @@ static Object4D* find_dynamite4d(std::vector<Wall4D*> a, std::vector<RigidBody4D
     }
 }
 
+static int find_group_index(std::vector<Group*> groups, int index)
+{
+    int groupIndex2 = 0;
+    int wallIndex1 = 0;
+    for (int groupIndex1 = 0; groupIndex1 < groups.size(); groupIndex1++) {
+        if (wallIndex1 + groups[groupIndex1]->walls4D.size() > index && wallIndex1 <= index)
+        {
+            groupIndex2 = groupIndex1;
+        }
+        wallIndex1 += groups[groupIndex1]->walls4D.size();
+    }
+    return groupIndex2;
+}
+
 static Wall4D* find_wall4d(std::vector<Group*> groups, int index)
 {
     int groupIndex2 = 0;
@@ -470,42 +484,51 @@ static void sort_render_indices(std::vector<RenderIndex*>* renderIndices)
     }
 }
 
-static void sort_wall4d(vector<Wall4D*>* walls4D, glm::vec4 cameraPos)
+static void erase_render_index(std::vector<RenderIndex*>* renderIndices,int index1,int index2)
 {
-    std::vector<float> distances;
-    int n = walls4D->size();
-    for (int i = 0; i < n; i++)
+    for (size_t k = 0; k < renderIndices->size(); k++)
     {
-        if ((*walls4D)[i]->isClamp)
+        if ((*renderIndices)[k]->groupIndex == index1 && (*renderIndices)[k]->objectIndex == index2)
         {
-            if ((*walls4D)[i]->isFront)
-            {
-                distances.push_back(length((*walls4D)[i]->position4D - cameraPos));
-            }
-            else
-            {
-                distances.push_back(0.f);
-            }
-        }
-        else
-        {
-            distances.push_back(0.f);
+            renderIndices->erase(renderIndices->begin() + k);
+            k--;
         }
     }
-    for (int i = 0; i < n - 1; i++)
+}
+
+static void shift_render_index(std::vector<RenderIndex*>* renderIndices, int index1, int index2, int count)
+{
+    if (index1 >= 0)
     {
-        int k = i;
-        for (int j = i + 1; j < n; j++)
+        for (size_t k = 0; k < renderIndices->size(); k++)
         {
-            if (distances[j] < distances[k])
+            if ((*renderIndices)[k]->groupIndex == index1)
             {
-                k = j;
+                if ((*renderIndices)[k]->objectIndex >= index2)
+                {
+                    (*renderIndices)[k]->objectIndex += count;
+                }
             }
         }
-        if (k != i)
+    }
+    else if (index1 == -1)
+    {
+        for (size_t k = 0; k < renderIndices->size(); k++)
         {
-            std::swap(distances[k], distances[i]);
-            std::swap((*walls4D)[k], (*walls4D)[i]);
+            if ((*renderIndices)[k]->objectIndex >= index2)
+            {
+                (*renderIndices)[k]->objectIndex += count;
+            }
+        }
+    }
+    else if (index1 == -2)
+    {
+        for (size_t k = 0; k < renderIndices->size(); k++)
+        {
+            if ((*renderIndices)[k]->objectIndex >= index2)
+            {
+                (*renderIndices)[k]->objectIndex += count;
+            }
         }
     }
 }

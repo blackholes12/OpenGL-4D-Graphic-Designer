@@ -80,37 +80,33 @@ void Game::updateDynamites()
 						}
 					}
 				}
-				unsigned int size1 = this->rigidBodies4D.size();
-				unsigned int count1 = 0;
-				for (size_t j = 1; j < size1; j++)
+				for (size_t j = 1; j < this->rigidBodies4D.size(); j++)
 				{
-					if (this->rigidBodies4D[j - count1]->objectName == "Can-Be-Destroyed"||this->rigidBodies4D[j - count1]->objectName == "Glass4D")
+					if (this->rigidBodies4D[j]->objectName == "Can-Be-Destroyed"||this->rigidBodies4D[j]->objectName == "Glass4D")
 					{
-						if (length(this->rigidBodies4D[j - count1]->position4D - find_dynamite4d(this->dynamites4D, this->dynamites4D2, i)->position4D) < 3.f)
+						if (length(this->rigidBodies4D[j]->position4D - find_dynamite4d(this->dynamites4D, this->dynamites4D2, i)->position4D) < 3.f)
 						{
-							erase_animation4D(&this->shifts4D, &this->floats4D, &this->rotates4D, j - count1);
-							shift_animation4D(this->shifts4D, this->floats4D, this->rotates4D, j - count1,-1);
-							erase_joint4d(&this->sticks4D, &this->springs4D,&this->hingeConstraints, j - count1);
-							shift_joint4d(this->sticks4D, this->springs4D, this->hingeConstraints, j - count1,-1);
-							erase_point_light4d(&this->pointLights4D, this->shaders[WALLD4], this->shaders[TERRAIND4], j - count1);
-							shift_point_light4d(this->pointLights4D, j - count1, -1);
-							this->rigidBodies4D.erase(this->rigidBodies4D.begin()+j - count1);
-							count1++;
+							erase_animation4D(&this->shifts4D, &this->floats4D, &this->rotates4D, j);
+							shift_animation4D(this->shifts4D, this->floats4D, this->rotates4D, j,-1);
+							erase_joint4d(&this->sticks4D, &this->springs4D,&this->hingeConstraints, j);
+							shift_joint4d(this->sticks4D, this->springs4D, this->hingeConstraints, j,-1);
+							erase_point_light4d(&this->pointLights4D, this->shaders[WALLD4], this->shaders[TERRAIND4], j);
+							shift_point_light4d(this->pointLights4D, j, -1);
+							this->rigidBodies4D.erase(this->rigidBodies4D.begin()+j);
+							update_render_indices(this->rigidBodies4D, this->dynamites4D2, this->groups, this->walls4D, this->dynamites4D, &this->renderIndices, this->camera.position4D);
 						}
 					}
 				}
-				unsigned int size2 = size_of_walls4d(this->groups);
-				unsigned int count2 = 0;
-				for (unsigned j = 0; j < size2; j++)
+				for (unsigned j = 0; j < size_of_walls4d(this->groups); j++)
 				{
-					if (find_wall4d(this->groups,j - count2)->objectName == "Can-Be-Destroyed"|| find_wall4d(this->groups, j - count2)->objectName == "Glass4D")
+					if (find_wall4d(this->groups,j)->objectName == "Can-Be-Destroyed"|| find_wall4d(this->groups, j)->objectName == "Glass4D")
 					{
-						if (length(find_wall4d(this->groups, j - count2)->position4D - find_dynamite4d(this->dynamites4D, this->dynamites4D2, i)->position4D) < 3.f)
+						if (length(find_wall4d(this->groups, j)->position4D - find_dynamite4d(this->dynamites4D, this->dynamites4D2, i)->position4D) < 3.f)
 						{
-							erase_joint4d(&this->sticks4D, &this->springs4D,&this->hingeConstraints, j - count2 + size_of_objects4d(this->rigidBodies4D,this->dynamites4D2));
-							shift_joint4d(this->sticks4D, this->springs4D, this->hingeConstraints, j - count2 + size_of_objects4d(this->rigidBodies4D, this->dynamites4D2), -1);
-							erase_wall4d(this->groups, j - count2);
-							count2++;
+							erase_joint4d(&this->sticks4D, &this->springs4D,&this->hingeConstraints, j + size_of_objects4d(this->rigidBodies4D,this->dynamites4D2));
+							shift_joint4d(this->sticks4D, this->springs4D, this->hingeConstraints, j + size_of_objects4d(this->rigidBodies4D, this->dynamites4D2), -1);
+							erase_wall4d(this->groups, j);
+							update_render_indices(this->rigidBodies4D, this->dynamites4D2, this->groups, this->walls4D, this->dynamites4D, &this->renderIndices, this->camera.position4D);
 						}
 					}
 				}
