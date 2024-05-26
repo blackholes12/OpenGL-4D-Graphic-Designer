@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{d3ac0fa6-a889-4273-9984-25bba0948a31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headfile">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="headfile\game_control">
+      <UniqueIdentifier>{c103a394-2eab-4fde-bb2a-f1dfb7012d63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headfile\process">
+      <UniqueIdentifier>{093a99f6-ba47-449a-88b4-0bbfa2793a09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sourcefile">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="resourcefile">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="resourcefile\primitive4d">
+      <UniqueIdentifier>{b3d521fd-4877-400d-b2f8-6c958e6e5a9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resourcefile\shaders">
+      <UniqueIdentifier>{99a7b8fd-4e10-4300-b30a-a9aebdde0fb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="window">
+      <UniqueIdentifier>{291b75c2-7f22-4bb1-95f2-6332d26a5215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headfile\external">
+      <UniqueIdentifier>{6739e4b6-6af7-43ee-856e-c76576123d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headfile\physical">
+      <UniqueIdentifier>{2644791b-318b-45df-8f8d-1644a71190f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headfile\external\algebra">
+      <UniqueIdentifier>{50b10622-cdce-4085-a9e0-442d303f2699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resourcefile\frame4d">
+      <UniqueIdentifier>{3d3f66ae-635d-4a61-9a48-c17a3082fab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headfile\animation">
+      <UniqueIdentifier>{e2074428-d25a-431e-8fbc-e4f286cadccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headfile\game_control\geometry">
+      <UniqueIdentifier>{ca221b36-eade-484a-bb98-739c92cb71ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headfile\game_control\geometry\noise">
+      <UniqueIdentifier>{39eb5c09-90b5-4cc5-b904-f7c62d7026df}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>sourcefile</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>sourcefile</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_glfw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_opengl3.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_tables.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libs.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitives.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_glfw.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_opengl3.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_opengl3_loader.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenglOptions.h">
+      <Filter>headfile\game_control</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitives4D.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_imgui.h">
+      <Filter>headfile\game_control</Filter>
+    </ClInclude>
+    <ClInclude Include="StartObj.h">
+      <Filter>headfile\game_control</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>headfile\game_control</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>headfile\game_control</Filter>
+    </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="Structures4D.h">
+      <Filter>headfile\process</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJLoader.h">
+      <Filter>headfile\process</Filter>
+    </ClInclude>
+    <ClInclude Include="Openfile.h">
+      <Filter>headfile\process</Filter>
+    </ClInclude>
+    <ClInclude Include="Simplex3d.h">
+      <Filter>headfile\game_control\geometry\noise</Filter>
+    </ClInclude>
+    <ClInclude Include="DetectRay.h">
+      <Filter>headfile\game_control\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape2D.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="GetWindowSize.h">
+      <Filter>window</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="InputLists.h">
+      <Filter>headfile\external</Filter>
+    </ClInclude>
+    <ClInclude Include="Phys4D.h">
+      <Filter>headfile\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="Joint.h">
+      <Filter>headfile\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedUpdate.h">
+      <Filter>headfile\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="bivec4.h">
+      <Filter>headfile\external\algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="quadvec4.h">
+      <Filter>headfile\external\algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="rotor4.h">
+      <Filter>headfile\external\algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="vec4.h">
+      <Filter>headfile\external\algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="trivec4.h">
+      <Filter>headfile\external\algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="mod.h">
+      <Filter>headfile\external\algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="body.h">
+      <Filter>headfile\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="colliderPhy.h">
+      <Filter>headfile\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="collision.h">
+      <Filter>headfile\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="gjk.h">
+      <Filter>headfile\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="PhyFunction.h">
+      <Filter>headfile\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="Demo.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumLists.h">
+      <Filter>headfile\external</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>headfile\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry.h">
+      <Filter>headfile\game_control\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectLists.h">
+      <Filter>headfile\game_control</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\frame4d\hypercapsule_frame.h">
+      <Filter>resourcefile\frame4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\frame4d\hypercube_frame.h">
+      <Filter>resourcefile\frame4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\frame4d\hypersphere_frame.h">
+      <Filter>resourcefile\frame4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\frame4d\particle4d_frame.h">
+      <Filter>resourcefile\frame4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\box4d.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\doublequads4d.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\hexacosichoron.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\hexadecachoron.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\hypercone.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\hypercube.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\hyperslope.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\pentachoron.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\pyramid4d.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\quad4d.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\terrain.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\triPrism.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\waterbox4d.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadAndSave.h">
+      <Filter>headfile\process</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\hypersphere.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\hyperspherecol.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\hypercylinder.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefile\primitive4d\hyperpot.h">
+      <Filter>resourcefile\primitive4d</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resourcefile\shaders\atmosphere.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\coordinate4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\coordinate4D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\demo4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\emit4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\frame4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\frame4D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\joint_line4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\light_frame4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\light_frame4D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\obj.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\obj.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\obj4D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\particle4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\particle4D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\shape2D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\shape2D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\sky_box4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\sky_box4D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\terrain4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\terrain4D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\trail4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\trail4D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\wall4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\water4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NewEngine.rc">
+      <Filter>resourcefile</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico">
+      <Filter>resourcefile</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
