@@ -1,0 +1,230 @@
+#version 440
+
+layout (location = 0) in vec4 vertex_A;
+layout (location = 1) in vec4 vertex_B;
+layout (location = 2) in vec4 vertex_C;
+layout (location = 3) in vec4 vertex_D;
+
+layout (location = 4) in vec3 texcoord_A;
+layout (location = 5) in vec3 texcoord_B;
+layout (location = 6) in vec3 texcoord_C;
+layout (location = 7) in vec3 texcoord_D;
+
+layout (location = 8) in vec4 normal_A;
+layout (location = 9) in vec4 normal_B;
+layout (location = 10) in vec4 normal_C;
+layout (location = 11) in vec4 normal_D;
+
+layout (location = 12) in ivec3 cubeIndex_XZW;
+
+layout (location = 13) in int id;
+
+out vec4 vs_position;
+out vec3 vs_texcoord;
+out vec4 vs_normal;
+out float vs_weight[20];
+uniform mat4 mesh4DMat,viewMat,projectionMat;
+uniform vec4 Translate4D,cameraPos;
+
+layout (binding = 2) uniform sampler2D vertexMap;
+layout (binding = 7) uniform sampler3D blendMap;
+
+vec4 pA,pB,pC,pD;
+int line;
+int i,vertexAmount;
+vec4 col4;
+
+vec4 relativePos0,relativePos,pos0;
+
+float disA,disB,disC,disD;
+
+vec3 vector3;
+vec3 slice(vec3 A,vec3 B,vec3 C,vec3 D,float disA,float disB,float disC,float disD,int line)
+{
+switch(line)
+{
+case 2:vector3=mix(A,B,(disA)/(disA-disB));break;
+case 3:vector3=mix(A,C,(disA)/(disA-disC));break;
+case 4:vector3=mix(A,D,(disA)/(disA-disD));break;
+case 6:vector3=mix(B,C,(disB)/(disB-disC));break;
+case 8:vector3=mix(B,D,(disB)/(disB-disD));break;
+case 12:vector3=mix(C,D,(disC)/(disC-disD));break;
+}
+return vector3;
+}
+
+vec4 vector4;
+vec4 slice(vec4 A,vec4 B,vec4 C,vec4 D,float disA,float disB,float disC,float disD,int line)
+{
+switch(line)
+{
+case 2:vector4=mix(A,B,(disA)/(disA-disB));break;
+case 3:vector4=mix(A,C,(disA)/(disA-disC));break;
+case 4:vector4=mix(A,D,(disA)/(disA-disD));break;
+case 6:vector4=mix(B,C,(disB)/(disB-disC));break;
+case 8:vector4=mix(B,D,(disB)/(disB-disD));break;
+case 12:vector4=mix(C,D,(disC)/(disC-disD));break;
+}
+return vector4;
+}
+
+int pointColors[8][8];
+float[8] f8,f8_1,f8_2,f8_3,f8_4,f8_5,f8_6,f8_7,f8_8;
+//float[8] f8_1_2,f8_3_4,f8_5_6,f8_7_8;
+//float[8] f8_1_2_3_4,f8_5_6_7_8;
+float disZ1,disZ2,disY1,disY2,disX1,disX2;
+int texIndex[27];
+int texIndexMain;
+bool isConcrete;
+ivec3 iBlendPos;
+bool isSameAround;
+float weight20[20];
+float[20] colorWeight(sampler3D blendMap,vec3 blendPos)
+{	
+
+for(int k=0;k<20;k++)
+{
+weight20[k]=0.f;
+}
+
+texIndexMain=int(255.f*texelFetch(blendMap,cubeIndex_XZW+ivec3(64),0).r);
+isConcrete=texIndexMain>=10;
+
+if(isConcrete==true)
+{
+weight20[texIndexMain]=1.f;
+}
+
+if(isConcrete==false)
+{
+for(int k=0;k<8;k++)
+{
+f8_1[k]=0.f;
+f8_2[k]=0.f;
+f8_3[k]=0.f;
+f8_4[k]=0.f;
+f8_5[k]=0.f;
+f8_6[k]=0.f;
+f8_7[k]=0.f;
+f8_8[k]=0.f;
+}
+iBlendPos=ivec3(blendPos);
+
+texIndex[0]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(-1,-1,-1),0).r);
+texIndex[1]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(0,-1,-1),0).r);
+texIndex[2]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(1,-1,-1),0).r);
+texIndex[3]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(-1,-1,0),0).r);
+texIndex[4]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(0,-1,0),0).r);
+texIndex[5]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(1,-1,0),0).r);
+texIndex[6]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(-1,-1,1),0).r);
+texIndex[7]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(0,-1,1),0).r);
+texIndex[8]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(1,-1,1),0).r);
+
+texIndex[9]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(-1,0,-1),0).r);
+texIndex[10]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(0,0,-1),0).r);
+texIndex[11]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(1,0,-1),0).r);
+texIndex[12]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(-1,0,0),0).r);
+texIndex[13]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(0,0,0),0).r);
+texIndex[14]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(1,0,0),0).r);
+texIndex[15]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(-1,0,1),0).r);
+texIndex[16]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(0,0,1),0).r);
+texIndex[17]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(1,0,1),0).r);
+
+texIndex[18]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(-1,1,-1),0).r);
+texIndex[19]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(0,1,-1),0).r);
+texIndex[20]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(1,1,-1),0).r);
+texIndex[21]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(-1,1,0),0).r);
+texIndex[22]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(0,1,0),0).r);
+texIndex[23]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(1,1,0),0).r);
+texIndex[24]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(-1,1,1),0).r);
+texIndex[25]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(0,1,1),0).r);
+texIndex[26]=int(255.f*texelFetch(blendMap,iBlendPos+ivec3(1,1,1),0).r);
+
+isSameAround=true;
+for(int i=1;i<27;i++)
+{
+if(texIndex[0]!=texIndex[i])
+isSameAround=false;
+if(texIndex[i]>=10)
+texIndex[i]=texIndexMain;
+}
+if(isSameAround==false)
+{
+pointColors[0][0]=texIndex[0],pointColors[0][1]=texIndex[1],pointColors[0][2]=texIndex[3],pointColors[0][3]=texIndex[4],
+pointColors[0][4]=texIndex[9],pointColors[0][5]=texIndex[10],pointColors[0][6]=texIndex[12],pointColors[0][7]=texIndex[13];
+
+pointColors[1][0]=texIndex[3],pointColors[1][1]=texIndex[4],pointColors[1][2]=texIndex[6],pointColors[1][3]=texIndex[7],
+pointColors[1][4]=texIndex[12],pointColors[1][5]=texIndex[13],pointColors[1][6]=texIndex[15],pointColors[1][7]=texIndex[16];
+
+pointColors[2][0]=texIndex[9],pointColors[2][1]=texIndex[10],pointColors[2][2]=texIndex[12],pointColors[2][3]=texIndex[13],
+pointColors[2][4]=texIndex[18],pointColors[2][5]=texIndex[19],pointColors[2][6]=texIndex[21],pointColors[2][7]=texIndex[22];
+
+pointColors[3][0]=texIndex[12],pointColors[3][1]=texIndex[13],pointColors[3][2]=texIndex[15],pointColors[3][3]=texIndex[16],
+pointColors[3][4]=texIndex[21],pointColors[3][5]=texIndex[22],pointColors[3][6]=texIndex[24],pointColors[3][7]=texIndex[25];
+
+pointColors[4][0]=texIndex[1],pointColors[4][1]=texIndex[2],pointColors[4][2]=texIndex[4],pointColors[4][3]=texIndex[5],
+pointColors[4][4]=texIndex[10],pointColors[4][5]=texIndex[11],pointColors[4][6]=texIndex[13],pointColors[4][7]=texIndex[14];
+
+pointColors[5][0]=texIndex[4],pointColors[5][1]=texIndex[5],pointColors[5][2]=texIndex[7],pointColors[5][3]=texIndex[8],
+pointColors[5][4]=texIndex[13],pointColors[5][5]=texIndex[14],pointColors[5][6]=texIndex[16],pointColors[5][7]=texIndex[17];
+
+pointColors[6][0]=texIndex[10],pointColors[6][1]=texIndex[11],pointColors[6][2]=texIndex[13],pointColors[6][3]=texIndex[14],
+pointColors[6][4]=texIndex[19],pointColors[6][5]=texIndex[20],pointColors[6][6]=texIndex[22],pointColors[6][7]=texIndex[23];
+
+pointColors[7][0]=texIndex[13],pointColors[7][1]=texIndex[14],pointColors[7][2]=texIndex[16],pointColors[7][3]=texIndex[17],
+pointColors[7][4]=texIndex[22],pointColors[7][5]=texIndex[23],pointColors[7][6]=texIndex[25],pointColors[7][7]=texIndex[26];
+
+float disZ1=fract(blendPos.z);
+float disZ2=1.f-disZ1;
+float disY1=fract(blendPos.y);
+float disY2=1.f-disY1;
+float disX1=fract(blendPos.x);
+float disX2=1.f-disX1;
+f8[0]=disZ2*disY2*disX2;f8[1]=disZ1*disY2*disX2;f8[2]=disZ2*disY1*disX2;f8[3]=disZ1*disY1*disX2;
+f8[4]=disZ2*disY2*disX1;f8[5]=disZ1*disY2*disX1;f8[6]=disZ2*disY1*disX1;f8[7]=disZ1*disY1*disX1;
+
+for(int i=0;i<8;i++)
+{
+for(int j=0;j<8;j++)
+{
+weight20[pointColors[i][j]]+=f8[i]/8.f;
+}
+}
+}
+else
+{
+weight20[texIndex[0]]=1.f;
+}
+}
+
+
+return weight20;
+}
+
+void main()
+{
+relativePos0=Translate4D-cameraPos;
+pA=viewMat*(vertex_A+relativePos0),disA=pA.w;
+pB=viewMat*(vertex_B+relativePos0),disB=pB.w;
+pC=viewMat*(vertex_C+relativePos0),disC=pC.w;
+pD=viewMat*(vertex_D+relativePos0),disD=pD.w;
+
+col4=texelFetch(vertexMap,ivec2(8*int(disA>0.f)+4*int(disB>0.f)+2*int(disC>0.f)+int(disD>0.f),id),0);
+if(col4.y!=0.f)
+{
+vertexAmount=int(255.f*col4.y);
+line=int(255.f*col4.x);
+pos0=slice(pA,pB,pC,pD,disA,disB,disC,disD,line);
+if(!(vertexAmount==3&&id==3))
+{
+vs_position=pos0*viewMat+cameraPos;
+vs_texcoord=slice(texcoord_A,texcoord_B,texcoord_C,texcoord_D,disA,disB,disC,disD,line);
+vs_normal=slice(normal_A,normal_B,normal_C,normal_D,disA,disB,disC,disD,line);
+}
+
+vs_weight = colorWeight(blendMap,vs_position.xzw+vec3(64.0f));
+gl_Position = projectionMat * vec4(pos0.xyz, 1.f);
+}
+else
+gl_Position =  vec4(0.f);
+}

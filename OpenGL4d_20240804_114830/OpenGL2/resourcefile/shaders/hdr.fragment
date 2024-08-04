@@ -1,0 +1,17 @@
+#version 440
+in vec2 vs_texcoord;
+out vec4 fs_color;
+layout (binding = 0) uniform sampler2D tex2D;
+uniform vec2 scale2D;
+vec4 col4;
+
+//vec4 texture(vec2 texcoord)
+//{
+//    return texelFetch(tex2D,ivec2(scale2D*texcoord),0);
+//}
+
+void main()
+{
+col4=texture(tex2D,vs_texcoord);
+fs_color = col4;
+};

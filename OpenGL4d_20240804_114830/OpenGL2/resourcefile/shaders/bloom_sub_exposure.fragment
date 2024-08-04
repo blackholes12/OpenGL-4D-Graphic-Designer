@@ -1,0 +1,30 @@
+#version 440
+in vec2 vs_texcoord;
+out vec4 fs_color;
+layout (binding = 0) uniform sampler2D tex2D;
+uniform vec2 scale2D;
+uniform float exposure;
+vec4 col4;
+
+vec4 texture(vec2 texcoord,ivec2 offset)
+{
+    return texelFetch(tex2D,3*ivec2(scale2D*texcoord)+2*offset+ivec2(1),0);
+}
+
+vec4 texture_bloom(vec2 texcoord)
+{
+return 0.5f*texture(texcoord,ivec2(0))+
+0.125f*(
+texture(texcoord,ivec2(-1,-1))+
+texture(texcoord,ivec2(1,-1))+
+texture(texcoord,ivec2(-1,1))+
+texture(texcoord,ivec2(1,1))
+);
+}
+
+void main()
+{
+col4=texture_bloom(vs_texcoord);
+col4.xyz=max(3.25f*exposure*col4.xyz-vec3(1.f),vec3(0.f));
+fs_color = col4;
+};

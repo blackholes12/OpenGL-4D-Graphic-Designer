@@ -1,0 +1,10 @@
+#version 440
+in vec2 vs_texcoord;
+out vec4 fs_color;
+layout (binding = 0) uniform sampler2D tex2D;
+vec4 col4;
+void main()
+{
+col4=texture(tex2D, vs_texcoord);
+fs_color = col4;
+};

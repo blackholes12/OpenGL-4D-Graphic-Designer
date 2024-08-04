@@ -1,0 +1,34 @@
+#version 440
+
+in float vs_distance;
+in vec4 vs_direction4D;
+
+out vec4 fs_color;
+
+vec3 color3;
+vec4 color4;
+
+vec3 random_color()
+{
+float randomFloat=fract(sqrt(2.f)*gl_FragCoord.x+sqrt(10.f)*gl_FragCoord.y);
+return normalize(vec3(randomFloat,fract(2.f*randomFloat),fract(3.f*randomFloat)));
+}
+
+vec3 frameColor3;
+vec3 frameColorW;
+float distance;
+vec3 dir_to_color(vec4 dir,float distance)
+{
+dir=distance>0.f?dir:-dir;
+frameColor3=vec3(dir.x>0.f?dir.x:-dir.x/1.5f,dir.y>0.f?dir.y:-dir.y/1.5f,dir.z>0.f?dir.z:-dir.z/1.5f);
+if(dir.w>0.f)frameColorW = dir.w * random_color();
+if(dir.w<0.f)frameColorW = - dir.w * random_color()/1.5f;
+return mix(vec3(1.f),frameColor3 + frameColorW,min(abs(distance),1.f));
+}
+
+void main()
+{
+color3=dir_to_color(vs_direction4D,vs_distance);
+color4=vec4(color3,1.f);
+fs_color = color4;
+};
