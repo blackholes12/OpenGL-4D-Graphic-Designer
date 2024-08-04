@@ -223,7 +223,7 @@ const mat3 rot3 = mat3(-0.71f, 0.52f,-0.47f,-0.08f,-0.72f,-0.68f,-0.7f,-0.45f,0.
 
 /* directional artifacts can be reduced by rotating each octave */
 float fbm(vec3 p) {
-    return texture(diffuse3D,3.f*p/128.f).r-0.1625f;
+    return (texture(diffuse3D,1.646f*p/128.f).r-0.1625f+0.125f)/1.25f + texture(diffuse3D,1.646f*p/6988.5632f).r-0.5875f;
 }
 vec4 direction;
 vec3 ground_color()
