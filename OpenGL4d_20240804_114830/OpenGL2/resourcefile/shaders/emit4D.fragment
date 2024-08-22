@@ -21,7 +21,7 @@ vec4 scale4D;
 };
 
 uniform vec4 paintingColor;
-layout (binding = 0) uniform sampler3D Tex3D;
+layout (binding = 0) uniform sampler3D texture3D;
 layout (binding = 8) uniform sampler3D area;
 layout (binding = 9) uniform sampler3D deleteMap3D;
 uniform bool isFog;
@@ -111,7 +111,7 @@ for(int j=0;j < Water4DAmount;j++)
 }
 }
 
-col4=texture(Tex3D,vs_texcoord);
+col4=texture(texture3D,vs_texcoord);
 col4*=paintingColor;
 if(isFog)
 {

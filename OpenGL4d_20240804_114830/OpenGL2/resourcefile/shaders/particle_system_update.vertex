@@ -1,0 +1,25 @@
+ #version 440
+
+layout (location = 0) in float type;
+layout (location = 1) in vec4 position4D;
+layout (location = 2) in vec4 velocity4D;
+layout (location = 3) in float radius;
+layout (location = 4) in vec4 color;
+layout (location = 5) in float age;
+
+out float type0;
+out vec4 position4D0;
+out vec4 velocity4D0;
+out float radius0;
+out vec4 color0;
+out float age0;
+
+void main()
+{
+    type0 = type;
+    position4D0 = position4D;
+    velocity4D0 = velocity4D;
+    radius0 = radius;
+    color0 = color;
+    age0 = age;
+}

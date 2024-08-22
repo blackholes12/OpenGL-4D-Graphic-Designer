@@ -1,25 +1,30 @@
 #version 440
-layout (location = 0) in vec4 translate4D;
-layout (location = 1) in vec4 color;
-layout (location = 2) in float radius;
 
-layout (location = 3) in vec4 vertex_A;
-layout (location = 4) in vec4 vertex_B;
-layout (location = 5) in vec4 vertex_C;
-layout (location = 6) in vec4 vertex_D;
+layout (location = 0) in vec4 vertex_A;
+layout (location = 1) in vec4 vertex_B;
+layout (location = 2) in vec4 vertex_C;
+layout (location = 3) in vec4 vertex_D;
 
-layout (location = 7) in vec3 texcoord_A;
-layout (location = 8) in vec3 texcoord_B;
-layout (location = 9) in vec3 texcoord_C;
-layout (location = 10) in vec3 texcoord_D;
+layout (location = 4) in vec3 texcoord_A;
+layout (location = 5) in vec3 texcoord_B;
+layout (location = 6) in vec3 texcoord_C;
+layout (location = 7) in vec3 texcoord_D;
 
-layout (location = 11) in int id;
+layout (location = 8) in vec4 normal_A;
+layout (location = 9) in vec4 normal_B;
+layout (location = 10) in vec4 normal_C;
+layout (location = 11) in vec4 normal_D;
 
+layout (location = 13) in int id;
+
+out vec4 vs_position;
 out vec3 vs_texcoord;
-out vec4 vs_color;
+out vec4 vs_normal;
 
-uniform mat4 viewMat,projectionMat;
+uniform mat4 mesh4DMat,viewMat,projectionMat;
+uniform vec4 translate4D;
 uniform vec4 cameraPos;
+uniform float radius;
 layout (binding = 2) uniform sampler2D vertexMap;
 
 vec4 pA,pB,pC,pD;
@@ -143,7 +148,7 @@ mat4 lightMat4;
 void main()
 {
 relativePos0=translate4D-cameraPos;
-lightMat4=2.f*radius*lookAtMat4(translate4D,cameraPos);
+lightMat4=2.f*radius*lookAtMat4(translate4D,cameraPos)*mesh4DMat;
 pA=viewMat*(lightMat4 * vertex_A+relativePos0);disA=pA.w;
 pB=viewMat*(lightMat4 * vertex_B+relativePos0);disB=pB.w;
 pC=viewMat*(lightMat4 * vertex_C+relativePos0);disC=pC.w;
@@ -158,9 +163,10 @@ vertexAmount=int(col4.y*255.f);
 pos0=slice(pA,pB,pC,pD,disA,disB,disC,disD,line);
 if(vertexAmount!=3||id!=3)
 {
+vs_position=pos0*viewMat+cameraPos;
 vs_texcoord=slice(texcoord_A,texcoord_B,texcoord_C,texcoord_D,disA,disB,disC,disD,line);
+vs_normal=normalize(transpose(inverse(mesh4DMat)) *slice(normal_A,normal_B,normal_C,normal_D,disA,disB,disC,disD,line));
 }
-
 gl_Position = projectionMat * vec4(pos0.xyz, 1.f);
 }
 else

@@ -23,7 +23,7 @@ out vec4 vs_normal;
 out vec4 orthonormalBasis[3];
 
 uniform mat4 mesh4DMat,viewMat,projectionMat;
-uniform vec4 Translate4D;
+uniform vec4 translate4D;
 uniform vec4 cameraPos;
 layout (binding = 2) uniform sampler2D vertexMap;
 
@@ -117,7 +117,7 @@ return vector4;
 
 void main()
 {
-relativePos0=Translate4D-cameraPos;
+relativePos0=translate4D-cameraPos;
 pA=viewMat*(mesh4DMat * vertex_A+relativePos0),disA=pA.w;
 pB=viewMat*(mesh4DMat * vertex_B+relativePos0),disB=pB.w;
 pC=viewMat*(mesh4DMat * vertex_C+relativePos0),disC=pC.w;

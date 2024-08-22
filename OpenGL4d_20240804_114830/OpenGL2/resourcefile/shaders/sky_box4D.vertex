@@ -22,7 +22,7 @@ out vec3 vs_texcoord;
 out vec4 vs_normal;
 
 uniform mat4 mesh4DMat,viewMat,projectionMat;
-uniform vec4 Translate4D;
+uniform vec4 translate4D;
 uniform vec3 texScale;
 layout (binding = 2) uniform sampler2D vertexMap;
 
@@ -74,7 +74,7 @@ return vector4;
 
 void main()
 {
-relativePos0=Translate4D;
+relativePos0=translate4D;
 pA=viewMat*(mesh4DMat *vertex_A+relativePos0);
 pB=viewMat*(mesh4DMat *vertex_B+relativePos0);
 pC=viewMat*(mesh4DMat *vertex_C+relativePos0);

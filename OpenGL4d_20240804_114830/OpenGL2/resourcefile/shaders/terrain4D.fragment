@@ -1,6 +1,6 @@
 #version 440
 #define PI 3.1415926535f
-#define MaxPointLight4DAmount 12
+#define maxPointLight4DAmount 512
 const float n =1.333f;
 
 in vec4 vs_position;
@@ -30,8 +30,8 @@ struct DirectionLight4D
 	float intensity;
 	vec3 color;
 };
-uniform int PointLight4DAmount;
-uniform PointLight4D[MaxPointLight4DAmount] pointLight4D;
+uniform int pointLight4DAmount;
+uniform PointLight4D[maxPointLight4DAmount] pointLights4D;
 PointLight4D pointLight4DI;
 uniform vec4 cameraPos;
 layout (binding = 6) uniform sampler3D caustics3D;
@@ -83,11 +83,11 @@ float calculate_direction(vec4 vs_normal, vec4 direction)
 	return max(directionFinal2,0.f);
 }
 
-const vec3 skyColor1=vec3(0.35079825f,0.4746775f,0.66865325f);
-const vec3 skyColor2=vec3(0.23607575f,0.22702425f,0.2133891125f);
-const vec3 skyColor3=vec3(0.354134675f,0.399529f,0.449479387f);
-const vec3 skyColor4=vec3(0.40405475f,0.4858009515f,0.594765645f);
-const vec3 skyColor5=vec3(0.522123621125f,0.6401673375f,0.83536925f);
+const vec3 skyColor1=vec3(0.3133462315f,0.466245805f,0.6885668415f);       
+const vec3 skyColor2=vec3(0.2236332365f,0.2725809635f,0.332550285975f);    
+const vec3 skyColor3=vec3(0.31595531585f,0.407479678f,0.517172880634f);    
+const vec3 skyColor4=vec3(0.3549928145f,0.47495104073f,0.63078673439f);    
+const vec3 skyColor5=vec3(0.44732267171975f,0.595658857925f,0.8189387535f);
 vec3 global_sky_color()
 {
     float sunLightHeight=-normalize(directionLight4D.direction4D).y;
@@ -185,7 +185,7 @@ if(vs_weight[i]!=0.f)
 color+=texture(diffuse3D[i],vs_position.xzw/2.f).xyz*vs_weight[i];
 }
 
-viewDistance=length(cameraPos-vs_position);
+viewDistance=gl_FragCoord.z/gl_FragCoord.w;
 
 if(length(vs_position)<1000000000000000.f){
 /////////////////
@@ -207,11 +207,12 @@ else
 value=0.003375f;
 caustics_color=mix(vec3(0.5f),1.159f*vec3(dot(vs_normal,vec4(0.f,1.f,0.f,0.f))*(value-0.003375f)),clamp(0.4675166969581f*waterDepth-0.05625f,0.f,1.f))*1.999f;
 }
-if(PointLight4DAmount>0)
-for(i=0;i < PointLight4DAmount;i++)
+if(pointLight4DAmount>0)
 {
-pointLight4DI=pointLight4D[i];
- if(abs(pointLight4DI.position4D.x - vs_position.x)<pointLight4DI.radius)
+for(i=0;i < pointLight4DAmount;i++)
+{
+    pointLight4DI=pointLights4D[i];
+    if(abs(pointLight4DI.position4D.x - vs_position.x)<pointLight4DI.radius)
     {
     if(abs(pointLight4DI.position4D.y - vs_position.y)<pointLight4DI.radius)
     {
@@ -219,29 +220,29 @@ pointLight4DI=pointLight4D[i];
     {
     if(abs(pointLight4DI.position4D.w - vs_position.w)<pointLight4DI.radius)
     {
-distanceI=length(pointLight4DI.position4D - vs_position);
+    distanceI=length(pointLight4DI.position4D - vs_position);
 	if(distanceI<pointLight4DI.radius)
 	{
-	diffuseFinalI=calculate_diffuse(vs_position, vs_normal, pointLight4DI.position4D,pointLight4DI.intensity);
-	if(diffuseFinalI>0.f)
-	{
-	    float r=distanceI/pointLight4DI.radius;
-        float brightness=r<0.75f?1.f:4.f*(1.f-r);
-	attenuationI=brightness*pointLight4DI.intensity/(distanceI*distanceI);
-    
-    diffuseFinalI*=attenuationI;
-    diffuse_color+=diffuseFinalI*pointLight4DI.color;
-    if(isSpecular==true){
-	specularFinalI = pointLight4DI.intensity*calculate_specular(vs_position, vs_normal, vs_position-pointLight4DI.position4D, cameraPos);
-	specularFinalI*=attenuationI/2.f;
-	specular_color+=specularFinalI*pointLight4DI.color;}
-    }
-	}
-
-	}
+	    diffuseFinalI=calculate_diffuse(vs_position, vs_normal, pointLight4DI.position4D,pointLight4DI.intensity);
+	    if(diffuseFinalI>0.f)
+	    {
+	        float r=distanceI/pointLight4DI.radius;
+            float brightness=r<0.75f?1.f:4.f*(1.f-r);
+	        attenuationI=brightness*pointLight4DI.intensity/(distanceI*distanceI);
+            
+            diffuseFinalI*=attenuationI;
+            diffuse_color+=diffuseFinalI*pointLight4DI.color;
+            if(isSpecular==true){
+	        specularFinalI = pointLight4DI.intensity*calculate_specular(vs_position, vs_normal, vs_position-pointLight4DI.position4D, cameraPos);
+	        specularFinalI*=attenuationI/2.f;
+	        specular_color+=specularFinalI*pointLight4DI.color;}
+            }
+	    }
 	}
 	}
 	}
+	}
+}
 }
 direction_color=directionLight4D.intensity*directionLightColor*calculate_direction(vs_normal, directionLight4D.direction4D);
 //////////////
@@ -286,7 +287,7 @@ color=mix(color,0.72f*vec3(0.28f),clamp(1.f-exp(-0.53333f*waterDepth),0.f,1.f));
 }
 if(cameraPos.y<=waterHeight)
 {
-color=fog(color,vec3(0.1875f,0.4f,0.79f),viewDistance*0.1f);
+color=fog(color,vec3(0.179f,0.436f,0.76f),viewDistance*0.1f);
 }
 }
 

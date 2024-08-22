@@ -35,7 +35,7 @@ uniform int PointLight4DAmount;
 uniform PointLight4D[MaxPointLight4DAmount] pointLight4D;
 uniform vec4 cameraPos;
 uniform vec3 paintingColor;
-layout (binding = 0) uniform sampler3D Tex3D;
+layout (binding = 0) uniform sampler3D texture3D;
 
 uniform float iTime;
 uniform DirectionLight4D directionLight4D;
@@ -55,7 +55,7 @@ float calculateDirection(vec4 vs_normal, vec4 direction)
 
 void main()
 {
-col4=texture(Tex3D,vs_texcoord);
+col4=texture(texture3D,vs_texcoord);
 col4.xyz*=paintingColor;
 
 viewDistance=length(cameraPos-vs_position);
