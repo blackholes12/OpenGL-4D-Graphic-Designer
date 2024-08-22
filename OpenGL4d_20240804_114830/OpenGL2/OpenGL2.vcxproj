@@ -173,6 +173,7 @@
     <ClInclude Include="LoadAndSave.h" />
     <ClInclude Include="mod.h" />
     <ClInclude Include="ObjectLists.h" />
+    <ClInclude Include="Particle4D.h" />
     <ClInclude Include="PhyFunction.h" />
     <ClInclude Include="Phys4D.h" />
     <ClInclude Include="Input.h" />
@@ -204,7 +205,7 @@
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Structures4D.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Collider.h" />
+    <ClInclude Include="Physics.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Group.h" />
     <ClInclude Include="imgui\imconfig.h" />
@@ -253,11 +254,15 @@
     <None Include="resourcefile\shaders\joint_line4D.fragment" />
     <None Include="resourcefile\shaders\light_frame4D.fragment" />
     <None Include="resourcefile\shaders\light_frame4D.vertex" />
+    <None Include="resourcefile\shaders\light_particle4D.fragment" />
+    <None Include="resourcefile\shaders\light_particle4D.vertex" />
     <None Include="resourcefile\shaders\obj.fragment" />
     <None Include="resourcefile\shaders\obj.vertex" />
     <None Include="resourcefile\shaders\obj4D.vertex" />
     <None Include="resourcefile\shaders\particle4D.fragment" />
     <None Include="resourcefile\shaders\particle4D.vertex" />
+    <None Include="resourcefile\shaders\particle_system_update.geometry" />
+    <None Include="resourcefile\shaders\particle_system_update.vertex" />
     <None Include="resourcefile\shaders\shape2D.fragment" />
     <None Include="resourcefile\shaders\shape2D.vertex" />
     <None Include="resourcefile\shaders\sky_box4D.fragment" />
@@ -276,6 +281,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resourcefile\shaders\cluster.comp" />
+    <Text Include="resourcefile\shaders\cluster_update.comp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

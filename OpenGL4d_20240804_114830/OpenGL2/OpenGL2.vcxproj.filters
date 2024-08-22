@@ -152,7 +152,7 @@
     <ClInclude Include="StartObj.h">
       <Filter>headfile\game_control</Filter>
     </ClInclude>
-    <ClInclude Include="Collider.h">
+    <ClInclude Include="Physics.h">
       <Filter>headfile\game_control</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
@@ -323,6 +323,9 @@
     <ClInclude Include="resource1.h">
       <Filter>headfile</Filter>
     </ClInclude>
+    <ClInclude Include="Particle4D.h">
+      <Filter>headfile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resourcefile\shaders\atmosphere.fragment">
@@ -424,6 +427,18 @@
     <None Include="resourcefile\shaders\water4D.vertex">
       <Filter>resourcefile\shaders</Filter>
     </None>
+    <None Include="resourcefile\shaders\particle_system_update.geometry">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\particle_system_update.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\light_particle4D.fragment">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
+    <None Include="resourcefile\shaders\light_particle4D.vertex">
+      <Filter>resourcefile\shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="NewEngine.rc">
@@ -434,5 +449,13 @@
     <Image Include="app.ico">
       <Filter>resourcefile</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resourcefile\shaders\cluster.comp">
+      <Filter>resourcefile\shaders</Filter>
+    </Text>
+    <Text Include="resourcefile\shaders\cluster_update.comp">
+      <Filter>resourcefile\shaders</Filter>
+    </Text>
   </ItemGroup>
 </Project>

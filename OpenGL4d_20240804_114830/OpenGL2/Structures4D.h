@@ -453,7 +453,7 @@ static void generate_terrain4D(int size, glm::ivec4 scale, std::vector<Terrain4D
 	for (int w(-scale.w * size / 2.f + size / 2.f); w <= scale.w * size / 2.f - size / 2.f; w += size) {
 		for (int z(-scale.z * size / 2.f + size / 2.f); z <= scale.z * size / 2.f - size / 2.f; z += size) {
 			for (int x(-scale.x * size / 2.f + size / 2.f); x <= scale.x * size / 2.f - size / 2.f; x += size) {
-				terrains4D->push_back(new Terrain4D("Terrain", Terrain4d(glm::ivec4(x, 54, z, w), size), glm::vec4(x, 0.f, z, w), glm::vec4(size), 0.7f, 0.25f, TERRAIN4D, shaderIndex));
+				terrains4D->push_back(new Terrain4D("Terrain", Terrain4d(glm::ivec4(x, 54, z, w)), glm::vec4(x, 0.f, z, w), glm::vec4(size), 0.7f, 0.25f, TERRAIN4D, shaderIndex));
 			}
 		}
 	}

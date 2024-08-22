@@ -1,7 +1,7 @@
 #include"Game_imgui.h"
 #include"OpenglOptions.h"
 #include"StartObj.h"
-#include"Collider.h"
+#include"Physics.h"
 #include"Keyboard.h"
 //Private functions
 void Game::startGLFW()
@@ -49,7 +49,7 @@ void Game::startWindow(
 	start_imgui(this->window);
 
 	//glClearColor(0.15f, 0.5f, 0.85f, 1.f);
-	glClearColor(1.f,1.f,1.f, 1.f);
+	glClearColor(1.f, 1.f, 1.f, 1.f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glfwSwapBuffers(this->window);
 }
@@ -106,7 +106,7 @@ void Game::startShaders()
 	this->shaders.push_back(new Shader(this->GL_VERSION_MAJOR, this->GL_VERSION_MINOR,
 		"resourcefile/shaders/water4D.vertex", "resourcefile/shaders/water4D.fragment"));
 	this->shaders.push_back(new Shader(this->GL_VERSION_MAJOR, this->GL_VERSION_MINOR,
-		"resourcefile/shaders/particle4D.vertex", "resourcefile/shaders/particle4D.fragment"));
+		"resourcefile/shaders/light_particle4D.vertex", "resourcefile/shaders/light_particle4D.fragment"));
 	this->shaders.push_back(new Shader(this->GL_VERSION_MAJOR, this->GL_VERSION_MINOR,
 		"resourcefile/shaders/coordinate4D.vertex", "resourcefile/shaders/coordinate4D.fragment"));
 	this->shaders.push_back(new Shader(this->GL_VERSION_MAJOR, this->GL_VERSION_MINOR,
@@ -439,10 +439,17 @@ void Game::startDefault()
 	this->camera.update_perspective_mat(60.f, static_cast<float>(this->framebufferWidth) / this->framebufferHeight, 0.1f);
 	this->blockLoadDistance = 64;
 	this->objectLoadDistance = 0;
-	this->isFramework = true;
-	trailFadeType = LINEAR;
+	this->isTrail4D = true;
+	this->trailFadeType = LINEAR;
 	this->shaders[TRAIL4D]->use();
 	this->shaders[TRAIL4D]->set1i(LINEAR, "trailFadeType");
+	this->isJointLine4D = true;
+	this->isFramework = true;
+	this->FrameworkProjectionType = 1;
+	this->projectionScaler = 0.283f;
+	this->shaders[FRAME4D]->use();
+	this->shaders[FRAME4D]->set1i(1, "projectionType");
+	this->shaders[FRAME4D]->set1f(this->projectionScaler, "projectionScaler");
 	this->vsync = 1;
 	glfwSwapInterval(this->vsync);
 	glfwSetWindowMonitor(this->window, NULL, 0, 45, this->WINDOW_WIDTH, this->WINDOW_HEIGHT, GLFW_DONT_CARE);
@@ -470,8 +477,8 @@ void Game::startDefault()
 	this->cSwitchFrame = 'G'; this->iSwitchFrame = GLFW_KEY_G;
 	this->cFovIn = 'M';this->iFovIn= GLFW_KEY_M;this->cFovOut = 'N';this->iFovOut = GLFW_KEY_N;
 	this->isCloud = true;
-	this->isSkyBoxFog = false;
-	this->isHDR = true;
+	this->isSkyBoxFog = true;
+	this->isHDR = false;
 	this->isBloom = true;
 	this->bloomMultiplier = 1.f;
 	this->shaderHDRs[BLOOM]->use();
@@ -537,31 +544,31 @@ void Game::updateProjectMat(int fbW, int fbH) {
 	}
 	this->camera.update_perspective_mat(this->camera.fov, static_cast<float>(this->framebufferWidth) / this->framebufferHeight, this->camera.nearPlane);
 	//shaders[OBJ]->use();
-	//shaders[OBJ]->setMat4fv(this->projectionMat, "projectionMat");
+	//shaders[OBJ]->set_mat4fv(this->projectionMat, "projectionMat");
 	this->shaders[SKY_BOXD4]->use();
-	this->shaders[SKY_BOXD4]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[SKY_BOXD4]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[WALLD4]->use();
-	this->shaders[WALLD4]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[WALLD4]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[DEMOD4]->use();
-	this->shaders[DEMOD4]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[DEMOD4]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[EMITD4]->use();
-	this->shaders[EMITD4]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[EMITD4]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[TERRAIND4]->use();
-	this->shaders[TERRAIND4]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[TERRAIND4]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[WATERD4]->use();
-	this->shaders[WATERD4]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[WATERD4]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[PARTICLE4D]->use();
-	this->shaders[PARTICLE4D]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[PARTICLE4D]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[COORDNATE4D]->use();
-	this->shaders[COORDNATE4D]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[COORDNATE4D]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[TRAIL4D]->use();
-	this->shaders[TRAIL4D]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[TRAIL4D]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[JOINT_LINE4D]->use();
-	this->shaders[JOINT_LINE4D]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[JOINT_LINE4D]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[FRAME4D]->use();
-	this->shaders[FRAME4D]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[FRAME4D]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 	this->shaders[LIGHT_FRAME4D]->use();
-	this->shaders[LIGHT_FRAME4D]->setMat4fv(this->camera.projectionMat, "projectionMat");
+	this->shaders[LIGHT_FRAME4D]->set_mat4fv(this->camera.projectionMat, "projectionMat");
 }
 
 void Game::updateUniforms()
@@ -569,70 +576,70 @@ void Game::updateUniforms()
 	//Update view matrix (camera)
 
 	//this->shaders[OBJ]->use();
-	//this->shaders[OBJ]->setVec3f(this->camera.position4D, "cameraPos");
+	//this->shaders[OBJ]->set_vec3f(this->camera.position4D, "cameraPos");
 
 	this->shaders[SKY_BOXD4]->use();
-	this->shaders[SKY_BOXD4]->setMat4fv(this->camera.viewMat4D, "viewMat");
-	this->shaders[SKY_BOXD4]->setVec4f(this->camera.position4D, "cameraPos");
+	this->shaders[SKY_BOXD4]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+	this->shaders[SKY_BOXD4]->set_vec4f(this->camera.position4D, "cameraPos");
 	this->shaders[SKY_BOXD4]->set1f(this->curTime, "iTime");
 
 	this->shaders[WALLD4]->use();
-	this->shaders[WALLD4]->setMat4fv(this->camera.viewMat4D, "viewMat");
-	this->shaders[WALLD4]->setVec4f(this->camera.position4D, "cameraPos");
+	this->shaders[WALLD4]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+	this->shaders[WALLD4]->set_vec4f(this->camera.position4D, "cameraPos");
 	this->shaders[WALLD4]->set1f(this->curTime, "iTime");
 
 	if (this->mode == BUILDING) {
 		this->shaders[DEMOD4]->use();
-		this->shaders[DEMOD4]->setMat4fv(this->camera.viewMat4D, "viewMat");
-		this->shaders[DEMOD4]->setVec4f(this->camera.position4D, "cameraPos");
+		this->shaders[DEMOD4]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+		this->shaders[DEMOD4]->set_vec4f(this->camera.position4D, "cameraPos");
 		this->shaders[DEMOD4]->set1f(this->curTime, "iTime");
 	}
 
 	this->shaders[EMITD4]->use();
-	this->shaders[EMITD4]->setMat4fv(this->camera.viewMat4D, "viewMat");
-	this->shaders[EMITD4]->setVec4f(this->camera.position4D, "cameraPos");
+	this->shaders[EMITD4]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+	this->shaders[EMITD4]->set_vec4f(this->camera.position4D, "cameraPos");
 
 	this->shaders[TERRAIND4]->use();
-	this->shaders[TERRAIND4]->setMat4fv(this->camera.viewMat4D, "viewMat");
-	this->shaders[TERRAIND4]->setVec4f(this->camera.position4D, "cameraPos");
+	this->shaders[TERRAIND4]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+	this->shaders[TERRAIND4]->set_vec4f(this->camera.position4D, "cameraPos");
 	this->shaders[TERRAIND4]->set1f(this->curTime, "iTime");
 
 	if (this->waters4D.size() != 0)
 	{
 		this->shaders[WATERD4]->use();
-		this->shaders[WATERD4]->setMat4fv(this->camera.viewMat4D, "viewMat");
-		this->shaders[WATERD4]->setVec4f(this->camera.position4D, "cameraPos");
+		this->shaders[WATERD4]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+		this->shaders[WATERD4]->set_vec4f(this->camera.position4D, "cameraPos");
 		this->shaders[WATERD4]->set1f(this->curTime, "iTime");
 	}
 
 	this->shaders[PARTICLE4D]->use();
-	this->shaders[PARTICLE4D]->setMat4fv(this->camera.viewMat4D, "viewMat");
-	this->shaders[PARTICLE4D]->setVec4f(this->camera.position4D, "cameraPos");
+	this->shaders[PARTICLE4D]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+	this->shaders[PARTICLE4D]->set_vec4f(this->camera.position4D, "cameraPos");
 
 	if (this->isRenderCoordinate4D)
 	{
 		this->shaders[COORDNATE4D]->use();
-		this->shaders[COORDNATE4D]->setMat4fv(this->camera.viewMat4D, "viewMat");
+		this->shaders[COORDNATE4D]->set_mat4fv(this->camera.viewMat4D, "viewMat");
 	}
 
 	this->shaders[TRAIL4D]->use();
-	this->shaders[TRAIL4D]->setMat4fv(this->camera.viewMat4D, "viewMat");
-	this->shaders[TRAIL4D]->setVec4f(this->camera.position4D, "cameraPos");
+	this->shaders[TRAIL4D]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+	this->shaders[TRAIL4D]->set_vec4f(this->camera.position4D, "cameraPos");
 	this->shaders[TRAIL4D]->set1f(this->curTime, "iTime");
 
 	this->shaders[JOINT_LINE4D]->use();
-	this->shaders[JOINT_LINE4D]->setMat4fv(this->camera.viewMat4D, "viewMat");
-	this->shaders[JOINT_LINE4D]->setVec4f(this->camera.position4D, "cameraPos");
+	this->shaders[JOINT_LINE4D]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+	this->shaders[JOINT_LINE4D]->set_vec4f(this->camera.position4D, "cameraPos");
 
 	if (this->isFramework)
 	{
 		this->shaders[FRAME4D]->use();
-		this->shaders[FRAME4D]->setMat4fv(this->camera.viewMat4D, "viewMat");
-		this->shaders[FRAME4D]->setVec4f(this->camera.position4D, "cameraPos");
+		this->shaders[FRAME4D]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+		this->shaders[FRAME4D]->set_vec4f(this->camera.position4D, "cameraPos");
 
 		this->shaders[LIGHT_FRAME4D]->use();
-		this->shaders[LIGHT_FRAME4D]->setMat4fv(this->camera.viewMat4D, "viewMat");
-		this->shaders[LIGHT_FRAME4D]->setVec4f(this->camera.position4D, "cameraPos");
+		this->shaders[LIGHT_FRAME4D]->set_mat4fv(this->camera.viewMat4D, "viewMat");
+		this->shaders[LIGHT_FRAME4D]->set_vec4f(this->camera.position4D, "cameraPos");
 	}
 }
 void Game::startLines() 
@@ -704,8 +711,8 @@ void::Game::updateLights()
 	{
 		if (this->pointLights4D[i]->index != -1)
 		{
-			//if(this->pointLights4D[i]->index < size_of_objects4d(this->rigidBodies4D, this->dynamites4D2))
-			this->pointLights4D[i]->set_pointlight4D_position(find_rigidbody4d(this->rigidBodies4D, this->dynamites4D2, this->pointLights4D[i]->index)->position4D, this->shaders[WALLD4], this->shaders[TERRAIND4], i);
+			this->pointLights4D[i]->set_pointlight4D_position(find_rigidbody4d(this->rigidBodies4D, this->dynamites4D2, this->pointLights4D[i]->index)->position4D, this->shaders[WALLD4], i);
+			this->pointLights4D[i]->set_pointlight4D_position(find_rigidbody4d(this->rigidBodies4D, this->dynamites4D2, this->pointLights4D[i]->index)->position4D, this->shaders[TERRAIND4], i);
 		}
 	}
 	this->directionLight4D->update_light4D_in_earth_environment(1200.f, this->worldTime);
@@ -829,8 +836,6 @@ Game::Game(
 	this->lightRadius = 10.f;
 	this->isIlluminate = false;
 	this->isGravity = true;
-	this->isTrail4D = true;
-	this->isJointLine4D = true;
 
 	this->startGLFW();
 	this->startWindow(title, resizable);
@@ -862,9 +867,9 @@ Game::~Game()
 	for (Shader* i : this->shaderHDRs) { i = nullptr, delete i; }
 	for (Texture* i : this->textures) { i = nullptr, delete i;}
 	for (Texture* i : this->pointerTexs) { i = nullptr, delete i;}
-	delete this->deleteMap3D, this->deleteMap3D = nullptr;
+	this->deleteMap3D = nullptr, delete this->deleteMap3D;
 	for (Texture3D* i : this->textures3D) { i = nullptr, delete i;}
-	for (Texture3D* i : this->particleTexs3D) { delete i;  i = nullptr; }
+	for (Texture3D* i : this->particleTexs3D) { i = nullptr, delete i;}
 	for (Texture3D* i : this->wallTexs3D) { i = nullptr, delete i;}
 	for (Texture3D* i : this->groundTexs3D) { i = nullptr, delete i;}
 	for (HDRTexture* i : this->hDRTextures) { i = nullptr, delete i; }
@@ -1344,7 +1349,7 @@ void Game::render0()
 		glLineWidth(1.9f);
 		for (Emitter4D* i : this->emitters4D)
 		{
-			for (Particle4D* j : i->particles4D)
+			for (Particle4D0* j : i->particles4D)
 			{
 				if (j->isGlowing) { glBlendFunc(GL_SRC_ALPHA, GL_ONE); }
 				else { glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); }
@@ -1397,7 +1402,7 @@ void Game::render0()
 	glDepthMask(false);
 	for (Emitter4D* i : this->emitters4D)
 	{
-		for (Particle4D* j : i->particles4D)
+		for (Particle4D0* j : i->particles4D)
 		{
 			if (j->isGlowing) glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 			else glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

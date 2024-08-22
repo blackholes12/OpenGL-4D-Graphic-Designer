@@ -23,7 +23,7 @@ private:
 	const int versionMinor;
 
 	//Private functions
-	std::string loadShaderSource(const char* fileName)
+	std::string load_shader_source(const char* fileName)
 	{
 		std::string temp("");
 		std::string src("");
@@ -55,13 +55,13 @@ private:
 		return src;
 	}
 
-	GLuint loadShader(GLenum type, const char* fileName)
+	GLuint load_shader(GLenum type, const char* fileName)
 	{
 		char infoLog[512];
 		GLint success;
 
 		GLuint shader(glCreateShader(type));
-		std::string str_src(this->loadShaderSource(fileName));
+		std::string str_src(this->load_shader_source(fileName));
 		const GLchar* src(str_src.c_str());
 		glShaderSource(shader, 1, &src, NULL);
 		glCompileShader(shader);
@@ -77,7 +77,7 @@ private:
 		return shader;
 	}
 
-	void linkProgram(GLuint vertexShader, GLuint geometryShader, GLuint fragmentShader)
+	void link_program_v_g_f(GLuint vertexShader, GLuint geometryShader, GLuint fragmentShader)
 	{
 		char infoLog[512];
 		GLint success;
@@ -104,6 +104,52 @@ private:
 		glUseProgram(0);
 	}
 
+	void link_program_v_g(GLuint vertexShader, GLuint geometryShader)
+	{
+		char infoLog[512];
+		GLint success;
+
+		this->id = glCreateProgram();
+
+		glAttachShader(this->id, vertexShader);
+
+		if (geometryShader)
+			glAttachShader(this->id, geometryShader);
+
+		glLinkProgram(this->id);
+
+		glGetProgramiv(this->id, GL_LINK_STATUS, &success);
+		if (!success)
+		{
+			glGetProgramInfoLog(this->id, 512, NULL, infoLog);
+			std::cout << "ERROR::SHADER::COULD_NOT_LINK_PROGRAM" << "\n";
+			std::cout << infoLog << "\n";
+		}
+
+		glUseProgram(0);
+	}
+
+	void link_program_c(GLuint computeShader)
+	{
+		char infoLog[512];
+		GLint success;
+
+		this->id = glCreateProgram();
+		glAttachShader(this->id, computeShader);
+
+		glLinkProgram(this->id);
+
+		glGetProgramiv(this->id, GL_LINK_STATUS, &success);
+		if (!success)
+		{
+			glGetProgramInfoLog(this->id, 512, NULL, infoLog);
+			std::cout << "ERROR::SHADER::COULD_NOT_LINK_PROGRAM" << "\n";
+			std::cout << infoLog << "\n";
+		}
+
+		glUseProgram(0);
+	}
+
 public:
 
 	//Constructors/Destructors
@@ -111,21 +157,50 @@ public:
 		const char* vertexFile, const char* fragmentFile, const char* geometryFile = "")
 		: versionMajor(versionMajor), versionMinor(versionMinor)
 	{
-		GLuint vertexShader = loadShader(GL_VERTEX_SHADER, vertexFile);
+		GLuint vertexShader = load_shader(GL_VERTEX_SHADER, vertexFile);
 		GLuint geometryShader(0);
 		if (geometryFile != "")
-			geometryShader = loadShader(GL_GEOMETRY_SHADER, geometryFile);
-		GLuint fragmentShader = loadShader(GL_FRAGMENT_SHADER, fragmentFile);
-		this->linkProgram(vertexShader, geometryShader, fragmentShader);
+			geometryShader = load_shader(GL_GEOMETRY_SHADER, geometryFile);
+		GLuint fragmentShader = load_shader(GL_FRAGMENT_SHADER, fragmentFile);
+		this->link_program_v_g_f(vertexShader, geometryShader, fragmentShader);
 		//End
 		glDeleteShader(vertexShader);
 		glDeleteShader(geometryShader);
 		glDeleteShader(fragmentShader);
 	}
 
+	Shader(const int versionMajor, const int versionMinor,
+		const char* vertexFile, const char* geometryFile, unsigned type)
+		: versionMajor(versionMajor), versionMinor(versionMinor)
+	{
+		GLuint vertexShader = load_shader(GL_VERTEX_SHADER, vertexFile);
+		GLuint geometryShader(0);
+		if (geometryFile != "")
+			geometryShader = load_shader(GL_GEOMETRY_SHADER, geometryFile);
+		this->link_program_v_g(vertexShader, geometryShader);
+		//End
+		glDeleteShader(vertexShader);
+		glDeleteShader(geometryShader);
+	}
+
+	Shader(const int versionMajor, const int versionMinor,
+		const char* computeFile)
+		: versionMajor(versionMajor), versionMinor(versionMinor)
+	{
+		GLuint computeShader = load_shader(GL_COMPUTE_SHADER, computeFile);
+		this->link_program_c(computeShader);
+		//End
+		glDeleteShader(computeShader);
+	}
+
 	~Shader()
 	{
 		glDeleteProgram(this->id);
+	}
+
+	GLuint get_id()
+	{
+		return this->id;
 	}
 
 	//Set uniform functions
@@ -153,14 +228,21 @@ public:
 
 	}
 
-	void setVec2f(glm::fvec2 value, const GLchar* name)
+	void set_vec2f(glm::fvec2 value, const GLchar* name)
 	{
 
 		glUniform2fv(glGetUniformLocation(this->id, name), 1, glm::value_ptr(value));
 
 	}
 
-	void setVec3f(glm::fvec3 value, const GLchar* name)
+	void set_vec2u(glm::uvec2 value, const GLchar* name)
+	{
+
+		glUniform2uiv(glGetUniformLocation(this->id, name), 1, glm::value_ptr(value));
+
+	}
+
+	void set_vec3f(glm::fvec3 value, const GLchar* name)
 	{
 
 		glUniform3fv(glGetUniformLocation(this->id, name), 1, glm::value_ptr(value));
@@ -168,21 +250,21 @@ public:
 	}
 	
 
-	void setVec4f(glm::fvec4 value, const GLchar* name)
+	void set_vec4f(glm::fvec4 value, const GLchar* name)
 	{
 
 		glUniform4fv(glGetUniformLocation(this->id, name), 1, glm::value_ptr(value));
 
 	}
 
-	void setMat3fv(glm::mat3 value, const GLchar* name, GLboolean transpose = GL_FALSE)
+	void set_mat3fv(glm::mat3 value, const GLchar* name, GLboolean transpose = GL_FALSE)
 	{
 
 		glUniformMatrix3fv(glGetUniformLocation(this->id, name), 1, transpose, glm::value_ptr(value));
 
 	}
 
-	void setMat4fv(glm::mat4 value, const GLchar* name, GLboolean transpose = GL_FALSE)
+	void set_mat4fv(glm::mat4 value, const GLchar* name, GLboolean transpose = GL_FALSE)
 	{
 
 		glUniformMatrix4fv(glGetUniformLocation(this->id, name), 1, transpose, glm::value_ptr(value));

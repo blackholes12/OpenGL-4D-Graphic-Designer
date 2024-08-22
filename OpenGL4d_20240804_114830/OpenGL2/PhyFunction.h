@@ -3,8 +3,28 @@
 #include"colliderPhy.h"
 #include"collision.h"
 #include"gjk.h"
-
 static float inverse_mass_term(RigidBody4D* body,
+	glm::vec4 normal,
+	glm::vec4 bodyContact)
+{
+	// n' = ~R n R
+	glm::vec4 bodyNormal(world_vec_to_body(body, normal));
+
+	// n . (R x . I_b^-1(x /\ n') ~R)
+	return dot(bodyNormal,
+			left_contract_bv(
+				alg::vec4(bodyContact),
+				inverse_moment_of_inertia(body,
+					wedge_v(
+						alg::vec4(bodyContact),
+						alg::vec4(bodyNormal)
+					)
+				)
+			).transform()
+	    );
+}
+
+static float inverse_mass_term0(RigidBody4D* body,
 	glm::vec4 normal,
 	glm::vec4 contact)
 {
@@ -40,20 +60,20 @@ static CollisionConstraint collisionConstraint(
 	float friction(a_friction * b_friction);
 	Tangents tangents;
 	orthonormal_basis(manifold.normal, &tangents.t1, &tangents.t2, &tangents.t3);
-	glm::vec4 relVel(vel_at(b, manifold.contactPosB) - vel_at(a, manifold.contactPosA));
+	glm::vec4 relVel(vel_at(b, manifold.contactPosA) - vel_at(a, manifold.contactPosB));
 	float relVelNormal(dot(relVel, manifold.normal));
 	float slop(0.00667f);
 	float baumgarte(0.42f);
 	float bias(baumgarte * 60.f * max(manifold.depth - slop, 0.f) + (relVelNormal < -1.f ? -e * relVelNormal : 0.f));
 	float invAMass(a->mass > 0.f ? massAdjustmentA / a->mass : 0.f);
 	float invBMass(b->mass > 0.f ? massAdjustmentB / b->mass : 0.f);
-	float invLA(massAdjustmentA * inverse_mass_term(a, manifold.normal, manifold.contactPosA));
-	float invLB(massAdjustmentB * inverse_mass_term(b, manifold.normal, manifold.contactPosB));
+	float invLA(massAdjustmentA * inverse_mass_term(a, manifold.normal, manifold.contactPosB));
+	float invLB(massAdjustmentB * inverse_mass_term(b, manifold.normal, manifold.contactPosA));
 	float normalMass(1.f / (invAMass + invBMass + invLA + invLB));
 	glm::vec3 tangentMass(glm::vec3(0.f));
 	for (int i(0); i < 3; i++) {
-		float invLTA(massAdjustmentA * inverse_mass_term(a, tangents.tangent(i), manifold.contactPosA));
-		float invLTB(massAdjustmentB * inverse_mass_term(b, tangents.tangent(i), manifold.contactPosB));
+		float invLTA(massAdjustmentA * inverse_mass_term(a, tangents.tangent(i), manifold.contactPosB));
+		float invLTB(massAdjustmentB * inverse_mass_term(b, tangents.tangent(i), manifold.contactPosA));
 		tangentMass[i] = 1.f / (invAMass + invBMass + invLTA + invLTB);
 	}
 	return CollisionConstraint(manifold.normal, tangents, ContactState(manifold.contactPosA, manifold.contactPosB, bias, normalMass, 0.f, tangentMass, glm::vec3(0.f)), friction);
@@ -93,7 +113,7 @@ static void solve(std::vector <Constraint*>* cs, RigidBody4D* a, RigidBody4D* b,
 		if (isInverseSolve)c = (*cs)[cs->size() - i - 1];
 		else c = (*cs)[i];
 		CollisionConstraint* cC = &c->collisionConstraint;
-		glm::vec4 relVel(vel_at(b, cC->contacts.contactPosB) - vel_at(a, cC->contacts.contactPosA));
+		glm::vec4 relVel(vel_at(b, cC->contacts.contactPosA) - vel_at(a, cC->contacts.contactPosB));
 		float newImpulses[3];
 		for (int i(0); i < 3; i++)
 		{
@@ -120,8 +140,8 @@ static void solve(std::vector <Constraint*>* cs, RigidBody4D* a, RigidBody4D* b,
 			glm::vec4 impulse(cC->tangents.tangent(i) * (newImpulses[i] - cC->contacts.tangentImpulse[i]));
 			cC->contacts.tangentImpulse[i] = newImpulses[i];
 			c->impulses[i] = impulse;
-			resolve_impulse0(a, -impulse, cC->contacts.contactPosA);
-			resolve_impulse0(b, impulse, cC->contacts.contactPosB);
+			resolve_impulse(a, -impulse, cC->contacts.contactPosB);
+			resolve_impulse(b, impulse, cC->contacts.contactPosA);
 		}
 		// calculate normal impulse
 		float relVelNormal(dot(relVel, cC->normal));
@@ -130,12 +150,12 @@ static void solve(std::vector <Constraint*>* cs, RigidBody4D* a, RigidBody4D* b,
 		cC->contacts.normalImpulse = max(prevImpulse + lambda0, 0.f);
 		glm::vec4 impulse(cC->normal * (cC->contacts.normalImpulse - prevImpulse));
 		c->impulses[3] = impulse;
-		resolve_impulse0(a, -impulse, cC->contacts.contactPosA);
-		resolve_impulse0(b, impulse, cC->contacts.contactPosB);
+		resolve_impulse(a, -impulse, cC->contacts.contactPosB);
+		resolve_impulse(b, impulse, cC->contacts.contactPosA);
 	}
 }
 
-static void solve(std::vector <Constraint*>* cs, RigidBody4D* b, bool isInverseSolve)
+static void solve(std::vector <Constraint*>* cs, RigidBody4D* a, bool isInverseSolve)
 {
 	for (unsigned int i(0); i < cs->size(); i++)
 	{
@@ -143,7 +163,7 @@ static void solve(std::vector <Constraint*>* cs, RigidBody4D* b, bool isInverseS
 		if (isInverseSolve)c = (*cs)[cs->size() - i - 1];
 		else c = (*cs)[i];
 		CollisionConstraint* cC = &c->collisionConstraint;
-	    glm::vec4 relVel(vel_at(b, cC->contacts.contactPosB));
+	    glm::vec4 relVel(vel_at(a, cC->contacts.contactPosA));
 	    float newImpulses[3];
 	    for (int i(0); i < 3; i++)
 	    {
@@ -170,7 +190,7 @@ static void solve(std::vector <Constraint*>* cs, RigidBody4D* b, bool isInverseS
 	    	glm::vec4 impulse(cC->tangents.tangent(i) * (newImpulses[i] - cC->contacts.tangentImpulse[i]));
 	    	cC->contacts.tangentImpulse[i] = newImpulses[i];
 			c->impulses[i] = impulse;
-	    	resolve_impulse0(b, impulse, cC->contacts.contactPosB);
+	    	resolve_impulse(a, impulse, cC->contacts.contactPosA);
 	    }
 	    // calculate normal impulse
 	    float relVelNormal(dot(relVel, cC->normal));
@@ -179,7 +199,7 @@ static void solve(std::vector <Constraint*>* cs, RigidBody4D* b, bool isInverseS
 	    cC->contacts.normalImpulse = max(prevImpulse + lambda0, 0.f);
 	    glm::vec4 impulse(cC->normal * (cC->contacts.normalImpulse - prevImpulse));
 		c->impulses[3] = impulse;
-	    resolve_impulse0(b, impulse, cC->contacts.contactPosB);
+	    resolve_impulse(a, impulse, cC->contacts.contactPosA);
 	}
 }
 
@@ -316,7 +336,7 @@ static void get_constraint(
 		if (depth > 0.f)
 		{
 			glm::vec4 normal4D(normalize(normal4D0));
-			constraints.push_back(new Constraint(index1, index2, collisionConstraint(CollisionManifold(normal4D, depth, worldPosition1, worldPosition2), a, 1.f, INFINITY, b, 1.f, INFINITY)));
+			constraints.push_back(new Constraint(index1, index2, collisionConstraint(CollisionManifold(normal4D, depth, h.bodyPosition4D1, h.bodyPosition4D2), a, 1.f, INFINITY, b, 1.f, INFINITY)));
 		}
 	}
 	if(constraints.size() > 0)constraintsVec->push_back(constraints);
@@ -345,24 +365,24 @@ static void get_constraint(
 	for (HingeConstraint4D h : hs)
 	{
 		glm::vec4 normal4D0;
-		glm::vec4 worldPosition1;
-		glm::vec4 worldPosition2;
+		glm::vec4 bodyPosition1;
+		glm::vec4 bodyPosition2;
 		if (!isInverse)
 		{
-			worldPosition1 = body_pos_to_world(b, h.bodyPosition4D2);
-			worldPosition2 = body_pos_to_world(a, h.bodyPosition4D1);
+			bodyPosition1 = h.bodyPosition4D2;
+			bodyPosition2 = h.bodyPosition4D1;
 		}
 		if (isInverse)
 		{
-			worldPosition1 = body_pos_to_world(b, h.bodyPosition4D1);
-			worldPosition2 = body_pos_to_world(a, h.bodyPosition4D2);
+			bodyPosition1 = h.bodyPosition4D1;
+			bodyPosition2 = h.bodyPosition4D2;
 		}
-		normal4D0 = worldPosition1 - worldPosition2;
+		normal4D0 = body_pos_to_world(a,bodyPosition1) - body_pos_to_world(b, bodyPosition2);
 		float depth(length(normal4D0));
 		if (depth > 0.f)
 		{
 			glm::vec4 normal4D(normalize(normal4D0));
-			constraints.push_back(new Constraint(index1, index2, collisionConstraint(CollisionManifold(normal4D, depth, worldPosition1, worldPosition2), a, 1.f, INFINITY, 0.f)));
+			constraints.push_back(new Constraint(index1, index2, collisionConstraint(CollisionManifold(normal4D, depth, bodyPosition1, bodyPosition2), a, 1.f, INFINITY, 0.f)));
 		}
 	}
 	if (constraints.size() > 0)constraintsVec->push_back(constraints);
@@ -392,7 +412,7 @@ static void get_constraint(
 		if (depth > 0.f)
 		{
 			glm::vec4 normal4D(normalize(normal4D0));
-			constraints.push_back(new Constraint(index1, -1, collisionConstraint(CollisionManifold(normal4D, depth, h.worldPosition4D, worldPosition4D2), a, 1.f, INFINITY, 0.f)));
+			constraints.push_back(new Constraint(index1, -1, collisionConstraint(CollisionManifold(normal4D, depth, h.bodyPosition4D1,h.worldPosition4D), a, 1.f, INFINITY, 0.f)));
 		}
 	}
 	if (constraints.size() > 0)constraintsVec->push_back(constraints);

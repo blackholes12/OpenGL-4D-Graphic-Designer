@@ -112,43 +112,21 @@ static glm::vec4 support(Object4D* a,glm::vec4 direction4D)
     {
     case SPHERE4D:
     {
-        float radious(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
-        return a->position4D + radious * normalize(direction4D);
+        float radius(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
+        return a->position4D + radius * normalize(direction4D);
         break;
     }
     case BOX4D:
     {
         glm::vec4 direction4DToObj(world_vec_to_body(a, direction4D));
-        glm::vec4 supportPosition4d;
-        float dot0=-100000.f;
-        for (int i(0); i < 16; i++)
-        {
-            glm::vec4 vertexPos4D(hypercube::vertices4D[i] * a->scale4D);
-            float dot1(dot(direction4DToObj, vertexPos4D));
-            if (dot1 > dot0)
-            {
-                supportPosition4d = vertexPos4D;
-                dot0 = dot1;
-            }
-        }
+        glm::vec4 supportPosition4d(glm::sign(direction4DToObj) * a->scale4D / 2.f);
         return body_pos_to_world(a, supportPosition4d);
         break;
     }
     case STEP4D:
     {
         glm::vec4 direction4DToObj(world_vec_to_body(a, direction4D));
-        glm::vec4 supportPosition4d;
-        float dot0(-100000.f);
-        for (int i(0); i < 16; i++)
-        {
-            glm::vec4 vertexPos4D(hypercube::vertices4D[i] * a->scale4D);
-            float dot1(dot(direction4DToObj, vertexPos4D));
-            if (dot1 > dot0)
-            {
-                supportPosition4d = vertexPos4D;
-                dot0 = dot1;
-            }
-        }
+        glm::vec4 supportPosition4d(glm::sign(direction4DToObj) * a->scale4D / 2.f);
         return body_pos_to_world(a, supportPosition4d);
         break;
     }
@@ -173,19 +151,19 @@ static glm::vec4 support(Object4D* a,glm::vec4 direction4D)
     case CAPSULE4D:
     {
         glm::vec4 direction4DToObj(world_vec_to_body(a, direction4D));
-        float radious(min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f);
+        float radius(min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f);
         float length(a->scale4D.z);
         if (direction4DToObj.z > 0.f)
         {
-            return body_pos_to_world(a,glm::vec4(0.f,0.f, length/2.f-radious,0.f)) + radious * normalize(direction4D);
+            return body_pos_to_world(a,glm::vec4(0.f,0.f, length/2.f-radius,0.f)) + radius * normalize(direction4D);
         }
         else
         {
-            return body_pos_to_world(a, -glm::vec4(0.f, 0.f, length / 2.f - radious, 0.f)) + radious * normalize(direction4D);
+            return body_pos_to_world(a, -glm::vec4(0.f, 0.f, length / 2.f - radius, 0.f)) + radius * normalize(direction4D);
         }
         //else
         //{
-        //    return body_pos_to_world(a, radious*normalize(glm::vec4(direction4DToObj.x, direction4DToObj.y,0.f, direction4DToObj.w)));
+        //    return body_pos_to_world(a, radius*normalize(glm::vec4(direction4DToObj.x, direction4DToObj.y,0.f, direction4DToObj.w)));
         //}
         break;
     }
@@ -305,20 +283,20 @@ static std::vector<glm::vec4> support_points(Object4D* a, glm::vec4 direction4D)
     }
     case CAPSULE4D:
     {
-        float radious = min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f;
+        float radius = min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f;
         float length = a->scale4D.z;
         if (direction4DToObj.z > 0.0001f)
         {
-            supportPoints4D.push_back(body_pos_to_world(a, glm::vec4(0.f, 0.f, length / 2.f - radious, 0.f)) + radious * normalize(direction4D));
+            supportPoints4D.push_back(body_pos_to_world(a, glm::vec4(0.f, 0.f, length / 2.f - radius, 0.f)) + radius * normalize(direction4D));
         }
         else if (direction4DToObj.z < -0.0001f)
         {
-            supportPoints4D.push_back(body_pos_to_world(a, -glm::vec4(0.f, 0.f, length / 2.f - radious, 0.f)) + radious * normalize(direction4D));
+            supportPoints4D.push_back(body_pos_to_world(a, -glm::vec4(0.f, 0.f, length / 2.f - radius, 0.f)) + radius * normalize(direction4D));
         }
         else
         {
-            supportPoints4D.push_back(body_pos_to_world(a, radious * normalize(glm::vec4(direction4DToObj.x, direction4DToObj.y, 0.f, direction4DToObj.w))+glm::vec4(0.f, 0.f, length / 2.f - radious, 0.f)));
-            supportPoints4D.push_back(body_pos_to_world(a, radious * normalize(glm::vec4(direction4DToObj.x, direction4DToObj.y, 0.f, direction4DToObj.w))-glm::vec4(0.f, 0.f, length / 2.f - radious, 0.f)));
+            supportPoints4D.push_back(body_pos_to_world(a, radius * normalize(glm::vec4(direction4DToObj.x, direction4DToObj.y, 0.f, direction4DToObj.w))+glm::vec4(0.f, 0.f, length / 2.f - radius, 0.f)));
+            supportPoints4D.push_back(body_pos_to_world(a, radius * normalize(glm::vec4(direction4DToObj.x, direction4DToObj.y, 0.f, direction4DToObj.w))-glm::vec4(0.f, 0.f, length / 2.f - radius, 0.f)));
         }
         break;
     }
@@ -334,44 +312,22 @@ static float support_distance(Object4D* a, glm::vec4 direction4D)
     {
     case SPHERE4D:
     {
-        float radious(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
-        return radious;
+        float radius(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
+        return radius;
         break;
     }
     case BOX4D:
     {
         glm::vec4 direction4DToObj(world_vec_to_body(a, direction4D));
-        glm::vec4 supportPosition4d;
-        float dot0(-0.00001f);
-        for (int i(0); i < 16; i++)
-        {
-            glm::vec4 vertexPos4D(hypercube::vertices4D[i] * a->scale4D);
-            float dot1(dot(direction4DToObj, vertexPos4D));
-            if (dot1 > dot0)
-            {
-                supportPosition4d = vertexPos4D;
-                dot0 = dot1;
-            }
-        }
-        return dot0;
+        glm::vec4 supportPosition4d(glm::sign(direction4DToObj) * a->scale4D / 2.f);
+        return dot(supportPosition4d, direction4DToObj);
         break;
     }
     case STEP4D:
     {
         glm::vec4 direction4DToObj(world_vec_to_body(a, direction4D));
-        glm::vec4 supportPosition4d;
-        float dot0(-0.00001f);
-        for (int i(0); i < 16; i++)
-        {
-            glm::vec4 vertexPos4D(hypercube::vertices4D[i] * a->scale4D);
-            float dot1(dot(direction4DToObj, vertexPos4D));
-            if (dot1 > dot0)
-            {
-                supportPosition4d = vertexPos4D;
-                dot0 = dot1;
-            }
-        }
-        return dot0;
+        glm::vec4 supportPosition4d(glm::sign(direction4DToObj) * a->scale4D / 2.f);
+        return dot(supportPosition4d, direction4DToObj);
         break;
     }
     case MESH4D:
@@ -395,19 +351,19 @@ static float support_distance(Object4D* a, glm::vec4 direction4D)
     case CAPSULE4D:
     {
         glm::vec4 direction4DToObj(world_vec_to_body(a, direction4D));
-        float radious(min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f);
+        float radius(min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f);
         float length(a->scale4D.z);
         if (direction4DToObj.z > 0.f)
         {
-            return dot(direction4D,body_pos_to_world(a, glm::vec4(0.f, 0.f, length / 2.f - radious, 0.f)) + radious * normalize(direction4D));
+            return dot(direction4D,body_pos_to_world(a, glm::vec4(0.f, 0.f, length / 2.f - radius, 0.f)) + radius * normalize(direction4D));
         }
         else
         {
-            return dot(direction4D,body_pos_to_world(a, -glm::vec4(0.f, 0.f, length / 2.f - radious, 0.f)) + radious * normalize(direction4D));
+            return dot(direction4D,body_pos_to_world(a, -glm::vec4(0.f, 0.f, length / 2.f - radius, 0.f)) + radius * normalize(direction4D));
         }
         //else
         //{
-        //    return dot(direction4D,body_pos_to_world(a, radious * normalize(glm::vec4(direction4DToObj.x, direction4DToObj.y, 0.f, direction4DToObj.w))));
+        //    return dot(direction4D,body_pos_to_world(a, radius * normalize(glm::vec4(direction4DToObj.x, direction4DToObj.y, 0.f, direction4DToObj.w))));
         //}
         break;
     }
@@ -440,8 +396,8 @@ static bool is_point_in_collider(Object4D* a, glm::vec4 position4D)
     {
     case SPHERE4D:
     {
-        float radious = min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f;
-        return length(a->position4D - position4D) < radious;
+        float radius = min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f;
+        return length(a->position4D - position4D) < radius;
         break;
     }
     case BOX4D:
@@ -1120,7 +1076,7 @@ static glm::vec4 epa(Object4D* s1, Object4D* s2, unsigned steps, Simplex simplex
         count++;
         if (count > steps)
         {
-            distance0 = -1.f;
+            //distance0 = -1.f;
             break;
         }
     }

@@ -751,11 +751,10 @@ static void judge_objects(std::vector<Group*> groups, glm::vec4 cameraPos, glm::
                     j->isFront = true;
                 }
             }
-            for (Object4D* j : i->terrains4D)
+            for (Terrain4D* j : i->terrains4D)
             {
-                float size(8);
-                glm::vec4 relativePos4D(j->position4D + j->primitive4D.vertexData4D[11904] - cameraPos);
-                if (dot(cameraFor, relativePos4D) < -size)
+                glm::vec4 relativePos4D(j->position4D + glm::vec4(0.f,(j->topHeight + j->bottomHeight)/2.f,0.f,0.f) - cameraPos);
+                if (dot(cameraFor, relativePos4D) < -(float)(terrainScale * terrainSize))
                 {
                     j->isFront = false;
                 }
@@ -783,7 +782,7 @@ static void judge_objects(std::vector<Group*> groups, glm::vec4 cameraPos, glm::
                     }
                 }
             }
-            for (Object4D* j : i->terrains4D)
+            for (Terrain4D* j : i->terrains4D)
             {
                 if (j->isFront) {
                     float lengthOfScale(length(j->scale4D));

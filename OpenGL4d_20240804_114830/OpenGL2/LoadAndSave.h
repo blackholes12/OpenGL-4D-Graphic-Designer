@@ -295,7 +295,7 @@ static void load_file(const char* filePath, vector<RigidBody4D*>* rigidBodies4D,
 				ss2 >> nameIndex >>
 					position4D.x >> position4D.y >> position4D.z >> position4D.w >>
 					scale4D.x >> scale4D.y >> scale4D.z >> scale4D.w >> mu >> restitution >> colType >> shaderIndex;
-				terrains4D->push_back(new Terrain4D(name_list(nameIndex), Terrain4d(glm::ivec4(position4D.x, 54, position4D.z, position4D.w), 8), position4D, scale4D, mu, restitution, colType, shaderIndex));
+				terrains4D->push_back(new Terrain4D(name_list(nameIndex), Terrain4d(glm::ivec4(position4D.x, 54, position4D.z, position4D.w)), position4D, scale4D, mu, restitution, colType, shaderIndex));
 				break; }
 			case 5: {
 				unsigned nameIndex; unsigned primitiveIndex; glm::vec4 primitiveScale4D; glm::vec4 position4D; glm::vec4 scale4D; unsigned int colType; unsigned shaderIndex;

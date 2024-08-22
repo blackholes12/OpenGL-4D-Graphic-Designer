@@ -36,7 +36,7 @@ public:
     void render(Texture* texture,Shader* shader, glm::vec2 scale2D) {
         texture->bind(0);
         shader->use();
-        shader->setVec2f(scale2D, "scale2D");
+        shader->set_vec2f(scale2D, "scale2D");
         glBindVertexArray(this->VAO);
         glDrawArrays(GL_TRIANGLES, 0, this->nrOfVertices2D);
     }
@@ -45,7 +45,7 @@ public:
         texture->bind(0);
         shader->use();
         //shader->set1f(texture->get_exposure((unsigned int)scale2D.x, (unsigned int)scale2D.y),"exposure");
-        shader->setVec2f(scale2D, "scale2D");
+        shader->set_vec2f(scale2D, "scale2D");
         glBindVertexArray(this->VAO);
         glDrawArrays(GL_TRIANGLES, 0, this->nrOfVertices2D);
     }
@@ -54,7 +54,7 @@ public:
         texture->bind(0);
         shader->use();
         shader->set1f(exposure,"exposure");
-        shader->setVec2f(scale2D, "scale2D");
+        shader->set_vec2f(scale2D, "scale2D");
         glBindVertexArray(this->VAO);
         glDrawArrays(GL_TRIANGLES, 0, this->nrOfVertices2D);
     }
@@ -62,7 +62,7 @@ public:
     void render(std::vector<HDRTexture*> textures, Shader* shader, glm::vec2 scale2D) {
         for (unsigned i(0); i < textures.size(); i++)textures[i]->bind(20 + i);
         shader->use();
-        shader->setVec2f(scale2D, "scale2D");
+        shader->set_vec2f(scale2D, "scale2D");
         glBindVertexArray(this->VAO);
         glDrawArrays(GL_TRIANGLES, 0, this->nrOfVertices2D);
     }

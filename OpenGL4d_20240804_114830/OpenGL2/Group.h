@@ -66,7 +66,8 @@ static void pack_group(std::vector<Group*>* groups, std::vector<Wall4D*>* walls4
 		if (length((*terrains4D)[i]->scale4D) / 2.f < 32.f)
 		{
 			bool isOverlap0(false);
-			glm::vec4 groupPosition4D(get_block_position4D((*terrains4D)[i]->position4D));
+			glm::vec4 groupPosition4D(get_block_position4D((*terrains4D)[i]->position4D+glm::vec4(0.f, ((*terrains4D)[i]->topHeight+ (*terrains4D)[i]->bottomHeight)/2.f, 0.f,0.f)));
+			//std::cout << (*terrains4D)[i]->bottomHeight << "\n";
 			for (Group* j : *groups)
 			{
 				if (groupPosition4D == j->position4D)

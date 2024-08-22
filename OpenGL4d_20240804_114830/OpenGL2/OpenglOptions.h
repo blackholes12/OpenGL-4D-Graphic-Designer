@@ -9,7 +9,8 @@ void set_gl_options(GLFWwindow* window) {
 	
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	//glDepthFunc(GL_GREATER);
+	glPointSize(5.f);
+	//glDepthFunc(GL_LESS);
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	//glEnable(GL_FRAMEBUFFER_SRGB);

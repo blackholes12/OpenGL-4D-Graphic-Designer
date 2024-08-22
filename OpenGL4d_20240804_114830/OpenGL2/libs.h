@@ -33,6 +33,7 @@
 #include "InputLists.h"
 #include "Mesh.h"
 #include "Light.h"
+#include "Particle4D.h"
 #include "Object.h"
 #include "body.h"
 #include "Camera.h"

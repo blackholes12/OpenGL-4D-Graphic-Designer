@@ -568,17 +568,17 @@ public:
 		this->primitiveName = "Hypercapsule";
 		const unsigned int sizeOfTetra(sizeof(hypersphere::indices4D0) / sizeof(glm::ivec2) / 4);
 		const unsigned int sizeOfPoints(sizeof(hypersphere::vertices4D) / sizeof(glm::vec4));
-		float radious(glm::min(scale4D.w, glm::min(scale4D.x, scale4D.y)) / 2.f);
+		float radius(glm::min(scale4D.w, glm::min(scale4D.x, scale4D.y)) / 2.f);
 		float capsuleLength(scale4D.z);
 		this->points4D = new glm::vec4[sizeOfPoints];
 		this->normals4D = new glm::vec4[sizeOfPoints];
 		for (int i(0); i < sizeOfPoints; i++){
 			glm::vec4 point4D(hypersphere::vertices4D[i]);
 			float height(2.f*point4D.w);
-			if (height > 0.f){height = glm::mix(1.f - 2.f * radious / capsuleLength, 1.f, height);}
-			if (height < 0.f){height = -glm::mix(1.f - 2.f * radious / capsuleLength, 1.f, -height);}
+			if (height > 0.f){height = glm::mix(1.f - 2.f * radius / capsuleLength, 1.f, height);}
+			if (height < 0.f){height = -glm::mix(1.f - 2.f * radius / capsuleLength, 1.f, -height);}
 			this->points4D[i] = glm::vec4(point4D.x, point4D.y, height/2.f, -point4D.z);
-			this->normals4D[i] = normalize(glm::vec4(point4D.x, point4D.y, point4D.w / (2.f * radious / capsuleLength), -point4D.z));
+			this->normals4D[i] = normalize(glm::vec4(point4D.x, point4D.y, point4D.w / (2.f * radius / capsuleLength), -point4D.z));
 		}
 		this->transform_vertex4D(this->points4D, sizeOfPoints, this->normals4D, hypersphere::indices4D0, sizeOfTetra, new Vertex4D[4 * sizeOfTetra], new GLuint[6 * sizeOfTetra], scale4D, glm::vec3(0.25f), 1);
 	}
@@ -770,6 +770,9 @@ public:
 	}
 };
 
+static const int terrainSize = 4;
+static const int terrainScale = 4;
+
 class Terrain4d : public Primitive4D
 {
 	float* terrainHeight2;
@@ -780,32 +783,32 @@ class Terrain4d : public Primitive4D
 	glm::vec4* normals4D2;
 	GLuint* indices4D0;
 public:
-	Terrain4d(glm::ivec4 pos, const int size): Primitive4D()
+	Terrain4d(glm::ivec4 pos): Primitive4D()
 	{
 		this->primitiveName = "Terrain4d";
-		int half_size(int((float)size/ 2.f));
-		this->terrainHeight2 = new float[(size+1)* (size + 1)* (size + 1)];
-		this->terrainNormal2 = new glm::vec4[(size + 1) * (size + 1) * (size + 1)];
-		for (int w(0);w < size+1;w++) {
-			for (int z(0);z < size+1;z++) {
-				for (int x(0);x < size+1;x++) {
-					this->terrainHeight2[x + (size + 1) * z + (size + 1) * (size + 1) * w] =
-						terrain_height(glm::vec4(x + pos.x - half_size, pos.y, z + pos.z - half_size, w + pos.w - half_size)) + 54.f;
+		int halfTerrainSize(terrainSize / 2);
+		this->terrainHeight2 = new float[(terrainSize+1)* (terrainSize + 1)* (terrainSize + 1)];
+		this->terrainNormal2 = new glm::vec4[(terrainSize + 1) * (terrainSize + 1) * (terrainSize + 1)];
+		for (int w(0);w < terrainSize+1;w++) {
+			for (int z(0);z < terrainSize+1;z++) {
+				for (int x(0);x < terrainSize+1;x++) {
+					this->terrainHeight2[x + (terrainSize + 1) * z + (terrainSize + 1) * (terrainSize + 1) * w] =
+						terrain_height(glm::vec4(terrainScale * (x - halfTerrainSize) + pos.x, pos.y, terrainScale * (z - halfTerrainSize) + pos.z, terrainScale * (w - halfTerrainSize) + pos.w));
 					
-					this->terrainNormal2[x + (size + 1) * z + (size + 1) * (size + 1) * w] =
-						get_terrain_normal(glm::vec4(x + pos.x - half_size, pos.y, z + pos.z - half_size, w + pos.w - half_size));
+					this->terrainNormal2[x + (terrainSize + 1) * z + (terrainSize + 1) * (terrainSize + 1) * w] =
+						get_terrain_normal(glm::vec4(terrainScale * (x - halfTerrainSize) + pos.x, pos.y, terrainScale * (z - halfTerrainSize) + pos.z, terrainScale * (w - halfTerrainSize) + pos.w));
 				}
 			}
 		}
 
 		this->coordinate_XZW = new glm::ivec3[24];
-		this->points4D = new glm::vec4[4 * 6 * size * size * size];
-		this->normals4D2 = new glm::vec4[4 * 6 * size * size * size];
-		this->cubeIndex_XZW = new glm::ivec3[4 * 6 * size * size * size];
-		for (size_t w(0);w < size;w++) {
-			for (size_t z(0);z < size;z++) {
-				for (size_t x(0);x < size;x++) {					
-					unsigned int cubeIndex(4 * 6 * (size * size * w + size * z + x));
+		this->points4D = new glm::vec4[4 * 6 * terrainSize * terrainSize * terrainSize];
+		this->normals4D2 = new glm::vec4[4 * 6 * terrainSize * terrainSize * terrainSize];
+		this->cubeIndex_XZW = new glm::ivec3[4 * 6 * terrainSize * terrainSize * terrainSize];
+		for (size_t w(0);w < terrainSize;w++) {
+			for (size_t z(0);z < terrainSize;z++) {
+				for (size_t x(0);x < terrainSize;x++) {					
+					unsigned int cubeIndex(4 * 6 * (terrainSize * terrainSize * w + terrainSize * z + x));
 					    this->coordinate_XZW[0] = glm::ivec3(1, 0, 1), this->coordinate_XZW[3] = glm::ivec3(0, 0, 0),
 						this->coordinate_XZW[2] = glm::ivec3(1, 0, 0), this->coordinate_XZW[1] = glm::ivec3(1, 1, 0),
 
@@ -827,21 +830,21 @@ public:
 						int x0(x + this->coordinate_XZW[i].x);
 						int z0(z + this->coordinate_XZW[i].y);
 						int w0(w + this->coordinate_XZW[i].z);
-						this->cubeIndex_XZW[cubeIndex + i] = glm::ivec3(x - half_size + pos.x, z - half_size + pos.z, w - half_size + pos.w);
-						this->points4D[cubeIndex + i] = glm::vec4(float(x0 - half_size), this->terrainHeight2[x0 + (size + 1) * z0 + (size + 1) * (size + 1) * w0], float(z0 - half_size), float(w0 - half_size));
-						this->normals4D2[cubeIndex + i] = this->terrainNormal2[x0 + (size + 1) * z0 + (size + 1) * (size + 1) * w0];
+						this->cubeIndex_XZW[cubeIndex + i] = glm::ivec3(x - halfTerrainSize + pos.x / terrainScale, z - halfTerrainSize + pos.z / terrainScale, w - halfTerrainSize + pos.w / terrainScale);
+						this->points4D[cubeIndex + i] = glm::vec4(terrainScale * float(x0 - halfTerrainSize), this->terrainHeight2[x0 + (terrainSize + 1) * z0 + (terrainSize + 1) * (terrainSize + 1) * w0], terrainScale * float(z0 - halfTerrainSize), terrainScale * float(w0 - halfTerrainSize));
+						this->normals4D2[cubeIndex + i] = this->terrainNormal2[x0 + (terrainSize + 1) * z0 + (terrainSize + 1) * (terrainSize + 1) * w0];
 					}
 				}
 			}
 		}
 
-		this->indices4D0 = new GLuint[4 * 6 * size * size * size];
+		this->indices4D0 = new GLuint[4 * 6 * terrainSize * terrainSize * terrainSize];
 
-		for (int i(0);i < 4 * 6 * size * size * size;i++)
+		for (int i(0);i < 4 * 6 * terrainSize * terrainSize * terrainSize;i++)
 		{
 			this->indices4D0[i] = i;
 		}
-		const unsigned int sizeOfTetra(6 * size * size * size);
+		const unsigned int sizeOfTetra(6 * terrainSize * terrainSize * terrainSize);
 		this->transform_terrain4D(this->points4D, this->normals4D2, this->cubeIndex_XZW, this->indices4D0, pos, sizeOfTetra, new Vertex4D[4 * sizeOfTetra], new GLuint[6 * sizeOfTetra], glm::vec3(0.25f));
 	}
 	~Terrain4d() {

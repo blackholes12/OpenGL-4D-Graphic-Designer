@@ -83,18 +83,16 @@ static float simplex3d_fractal(glm::vec3 m) {
 }
 static float terrain_height(glm::vec4 m)
 {
-	float height = 9.5f * simplex3d_fractal(glm::vec3(0.005f) * glm::vec3(m.x, m.z, m.w));
-		//if (abs(m.x) > 32.5f)
-		//{
-		//	height = glm::mix(height, 10.f, glm::pow((abs(m.x) - 32) / 4.f, 1.f / 2.f));
-		//}
-		//if (abs(m.z) > 32.5f)
-		//{
-		//	height = glm::mix(height, 10.f, glm::pow((abs(m.z) - 32) / 4.f, 1.f / 2.f));
-		//}
-		//if (abs(m.w) > 32.5f)
-		//{
-		//	height = glm::mix(height, 10.f, glm::pow((abs(m.w) - 32) / 4.f, 1.f / 2.f));
-		//}
+	float height = 
+		simplex3d((glm::vec3(10000.f) + glm::vec3(m.x, m.z, m.w)) / 2.f) / 10.f +
+		simplex3d(glm::vec3(m.x, m.z, m.w) / 2.f / exp(1.f)) / 10.f * exp(1.f) +
+		simplex3d((glm::vec3(-10000.f) + glm::vec3(m.x, m.z, m.w)) / 2.f / exp(2.f)) / 10.f * exp(2.f) + 
+		simplex3d((glm::vec3(-20000.f) + glm::vec3(m.x, m.z, m.w)) / 2.f / exp(3.f)) / 10.f * exp(3.f) + 
+		simplex3d((glm::vec3(-30000.f) + glm::vec3(m.x, m.z, m.w)) / 2.f / exp(4.f)) / 10.f * exp(4.f) + 
+		simplex3d((glm::vec3(-40000.f) + glm::vec3(m.x, m.z, m.w)) / 2.f / exp(5.f)) / 10.f * exp(5.f) + 
+		simplex3d((glm::vec3(-50000.f) + glm::vec3(m.x, m.z, m.w)) / 2.f / exp(6.f)) / 10.f * exp(6.f) + 
+		simplex3d((glm::vec3(-60000.f) + glm::vec3(m.x, m.z, m.w)) / 2.f / exp(7.f)) / 10.f * exp(7.f) + 40.f;
+	if(height<54.f)height = (height - 54.f) * 0.5f + 54.f;
+	//height = height + 54.f - 87.f;
 	return height;
 }

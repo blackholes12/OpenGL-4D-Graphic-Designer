@@ -205,8 +205,8 @@ public:
 	{	
 		//Update shader
 		shader->use();
-		shader->setMat4fv(this->ObjectMat, "ObjectMat");
-		shader->setVec3f(this->position, "Translate");
+		shader->set_mat4fv(this->ObjectMat, "ObjectMat");
+		shader->set_vec3f(this->position, "Translate");
 		//Bind VAO
 		glBindVertexArray(this->VAO);
 		//RENDER
@@ -504,8 +504,8 @@ public:
 	{
 		//Update shader
 		//shader->use();
-		shader->setMat4fv(this->mesh4DMat, "mesh4DMat");
-		shader->setVec4f(this->position4D, "Translate4D");
+		shader->set_mat4fv(this->mesh4DMat, "mesh4DMat");
+		shader->set_vec4f(this->position4D, "translate4D");
 		//Bind VAO
 		glBindVertexArray(this->VAO);
 		//RENDER
@@ -516,8 +516,8 @@ public:
 	}
 	void render2(Shader* shader2)
 	{
-		shader2->setMat4fv(this->mesh4DMat, "mesh4DMat");
-		shader2->setVec4f(this->position4D, "Translate4D");
+		shader2->set_mat4fv(this->mesh4DMat, "mesh4DMat");
+		shader2->set_vec4f(this->position4D, "translate4D");
 		glBindVertexArray(this->VAO2);
 		if (this->sizeOfIndices4D > 0)
 			glDrawElements(GL_LINES, (GLsizei)this->sizeOfFrameIndices4D, GL_UNSIGNED_INT, 0);
@@ -633,7 +633,7 @@ public:
 //		shader->use();
 //
 //		shader->set1f(0.67f * pow(intensity, 1.f / 3.f), "radius");
-//		shader->setVec4f(this->position4D, "Translate4D");
+//		shader->set_vec4f(this->position4D, "translate4D");
 //		//std::cout << "Light Height:" << this->position4D.y << "\n";
 //		//Bind VAO
 //		glBindVertexArray(this->VAO);

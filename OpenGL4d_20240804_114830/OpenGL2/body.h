@@ -40,8 +40,8 @@
         {
         case SPHERE4D:
         {
-            float radious(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
-            return 1.5f * a->mass * radious * radious / 5.f+ a->mass * radious * radious;
+            float radius(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
+            return 1.5f * a->mass * radius * radius / 5.f+ a->mass * radius * radius;
             break;
         }
         case BOX4D:
@@ -94,7 +94,7 @@
         b->angularVelocity4D = b->angularVelocity4D + inverse_moment_of_inertia(b, wedge_v(alg::vec4(bodyContact), rotate(b->rotation4D.reverse(), alg::vec4(impulse))));
     }
 
-    static void resolve_impulse0(RigidBody4D* b, glm::vec4 impulse)
+    static void resolve_impulse(RigidBody4D* b, glm::vec4 impulse)
     {
         b->velocity4D += impulse / b->mass;
     }
@@ -105,7 +105,13 @@
         b->angularVelocity4D = b->angularVelocity4D + inverse_moment_of_inertia(b, wedge_v(alg::vec4(world_pos_to_body(b,worldContact)), rotate(b->rotation4D.reverse(), alg::vec4(impulse))));
     }
 
-    static glm::vec4 vel_at(RigidBody4D* b, glm::vec4 worldPos)
+    static glm::vec4 vel_at(RigidBody4D* b, glm::vec4 bodyPos)
+    {
+        glm::vec4 rotVel(body_vec_to_world(b, left_contract_bv(alg::vec4(bodyPos), b->angularVelocity4D).transform()));
+        return b->velocity4D + rotVel;
+    }
+
+    static glm::vec4 vel_at0(RigidBody4D* b, glm::vec4 worldPos)
     {
         glm::vec4 bodyPos(world_pos_to_body(b,worldPos));
         glm::vec4 rotVel(body_vec_to_world(b,left_contract_bv(alg::vec4(bodyPos), b->angularVelocity4D).transform()));

@@ -449,7 +449,7 @@ void Game::updateKeyboardInput()
 		if (this->mode == PAINTING) {
 			ray::get_ray_detect_terrain_pos4D(this->camera.position4D, this->camera.forward4D, this->camera.right4D, this->groups, &this->hittingPos4D);
 			this->shaders[TERRAIND4]->use();
-			this->shaders[TERRAIND4]->setVec4f(this->hittingPos4D, "hittingPos4D");
+			this->shaders[TERRAIND4]->set_vec4f(this->hittingPos4D, "hittingPos4D");
 			this->shaders[TERRAIND4]->set1f(this->paintScale, "paintScale");
 			if (glfwGetMouseButton(this->window, GLFW_MOUSE_BUTTON_2) == GLFW_PRESS)
 			{
@@ -458,8 +458,8 @@ void Game::updateKeyboardInput()
 				else
 					this->paintType = this->paintType0;
 				this->textures3D[BLEND]->paint_colors(this->paintType,
-					glm::vec3(this->hittingPos4D.x, this->hittingPos4D.z, this->hittingPos4D.w),
-					this->paintScale, this->isSphericalPainting);
+					glm::vec3(this->hittingPos4D.x, this->hittingPos4D.z, this->hittingPos4D.w) / (float)terrainScale,
+					this->paintScale / (float)terrainScale, this->isSphericalPainting);
 			}
 		}
 		if (this->mode == BUILDING) {
@@ -481,7 +481,7 @@ void Game::updateKeyboardInput()
 			if (!(this->buildMode == BUILD_STICK || this->buildMode == BUILD_SPRING))
 			{
 				this->shaders[TERRAIND4]->use();
-				this->shaders[TERRAIND4]->setVec4f(this->hittingPos4D, "hittingPos4D");
+				this->shaders[TERRAIND4]->set_vec4f(this->hittingPos4D, "hittingPos4D");
 			}
 
 			if (this->inputs[2]->getMouseOnPress(this->window, GLFW_MOUSE_BUTTON_2))

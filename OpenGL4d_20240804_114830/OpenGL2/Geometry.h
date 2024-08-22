@@ -147,13 +147,13 @@ static glm::vec4 get_terrain_normal(glm::vec4 m)
 	glm::vec4 m2;
 	glm::vec4 normal4d;
 	glm::vec4 pos1, pos2, pos3, pos4;
-	m2 = m;
+	m2 = m - glm::vec4(0.5f);
 	pos1 = glm::vec4(m2.x, terrain_height2(m2), m2.z, m2.w);
-	m2.x += 0.01f;
+	m2.x += 1.f;
 	pos2 = glm::vec4(m2.x, terrain_height2(m2), m2.z, m2.w);
-	m2.z += 0.01f;
+	m2.z += 1.f;
 	pos3 = glm::vec4(m2.x, terrain_height2(m2), m2.z, m2.w);
-	m2.w += 0.01f;
+	m2.w += 1.f;
 	pos4 = glm::vec4(m2.x, terrain_height2(m2), m2.z, m2.w);
 	normal4d = normalize(cross4d(pos4 - pos1, pos3 - pos1, pos2 - pos1));
 	return normalize(normal4d);
@@ -420,7 +420,7 @@ static bool point_col_terrain_tetra4D(glm::vec4 position4D,
 	return isCol;
 }
 
-static bool sphere_col_terrain_tetra4D(glm::vec4 spherePos4D, float radious,
+static bool sphere_col_terrain_tetra4D(glm::vec4 spherePos4D, float radius,
 	glm::vec4 normal4D0,
 	glm::vec4 vertex4D1,
 	glm::vec4 vertex4D2,
@@ -429,11 +429,11 @@ static bool sphere_col_terrain_tetra4D(glm::vec4 spherePos4D, float radious,
 	float* depth, glm::vec4* normal4D, glm::vec4* contactPosA, glm::vec4* contactPosB)
 {
 	bool isCol(false);
-	float depth0(radious - dot(spherePos4D - vertex4D1, normal4D0));
+	float depth0(radius - dot(spherePos4D - vertex4D1, normal4D0));
 	if (depth0 > 0.f)
 	{
-		glm::vec4 contactPosB0(spherePos4D - (radious - depth0) * normal4D0);
-		glm::vec4 contactPosA0(spherePos4D - radious * normal4D0);
+		glm::vec4 contactPosB0(spherePos4D - (radius - depth0) * normal4D0);
+		glm::vec4 contactPosA0(spherePos4D - radius * normal4D0);
 		if (is_in_tetra(contactPosB0, normal4D0, vertex4D1, vertex4D2, vertex4D3, vertex4D4))
 		{
 			*depth = depth0;
@@ -446,7 +446,7 @@ static bool sphere_col_terrain_tetra4D(glm::vec4 spherePos4D, float radious,
 	return isCol;
 }
 
-static bool sphere_col_tetra4D(glm::vec4 spherePos4D, float radious,
+static bool sphere_col_tetra4D(glm::vec4 spherePos4D, float radius,
 	glm::vec4 normal4D0,
 	glm::vec4 vertex4D1,
 	glm::vec4 vertex4D2,
@@ -455,11 +455,11 @@ static bool sphere_col_tetra4D(glm::vec4 spherePos4D, float radious,
 	float* depth, glm::vec4* normal4D, glm::vec4* contactPosA, glm::vec4* contactPosB)
 {
 	bool isCol(false);
-	float depth0(radious - dot(spherePos4D - vertex4D1, normal4D0));
-	if (depth0 > 0.f && depth0 < radious)
+	float depth0(radius - dot(spherePos4D - vertex4D1, normal4D0));
+	if (depth0 > 0.f && depth0 < radius)
 	{
-		glm::vec4 contactPosB0(spherePos4D - (radious - depth0) * normal4D0);
-		glm::vec4 contactPosA0(spherePos4D - radious * normal4D0);
+		glm::vec4 contactPosB0(spherePos4D - (radius - depth0) * normal4D0);
+		glm::vec4 contactPosA0(spherePos4D - radius * normal4D0);
 		if (is_in_tetra4(contactPosB0, normal4D0,vertex4D1, vertex4D2, vertex4D3, vertex4D4))
 		{
 			*depth = depth0;
@@ -472,15 +472,15 @@ static bool sphere_col_tetra4D(glm::vec4 spherePos4D, float radious,
 	return isCol;
 }
 
-static bool sphere_col_face4D(glm::vec4 spherePos4D, float radious, glm::vec4 vertex4D1, glm::vec4 vertex4D2, glm::vec4 vertex4D3,float* depth,glm::vec4* normal4D,glm::vec4* contactPosA, glm::vec4* contactPosB)
+static bool sphere_col_face4D(glm::vec4 spherePos4D, float radius, glm::vec4 vertex4D1, glm::vec4 vertex4D2, glm::vec4 vertex4D3,float* depth,glm::vec4* normal4D,glm::vec4* contactPosA, glm::vec4* contactPosB)
 {
 	bool isCol(false);
 	glm::vec4 normal4D0(get_normal_from_point_and_face(spherePos4D, vertex4D1, vertex4D2, vertex4D3));
-	float depth0(radious - dot(spherePos4D - vertex4D1, normal4D0));
+	float depth0(radius - dot(spherePos4D - vertex4D1, normal4D0));
 	if (depth0 > 0.f)
 	{
-		glm::vec4 contactPosB0(spherePos4D - (radious - depth0) * normal4D0);
-		glm::vec4 contactPosA0(spherePos4D - radious * normal4D0);
+		glm::vec4 contactPosB0(spherePos4D - (radius - depth0) * normal4D0);
+		glm::vec4 contactPosA0(spherePos4D - radius * normal4D0);
 		if (is_in_triangle(contactPosB0, vertex4D1, vertex4D2, vertex4D3))
 		{
 			*depth = depth0;
@@ -493,15 +493,15 @@ static bool sphere_col_face4D(glm::vec4 spherePos4D, float radious, glm::vec4 ve
 	return isCol;
 }
 
-static bool sphere_col_line4D(glm::vec4 spherePos4D, float radious, glm::vec4 vertex4D1, glm::vec4 vertex4D2, float* depth, glm::vec4* normal4D, glm::vec4* contactPosA, glm::vec4* contactPosB)
+static bool sphere_col_line4D(glm::vec4 spherePos4D, float radius, glm::vec4 vertex4D1, glm::vec4 vertex4D2, float* depth, glm::vec4* normal4D, glm::vec4* contactPosA, glm::vec4* contactPosB)
 {
 	bool isCol(false);
 	glm::vec4 normal4D0(normalize(spherePos4D - vertex4D1 - normalize(vertex4D2 - vertex4D1) * dot(normalize(vertex4D2 - vertex4D1), spherePos4D - vertex4D1)));
-	float depth0(radious - dot(spherePos4D - vertex4D1, normal4D0));
+	float depth0(radius - dot(spherePos4D - vertex4D1, normal4D0));
 	if (depth0 > 0.f)
 	{
-		glm::vec4 contactPosB0(spherePos4D - (radious - depth0) * normal4D0);
-		glm::vec4 contactPosA0(spherePos4D - radious * normal4D0);
+		glm::vec4 contactPosB0(spherePos4D - (radius - depth0) * normal4D0);
+		glm::vec4 contactPosA0(spherePos4D - radius * normal4D0);
 		if (dot(vertex4D1 - contactPosB0, vertex4D2 - contactPosB0)<0.f)
 		{
 			*depth = depth0;
@@ -514,14 +514,14 @@ static bool sphere_col_line4D(glm::vec4 spherePos4D, float radious, glm::vec4 ve
 	return isCol;
 }
 
-static bool sphere_col_point4D(glm::vec4 spherePos4D, float radious, glm::vec4 vertex4D, float* depth, glm::vec4* normal4D, glm::vec4* contacts)
+static bool sphere_col_point4D(glm::vec4 spherePos4D, float radius, glm::vec4 vertex4D, float* depth, glm::vec4* normal4D, glm::vec4* contacts)
 {
 	bool isCol(false);
 	glm::vec4 normal4D0(normalize(spherePos4D - vertex4D));
-	float depth0(radious - dot(spherePos4D - vertex4D, normal4D0));
+	float depth0(radius - dot(spherePos4D - vertex4D, normal4D0));
 	if (depth0 > 0.f)
 	{
-		glm::vec4 contacts0(spherePos4D - radious * normal4D0);
+		glm::vec4 contacts0(spherePos4D - radius * normal4D0);
 		*depth = depth0;
 		*normal4D = normal4D0;
 		*contacts = contacts0;
@@ -564,13 +564,13 @@ static bool col_plane4D(glm::vec4 startPos4D, glm::vec4 endPos4D, glm::vec4 plan
 	normal4D[a2] = a > 3 ? -1.f : 1.f;
 	if ((startPos4D[a2] - endPos4D[a2]) * normal4D[a2] > 0.f)
 	{
-		unsigned int b2, c2, d2;
-		if (a2 == 0)b2 = 1, c2 = 2, d2 = 3;
-		else if (a2 == 1)b2 = 0, c2 = 2, d2 = 3;
-		else if (a2 == 2)b2 = 0, c2 = 1, d2 = 3;
-		else if (a2 == 3)b2 = 0, c2 = 1, d2 = 2;
 		if ((startPos4D[a2] - planePos4D[a2]) * (endPos4D[a2] - planePos4D[a2]) < 0.f)
 		{
+			unsigned int b2, c2, d2;
+			if (a2 == 0)b2 = 1, c2 = 2, d2 = 3;
+			else if (a2 == 1)b2 = 0, c2 = 2, d2 = 3;
+			else if (a2 == 2)b2 = 0, c2 = 1, d2 = 3;
+			else if (a2 == 3)b2 = 0, c2 = 1, d2 = 2;
 			glm::vec4 rcolPos4D (startPos4D + (endPos4D - startPos4D) * (planePos4D[a2] - startPos4D[a2]) / (endPos4D[a2] - startPos4D[a2]) - planePos4D);
 			isCol =
 				abs(rcolPos4D[b2]) < planeScale4D[b2] / 2.f &&
@@ -595,10 +595,10 @@ static bool col_plane4D(glm::vec4 startPos4D, glm::vec4 endPos4D, glm::vec4 plan
 
 static bool line_sigment_detect_box4D(glm::vec4 startPos4D, glm::vec4 endPos4D, glm::vec4 scale4D, float* t, glm::vec4* hitNormal)
 {
+	unsigned int a2;
+	float sign;
 	for (int i(0); i < 8; i++)
 	{
-		unsigned int a2;
-		float sign;
 		if (i > 3)a2 = i - 4,sign = -1.f;
 		else a2 = i,sign = 1.f;
 		glm::vec4 planePos4D(glm::vec4(0.f));

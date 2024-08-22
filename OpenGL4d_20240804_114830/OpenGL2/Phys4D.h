@@ -107,8 +107,8 @@ namespace phy {
 						{
 							force4D = 40.f * a->mass * b->mass * dir_a_to_b_e;
 						}
-						resolve_impulse0(a, force4D * dt);
-						resolve_impulse0(b, -force4D * dt);
+						resolve_impulse(a, force4D * dt);
+						resolve_impulse(b, -force4D * dt);
 					}
 				}
 			}
@@ -167,6 +167,7 @@ namespace phy {
 							*collisionsVec = detect_rigidbody_or_wall(a, groups[j]->walls4D[k], i, size_of_objects4d(rigidBodies4D, dynamites4D2) + wallIndex0, *collisionsVec);
 						}
 						for (size_t j(0); j < groups.size(); j++) {
+							if(groups[j]->isRender)
 							for (Terrain4D* k : groups[j]->terrains4D) {
 								*collisionsVec = detect_rigidbody_terrain(a, k, i, *collisionsVec);
 							}
@@ -244,27 +245,47 @@ namespace phy {
 				{
 					for (Constraint* constraint0 : constraints0)
 					{
-						if (length(constraint->collisionConstraint.contacts.contactPosA - constraint0->collisionConstraint.contacts.contactPosA) < 0.1f)
+						if (constraint->index1 == constraint0->index1 && constraint->index2 == constraint0->index2)
 						{
-							if (constraint->index2 == -1)
+							RigidBody4D* a = find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint0->index1);
+							if (constraint0->index2 == -1)
 							{
-								for (unsigned i(0); i < 4; i++) {
-									resolve_impulse0(find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint->index1), constraint0->impulses[i], constraint0->collisionConstraint.contacts.contactPosB);
-								}
-							}
-							else if (constraint->index2 != -1)
-							{
-								if (constraint->index2 < size_of_objects4d(rigidBodies4D, dynamites4D2))
+								if (length(constraint->collisionConstraint.contacts.contactPosA - constraint0->collisionConstraint.contacts.contactPosA) < 0.05f)
 								{
+									//constraint->collisionConstraint.contacts.contactPosA = constraint0->collisionConstraint.contacts.contactPosA;
+									//glm::vec4 contactDirAToB(constraint0->collisionConstraint.contacts.contactPosA - constraint->collisionConstraint.contacts.contactPosA);
+									//constraint->collisionConstraint.normal = -normalize(contactDirAToB);
 									for (unsigned i(0); i < 4; i++) {
-										resolve_impulse0(find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint->index1), -constraint0->impulses[i], constraint0->collisionConstraint.contacts.contactPosA);
-										resolve_impulse0(find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint->index2), constraint0->impulses[i], constraint0->collisionConstraint.contacts.contactPosB);
+										resolve_impulse(a, constraint0->impulses[i], constraint0->collisionConstraint.contacts.contactPosA);
 									}
 								}
-								else if (constraint->index2 >= size_of_objects4d(rigidBodies4D, dynamites4D2))
+							}
+							else if (constraint0->index2 != -1)
+							{
+								if (constraint0->index2 < size_of_objects4d(rigidBodies4D, dynamites4D2))
 								{
-									for (unsigned i(0); i < 4; i++) {
-										resolve_impulse0(find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint->index1), constraint0->impulses[i], constraint0->collisionConstraint.contacts.contactPosB);
+									RigidBody4D* b = find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint0->index2);
+									if (length(constraint->collisionConstraint.contacts.contactPosA - constraint0->collisionConstraint.contacts.contactPosA) < 0.05f &&
+										length(constraint->collisionConstraint.contacts.contactPosB - constraint0->collisionConstraint.contacts.contactPosB) < 0.05f)
+									{
+										//constraint->collisionConstraint.contacts.contactPosA = constraint0->collisionConstraint.contacts.contactPosA;
+										//constraint->collisionConstraint.contacts.contactPosB = constraint0->collisionConstraint.contacts.contactPosB;
+										for (unsigned i(0); i < 4; i++) {
+											resolve_impulse(a, -constraint0->impulses[i], constraint0->collisionConstraint.contacts.contactPosA);
+											resolve_impulse(b, constraint0->impulses[i], constraint0->collisionConstraint.contacts.contactPosB);
+										}
+									}
+								}
+								else if (constraint0->index2 >= size_of_objects4d(rigidBodies4D, dynamites4D2))
+								{
+									if (length(constraint->collisionConstraint.contacts.contactPosA - constraint0->collisionConstraint.contacts.contactPosA) < 0.05f &&
+										length(constraint->collisionConstraint.contacts.contactPosB - constraint0->collisionConstraint.contacts.contactPosB) < 0.05f)
+									{
+										//constraint->collisionConstraint.contacts.contactPosA = constraint0->collisionConstraint.contacts.contactPosA;
+										//constraint->collisionConstraint.contacts.contactPosB = constraint0->collisionConstraint.contacts.contactPosB;
+										for (unsigned i(0); i < 4; i++) {
+											resolve_impulse(a, constraint0->impulses[i], constraint0->collisionConstraint.contacts.contactPosA);
+										}
 									}
 								}
 							}
@@ -462,27 +483,40 @@ namespace phy {
 				{
 					for (Constraint* constraint2 : constraints2)
 					{
-						if (length(constraint->collisionConstraint.contacts.contactPosA - constraint2->collisionConstraint.contacts.contactPosA) < 0.1f)
+						if (constraint->index1 == constraint2->index1 && constraint->index2 == constraint2->index2)
 						{
+							RigidBody4D* a = find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint2->index1);
 							if (constraint2->index2 == -1)
 							{
-								for (unsigned i(0); i < 4; i++) {
-									resolve_impulse0(find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint2->index1), constraint2->impulses[i], constraint2->collisionConstraint.contacts.contactPosB);
+								if (length(constraint->collisionConstraint.contacts.contactPosA - constraint2->collisionConstraint.contacts.contactPosA) < 0.01f)
+								{
+									for (unsigned i(0); i < 4; i++) {
+										resolve_impulse(a, constraint2->impulses[i], constraint2->collisionConstraint.contacts.contactPosB);
+									}
 								}
 							}
 							else if (constraint2->index2 != -1)
 							{
 								if (constraint2->index2 < size_of_objects4d(rigidBodies4D, dynamites4D2))
 								{
-									for (unsigned i(0); i < 4; i++) {
-										resolve_impulse0(find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint2->index1), -constraint2->impulses[i], constraint2->collisionConstraint.contacts.contactPosA);
-										resolve_impulse0(find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint2->index2), constraint2->impulses[i], constraint2->collisionConstraint.contacts.contactPosB);
+									RigidBody4D* b = find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint2->index2);
+									if (length(constraint->collisionConstraint.contacts.contactPosA - constraint2->collisionConstraint.contacts.contactPosA) < 0.01f&&
+										length(constraint->collisionConstraint.contacts.contactPosB - constraint2->collisionConstraint.contacts.contactPosB) < 0.01f)
+									{
+										for (unsigned i(0); i < 4; i++) {
+											resolve_impulse(a, -constraint2->impulses[i], constraint2->collisionConstraint.contacts.contactPosA);
+											resolve_impulse(b, constraint2->impulses[i], constraint2->collisionConstraint.contacts.contactPosB);
+										}
 									}
 								}
 								else if (constraint2->index2 >= size_of_objects4d(rigidBodies4D, dynamites4D2))
 								{
-									for (unsigned i(0); i < 4; i++) {
-										resolve_impulse0(find_rigidbody4d(rigidBodies4D, dynamites4D2, constraint2->index1), constraint2->impulses[i], constraint2->collisionConstraint.contacts.contactPosB);
+									if (length(constraint->collisionConstraint.contacts.contactPosA - constraint2->collisionConstraint.contacts.contactPosA) < 0.01f &&
+										length(constraint->collisionConstraint.contacts.contactPosB - constraint2->collisionConstraint.contacts.contactPosB) < 0.01f)
+									{
+										for (unsigned i(0); i < 4; i++) {
+											resolve_impulse(a, constraint2->impulses[i], constraint2->collisionConstraint.contacts.contactPosB);
+										}
 									}
 								}
 							}

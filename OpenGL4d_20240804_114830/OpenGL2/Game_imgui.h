@@ -11,7 +11,6 @@ const char* controlText("Drag");
 const char* textureText("Sand");
 const char* dynamiteTypeText("Rigid Body4D");
 const char* screenSizeText("");
-int trailFadeType = LINEAR;
 char cameraDirText('W');
 const char* swapIntervalText("vsyncI");
 const char* buildingColText("BOX4D");
@@ -723,10 +722,10 @@ void Game::imgui_use() {
 
 					if (ImGui::Checkbox("Use Light", &this->isIlluminate))
 					{
-						if (this->pointLights4D.size() >= 12)
-						{
-							this->isIlluminate = false;
-						}
+						//if (this->pointLights4D.size() >= 12)
+						//{
+						//	this->isIlluminate = false;
+						//}
 					}
 					if (this->isIlluminate)
 					{
@@ -949,7 +948,7 @@ void Game::imgui_use() {
 			for (size_t i(1); i < this->rigidBodies4D.size(); i++)
 			{
 				this->rigidBodies4D.erase(this->rigidBodies4D.begin() + i);
-				erase_point_light4d(&this->pointLights4D,this->shaders[WALLD4], this->shaders[TERRAIND4],i);
+				erase_point_light4d(&this->pointLights4D, this->shaders[WALLD4], this->shaders[TERRAIND4],i);
 				shift_point_light4d(this->pointLights4D, i, -1);
 				i--;
 			}
@@ -1399,6 +1398,24 @@ void Game::imgui_use() {
 	if (ImGui::TreeNodeEx("Display", 2))
 	{
 		ImGui::Checkbox("Use Wireframe",&this->isFramework);
+		if (this->isFramework)
+		{
+			const int elementCOUNT = 2;
+			const char* elemsNames[elementCOUNT] = { "Verticl", "Perspective" };
+			if (ImGui::SliderInt("Projection Type", &this->FrameworkProjectionType, 0, elementCOUNT - 1, elemsNames[this->FrameworkProjectionType]))
+			{
+				this->shaders[FRAME4D]->use();
+				this->shaders[FRAME4D]->set1i(this->FrameworkProjectionType, "projectionType");
+			}
+			if (this->FrameworkProjectionType == 1)
+			{
+				if (ImGui::SliderFloat("projectionScaler", &this->projectionScaler, 0.f, 4.f))
+				{
+					this->shaders[FRAME4D]->use();
+					this->shaders[FRAME4D]->set1f(this->projectionScaler, "projectionScaler");
+				}
+			}
+		}
 		ImGui::Checkbox("Display Coordinate Lines 4D", &this->isRenderCoordinate4D);
 		if (ImGui::Checkbox("Display Trails 4D", &this->isTrail4D))
 		{
@@ -1413,10 +1430,10 @@ void Game::imgui_use() {
 		{
 			const int elementCOUNT = 3;
 			const char* elemsNames[elementCOUNT] = { "Forget", "Linear", "Invarible"};
-			if (ImGui::SliderInt("Trail Fade Type", &trailFadeType, 0, elementCOUNT - 1, elemsNames[trailFadeType]))
+			if (ImGui::SliderInt("Trail Fade Type", &this->trailFadeType, 0, elementCOUNT - 1, elemsNames[this->trailFadeType]))
 			{
 				this->shaders[TRAIL4D]->use();
-				this->shaders[TRAIL4D]->set1i(trailFadeType, "trailFadeType");
+				this->shaders[TRAIL4D]->set1i(this->trailFadeType, "TrailFadeType");
 			}
 		}
 		ImGui::TreePop();

@@ -43,6 +43,12 @@ static glm::vec4 inverse(glm::vec4 normal,bool isInverse)
     return isInverse ? normal : -normal;
 }
 
+static std::pair < glm::vec4, glm::vec4 > inverse(glm::vec4 contactPosA, glm::vec4 contactPosB, bool isInverse)
+{
+    if (isInverse) return { contactPosB ,contactPosA };
+    else return { contactPosA ,contactPosB };
+}
+
 static std::vector<std::vector<Collision>> sphere_to_sphere(Object4D* a, Object4D* b,int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
     if (abs(a->position4D.x - b->position4D.x) < (a->scale4D.x + b->scale4D.x) / 2.f &&
@@ -50,17 +56,18 @@ static std::vector<std::vector<Collision>> sphere_to_sphere(Object4D* a, Object4
         abs(a->position4D.z - b->position4D.z) < (a->scale4D.z + b->scale4D.z) / 2.f &&
         abs(a->position4D.w - b->position4D.w) < (a->scale4D.w + b->scale4D.w) / 2.f)
     {
-        float radiousA(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
-        float radiousB(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
-        if (length(a->position4D - b->position4D) < radiousA + radiousB)
+        float radiusA(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
+        float radiusB(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
+        if (length(a->position4D - b->position4D) < radiusA + radiusB)
         {
             std::vector<Collision> collisions;
             glm::vec4 normal(normalize(b->position4D - a->position4D));
-            float depth(radiousA + radiousB - length(a->position4D - b->position4D));
-            glm::vec4 contactPosA(a->position4D + radiousA * normal);
-            glm::vec4 contactPosB(b->position4D - radiousB * normal);
+            float depth(radiusA + radiusB - length(a->position4D - b->position4D));
+            glm::vec4 contactPosA(world_vec_to_body(a, radiusA * normal));
+            glm::vec4 contactPosB(world_vec_to_body(b, -radiusB * normal));
+            std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
             collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal,isInverse),depth, contactPosA, contactPosB));
-            if(collisions.size()>0)collisionsVec.push_back(collisions);
+            collisionsVec.push_back(collisions);
         }
     }
     return collisionsVec;
@@ -68,24 +75,24 @@ static std::vector<std::vector<Collision>> sphere_to_sphere(Object4D* a, Object4
 
 static std::vector<std::vector<Collision>> cube_to_sphere(Object4D* a, Object4D* b, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
-    float radious(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
-    float cubeRadious(length(a->scale4D)/2.f);
-    if (abs(a->position4D.x - b->position4D.x) < radious + cubeRadious &&
-        abs(a->position4D.y - b->position4D.y) < radious + cubeRadious &&
-        abs(a->position4D.z - b->position4D.z) < radious + cubeRadious &&
-        abs(a->position4D.w - b->position4D.w) < radious + cubeRadious)
+    float radius(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
+    float cuberadius(length(a->scale4D)/2.f);
+    if (abs(a->position4D.x - b->position4D.x) < radius + cuberadius &&
+        abs(a->position4D.y - b->position4D.y) < radius + cuberadius &&
+        abs(a->position4D.z - b->position4D.z) < radius + cuberadius &&
+        abs(a->position4D.w - b->position4D.w) < radius + cuberadius)
     {
         glm::vec4 pB(world_pos_to_body(a, b->position4D));
-        if (abs(pB.x) < a->scale4D.x / 2.f + radious &&
-            abs(pB.y) < a->scale4D.y / 2.f + radious &&
-            abs(pB.z) < a->scale4D.z / 2.f + radious &&
-            abs(pB.w) < a->scale4D.w / 2.f + radious)
+        if (abs(pB.x) < a->scale4D.x / 2.f + radius &&
+            abs(pB.y) < a->scale4D.y / 2.f + radius &&
+            abs(pB.z) < a->scale4D.z / 2.f + radius &&
+            abs(pB.w) < a->scale4D.w / 2.f + radius)
         {
             glm::vec4 sA(a->scale4D / 2.f);
-            if (abs(pB.x) < sA.x + radious &&
-                abs(pB.y) < sA.y + radious &&
-                abs(pB.z) < sA.z + radious &&
-                abs(pB.w) < sA.w + radious)
+            if (abs(pB.x) < sA.x + radius &&
+                abs(pB.y) < sA.y + radius &&
+                abs(pB.z) < sA.z + radius &&
+                abs(pB.w) < sA.w + radius)
             {
                 glm::vec4 normal;
                 float depth;
@@ -111,17 +118,18 @@ static std::vector<std::vector<Collision>> cube_to_sphere(Object4D* a, Object4D*
                             if (j == 0)sign = 1.f;
                             else if (j == 1)sign = -1.f;
                             if (sign * pB[dir2] > sA[dir2] &&
-                                abs(pB[dir2] - sign * sA[dir2]) < radious)
+                                abs(pB[dir2] - sign * sA[dir2]) < radius)
                             {
                                 normal = glm::vec4(0.f);
                                 normal[dir2] = pB[dir2] - sign * sA[dir2];
                                 normal = normalize(normal);
                                 glm::vec4 aVec4(pB);
                                 aVec4[dir2] = sign * sA[dir2];
-                                depth = radious - abs(pB[dir2] - aVec4[dir2]);
-                                contactPosA = body_pos_to_world(a, aVec4);
-                                contactPosB = body_pos_to_world(a, pB - radious * normal);
+                                depth = radius - abs(pB[dir2] - aVec4[dir2]);
+                                contactPosA = aVec4;
                                 normal = body_vec_to_world(a, normal);
+                                contactPosB = -radius * world_vec_to_body(b, normal);
+                                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                 collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA, contactPosB));
                             }
                         }
@@ -150,7 +158,7 @@ static std::vector<std::vector<Collision>> cube_to_sphere(Object4D* a, Object4D*
                             if (sign[0] * pB[dir2[0]] > sA[dir2[0]] &&
                                 sign[1] * pB[dir2[1]] > sA[dir2[1]] &&
                                 length(glm::vec2(pB[dir2[0]] - sign[0] * sA[dir2[0]],
-                                    pB[dir2[1]] - sign[1] * sA[dir2[1]])) < radious)
+                                    pB[dir2[1]] - sign[1] * sA[dir2[1]])) < radius)
                             {
                                 normal = glm::vec4(0.f);
                                 normal[dir2[0]] = pB[dir2[0]] - sign[0] * sA[dir2[0]];
@@ -159,11 +167,12 @@ static std::vector<std::vector<Collision>> cube_to_sphere(Object4D* a, Object4D*
                                 glm::vec4 aVec4(pB);
                                 aVec4[dir2[0]] = sign[0] * sA[dir2[0]];
                                 aVec4[dir2[1]] = sign[1] * sA[dir2[1]];
-                                depth = radious - length(glm::vec2(pB[dir2[0]] - aVec4[dir2[0]],
+                                depth = radius - length(glm::vec2(pB[dir2[0]] - aVec4[dir2[0]],
                                     pB[dir2[1]] - aVec4[dir2[1]]));
-                                contactPosA = body_pos_to_world(a, aVec4);
-                                contactPosB = body_pos_to_world(a, pB - radious * normal);
+                                contactPosA = aVec4;
                                 normal = body_vec_to_world(a, normal);
+                                contactPosB = -radius * world_vec_to_body(b,normal);
+                                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                 collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA, contactPosB));
                             }
                         }
@@ -196,7 +205,7 @@ static std::vector<std::vector<Collision>> cube_to_sphere(Object4D* a, Object4D*
                                 sign[2] * pB[dir2[2]] > sA[dir2[2]] &&
                                 length(glm::vec3(pB[dir2[0]] - sign[0] * sA[dir2[0]],
                                     pB[dir2[1]] - sign[1] * sA[dir2[1]],
-                                    pB[dir2[2]] - sign[2] * sA[dir2[2]])) < radious)
+                                    pB[dir2[2]] - sign[2] * sA[dir2[2]])) < radius)
                             {
                                 normal = glm::vec4(0.f);
                                 normal[dir2[0]] = pB[dir2[0]] - sign[0] * sA[dir2[0]];
@@ -207,12 +216,13 @@ static std::vector<std::vector<Collision>> cube_to_sphere(Object4D* a, Object4D*
                                 aVec4[dir2[0]] = sign[0] * sA[dir2[0]];
                                 aVec4[dir2[1]] = sign[1] * sA[dir2[1]];
                                 aVec4[dir2[2]] = sign[2] * sA[dir2[2]];
-                                depth = radious - length(glm::vec3(pB[dir2[0]] - aVec4[dir2[0]],
+                                depth = radius - length(glm::vec3(pB[dir2[0]] - aVec4[dir2[0]],
                                     pB[dir2[1]] - aVec4[dir2[1]],
                                     pB[dir2[2]] - aVec4[dir2[2]]));
-                                contactPosA = body_pos_to_world(a, aVec4);
-                                contactPosB = body_pos_to_world(a, pB - radious * normal);
+                                contactPosA = aVec4;
                                 normal = body_vec_to_world(a, normal);
+                                contactPosB = -radius * world_vec_to_body(b, normal);
+                                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                 collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA, contactPosB));
                             }
                         }
@@ -249,7 +259,7 @@ static std::vector<std::vector<Collision>> cube_to_sphere(Object4D* a, Object4D*
                                 length(glm::vec4(pB[dir2[0]] - sign[0] * sA[dir2[0]],
                                     pB[dir2[1]] - sign[1] * sA[dir2[1]],
                                     pB[dir2[2]] - sign[2] * sA[dir2[2]],
-                                    pB[dir2[3]] - sign[3] * sA[dir2[3]])) < radious)
+                                    pB[dir2[3]] - sign[3] * sA[dir2[3]])) < radius)
                             {
                                 normal = glm::vec4(0.f);
                                 normal[dir2[0]] = pB[dir2[0]] - sign[0] * sA[dir2[0]];
@@ -262,13 +272,14 @@ static std::vector<std::vector<Collision>> cube_to_sphere(Object4D* a, Object4D*
                                 aVec4[dir2[1]] = sign[1] * sA[dir2[1]];
                                 aVec4[dir2[2]] = sign[2] * sA[dir2[2]];
                                 aVec4[dir2[3]] = sign[3] * sA[dir2[3]];
-                                depth = radious - length(glm::vec4(pB[dir2[0]] - aVec4[dir2[0]],
+                                depth = radius - length(glm::vec4(pB[dir2[0]] - aVec4[dir2[0]],
                                     pB[dir2[1]] - aVec4[dir2[1]],
                                     pB[dir2[2]] - aVec4[dir2[2]],
                                     pB[dir2[3]] - aVec4[dir2[3]]));
-                                contactPosA = body_pos_to_world(a, aVec4);
-                                contactPosB = body_pos_to_world(a, pB - radious * normal);
+                                contactPosA = aVec4;
                                 normal = body_vec_to_world(a, normal);
+                                contactPosB = -radius * world_vec_to_body(b, normal);
+                                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                 collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA, contactPosB));
                             }
                         }
@@ -283,12 +294,12 @@ static std::vector<std::vector<Collision>> cube_to_sphere(Object4D* a, Object4D*
 
 static std::vector<std::vector<Collision>> mesh_to_sphere(Object4D* a, Object4D* b, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
-    float radious(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
-    float meshRadious(length(a->scale4D) / 2.f);
-    if (abs(a->position4D.x - b->position4D.x) < radious + meshRadious &&
-        abs(a->position4D.y - b->position4D.y) < radious + meshRadious &&
-        abs(a->position4D.z - b->position4D.z) < radious + meshRadious &&
-        abs(a->position4D.w - b->position4D.w) < radious + meshRadious)
+    float radius(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
+    float meshradius(length(a->scale4D) / 2.f);
+    if (abs(a->position4D.x - b->position4D.x) < radius + meshradius &&
+        abs(a->position4D.y - b->position4D.y) < radius + meshradius &&
+        abs(a->position4D.z - b->position4D.z) < radius + meshradius &&
+        abs(a->position4D.w - b->position4D.w) < radius + meshradius)
     {
         glm::vec4 pB(world_pos_to_body(a, b->position4D));
         glm::vec4 normal;
@@ -306,7 +317,7 @@ static std::vector<std::vector<Collision>> mesh_to_sphere(Object4D* a, Object4D*
             glm::vec4 tetraVertexPos4D4(body_pos_to_world(a, a->primitive4D.vertexData4D[4 * i + 3] * a->scale4D));
             glm::vec4 normal0 = normalize(body_vec_to_world(a, a->primitive4D.normalData4D[4 * i] / a->scale4D));
             float supportDistanceA(dot(tetraVertexPos4D1 - b->position4D, normal0));
-            if (abs(supportDistanceA) < radious) 
+            if (abs(supportDistanceA) < radius) 
             { 
                 tetras4DA.push_back({ 
                     a->primitive4D.vertexData4D[4 * i] * a->scale4D ,
@@ -323,7 +334,7 @@ static std::vector<std::vector<Collision>> mesh_to_sphere(Object4D* a, Object4D*
             glm::vec4 vertexPos4D2(tetras4DA[i].vertices4D[1]);
             glm::vec4 vertexPos4D3(tetras4DA[i].vertices4D[2]);
             glm::vec4 vertexPos4D4(tetras4DA[i].vertices4D[3]);
-            if (sphere_col_tetra4D(pB, radious,
+            if (sphere_col_tetra4D(pB, radius,
                 tetraNormal4D[i],
                 vertexPos4D1,
                 vertexPos4D2,
@@ -332,151 +343,151 @@ static std::vector<std::vector<Collision>> mesh_to_sphere(Object4D* a, Object4D*
                 &depth, &normal, &contactPosA, &contactPosB))
             {
                 normal = body_vec_to_world(a, normal);
-                contactPosA = body_pos_to_world(a, contactPosA);
-                contactPosB = body_pos_to_world(a, contactPosB);
+                contactPosB = -radius * world_vec_to_body(b, normal);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                 collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA,contactPosB));
             }
 
-            else if (sphere_col_face4D(pB, radious,
+            else if (sphere_col_face4D(pB, radius,
                 vertexPos4D1,
                 vertexPos4D2,
                 vertexPos4D3,
                 &depth, &normal, &contactPosA, &contactPosB))
             {
                 normal = body_vec_to_world(a, normal);
-                contactPosA = body_pos_to_world(a, contactPosA);
-                contactPosB = body_pos_to_world(a, contactPosB);
+                contactPosB = -radius * world_vec_to_body(b, normal);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                 collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
             }
-            else if (sphere_col_face4D(pB, radious,
+            else if (sphere_col_face4D(pB, radius,
                 vertexPos4D1,
                 vertexPos4D2,
                 vertexPos4D4,
                 &depth, &normal, &contactPosA, &contactPosB))
             {
                 normal = body_vec_to_world(a, normal);
-                contactPosA = body_pos_to_world(a, contactPosA);
-                contactPosB = body_pos_to_world(a, contactPosB);
+                contactPosB = -radius * world_vec_to_body(b, normal);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                 collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
             }
-            else if (sphere_col_face4D(pB, radious,
+            else if (sphere_col_face4D(pB, radius,
                 vertexPos4D1,
                 vertexPos4D3,
                 vertexPos4D4,
                 &depth, &normal, &contactPosA, &contactPosB))
             {
                 normal = body_vec_to_world(a, normal);
-                contactPosA = body_pos_to_world(a, contactPosA);
-                contactPosB = body_pos_to_world(a, contactPosB);
+                contactPosB = -radius * world_vec_to_body(b, normal);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                 collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
             }
-            else if (sphere_col_face4D(pB, radious,
+            else if (sphere_col_face4D(pB, radius,
                 vertexPos4D2,
                 vertexPos4D3,
                 vertexPos4D4,
                 &depth, &normal, &contactPosA, &contactPosB))
             {
                 normal = body_vec_to_world(a, normal);
-                contactPosA = body_pos_to_world(a, contactPosA);
-                contactPosB = body_pos_to_world(a, contactPosB);
+                contactPosB = -radius * world_vec_to_body(b, normal);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                 collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
             }
 
-            else if (sphere_col_line4D(pB, radious,
+            else if (sphere_col_line4D(pB, radius,
                 vertexPos4D1,
                 vertexPos4D2,
                 &depth, &normal, &contactPosA, &contactPosB))
             {
                 normal = body_vec_to_world(a, normal);
-                contactPosA = body_pos_to_world(a, contactPosA);
-                contactPosB = body_pos_to_world(a, contactPosB);
+                contactPosB = -radius * world_vec_to_body(b, normal);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                 collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
             }
-            else if (sphere_col_line4D(pB, radious,
+            else if (sphere_col_line4D(pB, radius,
                 vertexPos4D1,
                 vertexPos4D3,
                 &depth, &normal, &contactPosA, &contactPosB))
             {
                 normal = body_vec_to_world(a, normal);
-                contactPosA = body_pos_to_world(a, contactPosA);
-                contactPosB = body_pos_to_world(a, contactPosB);
+                contactPosB = -radius * world_vec_to_body(b, normal);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                 collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
             }
-            else if (sphere_col_line4D(pB, radious,
+            else if (sphere_col_line4D(pB, radius,
                 vertexPos4D1,
                 vertexPos4D4,
                 &depth, &normal, &contactPosA, &contactPosB))
             {
                 normal = body_vec_to_world(a, normal);
-                contactPosA = body_pos_to_world(a, contactPosA);
-                contactPosB = body_pos_to_world(a, contactPosB);
+                contactPosB = -radius * world_vec_to_body(b, normal);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                 collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
             }
-            else if (sphere_col_line4D(pB, radious,
+            else if (sphere_col_line4D(pB, radius,
                 vertexPos4D2,
                 vertexPos4D3,
                 &depth, &normal, &contactPosA, &contactPosB))
             {
                 normal = body_vec_to_world(a, normal);
-                contactPosA = body_pos_to_world(a, contactPosA);
-                contactPosB = body_pos_to_world(a, contactPosB);
+                contactPosB = -radius * world_vec_to_body(b, normal);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                 collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
             }
-            else if (sphere_col_line4D(pB, radious,
+            else if (sphere_col_line4D(pB, radius,
                 vertexPos4D2,
                 vertexPos4D4,
                 &depth, &normal, &contactPosA, &contactPosB))
                 {
                     normal = body_vec_to_world(a, normal);
-                    contactPosA = body_pos_to_world(a, contactPosA);
-                    contactPosB = body_pos_to_world(a, contactPosB);
+                    contactPosB = -radius * world_vec_to_body(b, normal);
+                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                     collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
                     }
-            else if (sphere_col_line4D(pB, radious,
+            else if (sphere_col_line4D(pB, radius,
                 vertexPos4D3,
                 vertexPos4D4,
                 &depth, &normal, &contactPosA, &contactPosB))
                 {
                     normal = body_vec_to_world(a, normal);
-                    contactPosA = body_pos_to_world(a, contactPosA);
-                    contactPosB = body_pos_to_world(a, contactPosB);
+                    contactPosB = -radius * world_vec_to_body(b, normal);
+                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                     collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
                     }
 
-            else if (sphere_col_point4D(pB, radious,
+            else if (sphere_col_point4D(pB, radius,
                 vertexPos4D1,
                 &depth, &normal, &contactPosA))
                 {
                     normal = body_vec_to_world(a, normal);
-                    contactPosA = body_pos_to_world(a, contactPosA);
-                    contactPosB = body_pos_to_world(a, pB);
+                    contactPosB = -radius * world_vec_to_body(b, normal);
+                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                     collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
                     }
-            else if (sphere_col_point4D(pB, radious,
+            else if (sphere_col_point4D(pB, radius,
                 vertexPos4D2,
                 &depth, &normal, &contactPosA))
                 {
                     normal = body_vec_to_world(a, normal);
-                    contactPosA = body_pos_to_world(a, contactPosA);
-                    contactPosB = body_pos_to_world(a, pB);
+                    contactPosB = -radius * world_vec_to_body(b, normal);
+                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                     collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
                     }
-            else if (sphere_col_point4D(pB, radious,
+            else if (sphere_col_point4D(pB, radius,
                 vertexPos4D3,
                 &depth, &normal, &contactPosA))
                 {
                     normal = body_vec_to_world(a, normal);
-                    contactPosA = body_pos_to_world(a, contactPosA);
-                    contactPosB = body_pos_to_world(a, pB);
+                    contactPosB = -radius * world_vec_to_body(b, normal);
+                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                     collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
                     }
-            else if (sphere_col_point4D(pB, radious,
+            else if (sphere_col_point4D(pB, radius,
                 vertexPos4D4,
                 &depth, &normal, &contactPosA))
                 {
                     normal = body_vec_to_world(a, normal);
-                    contactPosA = body_pos_to_world(a, contactPosA);
-                    contactPosB = body_pos_to_world(a, pB);
+                    contactPosB = -radius * world_vec_to_body(b, normal);
+                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                     collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
                     }
         }
@@ -492,24 +503,22 @@ static std::vector<std::vector<Collision>> terrain_to_sphere(Object4D* a, Object
         abs(a->position4D.z - b->position4D.z) < (a->scale4D.z + b->scale4D.z) / 2.f &&
         abs(a->position4D.w - b->position4D.w) < (a->scale4D.w + b->scale4D.w) / 2.f)
     {
-        float radious(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
-        if (b->position4D.y - support(a, glm::vec4(0.f, 1.f, 0.f, 0.f)).y < radious)
+        float radius(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
+        if (b->position4D.y - support(a, glm::vec4(0.f, 1.f, 0.f, 0.f)).y < radius)
         {
-            int size(8);
             unsigned int cubeIndex;
             glm::vec4 detectPos4D0;
-            for (size_t x(0); x < size; x++)
+            for (size_t x(0); x < terrainSize; x++)
             {
-                for (size_t z(0); z < size; z++)
+                for (size_t z(0); z < terrainSize; z++)
                 {
-                    for (size_t w(0); w < size; w++)
+                    for (size_t w(0); w < terrainSize; w++)
                     {
-                        if (abs(b->position4D.x - a->position4D.x - x + 3.5f) < 0.5f + radious &&
-                            abs(b->position4D.z - a->position4D.z - z + 3.5f) < 0.5f + radious &&
-                            abs(b->position4D.w - a->position4D.w - w + 3.5f) < 0.5f + radious)
-
+                        if (abs(a->position4D.x - b->position4D.x + terrainScale * ((float)x + 0.5f - terrainSize / 2)) < terrainScale + radius &&
+                            abs(a->position4D.z - b->position4D.z + terrainScale * ((float)z + 0.5f - terrainSize / 2)) < terrainScale + radius &&
+                            abs(a->position4D.w - b->position4D.w + terrainScale * ((float)w + 0.5f - terrainSize / 2)) < terrainScale + radius)
                         {
-                            cubeIndex = 4 * 6 * (size * size * w + size * z + x);
+                            cubeIndex = 4 * 6 * (terrainSize * terrainSize * w + terrainSize * z + x);
                             for (size_t i(0); i < 6; i++)
                             {
                                 glm::vec4 normal;
@@ -517,7 +526,7 @@ static std::vector<std::vector<Collision>> terrain_to_sphere(Object4D* a, Object
                                 glm::vec4 contactPosA;
                                 glm::vec4 contactPosB;
                                 std::vector<Collision> collisions;
-                                if (sphere_col_terrain_tetra4D(b->position4D - a->position4D, radious,
+                                if (sphere_col_terrain_tetra4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.normalData4D[cubeIndex + 4 * i],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
@@ -525,124 +534,139 @@ static std::vector<std::vector<Collision>> terrain_to_sphere(Object4D* a, Object
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f,normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f,normal, depth, contactPosA, contactPosB));
                                 }
 
-                                if (sphere_col_face4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_face4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_face4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_face4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_face4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_face4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_face4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_face4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
 
-                                if (sphere_col_line4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_line4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_line4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_line4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_line4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_line4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
 
-                                if (sphere_col_line4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_line4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_line4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_line4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_line4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_line4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                     &depth, &normal, &contactPosA, &contactPosB))
                                 {
-                                    contactPosA += a->position4D, contactPosB += a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
 
-                                if (sphere_col_point4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_point4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                     &depth, &normal, &contactPosA))
                                 {
-                                    contactPosA += a->position4D, contactPosB = a->primitive4D.vertexData4D[cubeIndex + 4 * i] + a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_point4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_point4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                     &depth, &normal, &contactPosA))
                                 {
-                                    contactPosA += a->position4D, contactPosB = a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1] + a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_point4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_point4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                     &depth, &normal, &contactPosA))
                                 {
-                                    contactPosA += a->position4D, contactPosB = a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2] + a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
-                                if (sphere_col_point4D(b->position4D - a->position4D, radious,
+                                else if (sphere_col_point4D(b->position4D - a->position4D, radius,
                                     a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                     &depth, &normal, &contactPosA))
                                 {
-                                    contactPosA += a->position4D, contactPosB = a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3] + a->position4D;
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
+                                    contactPosA += a->position4D;
+                                    contactPosA = world_pos_to_body(b, contactPosA);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
                                 }
                                 if(collisions.size()>0)collisionsVec.push_back(collisions);
                             }
@@ -657,23 +681,23 @@ static std::vector<std::vector<Collision>> terrain_to_sphere(Object4D* a, Object
 
 static std::vector<std::vector<Collision>> cube_to_cube(Object4D* a, Object4D* b, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
-    float radiousA(length(a->scale4D) / 2.f);
-    float radiousB(length(b->scale4D) / 2.f);
-    if (abs(a->position4D.x - b->position4D.x) < radiousA + radiousB &&
-        abs(a->position4D.y - b->position4D.y) < radiousA + radiousB &&
-        abs(a->position4D.z - b->position4D.z) < radiousA + radiousB &&
-        abs(a->position4D.w - b->position4D.w) < radiousA + radiousB)
+    float radiusA(length(a->scale4D) / 2.f);
+    float radiusB(length(b->scale4D) / 2.f);
+    if (abs(a->position4D.x - b->position4D.x) < radiusA + radiusB &&
+        abs(a->position4D.y - b->position4D.y) < radiusA + radiusB &&
+        abs(a->position4D.z - b->position4D.z) < radiusA + radiusB &&
+        abs(a->position4D.w - b->position4D.w) < radiusA + radiusB)
     {
         glm::vec4 posAToB(world_pos_to_body(b, a->position4D));
         glm::vec4 posBToA(world_pos_to_body(a, b->position4D));
-        if (abs(posAToB.x) < b->scale4D.x / 2.f + radiousA &&
-            abs(posAToB.y) < b->scale4D.y / 2.f + radiousA &&
-            abs(posAToB.z) < b->scale4D.z / 2.f + radiousA &&
-            abs(posAToB.w) < b->scale4D.w / 2.f + radiousA &&
-            abs(posBToA.x) < a->scale4D.x / 2.f + radiousB &&
-            abs(posBToA.y) < a->scale4D.y / 2.f + radiousB &&
-            abs(posBToA.z) < a->scale4D.z / 2.f + radiousB &&
-            abs(posBToA.w) < a->scale4D.w / 2.f + radiousB)
+        if (abs(posAToB.x) < b->scale4D.x / 2.f + radiusA &&
+            abs(posAToB.y) < b->scale4D.y / 2.f + radiusA &&
+            abs(posAToB.z) < b->scale4D.z / 2.f + radiusA &&
+            abs(posAToB.w) < b->scale4D.w / 2.f + radiusA &&
+            abs(posBToA.x) < a->scale4D.x / 2.f + radiusB &&
+            abs(posBToA.y) < a->scale4D.y / 2.f + radiusB &&
+            abs(posBToA.z) < a->scale4D.z / 2.f + radiusB &&
+            abs(posBToA.w) < a->scale4D.w / 2.f + radiusB)
         {
             Simplex simplex(Simplex(glm::vec4(0.f)));
             if (gjk(a, b, &simplex))
@@ -797,7 +821,10 @@ static std::vector<std::vector<Collision>> cube_to_cube(Object4D* a, Object4D* b
                                 float depth(supportDistanceB - dot(vertices4DA[i] - b->position4D, -normal0));
                                 if (depth > 0.f)
                                 {
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, vertices4DA[i], vertices4DA[i] + depth * normal0));
+                                    contactPosA = world_pos_to_body(a, vertices4DA[i]);
+                                    contactPosB = world_pos_to_body(b, vertices4DA[i] + depth * normal0);
+                                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                                 }
                             }
                         }
@@ -812,7 +839,10 @@ static std::vector<std::vector<Collision>> cube_to_cube(Object4D* a, Object4D* b
                                 float depth(supportDistanceA - dot(vertices4DB[i] - a->position4D, normal0));
                                 if (depth > 0.f)
                                 {
-                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, vertices4DB[i], vertices4DB[i] - depth * normal0));
+                                    contactPosA = world_pos_to_body(a, vertices4DB[i]);
+                                    contactPosB = world_pos_to_body(b, vertices4DB[i] - depth * normal0);
+                                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                                 }
                             }
                         }
@@ -827,6 +857,9 @@ static std::vector<std::vector<Collision>> cube_to_cube(Object4D* a, Object4D* b
                                 float depth(supportDistanceB - dot(edges4DA[i].vertices4D[0] - b->position4D, -normal0));
                                 if (depth > 0.f)
                                 {
+                                    contactPosA = world_pos_to_body(a, contactPosA);
+                                    contactPosB = world_pos_to_body(b, contactPosB);
+                                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                     collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                                 }
                             }
@@ -842,6 +875,9 @@ static std::vector<std::vector<Collision>> cube_to_cube(Object4D* a, Object4D* b
                                 float depth(supportDistanceA - dot(edges4DB[i].vertices4D[0] - a->position4D, normal0));
                                 if (depth > 0.f)
                                 {
+                                    contactPosA = world_pos_to_body(a, contactPosA);
+                                    contactPosB = world_pos_to_body(b, contactPosB);
+                                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                     collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                                 }
                             }
@@ -857,18 +893,18 @@ static std::vector<std::vector<Collision>> cube_to_cube(Object4D* a, Object4D* b
 
 static std::vector<std::vector<Collision>> mesh_to_cube(Object4D* a, Object4D* b, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
-    float meshRadious(length(a->scale4D) / 2.f);
-    float cubeRadious(length(b->scale4D) / 2.f);
-    if (abs(a->position4D.x - b->position4D.x) < meshRadious + cubeRadious &&
-        abs(a->position4D.y - b->position4D.y) < meshRadious + cubeRadious &&
-        abs(a->position4D.z - b->position4D.z) < meshRadious + cubeRadious &&
-        abs(a->position4D.w - b->position4D.w) < meshRadious + cubeRadious)
+    float meshradius(length(a->scale4D) / 2.f);
+    float cuberadius(length(b->scale4D) / 2.f);
+    if (abs(a->position4D.x - b->position4D.x) < meshradius + cuberadius &&
+        abs(a->position4D.y - b->position4D.y) < meshradius + cuberadius &&
+        abs(a->position4D.z - b->position4D.z) < meshradius + cuberadius &&
+        abs(a->position4D.w - b->position4D.w) < meshradius + cuberadius)
     {
         glm::vec4 posAToB(world_pos_to_body(b, a->position4D));
-        if (abs(posAToB.x) < b->scale4D.x / 2.f + meshRadious &&
-            abs(posAToB.y) < b->scale4D.y / 2.f + meshRadious &&
-            abs(posAToB.z) < b->scale4D.z / 2.f + meshRadious &&
-            abs(posAToB.w) < b->scale4D.w / 2.f + meshRadious)
+        if (abs(posAToB.x) < b->scale4D.x / 2.f + meshradius &&
+            abs(posAToB.y) < b->scale4D.y / 2.f + meshradius &&
+            abs(posAToB.z) < b->scale4D.z / 2.f + meshradius &&
+            abs(posAToB.w) < b->scale4D.w / 2.f + meshradius)
         {
             Simplex simplex(Simplex(glm::vec4(0.f)));
             if (gjk(a, b, &simplex))
@@ -991,8 +1027,9 @@ static std::vector<std::vector<Collision>> mesh_to_cube(Object4D* a, Object4D* b
                                 float depth(supportDistanceB - dot(vertices4DA[i] - b->position4D, -normal0));
                                 if (depth > 0.f)
                                 {
-                                    contactPosA = vertices4DA[i];
-                                    contactPosB = vertices4DA[i] + depth * normal0;
+                                    contactPosA =  world_pos_to_body(a, vertices4DA[i]);
+                                    contactPosB =  world_pos_to_body(b, vertices4DA[i] + depth * normal0);
+                                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                     collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                                 }
                             }
@@ -1007,8 +1044,9 @@ static std::vector<std::vector<Collision>> mesh_to_cube(Object4D* a, Object4D* b
                                 float depth(supportDistanceA - dot(vertices4DB[i] - a->position4D, normal0));
                                 if (depth > 0.f)
                                 {
-                                    contactPosA = vertices4DB[i] - depth * normal0;
-                                    contactPosB = vertices4DB[i];
+                                    contactPosA =  world_pos_to_body(a, vertices4DB[i] - depth * normal0);
+                                    contactPosB =  world_pos_to_body(b, vertices4DB[i]);
+                                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                     collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                                 }
                             }
@@ -1024,6 +1062,9 @@ static std::vector<std::vector<Collision>> mesh_to_cube(Object4D* a, Object4D* b
                                 if (depth > 0.f)
                                 {
                                     get_edge_in_face_pos(normal0, edges4DA[i].vertices4D[0], edges4DA[i].vertices4D[1], faces4DB[j].vertices4D[0], faces4DB[j].vertices4D[1], faces4DB[j].vertices4D[2], &contactPosA, &contactPosB);
+                                    contactPosA = world_pos_to_body(a, contactPosA);
+                                    contactPosB = world_pos_to_body(b, contactPosB);
+                                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                     collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                                 }
                             }
@@ -1039,6 +1080,9 @@ static std::vector<std::vector<Collision>> mesh_to_cube(Object4D* a, Object4D* b
                                 if (depth > 0.f)
                                 {
                                     get_edge_in_face_pos(-normal0, edges4DB[i].vertices4D[0], edges4DB[i].vertices4D[1], faces4DA[j].vertices4D[0], faces4DA[j].vertices4D[1], faces4DA[j].vertices4D[2], &contactPosB, &contactPosA);
+                                    contactPosA = world_pos_to_body(a, contactPosA);
+                                    contactPosB = world_pos_to_body(b, contactPosB);
+                                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                     collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                                 }
                             }
@@ -1058,25 +1102,24 @@ static std::vector<std::vector<Collision>> terrain_to_cube(Object4D* a, Object4D
         abs(a->position4D.z - b->position4D.z) < (a->scale4D.z + b->scale4D.z) / 2.f &&
         abs(a->position4D.w - b->position4D.w) < (a->scale4D.w + b->scale4D.w) / 2.f)
     {
-        float radious(length(b->scale4D) / 2.f);
-        if (b->position4D.y - support(a, glm::vec4(0.f, 1.f, 0.f, 0.f)).y < radious)
+        float radius(length(b->scale4D) / 2.f);
+        if (b->position4D.y - support(a, glm::vec4(0.f, 1.f, 0.f, 0.f)).y < radius)
         {
-            unsigned int size(8);
             unsigned int cubeIndex;
             for (int i(0); i < 16; i++)
             {
                 glm::vec4 vertexOfB(body_pos_to_world(b, hypercube::vertices4D[i] * b->scale4D));
-                for (size_t x(0); x < size; x++)
+                for (size_t x(0); x < terrainSize; x++)
                 {
-                    for (size_t z(0); z < size; z++)
+                    for (size_t z(0); z < terrainSize; z++)
                     {
-                        for (size_t w(0); w < size; w++)
+                        for (size_t w(0); w < terrainSize; w++)
                         {
-                            if (abs(b->position4D.x - a->position4D.x - x + 3.5f) < 0.5f + radious &&
-                                abs(b->position4D.z - a->position4D.z - z + 3.5f) < 0.5f + radious &&
-                                abs(b->position4D.w - a->position4D.w - w + 3.5f) < 0.5f + radious)
+                            if (abs(a->position4D.x - b->position4D.x + terrainScale * ((float)x + 0.5f - terrainSize / 2)) < terrainScale + radius &&
+                                abs(a->position4D.z - b->position4D.z + terrainScale * ((float)z + 0.5f - terrainSize / 2)) < terrainScale + radius &&
+                                abs(a->position4D.w - b->position4D.w + terrainScale * ((float)w + 0.5f - terrainSize / 2)) < terrainScale + radius)
                             {
-                                cubeIndex = 4 * 6 * (size * size * w + size * z + x);
+                                cubeIndex = 4 * 6 * (terrainSize * terrainSize * w + terrainSize * z + x);
                                 for (size_t i(0); i < 6; i++)
                                 {
                                     glm::vec4 normal;
@@ -1100,8 +1143,8 @@ static std::vector<std::vector<Collision>> terrain_to_cube(Object4D* a, Object4D
                                         {
                                             if (depth > 0.f)
                                             {
-                                                
-                                                collisions.push_back(Collision(index1, index2, 0.f, 0.f,normal, depth, contactPosB ,vertexOfB));
+                                                contactPosA = world_pos_to_body(b, vertexOfB);
+                                                collisions.push_back(Collision(index1, index2, 0.f, 0.f,normal, depth, contactPosA, contactPosB));
                                             }
                                         }
                                     }
@@ -1119,12 +1162,12 @@ static std::vector<std::vector<Collision>> terrain_to_cube(Object4D* a, Object4D
 
 static std::vector<std::vector<Collision>> mesh_to_mesh(Object4D* a, Object4D* b, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
-    float meshRadiousA(length(a->scale4D) / 2.f);
-    float meshRadiousB(length(b->scale4D) / 2.f);
-    if (abs(a->position4D.x - b->position4D.x) < meshRadiousA + meshRadiousB &&
-        abs(a->position4D.y - b->position4D.y) < meshRadiousA + meshRadiousB &&
-        abs(a->position4D.z - b->position4D.z) < meshRadiousA + meshRadiousB &&
-        abs(a->position4D.w - b->position4D.w) < meshRadiousA + meshRadiousB)
+    float meshradiusA(length(a->scale4D) / 2.f);
+    float meshradiusB(length(b->scale4D) / 2.f);
+    if (abs(a->position4D.x - b->position4D.x) < meshradiusA + meshradiusB &&
+        abs(a->position4D.y - b->position4D.y) < meshradiusA + meshradiusB &&
+        abs(a->position4D.z - b->position4D.z) < meshradiusA + meshradiusB &&
+        abs(a->position4D.w - b->position4D.w) < meshradiusA + meshradiusB)
     {
         Simplex simplex(Simplex(glm::vec4(0.f)));
         if (gjk(a, b, &simplex))
@@ -1212,8 +1255,9 @@ static std::vector<std::vector<Collision>> mesh_to_mesh(Object4D* a, Object4D* b
                             float depth(supportDistanceB - dot(vertices4DA[i] - b->position4D, -normal0));
                             if (depth > 0.f)
                             {
-                                contactPosA = vertices4DA[i];
-                                contactPosB = vertices4DA[i] + depth * normal0;
+                                contactPosA = world_pos_to_body(a, vertices4DA[i]);
+                                contactPosB = world_pos_to_body(b, vertices4DA[i] + depth * normal0);
+                                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                 collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                             }
                         }
@@ -1228,8 +1272,9 @@ static std::vector<std::vector<Collision>> mesh_to_mesh(Object4D* a, Object4D* b
                             float depth(supportDistanceA - dot(vertices4DB[i] - a->position4D, normal0));
                             if (depth > 0.f)
                             {
-                                contactPosA = vertices4DA[i];
-                                contactPosB = vertices4DB[i] - depth * normal0;
+                                contactPosA = world_pos_to_body(a, vertices4DA[i]);
+                                contactPosB = world_pos_to_body(b, vertices4DB[i] - depth * normal0);
+                                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                 collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                             }
                         }
@@ -1245,6 +1290,9 @@ static std::vector<std::vector<Collision>> mesh_to_mesh(Object4D* a, Object4D* b
                             float depth(supportDistanceB - dot(edges4DA[i].vertices4D[0] - b->position4D, -normal0));
                             if (depth > 0.f)
                             {
+                                contactPosA = world_pos_to_body(a, contactPosA);
+                                contactPosB = world_pos_to_body(b, contactPosB);
+                                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                 collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                             }
                         }
@@ -1260,6 +1308,9 @@ static std::vector<std::vector<Collision>> mesh_to_mesh(Object4D* a, Object4D* b
                             float depth(supportDistanceA - dot(edges4DB[i].vertices4D[0] - a->position4D, normal0));
                             if (depth > 0.f)
                             {
+                                contactPosA = world_pos_to_body(a, contactPosA);
+                                contactPosB = world_pos_to_body(b, contactPosB);
+                                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
                                 collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal0, isInverse), depth, contactPosA, contactPosB));
                             }
                         }
@@ -1279,25 +1330,24 @@ static std::vector<std::vector<Collision>> terrain_to_mesh(Object4D* a, Object4D
         abs(a->position4D.z - b->position4D.z) < (a->scale4D.z + b->scale4D.z) / 2.f &&
         abs(a->position4D.w - b->position4D.w) < (a->scale4D.w + b->scale4D.w) / 2.f)
     {
-        float radious(length(b->scale4D) / 2.f);
-        if (b->position4D.y - support(a, glm::vec4(0.f, 1.f, 0.f, 0.f)).y < radious)
+        float radius(length(b->scale4D) / 2.f);
+        if (b->position4D.y - support(a, glm::vec4(0.f, 1.f, 0.f, 0.f)).y < radius)
         {
-            unsigned int size(8);
             unsigned int cubeIndex;
             for (int i(0); i < b->primitive4D.get_size_of_vertices4D(); i++)
             {
                 glm::vec4 vertexOfB(body_pos_to_world(b, b->primitive4D.vertexData4D[i] * b->scale4D));
-                for (size_t x(0); x < size; x++)
+                for (size_t x(0); x < terrainSize; x++)
                 {
-                    for (size_t z(0); z < size; z++)
+                    for (size_t z(0); z < terrainSize; z++)
                     {
-                        for (size_t w(0); w < size; w++)
+                        for (size_t w(0); w < terrainSize; w++)
                         {
-                            if (abs(b->position4D.x - a->position4D.x - x + 3.5f) < 0.5f + radious &&
-                                abs(b->position4D.z - a->position4D.z - z + 3.5f) < 0.5f + radious &&
-                                abs(b->position4D.w - a->position4D.w - w + 3.5f) < 0.5f + radious)
+                            if (abs(a->position4D.x - b->position4D.x + terrainScale * ((float)x + 0.5f - terrainSize / 2)) < terrainScale + radius &&
+                                abs(a->position4D.z - b->position4D.z + terrainScale * ((float)z + 0.5f - terrainSize / 2)) < terrainScale + radius &&
+                                abs(a->position4D.w - b->position4D.w + terrainScale * ((float)w + 0.5f - terrainSize / 2)) < terrainScale + radius)
                             {
-                                cubeIndex = 4 * 6 * (size * size * w + size * z + x);
+                                cubeIndex = 4 * 6 * (terrainSize * terrainSize * w + terrainSize * z + x);
                                 for (size_t i(0); i < 6; i++)
                                 {
                                     glm::vec4 normal;
@@ -1321,8 +1371,8 @@ static std::vector<std::vector<Collision>> terrain_to_mesh(Object4D* a, Object4D
                                         {
                                             if (depth > 0.f)
                                             {
-                                                
-                                                collisions.push_back(Collision(index1, index2, 0.f, 0.f,normal, depth, contactPosB, vertexOfB));
+                                                contactPosA = world_pos_to_body(b, vertexOfB);
+                                                collisions.push_back(Collision(index1, index2, 0.f, 0.f,normal, depth, contactPosA, contactPosB));
                                             }
                                         }
                                     }
@@ -1340,45 +1390,48 @@ static std::vector<std::vector<Collision>> terrain_to_mesh(Object4D* a, Object4D
 
 static std::vector<std::vector<Collision>> capsule_to_sphere(Object4D* a, Object4D* b, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
-    float capsuleRadious(length(a->scale4D) / 2.f);
-    float sphereRadious(length(b->scale4D) / 2.f);
-    if (abs(a->position4D.x - b->position4D.x) < capsuleRadious + sphereRadious &&
-        abs(a->position4D.y - b->position4D.y) < capsuleRadious + sphereRadious &&
-        abs(a->position4D.z - b->position4D.z) < capsuleRadious + sphereRadious &&
-        abs(a->position4D.w - b->position4D.w) < capsuleRadious + sphereRadious)
+    float capsuleradius(length(a->scale4D) / 2.f);
+    float sphereradius(length(b->scale4D) / 2.f);
+    if (abs(a->position4D.x - b->position4D.x) < capsuleradius + sphereradius &&
+        abs(a->position4D.y - b->position4D.y) < capsuleradius + sphereradius &&
+        abs(a->position4D.z - b->position4D.z) < capsuleradius + sphereradius &&
+        abs(a->position4D.w - b->position4D.w) < capsuleradius + sphereradius)
     {
-        float radiousA(min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f);
+        float radiusA(min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f);
         float lengthA(a->scale4D.z);
-        float radiousB(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
+        float radiusB(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
         glm::vec4 pB(world_pos_to_body(a, b->position4D));
-        glm::vec4 pA1(glm::vec4(0.f, 0.f,lengthA / 2.f - radiousA, 0.f));
+        glm::vec4 pA1(glm::vec4(0.f, 0.f,lengthA / 2.f - radiusA, 0.f));
         glm::vec4 contactPosA;
         glm::vec4 contactPosB;
         std::vector<Collision> collisions;
-        if (length(pA1 - pB) < radiousA + radiousB && pB.z > pA1.z)
+        if (length(pA1 - pB) < radiusA + radiusB && pB.z > pA1.z)
         {
             glm::vec4 normal(body_vec_to_world(a, normalize(pB - pA1)));
-            float depth(radiousA + radiousB - length(pA1 - pB));
-            contactPosA = body_pos_to_world(a, pA1 + radiousA * normal);
-            contactPosB = body_pos_to_world(a, pB - radiousA * normal);
+            float depth(radiusA + radiusB - length(pA1 - pB));
+            contactPosA = pA1 + radiusA * normal;
+            contactPosB = world_pos_to_body(b, body_pos_to_world(a, pB - radiusA * normal));
+            std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
             collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA, contactPosB));
         }
-        glm::vec4 pA2(-glm::vec4(0.f, 0.f,lengthA / 2.f - radiousA, 0.f));
-        if (length(pA2 - pB) < radiousA + radiousB && pB.z < pA2.z)
+        glm::vec4 pA2(-glm::vec4(0.f, 0.f,lengthA / 2.f - radiusA, 0.f));
+        if (length(pA2 - pB) < radiusA + radiusB && pB.z < pA2.z)
         {
             glm::vec4 normal(body_vec_to_world(a, normalize(pB - pA2)));
-            float depth(radiousA + radiousB - length(pA2 - pB));
-            contactPosA = body_pos_to_world(a, pA2 + radiousA * normal);
-            contactPosB = body_pos_to_world(a, pB - radiousA * normal);
+            float depth(radiusA + radiusB - length(pA2 - pB));
+            contactPosA = pA2 + radiusA * normal;
+            contactPosB = world_pos_to_body(b, body_pos_to_world(a, pB - radiusA * normal));
+            std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
             collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA, contactPosB));
         }
 
-        if (pB.z < pA1.z && pB.z > pA2.z && length(glm::vec4(pB.x, pB.y, 0.f, pB.w)) < radiousA + radiousB)
+        if (pB.z < pA1.z && pB.z > pA2.z && length(glm::vec4(pB.x, pB.y, 0.f, pB.w)) < radiusA + radiusB)
         {
             glm::vec4 normal(body_vec_to_world(a, normalize(glm::vec4(pB.x, pB.y, 0.f, pB.w))));
-            float depth(radiousA + radiousB - length(glm::vec4(pB.x, pB.y, 0.f, pB.w)));
-            contactPosA = body_pos_to_world(a, radiousA * normal);
-            contactPosB = body_pos_to_world(a, pB - radiousA * normal);
+            float depth(radiusA + radiusB - length(glm::vec4(pB.x, pB.y, 0.f, pB.w)));
+            contactPosA = radiusA * normal;
+            contactPosB = world_pos_to_body(b, body_pos_to_world(a, pB - radiusA * normal));
+            std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
             collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA, contactPosB));
         }
         if (collisions.size() > 0)collisionsVec.push_back(collisions);
@@ -1389,18 +1442,18 @@ static std::vector<std::vector<Collision>> capsule_to_sphere(Object4D* a, Object
 
 static std::vector<std::vector<Collision>> capsule_to_cube(Object4D* a, Object4D* b, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
-    float capsuleRadious(a->scale4D.z / 2.f);
-    float cubeRadious(length(b->scale4D) / 2.f);
-    if (abs(a->position4D.x - b->position4D.x) < capsuleRadious + cubeRadious &&
-        abs(a->position4D.y - b->position4D.y) < capsuleRadious + cubeRadious &&
-        abs(a->position4D.z - b->position4D.z) < capsuleRadious + cubeRadious &&
-        abs(a->position4D.w - b->position4D.w) < capsuleRadious + cubeRadious)
+    float capsuleradius(a->scale4D.z / 2.f);
+    float cuberadius(length(b->scale4D) / 2.f);
+    if (abs(a->position4D.x - b->position4D.x) < capsuleradius + cuberadius &&
+        abs(a->position4D.y - b->position4D.y) < capsuleradius + cuberadius &&
+        abs(a->position4D.z - b->position4D.z) < capsuleradius + cuberadius &&
+        abs(a->position4D.w - b->position4D.w) < capsuleradius + cuberadius)
     {
         glm::vec4 posAToB(world_pos_to_body(b,a->position4D));
-        if (abs(posAToB.x) < b->scale4D.x / 2.f + capsuleRadious && 
-            abs(posAToB.y) < b->scale4D.y / 2.f + capsuleRadious &&
-            abs(posAToB.z) < b->scale4D.z / 2.f + capsuleRadious &&
-            abs(posAToB.w) < b->scale4D.w / 2.f + capsuleRadious)
+        if (abs(posAToB.x) < b->scale4D.x / 2.f + capsuleradius && 
+            abs(posAToB.y) < b->scale4D.y / 2.f + capsuleradius &&
+            abs(posAToB.z) < b->scale4D.z / 2.f + capsuleradius &&
+            abs(posAToB.w) < b->scale4D.w / 2.f + capsuleradius)
         {
             Simplex simplex(Simplex(glm::vec4(0.f)));
             if (gjk(a, b, &simplex))
@@ -1408,6 +1461,8 @@ static std::vector<std::vector<Collision>> capsule_to_cube(Object4D* a, Object4D
                 float depth(0.f);
                 glm::vec4 contact((a->position4D + b->position4D) / 2.f);
                 glm::vec4 normal(epa2(a, b, simplex, &depth, true));
+                glm::vec4 contactPosA;
+                glm::vec4 contactPosB;
                 std::vector<Collision> collisions;
                 if (depth > 0.f)
                 {
@@ -1421,9 +1476,13 @@ static std::vector<std::vector<Collision>> capsule_to_cube(Object4D* a, Object4D
                             float height(depth + a->position4D.y - b->position4D.y);
                             if (height > 0.f && depth < 0.1f)
                             {
-                               if (depth > 0.f)
-                                collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(glm::vec4(0.f, -1.f, 0.f, 0.f), isInverse), depth, supportPoints1[0] - depth * normal / 2.f, supportPoints1[0] - depth * normal / 2.f));
-                               if (depth > 0.03f)
+                                if (depth > 0.f) {
+                                    contactPosA = world_pos_to_body(a, supportPoints1[0] - depth * normal / 2.f);
+                                    contactPosB = world_pos_to_body(b, supportPoints1[0] - depth * normal / 2.f);
+                                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
+                                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(glm::vec4(0.f, -1.f, 0.f, 0.f), isInverse), depth, contactPosA, contactPosB));
+                                }
+                                if (depth > 0.03f)
                                 a->set_position4D(glm::vec4(a->position4D.x, b->position4D.y + height-0.02f , a->position4D.z, a->position4D.w));
                             }
                         }
@@ -1448,13 +1507,15 @@ static std::vector<std::vector<Collision>> capsule_to_cube(Object4D* a, Object4D
                             if (supportPoints2.size() == 8)
                             {
                                 isMuti = true;
-                                collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, supportPoints1[0] - depth * normal / 2.f, supportPoints1[0] - depth * normal / 2.f));
-                                collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, supportPoints1[1] - depth * normal / 2.f, supportPoints1[1] - depth * normal / 2.f));
+                                collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, world_pos_to_body(a, supportPoints1[0] - depth * normal / 2.f), world_pos_to_body(b, supportPoints1[0] - depth * normal / 2.f)));
+                                collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, world_pos_to_body(a, supportPoints1[1] - depth * normal / 2.f), world_pos_to_body(b, supportPoints1[1] - depth * normal / 2.f)));
                             }
                         }
                         if (!isMuti)
                         {
-                            collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contact, contact));
+                            contactPosA = world_pos_to_body(a, contact);
+                            contactPosB = world_pos_to_body(b, contact);
+                            collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA, contactPosB));
                         }
                     }
                 }
@@ -1468,12 +1529,12 @@ static std::vector<std::vector<Collision>> capsule_to_cube(Object4D* a, Object4D
 
 static std::vector<std::vector<Collision>> capsule_to_mesh(Object4D* a, Object4D* b, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
-    float RadiousA(a->scale4D.z / 2.f);
-    float RadiousB(length(b->scale4D) / 2.f);
-    if (abs(a->position4D.x - b->position4D.x) < RadiousA + RadiousB &&
-        abs(a->position4D.y - b->position4D.y) < RadiousA + RadiousB &&
-        abs(a->position4D.z - b->position4D.z) < RadiousA + RadiousB &&
-        abs(a->position4D.w - b->position4D.w) < RadiousA + RadiousB)
+    float radiusA(a->scale4D.z / 2.f);
+    float radiusB(length(b->scale4D) / 2.f);
+    if (abs(a->position4D.x - b->position4D.x) < radiusA + radiusB &&
+        abs(a->position4D.y - b->position4D.y) < radiusA + radiusB &&
+        abs(a->position4D.z - b->position4D.z) < radiusA + radiusB &&
+        abs(a->position4D.w - b->position4D.w) < radiusA + radiusB)
     {
         Simplex simplex(Simplex(glm::vec4(0.f)));
         if (gjk(a, b, &simplex))
@@ -1481,6 +1542,8 @@ static std::vector<std::vector<Collision>> capsule_to_mesh(Object4D* a, Object4D
             float depth(0.f);
             glm::vec4 contact((a->position4D + b->position4D) / 2.f);
             glm::vec4 normal(epa2(a, b, simplex, &depth, true));
+            glm::vec4 contactPosA;
+            glm::vec4 contactPosB;
             std::vector<Collision> collisions;
             if (depth > 0.f)
             {
@@ -1508,12 +1571,16 @@ static std::vector<std::vector<Collision>> capsule_to_mesh(Object4D* a, Object4D
                     if (supportPoints2.size() > 4)
                     {
                         isMuti = true;
-                        collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, supportPoints1[0] - depth * normal / 2.f, supportPoints1[0] - depth * normal / 2.f));
-                        collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, supportPoints1[1] - depth * normal / 2.f, supportPoints1[1] - depth * normal / 2.f));
+                        collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, world_pos_to_body(a, supportPoints1[0] - depth * normal / 2.f), world_pos_to_body(b, supportPoints1[0] - depth * normal / 2.f)));
+                        collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, world_pos_to_body(a, supportPoints1[1] - depth * normal / 2.f), world_pos_to_body(b, supportPoints1[1] - depth * normal / 2.f)));
                     }
                 }
-                if(!isMuti)
-                collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contact, contact));
+                if (!isMuti) {
+                    contactPosA = world_pos_to_body(a, contact);
+                    contactPosB = world_pos_to_body(b, contact);
+                    std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
+                    collisions.push_back(Collision(index1, index2, 0.f, 0.f, inverse(normal, isInverse), depth, contactPosA, contactPosB));
+                }
             }
             if (collisions.size() > 0)collisionsVec.push_back(collisions);
         }
@@ -1524,12 +1591,12 @@ static std::vector<std::vector<Collision>> capsule_to_mesh(Object4D* a, Object4D
 
 static std::vector<std::vector<Collision>> capsule_to_capsule(Object4D* a, Object4D* b, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec, bool isInverse)
 {
-    float RadiousA(a->scale4D.z / 2.f);
-    float RadiousB(length(b->scale4D) / 2.f);
-    if (abs(a->position4D.x - b->position4D.x) < RadiousA + RadiousB &&
-        abs(a->position4D.y - b->position4D.y) < RadiousA + RadiousB &&
-        abs(a->position4D.z - b->position4D.z) < RadiousA + RadiousB &&
-        abs(a->position4D.w - b->position4D.w) < RadiousA + RadiousB)
+    float radiusA(a->scale4D.z / 2.f);
+    float radiusB(length(b->scale4D) / 2.f);
+    if (abs(a->position4D.x - b->position4D.x) < radiusA + radiusB &&
+        abs(a->position4D.y - b->position4D.y) < radiusA + radiusB &&
+        abs(a->position4D.z - b->position4D.z) < radiusA + radiusB &&
+        abs(a->position4D.w - b->position4D.w) < radiusA + radiusB)
     {
         Simplex simplex(Simplex(glm::vec4(0.f)));
         if (gjk(a, b, &simplex))
@@ -1538,6 +1605,8 @@ static std::vector<std::vector<Collision>> capsule_to_capsule(Object4D* a, Objec
             float depth(0.f);
             glm::vec4 contact((a->position4D + b->position4D) / 2.f);
             glm::vec4 normal(epa2(a, b, simplex, &depth, true));
+            glm::vec4 contactPosA;
+            glm::vec4 contactPosB;
             std::vector<Collision> collisions;
             if (depth > 0.f)
             {
@@ -1557,7 +1626,10 @@ static std::vector<std::vector<Collision>> capsule_to_capsule(Object4D* a, Objec
                     contact = (a->position4D + b->position4D) / 2.f;
                     massAdjustment = 2.f;
                 }
-                collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contact, contact));
+                contactPosA = world_pos_to_body(a, contact);
+                contactPosB = world_pos_to_body(b, contact);
+                std::tie(contactPosA, contactPosB) = inverse(contactPosA, contactPosB, isInverse);
+                collisions.push_back(Collision(index1, index2, 0.f, 0.f,inverse(normal, isInverse), depth, contactPosA, contactPosB));
             }
             if (collisions.size() > 0)collisionsVec.push_back(collisions);
         }
@@ -1571,37 +1643,36 @@ static std::vector<std::vector<Collision>> terrain_to_capsule(Object4D* a, Objec
         abs(a->position4D.z - b->position4D.z) < (a->scale4D.z + b->scale4D.z) / 2.f &&
         abs(a->position4D.w - b->position4D.w) < (a->scale4D.w + b->scale4D.w) / 2.f)
     {
-        float radious(b->scale4D.z);
-        if (b->position4D.y - support(a, glm::vec4(0.f, 1.f, 0.f, 0.f)).y < radious)
+        float radius(b->scale4D.z);
+        if (b->position4D.y - support(a, glm::vec4(0.f, 1.f, 0.f, 0.f)).y < radius)
         {
-            float radiousA(min(b->scale4D.w, min(b->scale4D.x, b->scale4D.y)) / 2.f);
+            float radiusA(min(b->scale4D.w, min(b->scale4D.x, b->scale4D.y)) / 2.f);
             float lengthA(b->scale4D.z);
             glm::vec4 sphereCenter;
             for (int i(0); i < 2; i++)
             {
                 if (i == 0)
                 {
-                    sphereCenter = body_pos_to_world(b, glm::vec4(0.f, 0.f, lengthA / 2.f - radiousA, 0.f));
+                    sphereCenter = body_pos_to_world(b, glm::vec4(0.f, 0.f, lengthA / 2.f - radiusA, 0.f));
                 }
                 else if (i == 1)
                 {
-                    sphereCenter = body_pos_to_world(b, -glm::vec4(0.f, 0.f, lengthA / 2.f - radiousA, 0.f));
+                    sphereCenter = body_pos_to_world(b, -glm::vec4(0.f, 0.f, lengthA / 2.f - radiusA, 0.f));
                 }
-                int size(8);
                 unsigned int cubeIndex;
                 glm::vec4 detectPos4D0;
-                for (size_t x(0); x < size; x++)
+                for (size_t x(0); x < terrainSize; x++)
                 {
-                    for (size_t z(0); z < size; z++)
+                    for (size_t z(0); z < terrainSize; z++)
                     {
-                        for (size_t w(0); w < size; w++)
+                        for (size_t w(0); w < terrainSize; w++)
                         {
-                            if (abs(sphereCenter.x - a->position4D.x - x + 3.5f) < 0.5f + radiousA &&
-                                abs(sphereCenter.z - a->position4D.z - z + 3.5f) < 0.5f + radiousA &&
-                                abs(sphereCenter.w - a->position4D.w - w + 3.5f) < 0.5f + radiousA)
+                            if (abs(a->position4D.x - sphereCenter.x + terrainScale * ((float)x + 0.5f - terrainSize / 2)) < terrainScale + radiusA &&
+                                abs(a->position4D.z - sphereCenter.z + terrainScale * ((float)z + 0.5f - terrainSize / 2)) < terrainScale + radiusA &&
+                                abs(a->position4D.w - sphereCenter.w + terrainScale * ((float)w + 0.5f - terrainSize / 2)) < terrainScale + radiusA)
 
                             {
-                                cubeIndex = 4 * 6 * (size * size * w + size * z + x);
+                                cubeIndex = 4 * 6 * (terrainSize * terrainSize * w + terrainSize * z + x);
                                 for (size_t i(0); i < 6; i++)
                                 {
                                     glm::vec4 normal;
@@ -1609,7 +1680,7 @@ static std::vector<std::vector<Collision>> terrain_to_capsule(Object4D* a, Objec
                                     glm::vec4 contactPosA;
                                     glm::vec4 contactPosB;
                                     std::vector<Collision> collisions;
-                                    if (sphere_col_terrain_tetra4D(sphereCenter - a->position4D, radiousA,
+                                    if (sphere_col_terrain_tetra4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.normalData4D[cubeIndex + 4 * i],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
@@ -1618,122 +1689,137 @@ static std::vector<std::vector<Collision>> terrain_to_capsule(Object4D* a, Objec
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     {
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f,normal, depth, contactPosB, contactPosA));
                                     }
 
-                                    if (sphere_col_face4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_face4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     {
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_face4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_face4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     { 
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_face4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_face4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     { 
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_face4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_face4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     { 
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
 
-                                    if (sphere_col_line4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_line4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     {
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_line4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_line4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     {  
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_line4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_line4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     { 
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
 
-                                    if (sphere_col_line4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_line4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     {   
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_line4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_line4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     { 
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_line4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_line4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                         &depth, &normal, &contactPosA, &contactPosB))
                                     {  
                                         contactPosA += a->position4D, contactPosB += a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
 
-                                    if (sphere_col_point4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_point4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i],
                                         &depth, &normal, &contactPosA))
                                     { 
                                         contactPosA += a->position4D, contactPosB = a->primitive4D.vertexData4D[cubeIndex + 4 * i] + a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_point4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_point4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1],
                                         &depth, &normal, &contactPosA))
                                     { 
                                         contactPosA += a->position4D, contactPosB = a->primitive4D.vertexData4D[cubeIndex + 4 * i + 1] + a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_point4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_point4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2],
                                         &depth, &normal, &contactPosA))
                                     {  
                                         contactPosA += a->position4D, contactPosB = a->primitive4D.vertexData4D[cubeIndex + 4 * i + 2] + a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
-                                    if (sphere_col_point4D(sphereCenter - a->position4D, radiousA,
+                                    else if (sphere_col_point4D(sphereCenter - a->position4D, radiusA,
                                         a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3],
                                         &depth, &normal, &contactPosA))
                                     {
                                         contactPosA += a->position4D, contactPosB = a->primitive4D.vertexData4D[cubeIndex + 4 * i + 3] + a->position4D;
+                                        contactPosB = world_pos_to_body(a, contactPosB), contactPosA = world_pos_to_body(b, contactPosA);
                                         collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosB, contactPosA));
                                     }
                                     if (collisions.size() > 0)collisionsVec.push_back(collisions);
@@ -1751,15 +1837,14 @@ static std::vector<std::vector<Collision>> terrain_to_capsule(Object4D* a, Objec
 static std::vector<std::vector<Collision>> sphere_to_half_space(Object4D* a, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec)
 {
     float height(0.f);
-    float radious(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
-    if (a->position4D.y< radious + height)
+    float radius(min(a->scale4D.w, min(a->scale4D.z, min(a->scale4D.x, a->scale4D.y))) / 2.f);
+    if (a->position4D.y< radius + height)
     {
         std::vector<Collision> collisions;
         glm::vec4 normal(glm::vec4(0.f, 1.f, 0.f, 0.f));
-        glm::vec4 contactPosA(glm::vec4(a->position4D.x, a->position4D.y-radious, a->position4D.z, a->position4D.w));
-        glm::vec4 contactPosB(glm::vec4(a->position4D.x, height, a->position4D.z, a->position4D.w));
-        float depth(radious - a->position4D.y+height);     
-        collisions.push_back(Collision(index1, index2,0.f, 0.f,normal, depth, contactPosA, contactPosB));
+        glm::vec4 contactPosA(world_pos_to_body(a, glm::vec4(a->position4D.x, a->position4D.y-radius, a->position4D.z, a->position4D.w)));
+        float depth(radius - a->position4D.y+height);     
+        collisions.push_back(Collision(index1, index2,0.f, 0.f,normal, depth, contactPosA, glm::vec4()));
         if (collisions.size() > 0)collisionsVec.push_back(collisions);
     }
     return collisionsVec;
@@ -1768,8 +1853,8 @@ static std::vector<std::vector<Collision>> sphere_to_half_space(Object4D* a, int
 static std::vector<std::vector<Collision>> cube_to_half_space(Object4D* a, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec)
 {
     float height(0.f);
-    float radiousA(length(a->scale4D) / 2.f);
-    if (a->position4D.y < radiousA + height)
+    float radiusA(length(a->scale4D) / 2.f);
+    if (a->position4D.y < radiusA + height)
     {
         std::vector<Collision> collisions;
         for (int i(0); i < 16; i++)
@@ -1778,10 +1863,9 @@ static std::vector<std::vector<Collision>> cube_to_half_space(Object4D* a, int i
             if (vertexPos4D.y < height)
             {
                 glm::vec4 normal(glm::vec4(0.f, 1.f, 0.f, 0.f));
-                glm::vec4 contactPosA(vertexPos4D);
-                glm::vec4 contactPosB(glm::vec4(vertexPos4D.x, height, vertexPos4D.z, vertexPos4D.w));
+                glm::vec4 contactPosA(world_pos_to_body(a, vertexPos4D));
                 float depth(height - vertexPos4D.y); 
-                collisions.push_back(Collision(index1, index2,0.f, 0.f,normal, depth, contactPosA, contactPosB));
+                collisions.push_back(Collision(index1, index2,0.f, 0.f,normal, depth, contactPosA, glm::vec4()));
             }
         }
         if (collisions.size() > 0)collisionsVec.push_back(collisions);
@@ -1792,21 +1876,34 @@ static std::vector<std::vector<Collision>> cube_to_half_space(Object4D* a, int i
 static std::vector<std::vector<Collision>> mesh_to_half_space(Object4D* a, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec)
 {
     float height(0.f);
-    float radiousB(length(a->scale4D) / 2.f);
-    if (a->position4D.y < radiousB + height)
+    float radiusB(length(a->scale4D) / 2.f);
+    if (a->position4D.y < radiusB + height)
     {
+        std::vector<glm::vec4> vertices4DA;
         std::vector<Collision> collisions;
         for (int i(0); i < a->primitive4D.get_size_of_vertices4D(); i++)
         {
             glm::vec4 vertexPos4D(body_pos_to_world(a, a->primitive4D.vertexData4D[i] * a->scale4D));
             if (vertexPos4D.y < height)
             {
-                glm::vec4 normal(glm::vec4(0.f, 1.f, 0.f, 0.f));
-                glm::vec4 contactPosA(vertexPos4D);
-                glm::vec4 contactPosB(glm::vec4(vertexPos4D.x, height, vertexPos4D.z, vertexPos4D.w));
-                float depth(height - vertexPos4D.y);
-                collisions.push_back(Collision(index1, index2, 0.f, 0.f,normal, depth, contactPosA, contactPosB));
+                bool isAdd(true);
+                for (int j(0); j < vertices4DA.size(); j++)
+                {
+                    if (vertices4DA[j] == vertexPos4D)
+                    {
+                        isAdd = false;
+                    }
+                }
+                if (isAdd)
+                    vertices4DA.push_back(vertexPos4D);
             }
+        }
+        glm::vec4 normal(glm::vec4(0.f, 1.f, 0.f, 0.f));
+        for (int i(0); i < vertices4DA.size(); i++)
+        {
+            glm::vec4 contactPosA(world_pos_to_body(a, vertices4DA[i]));
+            float depth(height - vertices4DA[i].y);
+            collisions.push_back(Collision(index1, index2, 0.f, 0.f,normal, depth, contactPosA, glm::vec4()));
         }
         if (collisions.size() > 0)collisionsVec.push_back(collisions);
     }
@@ -1817,29 +1914,27 @@ static std::vector<std::vector<Collision>> mesh_to_half_space(Object4D* a, int i
 static std::vector<std::vector<Collision>> capsule_to_half_space(Object4D* a, int index1, int index2, std::vector<std::vector<Collision>> collisionsVec)
 {
     float height(0.f);
-    float radious(min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f);
+    float radius(min(a->scale4D.w, min(a->scale4D.x, a->scale4D.y)) / 2.f);
     float length(a->scale4D.z);
     std::vector<Collision> collisions;
     {
-        glm::vec4 position4D(a->position4D + body_vec_to_world(a, glm::vec4(0.f, 0.f,length / 2.f - radious, 0.f)));
-        if (position4D.y < radious + height)
+        glm::vec4 position4D(a->position4D + body_vec_to_world(a, glm::vec4(0.f, 0.f,length / 2.f - radius, 0.f)));
+        if (position4D.y < radius + height)
         {
             glm::vec4 normal(glm::vec4(0.f, 1.f, 0.f, 0.f));
-            glm::vec4 contactPosA(glm::vec4(position4D.x, position4D.y - radious, position4D.z, position4D.w));
-            glm::vec4 contactPosB(glm::vec4(position4D.x, height, position4D.z, position4D.w));
-            float depth(radious + height - position4D.y);
-            collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
+            glm::vec4 contactPosA(world_pos_to_body(a, glm::vec4(position4D.x, position4D.y - radius, position4D.z, position4D.w)));
+            float depth(radius + height - position4D.y);
+            collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, glm::vec4()));
         }
     }
     {
-        glm::vec4 position4D(a->position4D - body_vec_to_world(a, glm::vec4(0.f, 0.f,length / 2.f - radious, 0.f)));
-        if (position4D.y < radious + height)
+        glm::vec4 position4D(a->position4D - body_vec_to_world(a, glm::vec4(0.f, 0.f,length / 2.f - radius, 0.f)));
+        if (position4D.y < radius + height)
         {
             glm::vec4 normal(glm::vec4(0.f, 1.f, 0.f, 0.f));
-            glm::vec4 contactPosA(glm::vec4(position4D.x, position4D.y - radious, position4D.z, position4D.w));
-            glm::vec4 contactPosB(glm::vec4(position4D.x, height, position4D.z, position4D.w));
-            float depth(radious + height - position4D.y);
-            collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, contactPosB));
+            glm::vec4 contactPosA(world_pos_to_body(a, glm::vec4(position4D.x, position4D.y - radius, position4D.z, position4D.w)));
+            float depth(radius + height - position4D.y);
+            collisions.push_back(Collision(index1, index2, 0.f, 0.f, normal, depth, contactPosA, glm::vec4()));
         }
     }
     if (collisions.size() > 0)collisionsVec.push_back(collisions);
@@ -1849,21 +1944,21 @@ static std::vector<std::vector<Collision>> capsule_to_half_space(Object4D* a, in
 static void sphere_to_water(Object4D* a,
     RigidBody4D* b, const float dt)
 {
-    float radious(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
-    if (abs(b->position4D.x - a->position4D.x) < a->scale4D.x / 2.f + radious &&
-        abs(b->position4D.y - a->position4D.y + a->scale4D.y / 4.f) < a->scale4D.y / 4.f + radious &&
-        abs(b->position4D.z - a->position4D.z) < a->scale4D.z / 2.f + radious &&
-        abs(b->position4D.w - a->position4D.w) < a->scale4D.w / 2.f + radious)
+    float radius(min(b->scale4D.w, min(b->scale4D.z, min(b->scale4D.x, b->scale4D.y))) / 2.f);
+    if (abs(b->position4D.x - a->position4D.x) < a->scale4D.x / 2.f + radius &&
+        abs(b->position4D.y - a->position4D.y + a->scale4D.y / 4.f) < a->scale4D.y / 4.f + radius &&
+        abs(b->position4D.z - a->position4D.z) < a->scale4D.z / 2.f + radius &&
+        abs(b->position4D.w - a->position4D.w) < a->scale4D.w / 2.f + radius)
     {
         float depth(a->position4D.y - b->position4D.y);
-        if (depth > -radious)
+        if (depth > -radius)
         {
             glm::vec4 force;
-            if (depth < radious) {
-                force = 10000.f * glm::vec4(0, radious * radious * radious * radious * (depth + radious), 0, 0);
+            if (depth < radius) {
+                force = 10000.f * glm::vec4(0, radius * radius * radius * radius * (depth + radius), 0, 0);
             }
-            if (depth >= radious) {
-                force = 10000.f * glm::vec4(0, radious * radious * radious * radious * (2.f * radious), 0, 0);
+            if (depth >= radius) {
+                force = 10000.f * glm::vec4(0, radius * radius * radius * radius * (2.f * radius), 0, 0);
             }
             // std::cout << "float!" << force.y << "\n";
             b->forceSystems4D.push_back(new ForceSystem4D(force, glm::vec4(0.f)));
@@ -1875,14 +1970,14 @@ static void sphere_to_water(Object4D* a,
 static void cube_to_water(Object4D* a,
     RigidBody4D* b, const float dt)
 {
-    float cubeRadious(sqrt(b->scale4D.x * b->scale4D.x + b->scale4D.y * b->scale4D.y + b->scale4D.z * b->scale4D.z + b->scale4D.w * b->scale4D.w) / 2.f);
-    if (abs(b->position4D.x - a->position4D.x) < a->scale4D.x/2.f + cubeRadious &&
-        abs(b->position4D.y - a->position4D.y+ a->scale4D.y / 4.f) < a->scale4D.y / 4.f + cubeRadious &&
-        abs(b->position4D.z - a->position4D.z) < a->scale4D.z / 2.f + cubeRadious &&
-        abs(b->position4D.w - a->position4D.w) < a->scale4D.w / 2.f + cubeRadious)
+    float cuberadius(sqrt(b->scale4D.x * b->scale4D.x + b->scale4D.y * b->scale4D.y + b->scale4D.z * b->scale4D.z + b->scale4D.w * b->scale4D.w) / 2.f);
+    if (abs(b->position4D.x - a->position4D.x) < a->scale4D.x/2.f + cuberadius &&
+        abs(b->position4D.y - a->position4D.y+ a->scale4D.y / 4.f) < a->scale4D.y / 4.f + cuberadius &&
+        abs(b->position4D.z - a->position4D.z) < a->scale4D.z / 2.f + cuberadius &&
+        abs(b->position4D.w - a->position4D.w) < a->scale4D.w / 2.f + cuberadius)
     {
         float depth(a->position4D.y - b->position4D.y);
-        if (depth > -cubeRadious)
+        if (depth > -cuberadius)
         {
             glm::vec4 force;
             for (int i(0); i < 16; i++)
@@ -1893,7 +1988,7 @@ static void cube_to_water(Object4D* a,
                     abs(pos.z - a->position4D.z) < a->scale4D.z / 2.f&&
                     abs(pos.w - a->position4D.w) < a->scale4D.w / 2.f)
                 {
-                    glm::vec4 rel_vel = vel_at(b, body_pos_to_world(a, hypercube::vertices4D[i] * b->scale4D));
+                    glm::vec4 rel_vel = vel_at(b, hypercube::vertices4D[i] * b->scale4D);
                     force = 0.3f * glm::vec4(0.f, 1.f, 0.f, 0.f) - 0.025f * rel_vel;
                     b->forceSystems4D.push_back(new ForceSystem4D(force, hypercube::vertices4D[i] * b->scale4D));
                     b->velocity4D -= b->velocity4D * dt / 20.f;

@@ -37,8 +37,8 @@ public:
 		glm::vec4 posOffset(noStickLengthOffset * normalize(b->position4D - a->position4D));
 		glm::vec4 velocityOffset(posOffset / dt);
 		glm::vec4 impulse4D(velocityOffset * a->mass * b->mass / (b->mass + a->mass));
-		resolve_impulse0(a, impulse4D);
-		resolve_impulse0(b, -impulse4D);
+		resolve_impulse(a, impulse4D);
+		resolve_impulse(b, -impulse4D);
 	}
 	void update_stick4D(Object4D* a, Object4D* b)
 	{
@@ -53,7 +53,7 @@ public:
 		glm::vec4 posOffset(noStickLengthOffset * normalize(b->position4D - a->position4D));
 		glm::vec4 velocityOffset(posOffset / dt);
 		glm::vec4 impulse4D(velocityOffset * a->mass);
-		resolve_impulse0(a, impulse4D);
+		resolve_impulse(a, impulse4D);
 	}
 	void solve_rigidbody(RigidBody4D* a, const float dt)
 	{
@@ -62,7 +62,7 @@ public:
 		glm::vec4 posOffset((length(fixPoint4D - noStickPos1) - stickLength) * normalize(fixPoint4D - a->position4D));
 		glm::vec4 velocityOffset(posOffset / dt);
 		glm::vec4 impulse4D(velocityOffset * a->mass);
-		resolve_impulse0(a, impulse4D);
+		resolve_impulse(a, impulse4D);
 	}
 	void update_stick4D(Object4D* a)
 	{
@@ -90,7 +90,7 @@ public:
 		shader->use();//Update uniforms	
 		shader->set1i(true, "isReflect");//Update uniforms	
 		shader->set1f(0.4f, "metal");
-		shader->setVec4f(this->paintingColor, "paintingColor");
+		shader->set_vec4f(this->paintingColor, "paintingColor");
 		this->mesh4D->render(shader); //Activates shader also			
 	}
 	void render_frame(Shader* shader)
@@ -128,8 +128,8 @@ public:
 	{
 		glm::vec4 springDir(b->position4D - a->position4D);
 		glm::vec4 force4D(k*(length(springDir) - springLength)* normalize(springDir));
-		resolve_impulse0(a, force4D*dt);
-		resolve_impulse0(b, -force4D*dt);
+		resolve_impulse(a, force4D*dt);
+		resolve_impulse(b, -force4D*dt);
 	}
 	void update_spring4D(Object4D* a, Object4D* b)
 	{
@@ -142,13 +142,13 @@ public:
 	{
 		glm::vec4 springDir(b->position4D - a->position4D);
 		glm::vec4 force4D(k * (length(springDir) - springLength) * normalize(springDir));
-		resolve_impulse0(a, force4D * dt);
+		resolve_impulse(a, force4D * dt);
 	}
 	void solve_rigidbody(RigidBody4D* a, const float dt)
 	{
 		glm::vec4 springDir(fixPoint4D - a->position4D);
 		glm::vec4 force4D(k * (length(springDir) - springLength) * normalize(springDir));
-		resolve_impulse0(a, force4D * dt);
+		resolve_impulse(a, force4D * dt);
 	}
 	void update_spring4D(Object4D* a)
 	{
@@ -172,7 +172,7 @@ public:
 		shader->use();//Update uniforms	
 		shader->set1i(true, "isReflect");//Update uniforms	
 		shader->set1f(0.f, "metal");
-		shader->setVec4f(this->paintingColor, "paintingColor");
+		shader->set_vec4f(this->paintingColor, "paintingColor");
 		this->mesh4D->render(shader); //Activates shader also			
 	}
 	void render_frame(Shader* shader)

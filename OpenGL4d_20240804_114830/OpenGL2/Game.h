@@ -149,6 +149,8 @@ private:
 	int blockLoadDistance;
 	int objectLoadDistance;
 	bool isFramework;
+	int FrameworkProjectionType;
+	float projectionScaler;
 	bool isFog;
 	float fogDensity;
 	//gameing
@@ -193,6 +195,7 @@ private:
 	bool isIlluminate;
 	bool isGravity;
 	bool isTrail4D;
+	int trailFadeType;
 	bool isJointLine4D;
 	bool isCloud;
 	bool isSkyBoxFog;

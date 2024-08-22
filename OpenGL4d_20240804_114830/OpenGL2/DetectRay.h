@@ -5,25 +5,24 @@ namespace ray {
 	static bool get_ray_detect_terrain4d(Object4D* j, glm::vec4 camPos, glm::vec4 forward, glm::vec4 right, float* t,glm::vec4* hitNormal)
 	{
 		glm::vec4 relativePos(j->position4D - camPos);
-		const int size(8);
 		bool isFindPoint0(false);
-		if (dot(glm::vec3(right.x, right.z, right.w), glm::vec3(relativePos.x, relativePos.z, relativePos.w)) < (float)size * sqrt(3)/2.f)
+		if (dot(glm::vec3(right.x, right.z, right.w), glm::vec3(relativePos.x, relativePos.z, relativePos.w)) < (float)(terrainScale * terrainSize) * sqrt(3)/2.f)
 		{
 			glm::vec4 detectPos4D0;
-			for (size_t x(0); x < size; x++)
+			for (size_t x(0); x < terrainSize; x++)
 			{
-				for (size_t z(0); z < size; z++)
+				for (size_t z(0); z < terrainSize; z++)
 				{
-					for (size_t w(0); w < size; w++)
+					for (size_t w(0); w < terrainSize; w++)
 					{
-						int cubeIndex(4 * 6 * (size * size * w + size * z + x));
+						int cubeIndex(4 * 6 * (terrainSize * terrainSize * w + terrainSize * z + x));
 						glm::vec4 relativePos2(relativePos + j->primitive4D.vertexData4D[cubeIndex] + glm::vec4(-0.5f, 0.f, 0.5f, -0.5f));
-						if (dot(glm::vec3(right.x, right.z, right.w), glm::vec3(relativePos2.x, relativePos2.z, relativePos2.w)) < 0.5f * sqrt(3))
+						if (dot(glm::vec3(right.x, right.z, right.w), glm::vec3(relativePos2.x, relativePos2.z, relativePos2.w)) < terrainScale * 0.5f * sqrt(3))
 						{
 							glm::vec3 forwardXZW(normalize(glm::vec3(forward.x, forward.z, forward.w)));
 							float t0(dot(forwardXZW, glm::vec3(relativePos2.x, relativePos2.z, relativePos2.w)) / dot(forwardXZW, forwardXZW));
-							float t1(t0 - 0.5f * sqrt(3));
-							float t2(t0 + 0.5f * sqrt(3));
+							float t1(t0 - terrainScale * 0.5f * sqrt(3));
+							float t2(t0 + terrainScale * 0.5f * sqrt(3));
 							float h1(camPos.y + (forward * t1 / length(glm::vec3(forward.x, forward.z, forward.w))).y);
 							float h2(camPos.y + (forward * t2 / length(glm::vec3(forward.x, forward.z, forward.w))).y);
 							if (t0 >= 0.f)
@@ -86,6 +85,7 @@ namespace ray {
 		bool isFindPoint(false);
 		glm::vec4 hitNormal;
 		float t;
+		*detectPos4D = glm::vec4(1000000.f);
 		for (Group* i : groups)
 		{
 			if (i->isRender)
@@ -100,7 +100,7 @@ namespace ray {
 								{
 									if (length(*detectPos4D - camPos) > t)
 									{
-										*detectPos4D = detectPos4D0;
+										*detectPos4D = camPos + t * forward;
 										isFindPoint = true;
 									}
 									if (!isFindPoint)
@@ -145,11 +145,11 @@ namespace ray {
 			if (cosAMutiDistance > 0)
 			{
 				float sinAMutiDistance(sqrt(distance * distance - cosAMutiDistance * cosAMutiDistance));
-				float radious(min(j->scale4D.w, min(j->scale4D.z, min(j->scale4D.x, j->scale4D.y))) / 2.f);
-				if (sinAMutiDistance < radious)
+				float radius(min(j->scale4D.w, min(j->scale4D.z, min(j->scale4D.x, j->scale4D.y))) / 2.f);
+				if (sinAMutiDistance < radius)
 				{
-					t0 = cosAMutiDistance - sqrt(radious * radious - sinAMutiDistance * sinAMutiDistance);
-					//float t2(cosAMutiDistance + sqrt(radious * radious - sinAMutiDistance * sinAMutiDistance));
+					t0 = cosAMutiDistance - sqrt(radius * radius - sinAMutiDistance * sinAMutiDistance);
+					//float t2(cosAMutiDistance + sqrt(radius * radius - sinAMutiDistance * sinAMutiDistance));
 					*hitNormal = normalize(camPos + forward * t0 - j->position4D);
 					//*hitPosFar = camPos + forward * t2;
 					isDetected=true;
@@ -212,7 +212,7 @@ namespace ray {
 		}
 		case CAPSULE4D:
 		{
-			float radious(glm::min(j->scale4D.w, glm::min(j->scale4D.x, j->scale4D.y)) / 2.f);
+			float radius(glm::min(j->scale4D.w, glm::min(j->scale4D.x, j->scale4D.y)) / 2.f);
 			float capsuleLength(j->scale4D.z);
 			{
 				glm::vec4 rPos(-world_pos_to_body(j, camPos));
@@ -228,13 +228,13 @@ namespace ray {
 					if (cosAMutiDistance > 0)
 					{
 						float sinAMutiDistance(sqrt(distance * distance - cosAMutiDistance * cosAMutiDistance));
-						if (sinAMutiDistance < radious)
+						if (sinAMutiDistance < radius)
 						{
-							float t1((cosAMutiDistance - sqrt(radious * radious - sinAMutiDistance * sinAMutiDistance)) / k);
-							//float t2((cosAMutiDistance + sqrt(radious * radious - sinAMutiDistance * sinAMutiDistance))/k);
+							float t1((cosAMutiDistance - sqrt(radius * radius - sinAMutiDistance * sinAMutiDistance)) / k);
+							//float t2((cosAMutiDistance + sqrt(radius * radius - sinAMutiDistance * sinAMutiDistance))/k);
 							if (t0 > t1&&t1>0.f)
 							{
-								if (abs(-rPos.z + forward0.z * t1) < capsuleLength / 2.f - radious)
+								if (abs(-rPos.z + forward0.z * t1) < capsuleLength / 2.f - radius)
 								{
 									t0 = t1;
 									*hitNormal = -rPos + forward0 * t0;
@@ -252,22 +252,22 @@ namespace ray {
 				float sign(1.f);
 				if (i == 1)
 					sign = -1.f;
-				glm::vec4 rPos(body_pos_to_world(j, sign * (glm::vec4(0, 0, capsuleLength / 2.f - radious, 0))) - camPos);
+				glm::vec4 rPos(body_pos_to_world(j, sign * (glm::vec4(0, 0, capsuleLength / 2.f - radius, 0))) - camPos);
 				float distance(length(rPos));
 				float cosAMutiDistance(dot(rPos, forward));
 				if (cosAMutiDistance > 0)
 				{
 					float sinAMutiDistance(sqrt(distance * distance - cosAMutiDistance * cosAMutiDistance));
-					if (sinAMutiDistance < radious)
+					if (sinAMutiDistance < radius)
 					{
-						float t1(cosAMutiDistance - sqrt(radious * radious - sinAMutiDistance * sinAMutiDistance));
+						float t1(cosAMutiDistance - sqrt(radius * radius - sinAMutiDistance * sinAMutiDistance));
 						if (t0 > t1)
 						{
 							t0 = t1;
 							*hitNormal = normalize(camPos + forward * t0 - rPos - camPos);
 							isDetected = true;
 						}
-						//float t2(cosAMutiDistance + sqrt(radious * radious - sinAMutiDistance * sinAMutiDistance));
+						//float t2(cosAMutiDistance + sqrt(radius * radius - sinAMutiDistance * sinAMutiDistance));
 					}
 				}
 			}

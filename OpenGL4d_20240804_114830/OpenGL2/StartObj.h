@@ -28,8 +28,8 @@ void Game::startObjects(int level,const char* filePath)
 				{
 					for (int k(0); k < 10; k++)
 					{
-						glm::vec3 randomColor = glm::vec3(rand()%255, rand() % 255,rand() % 255)/255.f;
-						generate_room4D(glm::vec4(17 * i, 64.f+4*k, 17 * j, 0.f), glm::vec4(16.f, 3.f, 16.f, 16.f), 1, 0, 0, 0, 0, 0, false, false, WHITEWALL, glm::vec4(randomColor,1.f), WALLD4, false, WHITEWALL, glm::vec4(0.f, 0.f, 0.f, 1.f), WALLD4, false, WHITEWALL, glm::vec4(randomColor,1.f), WALLD4, false, WHITEWALL, glm::vec4(randomColor,1.f), WALLD4, &this->walls4D);
+						glm::vec3 randomColor = glm::vec3(rand()%255, rand() % 255,rand() % 255);
+						this->walls4D.push_back(new Wall4D("Hypercube", Hypercube(glm::vec4(1.f) / 2.f), glm::vec4((randomColor.x-128)/2.f, 64.3f, (randomColor.y - 128)/2.f, (randomColor.z - 128)/2.f), alg::bivec4(), glm::vec4(1.f), 0.7f, 0.25f, true, PURE_WHITE, glm::vec4(1.f), glm::vec4(1.f, 1.f, 1.f, 0.f), BOX4D, WALLD4));
 					}
 				}
 			}
@@ -159,8 +159,9 @@ void Game::startObjects(int level,const char* filePath)
 		{
 			this->skybox4D->switch_mode(0, this->wallTexs3D[STARS], glm::vec3(1.f), glm::vec4(1.f), this->shaders[this->skybox4D->shaderIndex]);
 			this->rigidBodies4D.push_back(new RigidBody4D("Player", Hypercapsule(glm::vec4(0.4f, 0.4f, 1.8f, 0.4f)), glm::vec4(0.f, 64.875f, 0.f, 0.f), alg::bivec4(0.f, 0.f, 0.f, 90.f), glm::vec4(0.4f, 0.4f, 1.75f, 0.4f), 65.f, 0.f, 5.7143f, 0.f, true, false, glm::vec4(0.f), alg::bivec4(), true, PURE_WHITE, glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 0.f), CAPSULE4D, WALLD4));
-			generate_terrain4D(8, glm::ivec4(8, 0, 8, 8), &this->terrains4D, TERRAIND4);
-			this->waters4D.push_back(new Water4D("Water", Waterbox4d(glm::vec4(10000.f, 40000.f, 10000.f, 10000.f)), glm::vec4(0, 55.5f, 0, 0), glm::vec4(10000.f, 40000.f, 10000.f, 10000.f), NONE, WATERD4));
+			generate_terrain4D(16, glm::ivec4(16, 0, 16, 16), &this->terrains4D, TERRAIND4);
+			this->waters4D.push_back(new Water4D("Water", Quad4d(glm::vec4(10000.f, 40000.f, 10000.f, 10000.f)), glm::vec4(0, 55.5f, 0, 0), glm::vec4(10000.f, 40000.f, 10000.f, 10000.f), NONE, WATERD4));
+			this->walls4D.push_back(new Wall4D("WaterFloor", Waterbox4d(glm::vec4(1.f)), glm::vec4(0.f,55.5f,0.f,0.f), alg::bivec4(), glm::vec4(9999.f, 55.5f, 9999.f, 9999.f), 0.7f, 0.25f, false, PURE_WHITE, glm::vec4(0.72f * 0.28, 0.72f * 0.28, 0.72f * 0.28, 1.f), glm::vec4(1.f, 1.f, 1.f, 0.f), NONE, EMITD4));
 			this->worldTime = 150.f;
 			break;
 		}

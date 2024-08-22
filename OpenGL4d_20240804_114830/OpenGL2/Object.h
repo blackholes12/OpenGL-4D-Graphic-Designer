@@ -322,8 +322,8 @@ public:
 		texture3D->bind(0);
 		shader->use();//Update uniforms	
 		shader->set1i(this->isSpecular, "isSpecular");//Update uniforms	
-		shader->setVec4f(this->paintingColor, "paintingColor");
-		shader->setVec4f(this->metalColor, "metalColor");
+		shader->set_vec4f(this->paintingColor, "paintingColor");
+		shader->set_vec4f(this->metalColor, "metalColor");
 		this->mesh4D->render(shader); //Activates shader also			
 	}
 	void render_frame(Shader* shader)
@@ -478,8 +478,8 @@ public:
 		texture3D->bind(0);
 		shader->use();//Update uniforms	
 		shader->set1i(this->isSpecular, "isSpecular");//Update uniforms	
-		shader->setVec4f(this->paintingColor, "paintingColor");
-		shader->setVec4f(this->metalColor, "metalColor");
+		shader->set_vec4f(this->paintingColor, "paintingColor");
+		shader->set_vec4f(this->metalColor, "metalColor");
 		this->mesh4D->render(shader); //Activates shader also			
 	}
 
@@ -521,8 +521,8 @@ public:
 		texture3D->bind(4);
 		shader->use();
 		shader->set1i(type, "type");
-		shader->setVec3f(texScale, "texScale");
-		shader->setVec4f(paintingColor, "paintingColor");
+		shader->set_vec3f(texScale, "texScale");
+		shader->set_vec4f(paintingColor, "paintingColor");
 	}
 
 	//Functions
@@ -574,14 +574,14 @@ static void update_water4d(std::vector<Water4D*> waters4D, Shader* type1, Shader
 		{
 			snprintf(ss, 255, "waterArea4D[%d].position4D", i0);
 			type1->use();
-			type1->setVec4f(waters4D[i]->position4D, ss);
+			type1->set_vec4f(waters4D[i]->position4D, ss);
 			type2->use();
-			type2->setVec4f(waters4D[i]->position4D, ss);
+			type2->set_vec4f(waters4D[i]->position4D, ss);
 			snprintf(ss, 255, "waterArea4D[%d].scale4D", i0);
 			type1->use();
-			type1->setVec4f(waters4D[i]->scale4D, ss);
+			type1->set_vec4f(waters4D[i]->scale4D, ss);
 			type2->use();
-			type2->setVec4f(waters4D[i]->scale4D, ss);
+			type2->set_vec4f(waters4D[i]->scale4D, ss);
 			i0++;
 		}
 		type1->use();
@@ -602,6 +602,8 @@ class Terrain4D : public Object4D
 {
 private:
 public:
+	float topHeight;
+	float bottomHeight;
 	Terrain4D(
 		const char* objectName,
 		Primitive4D primitive4D,
@@ -613,10 +615,27 @@ public:
 		unsigned int shaderIndex
 	) : Object4D(objectName, primitive4D, position4D, alg::bivec4(), scale4D, mu, restitution, colType, shaderIndex)
 	{
+		this->topHeight = this->support_distance(glm::vec4(0.f,1.f,0.f,0.f),1.f);
+		this->bottomHeight = this->support_distance(glm::vec4(0.f, -1.f, 0.f, 0.f),-1.f);
 	}
 
 	~Terrain4D()
 	{
+	}
+	float support_distance(glm::vec4 direction4D,float inverseCount)
+	{
+		glm::vec4 direction4DToObj(direction4D);
+		float dot0(0.f);
+		for (int i(0); i < this->primitive4D.get_size_of_vertices4D(); i++)
+		{
+			glm::vec4 vertexPos4D(this->primitive4D.vertexData4D[i]);
+			float dot1(dot(direction4DToObj, vertexPos4D));
+			if (inverseCount * dot1 > inverseCount * dot0||i==0)
+			{
+				dot0 = dot1;
+			}
+		}
+		return inverseCount * dot0;
 	}
 	void render(Shader* shader)
 	{
@@ -631,7 +650,7 @@ public:
 	}
 };
 
-class Particle4D
+class Particle4D0
 {
 public:
 	unsigned int texture3Dindex;
@@ -651,7 +670,7 @@ public:
 	unsigned int level;
 	unsigned int index;
 	Mesh4D* mesh4D;
-	Particle4D(unsigned int texture3Dindex,
+	Particle4D0(unsigned int texture3Dindex,
 		glm::vec4 position4D,
 		glm::vec4 velocity4D,
 		float startSize,
@@ -685,7 +704,7 @@ public:
 		this->index = index;
 		this->mesh4D = new Mesh4D(Particle4d(), position4D,update(alg::rotor4(), alg::bivec4(0, 0, 0, glm::radians(90.f), 0, 0)), glm::vec4(1.f));
 	}
-	~Particle4D()
+	~Particle4D0()
 	{
 		this->mesh4D = nullptr,delete[] this->mesh4D;
 	}
@@ -695,7 +714,7 @@ public:
 		shader->use();
 		float size(glm::mix(this->startSize, this->endSize, this->time / this->duration));
 		shader->set1f(size, "radius");
-		shader->setVec4f(mix(this->startColor, this->endColor,this->time/ this->duration), "lightcolor");//Update uniforms	
+		shader->set_vec4f(mix(this->startColor, this->endColor,this->time/ this->duration), "lightColor");//Update uniforms	
 		this->mesh4D->render(shader); //Activates shader also			
 	}
 
@@ -722,7 +741,7 @@ public:
 	float duration;
 	float time;
 	float emitTime;
-	std::vector<Particle4D*> particles4D;
+	std::vector<Particle4D0*> particles4D;
 	unsigned int type;
 	Emitter4D(unsigned int type,
 		glm::vec4 position4D,
@@ -739,6 +758,6 @@ public:
 	}
 	~Emitter4D()
 	{
-		for (Particle4D* i : this->particles4D) { i=nullptr,delete i; }
+		for (Particle4D0* i : this->particles4D) { i=nullptr,delete i; }
 	}
 };

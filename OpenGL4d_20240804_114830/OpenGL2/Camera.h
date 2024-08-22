@@ -40,10 +40,10 @@ private:
 	{
 		this->rotation4D = update(alg::rotor4(), alg::bivec4(0.f, 0.f, 0.f, glm::radians(rotateAngle4D.yz), 0.f, 0.f));
 		this->rotation4D = update(this->rotation4D, alg::bivec4(0.f, glm::radians(rotateAngle4D.xz), 0.f, 0.f, 0.f, 0.f));
-		this->rotation4D = update(this->rotation4D, alg::bivec4(0.f, 0.f, 0.f, 0.f, 0.f, glm::radians(rotateAngle4D.zw)));
-		this->rotation4D = update(this->rotation4D, alg::bivec4(0.f, 0.f, glm::radians(rotateAngle4D.xw), 0.f, 0.f, 0.f));
 		this->rotation4D = update(this->rotation4D, alg::bivec4(glm::radians(rotateAngle4D.xy), 0.f, 0.f, 0.f, 0.f, 0.f));
-		this->rotation4D = update(this->rotation4D, alg::bivec4(0.f, 0.f, 0.f, 0.f, glm::radians(rotateAngle4D.yw), 0.f));	
+		this->rotation4D = update(this->rotation4D, alg::bivec4(0.f, 0.f, glm::radians(rotateAngle4D.xw), 0.f, 0.f, 0.f));
+		this->rotation4D = update(this->rotation4D, alg::bivec4(0.f, 0.f, 0.f, 0.f, glm::radians(rotateAngle4D.yw), 0.f));
+		this->rotation4D = update(this->rotation4D, alg::bivec4(0.f, 0.f, 0.f, 0.f, 0.f, glm::radians(rotateAngle4D.zw)));
 	}
 
 	const glm::vec4 get_right4D()
@@ -305,14 +305,7 @@ public:
 	{
 		//Update rotation2
 		this->rotateAngle4D.xw -= static_cast<GLfloat>(offsetX2) * this->sensitivity;
-		if (this->rotateAngle4D.xw < -360.f)
-		{
-			this->rotateAngle4D.xw += 360.f;
-		}
-		else if (this->rotateAngle4D.xw > 360.f)
-		{
-			this->rotateAngle4D.xw -= 360.f;
-		}
+		this->rotateAngle4D.xw = clamp(this->rotateAngle4D.xw, -90.f, 90.f);
 		this->rotateAngle4D.zw += static_cast<GLfloat>(offsetY2) * this->sensitivity;
 		if (this->rotateAngle4D.zw < -360.f)
 		{
@@ -329,5 +322,67 @@ public:
 		this->aspect = aspect;
 		this->nearPlane = nearPlane;
 		this->projectionMat = glm::tweakedInfinitePerspective(glm::radians(fov), aspect, nearPlane);
+	}
+};
+
+struct Cluster
+{
+	glm::vec4 minPoint;
+	glm::vec4 maxPoint;
+	unsigned int lightsLength;
+	unsigned int lightIndices[100];
+};
+
+class ClusterGroup
+{
+private:
+	GLuint clusterSSBO;
+	Cluster* clusters;
+	Shader* clusterShader;
+	Shader* clusterUpdateShader;
+public:
+	ClusterGroup(Shader* clusterShader,Shader* clusterUpdateShader)
+	{
+		glGenBuffers(1,&this->clusterSSBO);
+		this->clusters = new Cluster[12 * 12 * 24];
+		this->clusterShader = clusterShader;
+		this->clusterUpdateShader = clusterUpdateShader;
+		glBindBuffer(GL_ARRAY_BUFFER, this->clusterSSBO);
+		glBufferData(GL_ARRAY_BUFFER, 12 * 12 * 24, this->clusters, GL_DYNAMIC_COPY);
+		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, this->clusterSSBO);
+		glUnmapBuffer(GL_ARRAY_BUFFER);
+	}
+
+	void set_clusterGroup(const float zNear,const glm::mat4 projectionMat, int fbW, int fbH)
+	{
+		//std::cout << "set cluster" << "\n";
+		this->clusterShader->use();
+		this->clusterShader->set1f(zNear, "zNear");
+		this->clusterShader->set1f(1000.f, "zFar");
+		this->clusterShader->set_mat4fv(glm::inverse(projectionMat), "inverseProjectionMat");
+		this->clusterShader->set_vec2u(glm::uvec2(fbW, fbH), "screenDimensions");
+		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, this->clusterSSBO);
+		glDispatchCompute(12, 12, 24);
+		glMemoryBarrier(GL_ALL_BARRIER_BITS);
+		glBindBuffer(GL_ARRAY_BUFFER, this->clusterSSBO);
+		this->clusters = (Cluster*)glMapBufferRange(GL_ARRAY_BUFFER, 0, 12 * 12 * 24, GL_MAP_READ_BIT);
+		glUnmapBuffer(GL_ARRAY_BUFFER);
+		float f = this->clusters[2].maxPoint.x+ this->clusters[2].maxPoint.y+ this->clusters[2].maxPoint.z+ this->clusters[2].maxPoint.w;
+		std::cout << f << "\n";
+	}
+
+	void update_clusterGroup(const glm::mat4 viewMat)
+	{
+		this->clusterUpdateShader->use();
+		this->clusterUpdateShader->set_mat4fv(viewMat, "viewMat");
+		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, this->clusterSSBO);
+		glDispatchCompute(12, 12, 24);
+		glMemoryBarrier(GL_ALL_BARRIER_BITS);
+	}
+
+	~ClusterGroup()
+	{
+		glDeleteBuffers(1, & this->clusterSSBO);
+		this->clusters = nullptr, delete this->clusters;
 	}
 };
