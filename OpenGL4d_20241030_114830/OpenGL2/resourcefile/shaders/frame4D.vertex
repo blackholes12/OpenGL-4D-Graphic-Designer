@@ -1,0 +1,32 @@
+#version 440
+layout (location = 0) in vec4 line_position4D;
+out float vs_distance;
+out float vs_project_scale;
+out float vs_project_scaler;
+out vec4 vs_direction4D;
+uniform mat4 mesh4DMat,viewMat,projectionMat;
+uniform vec4 translate4D;
+uniform vec4 cameraPos;
+uniform int projectionType;
+uniform float projectionScaler;
+vec4 rPos0;
+void main()
+{
+if(projectionType==0)
+{
+rPos0=viewMat*(translate4D-cameraPos+mesh4DMat*line_position4D+0.005f*normalize(transpose(inverse(mesh4DMat))*line_position4D));
+vs_distance=rPos0.w;
+vs_direction4D=vec4(0.f,0.f,0.f,1.f)*viewMat;
+gl_Position = projectionMat*vec4(rPos0.xyz,1.f);
+}
+else if(projectionType==1)
+{
+float vsDistance = (viewMat*(translate4D-cameraPos+mesh4DMat*line_position4D)).w;
+float projectScale = 1.f/max(1.f + projectionScaler*vsDistance,0.000001f);
+vs_project_scale = projectScale;
+vs_direction4D = vec4(0.f,0.f,0.f,1.f)*viewMat;
+vec4 shift4D = cameraPos-(fract(cameraPos/16.f+0.5f)-0.5f)*16.f;
+rPos0 = viewMat*((translate4D-shift4D+mesh4DMat*line_position4D)*projectScale+shift4D-cameraPos);
+gl_Position = projectionMat*vec4(rPos0.xyz,1.f);
+}
+};

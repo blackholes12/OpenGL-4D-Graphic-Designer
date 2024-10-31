@@ -1,0 +1,1699 @@
+﻿  Game.cpp
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(267,83): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(267,61): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(267,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(112,7): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\set(22,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(112,7): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(113,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(114,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(116,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(117,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(125,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(123,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(177,7): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\set(22,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(177,7): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(223,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(229,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(243,7): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\set(22,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(243,7): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(250,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(255,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(262,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(278,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(335,3): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Primitives4D.h(1279,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Primitives4D.h(1280,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Primitives4D.h(1281,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Line.h(242,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Object.h(557,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+  (compiling source file 'Game.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\Dependencies\GLFW\include\GLFW\glfw3.h(123,1):
+  see previous definition of 'APIENTRY'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Joint.h(231,2): warning C4091: 'static ': ignored on left of 'HingeConstraint4D' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(95,29): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(99,29): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(106,30): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(110,30): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(117,37): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(121,37): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(133,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(134,62): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(149,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(150,62): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(173,15): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(178,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(179,66): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(199,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(200,68): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(216,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(217,62): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(240,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(241,68): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(282,15): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(287,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(288,66): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(305,15): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(310,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(311,66): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(320,15): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(320,51): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(324,14): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\body.h(42,33): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Animation.h(246,22): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Animation.h(253,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Animation.h(257,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(62,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(65,9): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(83,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(86,7): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(99,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(101,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(111,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(121,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(131,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(141,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(146,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(150,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(156,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(164,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(177,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(187,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(60,2): error C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(197,2): error C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(359,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(363,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(176,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(218,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(308,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(317,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(326,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(328,33): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(390,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(623,2): warning C4091: 'static ': ignored on left of 'Simplex' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(478,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(727,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(742,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(755,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(759,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(761,33): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(774,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(776,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(792,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(822,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(842,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(884,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(986,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(996,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(1022,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(1051,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(1082,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(12,2): warning C4091: 'static ': ignored on left of 'Collider' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(19,2): warning C4091: 'static ': ignored on left of 'CollisionManifold' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(38,2): warning C4091: 'static ': ignored on left of 'Collision' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(47,2): warning C4091: 'static ': ignored on left of 'VertexCellContact' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(58,2): warning C4091: 'static ': ignored on left of 'EdgeFaceContact' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(64,2): warning C4091: 'static ': ignored on left of 'ContactData' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(70,2): warning C4091: 'static ': ignored on left of 'ContactAxis' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(78,2): warning C4091: 'static ': ignored on left of 'AxisResult' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(149,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(149,10): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(177,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(177,10): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(402,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(402,10): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(414,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(618,34): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(620,38): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(622,42): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(798,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(798,10): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1006,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1006,10): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1099,55): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1101,134): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1101,111): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1106,55): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1108,134): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1108,111): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1113,55): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1115,161): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1115,114): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1117,55): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1119,161): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1119,114): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1275,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1277,126): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1277,103): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1297,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1299,122): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1299,99): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1318,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1320,126): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1320,103): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1325,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1327,126): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1327,103): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1332,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1334,153): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1334,106): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1336,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1338,153): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1338,106): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1561,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1634,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1634,10): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1687,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1687,10): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1765,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1765,10): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1821,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1821,10): error C3861: 'tie': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1880,38): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1882,42): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1884,46): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(2112,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(2138,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\collision.h(13,2): warning C4091: 'static ': ignored on left of 'ContactState' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\collision.h(21,2): warning C4091: 'static ': ignored on left of 'CollisionConstraint' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(59,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(70,8): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(112,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(121,8): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(380,46): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'CollisionManifold'
+  (compiling source file 'Game.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(380,46):
+  'CollisionManifold::CollisionManifold': function does not take 3 arguments
+  	C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(380,46):
+  	while trying to match the argument list '(glm::vec4, float, glm::vec4)'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(403,46): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'CollisionManifold'
+  (compiling source file 'Game.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(403,46):
+  'CollisionManifold::CollisionManifold': function does not take 3 arguments
+  	C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(403,46):
+  	while trying to match the argument list '(glm::vec4, float, glm::vec4)'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(417,46): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'CollisionManifold'
+  (compiling source file 'Game.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(417,46):
+  'CollisionManifold::CollisionManifold': function does not take 3 arguments
+  	C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(417,46):
+  	while trying to match the argument list '(glm::vec4, float, glm::vec4)'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(30,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(45,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(51,26): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(76,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(77,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(86,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(90,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(97,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(150,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(161,27): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(168,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(223,19): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(225,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(245,20): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(258,19): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(260,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(287,19): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(289,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(309,20): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(322,19): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(324,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(343,19): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(351,19): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(353,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(381,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(401,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(405,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(412,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(414,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(418,25): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(423,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(425,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(429,25): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(446,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(450,25): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(457,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(459,26): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(463,26): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(468,25): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(470,26): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(474,26): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(485,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(516,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\DetectRay.h(30,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\DetectRay.h(31,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\DetectRay.h(191,22): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Camera.h(263,29): error C3861: 'clamp': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,63): error C3083: 'filesystem': the symbol to the left of a '::' must be a type
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,75): error C2039: 'directory_iterator': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,21): error C3083: 'filesystem': the symbol to the left of a '::' must be a type
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,33): error C2039: 'directory_entry': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,48): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,5): error C2530: 'entry': references must be initialized
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,56): error C2143: syntax error: missing ';' before ':'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,75): error C3861: 'directory_iterator': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(82,116): error C2143: syntax error: missing ';' before ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(85,10): error C2660: 'Game::startLevel': function does not take 2 arguments
+  (compiling source file 'Game.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game.h(217,7):
+  see declaration of 'Game::startLevel'
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(85,10):
+  while trying to match the argument list '(int, int)'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,63): error C3083: 'filesystem': the symbol to the left of a '::' must be a type
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,75): error C2039: 'directory_iterator': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,21): error C3083: 'filesystem': the symbol to the left of a '::' must be a type
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,33): error C2039: 'directory_entry': is not a member of 'std'
+  (compiling source file 'Game.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,48): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,5): error C2530: 'entry': references must be initialized
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,56): error C2143: syntax error: missing ';' before ':'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,75): error C3861: 'directory_iterator': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game_imgui.h(92,116): error C2143: syntax error: missing ';' before ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Structures4D.h(173,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(157,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(168,199): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(168,199): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(168,199): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(168,199): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(168,199): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(173,199): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(173,199): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(173,199): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(173,199): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(173,199): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Collider.h(228,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(139,15): error C3861: 'clamp': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(145,15): error C3861: 'clamp': identifier not found
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(168,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(186,29): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(186,77): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(191,29): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(191,109): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(202,29): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(202,138): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(226,26): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(263,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(334,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(352,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(390,40): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(630,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(640,30): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(640,110): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(649,30): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(649,124): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(658,30): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Keyboard.h(224,31): warning C4390: ';': empty controlled statement found; is this the intent?
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game.cpp(630,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game.cpp(967,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game.cpp(975,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game.cpp(984,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Game.cpp(992,25): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(216,16): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(218,17): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(220,18): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(235,16): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(237,17): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(239,18): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(267,83): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(267,61): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Texture.h(267,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(112,7): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\set(22,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(112,7): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(113,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(114,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(116,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(117,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(125,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(123,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(177,7): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\set(22,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(177,7): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(223,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(229,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(243,7): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\set(22,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(243,7): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(250,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(255,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(262,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(278,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\mod.h(335,3): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Primitives4D.h(1279,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Primitives4D.h(1280,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Primitives4D.h(1281,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Line.h(242,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Object.h(557,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+  (compiling source file 'main.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\Dependencies\GLFW\include\GLFW\glfw3.h(123,1):
+  see previous definition of 'APIENTRY'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Joint.h(231,2): warning C4091: 'static ': ignored on left of 'HingeConstraint4D' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(95,29): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(99,29): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(106,30): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(110,30): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(117,37): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(121,37): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(133,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(134,62): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(149,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(150,62): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(173,15): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(178,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(179,66): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(199,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(200,68): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(216,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(217,62): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(240,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(241,68): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(282,15): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(287,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(288,66): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(305,15): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(310,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(311,66): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(320,15): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(320,51): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\ObjectLists.h(324,14): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\body.h(42,33): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Animation.h(246,22): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Animation.h(253,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Animation.h(257,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(62,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(65,9): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(83,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(86,7): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(99,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(101,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(111,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(121,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(131,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(141,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(146,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(150,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(156,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(164,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(177,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(187,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(60,2): error C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(197,2): error C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(359,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\LoadAndSave.h(363,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(176,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(218,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(308,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(317,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(326,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(328,33): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(390,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(623,2): warning C4091: 'static ': ignored on left of 'Simplex' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(478,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(727,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(742,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(755,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(759,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(761,33): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(774,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(776,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(792,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(822,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(842,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(884,35): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(986,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(996,39): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(1022,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(1051,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\gjk.h(1082,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(12,2): warning C4091: 'static ': ignored on left of 'Collider' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(19,2): warning C4091: 'static ': ignored on left of 'CollisionManifold' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(38,2): warning C4091: 'static ': ignored on left of 'Collision' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(47,2): warning C4091: 'static ': ignored on left of 'VertexCellContact' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(58,2): warning C4091: 'static ': ignored on left of 'EdgeFaceContact' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(64,2): warning C4091: 'static ': ignored on left of 'ContactData' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(70,2): warning C4091: 'static ': ignored on left of 'ContactAxis' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(78,2): warning C4091: 'static ': ignored on left of 'AxisResult' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(149,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(149,10): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(177,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(177,10): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(402,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(402,10): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(414,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(618,34): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(620,38): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(622,42): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(798,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(798,10): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1006,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1006,10): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1099,55): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1101,134): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1101,111): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1106,55): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1108,134): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1108,111): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1113,55): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1115,161): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1115,114): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1117,55): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1119,161): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1119,114): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1275,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1277,126): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1277,103): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1297,43): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1299,122): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1299,99): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1318,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1320,126): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1320,103): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1325,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1327,126): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1327,103): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1332,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1334,153): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1334,106): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1336,47): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1338,153): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1338,106): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1561,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1634,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1634,10): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1687,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1687,10): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1765,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1765,10): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1821,10): error C2039: 'tie': is not a member of 'std'
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  see declaration of 'std'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1821,10): error C3861: 'tie': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1880,38): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1882,42): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(1884,46): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(2112,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\colliderPhy.h(2138,31): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\collision.h(13,2): warning C4091: 'static ': ignored on left of 'ContactState' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\collision.h(21,2): warning C4091: 'static ': ignored on left of 'CollisionConstraint' when no variable is declared
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(59,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(70,8): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(112,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(121,8): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(380,46): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'CollisionManifold'
+  (compiling source file 'main.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(380,46):
+  'CollisionManifold::CollisionManifold': function does not take 3 arguments
+  	C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(380,46):
+  	while trying to match the argument list '(glm::vec4, float, glm::vec4)'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(403,46): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'CollisionManifold'
+  (compiling source file 'main.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(403,46):
+  'CollisionManifold::CollisionManifold': function does not take 3 arguments
+  	C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(403,46):
+  	while trying to match the argument list '(glm::vec4, float, glm::vec4)'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(417,46): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'CollisionManifold'
+  (compiling source file 'main.cpp')
+  C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(417,46):
+  'CollisionManifold::CollisionManifold': function does not take 3 arguments
+  	C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\PhyFunction.h(417,46):
+  	while trying to match the argument list '(glm::vec4, float, glm::vec4)'
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(30,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(45,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(51,26): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(76,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(77,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(86,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(90,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(97,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(150,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(161,27): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(168,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(223,19): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(225,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(245,20): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(258,19): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(260,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(287,19): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(289,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(309,20): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(322,19): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(324,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(343,19): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(351,19): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(353,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(381,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(401,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(405,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(412,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(414,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(418,25): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(423,24): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(425,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(429,25): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(446,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(450,25): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(457,25): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(459,26): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(463,26): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(468,25): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(470,26): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(474,26): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(485,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Phys4D.h(516,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\DetectRay.h(30,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\DetectRay.h(31,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\DetectRay.h(191,22): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\Camera.h(263,29): error C3861: 'clamp': identifier not found
+  (compiling source file 'main.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20240314_114830\OpenGL4d\OpenGL2\main.cpp(36,24): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data

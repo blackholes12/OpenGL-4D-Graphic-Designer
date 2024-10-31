@@ -1,0 +1,88 @@
+#version 440
+#define maxPointLight4DAmount 512
+layout (local_size_x = 8, local_size_y = 8, local_size_z = 8) in;
+layout (binding = 0,rgba16f) uniform image3D lightMap3D;
+
+struct PointLight4D
+{
+	vec4 position4D;
+	float intensity;
+	vec3 color;
+	float radius;
+};
+
+uniform PointLight4D[maxPointLight4DAmount] pointLights4D;
+uniform int pointLight4DAmount;
+uniform vec4 cameraPosShift4D;
+PointLight4D pointLight4DI;
+void main() {
+    vec4 position4D = 8.f*(vec4(gl_GlobalInvocationID.x-16.f,gl_GlobalInvocationID.y%32-16.f,gl_GlobalInvocationID.z-16.f,(gl_GlobalInvocationID.y-gl_GlobalInvocationID.y%32)/32 - 16.f))+cameraPosShift4D;
+    vec4 color = vec4(-1.f);
+    vec4 color2 = vec4(-1.f);
+    if(pointLight4DAmount>0)
+    {
+    for(int i=0;i < pointLight4DAmount;i++)
+    {
+    pointLight4DI=pointLights4D[i];
+    float distanceI=length(pointLight4DI.position4D - position4D);
+    if(distanceI<pointLight4DI.radius + 8.f)
+    {
+        if(color.r==-1.f)
+        {
+            color.r=float(i)/256.f;
+        }
+        else
+        {
+            if(color.g==-1.f)
+            {
+                color.g=float(i)/256.f;
+            }
+            else
+            {
+                if(color.b==-1.f)
+                {
+                    color.b=float(i)/256.f;
+                }
+                else
+                {
+                    if(color.a==-1.f)
+                    {
+                        color.a=float(i)/256.f;
+                    }
+                    else
+                    {
+                        if(color2.r==-1.f)
+                        {
+                            color2.r=float(i)/256.f;
+                        }
+                        else
+                        {
+                            if(color2.g==-1.f)
+                            {
+                                color2.g=float(i)/256.f;
+                            }
+                            else
+                            {
+                                if(color2.b==-1.f)
+                                {
+                                    color2.b=float(i)/256.f;
+                                }
+                                else
+                                {
+                                    if(color2.a==-1.f)
+                                    {
+                                        color2.a=float(i)/256.f;
+                                    }
+                                }  
+                            }
+                        }
+                    }
+                }  
+            }
+        }
+    }
+    }
+    }
+    imageStore(lightMap3D, ivec3(gl_GlobalInvocationID.xyz), color);
+    imageStore(lightMap3D, ivec3(gl_GlobalInvocationID.xyz)+ivec3(0,0,32), color2);
+}

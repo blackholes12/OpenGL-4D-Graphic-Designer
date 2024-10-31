@@ -1,0 +1,20 @@
+#version 440
+#define PI 3.14159265358f
+in vec2 vs_texcoord;
+out vec4 fs_color;
+layout (binding = 21) uniform sampler2D texs2D[5];
+uniform vec2 scale2D;
+uniform bool isBloom;
+uniform float bloomMultiplier;
+vec4 col4;
+
+void main()
+{
+vec4 colorE=texture(texs2D[0],vs_texcoord);
+vec4 colorD=texture(texs2D[1],vs_texcoord)/6.f+colorE;
+vec4 colorC=texture(texs2D[2],vs_texcoord)/36.f+colorD;
+vec4 colorB=texture(texs2D[3],vs_texcoord)/216.f+colorC;
+vec4 colorA=texture(texs2D[4],vs_texcoord)/1296.f+colorB;
+col4=bloomMultiplier*0.072f*colorA;
+fs_color = col4;
+};

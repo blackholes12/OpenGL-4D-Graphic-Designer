@@ -1,0 +1,99 @@
+#version 440
+
+layout (location = 0) in vec4 vertex_A;
+layout (location = 1) in vec4 vertex_B;
+layout (location = 2) in vec4 vertex_C;
+layout (location = 3) in vec4 vertex_D;
+
+layout (location = 4) in vec3 texcoord_A;
+layout (location = 5) in vec3 texcoord_B;
+layout (location = 6) in vec3 texcoord_C;
+layout (location = 7) in vec3 texcoord_D;
+
+layout (location = 8) in vec4 normal_A;
+layout (location = 9) in vec4 normal_B;
+layout (location = 10) in vec4 normal_C;
+layout (location = 11) in vec4 normal_D;
+
+layout (location = 13) in int id;
+
+out vec4 vs_position;
+out vec3 vs_texcoord;
+out vec4 vs_normal;
+
+uniform mat4 mesh4DMat,viewMat,projectionMat;
+uniform vec4 translate4D;
+uniform vec3 texScale;
+layout (binding = 2) uniform sampler2D vertexMap;
+
+vec4 pA,pB,pC,pD;
+int line;
+int i,vertexAmount;
+vec4 col4;
+
+vec4 relativePos0,relativePos,pos0;
+
+float disA,disB,disC,disD;
+
+vec3 vector3;
+vec3 slice(vec3 A,vec3 B,vec3 C,vec3 D,float disA,float disB,float disC,float disD,int line)
+{
+switch(line)
+{
+case 2:vector3=mix(A,B,disA/(disA-disB));break;
+case 3:vector3=mix(A,C,disA/(disA-disC));break;
+case 4:vector3=mix(A,D,disA/(disA-disD));break;
+case 6:vector3=mix(B,C,disB/(disB-disC));break;
+case 8:vector3=mix(B,D,disB/(disB-disD));break;
+case 12:vector3=mix(C,D,disC/(disC-disD));break;
+}
+return vector3;
+}
+
+vec4 vector4;
+vec4 slice(vec4 A,vec4 B,vec4 C,vec4 D,float disA,float disB,float disC,float disD,int line)
+{
+switch(line)
+{
+case 2:vector4=mix(A,B,disA/(disA-disB));break;
+case 3:vector4=mix(A,C,disA/(disA-disC));break;
+case 4:vector4=mix(A,D,disA/(disA-disD));break;
+case 6:vector4=mix(B,C,disB/(disB-disC));break;
+case 8:vector4=mix(B,D,disB/(disB-disD));break;
+case 12:vector4=mix(C,D,disC/(disC-disD));break;
+}
+return vector4;
+}
+
+void main()
+{
+relativePos0=translate4D;
+pA=viewMat*(mesh4DMat *vertex_A+relativePos0);
+pB=viewMat*(mesh4DMat *vertex_B+relativePos0);
+pC=viewMat*(mesh4DMat *vertex_C+relativePos0);
+pD=viewMat*(mesh4DMat *vertex_D+relativePos0);
+
+disA=pA.w;
+disB=pB.w;
+disC=pC.w;
+disD=pD.w;
+
+col4=texelFetch(vertexMap,ivec2(8*int(disA>0)+4*int(disB>0)+2*int(disC>0)+int(disD>0),id),0);
+line=int(col4.x*256.f);
+vertexAmount=int(col4.y*256.f);
+
+if(vertexAmount!=0)
+{
+pos0=slice(pA,pB,pC,pD,disA,disB,disC,disD,line);
+if(vertexAmount!=3||id!=3)
+{
+vs_texcoord=slice(texcoord_A,texcoord_B,texcoord_C,texcoord_D,disA,disB,disC,disD,line)*texScale;
+vs_normal=normalize(transpose(inverse(mesh4DMat)) *slice(normal_A,normal_B,normal_C,normal_D,disA,disB,disC,disD,line));
+}
+
+vs_position=pos0*viewMat;
+gl_Position = projectionMat * vec4(pos0.xyz, 1.f);
+}
+else
+gl_Position =  vec4(0);
+}

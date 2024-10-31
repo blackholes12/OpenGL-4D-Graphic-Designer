@@ -1,0 +1,36 @@
+#version 440
+in vec2 vs_texcoord;
+out vec4 fs_color;
+layout (binding = 0) uniform sampler2D tex2D;
+uniform int type = 0;
+uniform vec2 scale2D;
+vec4 col4;
+vec4 texture(vec2 texcoord)
+{
+    return texelFetch(tex2D,ivec2(scale2D*texcoord),0);
+}
+
+vec4 texture_pixel_3x3(vec2 texcoord)
+{
+ivec2 texcoord2=3*ivec2(scale2D*texcoord/3.f);
+    return 
+    (texelFetch(tex2D,texcoord2,0)+
+    texelFetch(tex2D,texcoord2+ivec2(0,1),0)+
+    texelFetch(tex2D,texcoord2+ivec2(1,0),0)+
+    texelFetch(tex2D,texcoord2+ivec2(1,1),0)+
+    texelFetch(tex2D,texcoord2+ivec2(0,2),0)+
+    texelFetch(tex2D,texcoord2+ivec2(1,2),0)+
+    texelFetch(tex2D,texcoord2+ivec2(2,2),0)+
+    texelFetch(tex2D,texcoord2+ivec2(2,1),0)+
+    texelFetch(tex2D,texcoord2+ivec2(2,0),0))/9.f;
+}
+void main()
+{
+switch(type)
+{
+    case 0:{col4=texture(tex2D, vs_texcoord);break;}
+    case 1:{col4=col4=texture(vs_texcoord);break;}
+    case 2:{col4=col4=texture(vs_texcoord);break;}
+}
+fs_color = col4;
+};
