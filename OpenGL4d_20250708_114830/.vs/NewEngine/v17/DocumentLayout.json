@@ -1,0 +1,389 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\sky_box4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\resourcefile\\shaders\\sky_box4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\wall4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\resourcefile\\shaders\\wall4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\emit4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\resourcefile\\shaders\\emit4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\terrain4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\resourcefile\\shaders\\terrain4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\water4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\resourcefile\\shaders\\water4D.fragment||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Light.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\Light.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\body.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\body.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\Geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Physics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\Physics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\DetectRay.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\DetectRay.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\quadvec4.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\quadvec4.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Simplex3d.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\Simplex3d.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\StartObj.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\StartObj.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\OpenglOptions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\OpenglOptions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Keyboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\Keyboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Game_imgui.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\Game_imgui.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\bivec4.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\bivec4.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\mod.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\mod.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\vec4.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\vec4.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\EnumLists.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41C189BF-5D8E-455D-AAEB-B493961ABAE0}|OpenGL2\\OpenGL2.vcxproj|solutionrelative:OpenGL2\\EnumLists.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 31,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "water4D.fragment",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\water4D.fragment",
+              "RelativeDocumentMoniker": "OpenGL2\\resourcefile\\shaders\\water4D.fragment",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\water4D.fragment",
+              "RelativeToolTip": "OpenGL2\\resourcefile\\shaders\\water4D.fragment",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAlwHMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-25T06:11:36.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "terrain4D.fragment",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\terrain4D.fragment",
+              "RelativeDocumentMoniker": "OpenGL2\\resourcefile\\shaders\\terrain4D.fragment",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\terrain4D.fragment",
+              "RelativeToolTip": "OpenGL2\\resourcefile\\shaders\\terrain4D.fragment",
+              "ViewState": "AgIAACMBAAAAAAAAAAAAAK8BAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-25T06:11:27.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "sky_box4D.fragment",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\sky_box4D.fragment",
+              "RelativeDocumentMoniker": "OpenGL2\\resourcefile\\shaders\\sky_box4D.fragment",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\sky_box4D.fragment",
+              "RelativeToolTip": "OpenGL2\\resourcefile\\shaders\\sky_box4D.fragment",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAAALkAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-12T12:13:58.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "quadvec4.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\quadvec4.h",
+              "RelativeDocumentMoniker": "OpenGL2\\quadvec4.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\quadvec4.h",
+              "RelativeToolTip": "OpenGL2\\quadvec4.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-19T10:46:54.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "animation.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\animation.h",
+              "RelativeDocumentMoniker": "OpenGL2\\animation.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\animation.h",
+              "RelativeToolTip": "OpenGL2\\animation.h",
+              "ViewState": "AgIAAGwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-19T10:45:42.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DetectRay.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\DetectRay.h",
+              "RelativeDocumentMoniker": "OpenGL2\\DetectRay.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\DetectRay.h",
+              "RelativeToolTip": "OpenGL2\\DetectRay.h",
+              "ViewState": "AgIAAOgBAAAAAAAAAAAAABoAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-19T10:43:33.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Physics.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Physics.h",
+              "RelativeDocumentMoniker": "OpenGL2\\Physics.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Physics.h",
+              "RelativeToolTip": "OpenGL2\\Physics.h",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-05T14:29:25.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Geometry.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Geometry.h",
+              "RelativeDocumentMoniker": "OpenGL2\\Geometry.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Geometry.h",
+              "RelativeToolTip": "OpenGL2\\Geometry.h",
+              "ViewState": "AgIAADwCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-05T14:29:11.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "body.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\body.h",
+              "RelativeDocumentMoniker": "OpenGL2\\body.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\body.h",
+              "RelativeToolTip": "OpenGL2\\body.h",
+              "ViewState": "AgIAAKABAAAAAAAAAAAAwMABAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-05T14:30:21.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "wall4D.fragment",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\wall4D.fragment",
+              "RelativeDocumentMoniker": "OpenGL2\\resourcefile\\shaders\\wall4D.fragment",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\wall4D.fragment",
+              "RelativeToolTip": "OpenGL2\\resourcefile\\shaders\\wall4D.fragment",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAAAJsAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-12T12:14:14.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "OpenglOptions.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\OpenglOptions.h",
+              "RelativeDocumentMoniker": "OpenGL2\\OpenglOptions.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\OpenglOptions.h",
+              "RelativeToolTip": "OpenGL2\\OpenglOptions.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-19T10:46:02.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "bivec4.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\bivec4.h",
+              "RelativeDocumentMoniker": "OpenGL2\\bivec4.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\bivec4.h",
+              "RelativeToolTip": "OpenGL2\\bivec4.h",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-19T10:46:42.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Light.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Light.h",
+              "RelativeDocumentMoniker": "OpenGL2\\Light.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Light.h",
+              "RelativeToolTip": "OpenGL2\\Light.h",
+              "ViewState": "AgIAAAYBAAAAAAAAAAAAAB0BAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-05T14:28:14.588Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "mod.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\mod.h",
+              "RelativeDocumentMoniker": "OpenGL2\\mod.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\mod.h",
+              "RelativeToolTip": "OpenGL2\\mod.h",
+              "ViewState": "AgIAAIYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-19T10:46:46.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "StartObj.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\StartObj.h",
+              "RelativeDocumentMoniker": "OpenGL2\\StartObj.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\StartObj.h",
+              "RelativeToolTip": "OpenGL2\\StartObj.h",
+              "ViewState": "AgIAAP4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-19T10:50:15.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Simplex3d.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Simplex3d.h",
+              "RelativeDocumentMoniker": "OpenGL2\\Simplex3d.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Simplex3d.h",
+              "RelativeToolTip": "OpenGL2\\Simplex3d.h",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-19T10:50:20.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "vec4.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\vec4.h",
+              "RelativeDocumentMoniker": "OpenGL2\\vec4.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\vec4.h",
+              "RelativeToolTip": "OpenGL2\\vec4.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-19T10:46:15.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Game_imgui.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Game_imgui.h",
+              "RelativeDocumentMoniker": "OpenGL2\\Game_imgui.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Game_imgui.h",
+              "RelativeToolTip": "OpenGL2\\Game_imgui.h",
+              "ViewState": "AgIAAMgJAAAAAAAAAAAAAPUHAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-03T15:20:56.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Keyboard.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Keyboard.h",
+              "RelativeDocumentMoniker": "OpenGL2\\Keyboard.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Keyboard.h",
+              "RelativeToolTip": "OpenGL2\\Keyboard.h",
+              "ViewState": "AgIAAJwCAAAAAAAAAAAAAPsCAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-03T15:16:53.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "emit4D.fragment",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\emit4D.fragment",
+              "RelativeDocumentMoniker": "OpenGL2\\resourcefile\\shaders\\emit4D.fragment",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\resourcefile\\shaders\\emit4D.fragment",
+              "RelativeToolTip": "OpenGL2\\resourcefile\\shaders\\emit4D.fragment",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAAAKQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-16T10:28:09.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Game.h",
+              "RelativeDocumentMoniker": "OpenGL2\\Game.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Game.h",
+              "RelativeToolTip": "OpenGL2\\Game.h",
+              "ViewState": "AgIAAOcAAAAAAAAAAAAAALkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-04T08:00:58.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Game.cpp",
+              "RelativeDocumentMoniker": "OpenGL2\\Game.cpp",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\Game.cpp",
+              "RelativeToolTip": "OpenGL2\\Game.cpp",
+              "ViewState": "AgIAAJICAAAAAAAAAAAAAPoCAACfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-24T12:05:51.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "EnumLists.h",
+              "DocumentMoniker": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\EnumLists.h",
+              "RelativeDocumentMoniker": "OpenGL2\\EnumLists.h",
+              "ToolTip": "C:\\Users\\86180\\Documents\\OpenGL4d_20250502_114830\\OpenGL2\\EnumLists.h",
+              "RelativeToolTip": "OpenGL2\\EnumLists.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-03T15:17:52.22Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

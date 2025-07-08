@@ -1,0 +1,102 @@
+ #version 440
+layout(points) in;
+layout(points) out;
+layout(max_vertices = 30) out;
+
+in float type0[];
+in vec4 position0[];
+in vec4 velocity0[];
+in float radius0[];
+in vec4 color0[];
+in float age0[];
+
+out float type1;
+out vec4 position1;
+out vec4 velocity1;
+out float radius1;
+out vec4 color1;
+out float age1;
+
+uniform float dt;
+uniform float time;
+uniform sampler1D randomTexture1D;
+uniform float launcherLifetime;
+uniform float shellLifetime;
+uniform float secondaryShellLifetime;
+uniform float startRadius;
+uniform float endRadius;
+uniform vec4 startColor;
+uniform vec4 endColor;
+
+#define PARTICLE_TYPE_LAUNCHER 0.f
+#define PARTICLE_TYPE_SHELL 1.f
+#define PARTICLE_TYPE_SECONDARY_SHELL 2.f
+
+vec4 get_random_dir(float texCoord)
+{
+    vec4 dir = texture(randomTexture1D, texCoord).xyz;
+    dir -= vec4(0.5f);
+    return dir;
+}
+
+void main()
+{
+    float age = age0[0] + dt;
+    if (type0[0] == PARTICLE_TYPE_LAUNCHER) {
+        if (age >= launcherLifetime) {
+            type1 = PARTICLE_TYPE_SHELL;
+            position1 = position0[0];
+            vec4 dir = get_random_dir(time/1000.f);
+            dir.y = max(dir.y, 0.5f);
+            velocity1 = normalize(dir) / 20.f;
+            age1 = 0.f;
+            EmitVertex();
+            EndPrimitive();
+            age = 0.f;
+        }
+        type1 = PARTICLE_TYPE_LAUNCHER;
+        position1 = position0[0];
+        velocity1 = velocity0[0];
+        age1 = age;
+        EmitVertex();
+        EndPrimitive();
+   }
+   else {
+        float deltaTimeSecs = dt / 1000.f;
+        float t1 = age0[0] / 1000.f;
+        float t2 = age / 1000.f;
+        vec4 deltaP = deltaTimeSecs * velocity0[0];
+        vec4 deltaV = vec4(deltaTimeSecs) * (0.f, -9.80665f, 0.f, 0.f);
+        if (type0[0] == PARTICLE_TYPE_SHELL) {
+            if (age < shellLifetime) {
+                type1 = PARTICLE_TYPE_SHELL;
+                position1 = position0[0] + deltaP;
+                velocity1 = velocity0[0] + DeltaV;
+                age1 = age;
+                EmitVertex();
+                EndPrimitive();
+            }
+            else {
+                for (int i = 0 ; i < 10 ; i++) {
+                    type1 = PARTICLE_TYPE_SECONDARY_SHELL;
+                    position1 = position0[0];
+                    vec4 dir = get_random_dir((time + i)/1000.f);
+                    velocity1 = normalize(dir) / 20.f;
+                    age1 = 0.f;
+                    EmitVertex();
+                    EndPrimitive();
+                }
+            }
+        }
+        else {
+            if (age < secondaryShellLifetime) {
+                type1 = PARTICLE_TYPE_SECONDARY_SHELL;
+                position1 = position0[0] + deltaP;
+                velocity1 = velocity0[0] + DeltaV;
+                age1 = age;
+                EmitVertex();
+                EndPrimitive();
+            }
+        }
+    }
+}

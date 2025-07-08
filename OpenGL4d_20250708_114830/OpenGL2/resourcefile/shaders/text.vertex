@@ -1,0 +1,21 @@
+#version 440
+layout (location = 0) in vec4 vertex; // <vec2 pos, vec2 tex>
+out vec2 vs_position;
+out vec2 vs_texcoord;
+
+uniform vec2 screenScale;
+uniform ivec2 offset;
+uniform int scale;
+uniform int canvasOffsetX;
+uniform bool isDisplaced = false;
+uniform ivec2 displacementOffset;
+ivec2 offsetv;
+
+void main()
+{
+    vs_texcoord = vertex.zw;
+	offsetv = offset;
+	if(isDisplaced == true){offsetv = offsetv + displacementOffset; vs_position = offsetv + ivec2(vertex.x, -vertex.y);}
+	offsetv.x+=canvasOffsetX;
+    gl_Position = vec4(2.f*(float(scale)*vertex.xy + vec2(offsetv.x,screenScale.y-offsetv.y))/screenScale-vec2(1.f), 0.f, 1.f);
+}  

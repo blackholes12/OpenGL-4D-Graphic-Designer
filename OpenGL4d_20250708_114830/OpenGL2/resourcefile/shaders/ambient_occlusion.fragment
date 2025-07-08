@@ -1,0 +1,51 @@
+#version 440
+#define PI acos(-1.f)
+in vec4 r_t_vs_position;
+in vec4 vs_scale;
+out vec4 fs_color;
+vec4 col4;
+vec4 positiveDistance;
+bool b1,b2,b3,b4,b5,b6;
+float occlusionFactorXY = 0.f;
+float occlusionFactorXZ = 0.f;
+float occlusionFactorXW = 0.f;
+float occlusionFactorYZ = 0.f;
+float occlusionFactorYW = 0.f;
+float occlusionFactorZW = 0.f;
+
+float occlusion(float x)
+{
+return (acos(x)-x*sqrt(1.f-x*x))/PI;
+}
+void main()
+{
+col4.xyz=vec3(0.f);
+positiveDistance=vs_scale/2.f-abs(r_t_vs_position);
+b1=positiveDistance.x<1.0f&&positiveDistance.y<1.0f;
+b2=positiveDistance.x<1.0f&&positiveDistance.z<1.0f;
+b3=positiveDistance.x<1.0f&&positiveDistance.w<1.0f;
+b4=positiveDistance.y<1.0f&&positiveDistance.z<1.0f;
+b5=positiveDistance.y<1.0f&&positiveDistance.w<1.0f;
+b6=positiveDistance.z<1.0f&&positiveDistance.w<1.0f;
+if(!(b1||b2||b3||b4||b5||b6))
+{
+discard;
+}
+else
+{
+if(b1){occlusionFactorXY=(1.0f-positiveDistance.x)*(1.0f-positiveDistance.y);}
+if(b2){occlusionFactorXZ=(1.0f-positiveDistance.x)*(1.0f-positiveDistance.z);}
+if(b3){occlusionFactorXW=(1.0f-positiveDistance.x)*(1.0f-positiveDistance.w);}
+if(b4){occlusionFactorYZ=(1.0f-positiveDistance.y)*(1.0f-positiveDistance.z);}
+if(b5){occlusionFactorYW=(1.0f-positiveDistance.y)*(1.0f-positiveDistance.w);}
+if(b6){occlusionFactorZW=(1.0f-positiveDistance.z)*(1.0f-positiveDistance.w);}
+col4.w = 0.0312444f*(
+exp(9.f*(occlusionFactorXY-1.f))+
+exp(9.f*(occlusionFactorXZ-1.f))+
+exp(9.f*(occlusionFactorXW-1.f))+
+exp(9.f*(occlusionFactorYZ-1.f))+
+exp(9.f*(occlusionFactorYW-1.f))+
+exp(9.f*(occlusionFactorZW-1.f)));
+}
+fs_color=col4;
+}

@@ -1,0 +1,508 @@
+#version 440
+#define PI 3.1415926535f
+#define maxPointLight4DAmount 128
+const float n =1.333f;
+
+in vec4 vs_position;
+in vec4 vs_normal;
+in vec3 vs_texcoord;
+out vec4 fs_color;
+vec3 diffuse_color = vec3(0.f),specular_color = vec3(0.f),color = vec3(0.f),ambient_color = vec3(0.f),direction_color = vec3(0.f),caustics_color = vec3(0.f);
+const vec4 GRID_DIMS = vec4(0.5f, 0.5f, 0.5f, 0.5f);
+vec4 a=vec4(0.f),m=vec4(0.f),pToL=vec4(0.f);
+bool isBright=false,isSpecular=false;
+float diffuse2=0.f,direction2=0.f,viewDistance=0.f;
+float directionFinal2=0.f;
+float height=0.f,waterDepth=0.f;
+const float waterHeight=65.5f;
+
+struct PointLight4D
+{
+	vec4 position4d;
+	float intensity;
+	vec3 color;
+	float radius;
+};
+struct DirectionLight4D
+{
+	vec4 direction4D;
+	float intensity;
+	vec3 color;
+};
+uniform int pointLight4DAmount;
+uniform PointLight4D[maxPointLight4DAmount] pointLights4d;
+uniform vec4 cameraPos;
+uniform vec4 cameraPosShift4D;
+layout (binding = 3) uniform sampler2D brightnessMap;
+layout (binding = 7) uniform sampler3D caustics3D;
+layout (binding = 8) uniform sampler3D blendMap;
+layout (binding = 9) uniform sampler3D area;
+layout (binding = 10) uniform sampler3D lightMap3d;
+layout (binding = 11) uniform sampler3D deleteMap3d;
+layout (binding = 12) uniform sampler3D diffuse3D[20];
+uniform bool isFog;
+uniform float fogDensity;
+uniform bool isPainting=false;
+uniform bool isSphericalPainting=true;
+
+uniform bool isBuilding=false;
+
+uniform bool isAreaDeleting=false;
+uniform vec4 hittingPos4D;
+uniform float paintScale;
+uniform float iTime;
+uniform bool isACES;
+uniform float adaptedLum;
+uniform DirectionLight4D directionLight4d;
+ivec4 lightIndex4=ivec4(0),lightIndex4_2=ivec4(0);
+int overlapAmount=0,i=0;
+float diffuseFinalI=0.f,specularFinalI=0.f,distanceI=0.f,attenuationI=0.f;
+
+float groundColors=0.f;
+
+float calculate_diffuse(vec4 position, vec4 normal, vec4 lightPos0,float intensity)
+{
+	pToL = normalize(lightPos0 - position);	
+	diffuse2 = dot(pToL,normal);
+	return diffuse2;
+}
+ vec4 lightToPosDirVec2;
+	vec4 reflectDirVec2;
+	vec4 posToViewDirVec2;
+	float specularFinal2;
+float calculate_specular(vec4 position, vec4 normal, vec4 direction, vec4 cameraPos)
+{
+	lightToPosDirVec2 = normalize(direction);
+	reflectDirVec2 = normalize(reflect(lightToPosDirVec2, normalize(normal)));
+	posToViewDirVec2 = normalize(cameraPos - position);
+	specularFinal2 = pow(max(dot(posToViewDirVec2, reflectDirVec2), 0.f), 35.f);
+	return specularFinal2;
+}
+float calculate_direction(vec4 normal, vec4 direction)
+{
+	directionFinal2 = -dot(normalize(direction),normal);
+	return max(directionFinal2,0.f);
+}
+
+const vec3 sunColor = vec3(1.50541666f, 1.84791666f, 1.8875f)/1.8875f;//https://www.ossila.com/pages/the-solar-spectrum
+const vec3 skyColor1=sunColor*vec3(0.f);
+const vec3 skyColor2=sunColor*vec3(7.f,7.f,10.f)/256.f;
+const vec3 skyColor3=sunColor*vec3(11.f,18.f,31.f)/256.f;
+const vec3 skyColor4=sunColor*vec3(13.f,24.f,47.f)/256.f;
+const vec3 skyColor5=sunColor*vec3(23.f,47.f,103.f)/256.f;
+vec3 global_sky_color(int type)
+{
+    float sunLightHeight=-normalize(directionLight4d.direction4D).y;
+    if(sunLightHeight<-0.1f)
+    {
+    return type==0 ? vec3(0.f) : skyColor1;
+    }
+    else if(sunLightHeight>=-0.1f&&sunLightHeight<0.f)
+    {
+    return mix(type==0 ? vec3(0.f) : skyColor1,skyColor2,(sunLightHeight+0.1f)/0.1f);
+    }
+    else if(sunLightHeight>=0.f&&sunLightHeight<0.1f)
+    {
+    return mix(skyColor2,skyColor3,(sunLightHeight)/0.1f);
+    }
+    else if(sunLightHeight>=0.1f&&sunLightHeight<0.2f)
+    {
+    return mix(skyColor3,skyColor4,(sunLightHeight-0.1f)/0.1f);
+    }
+    else if(sunLightHeight>=0.2f)
+    {
+    return mix(skyColor4,skyColor5,(sunLightHeight-0.2f)/0.8f);
+    }
+}
+
+vec3 globalSkyColor=vec3(0.f);
+vec3 groundColor=vec3(0.f);
+vec3 get_ambient_color(vec4 normal4D)
+{
+    globalSkyColor=global_sky_color(0);
+    groundColor=0.55f*(directionLight4d.color*directionLight4d.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4d.direction4D)+globalSkyColor);
+    return mix(groundColor,globalSkyColor,0.5f*(1.f + normal4D.y));
+}
+
+vec3 sRGB_to_rgb_space(vec3 x)
+{
+   return vec3(
+   x.x<=0.04045f?x.x/12.9f:pow((x.x+0.055f)/1.055f,2.4f),
+   x.y<=0.04045f?x.y/12.9f:pow((x.y+0.055f)/1.055f,2.4f),
+   x.z<=0.04045f?x.z/12.9f:pow((x.z+0.055f)/1.055f,2.4f));
+}
+
+vec3 fog(vec3 A,vec3 B,float far)
+{
+return mix(B,A,exp(-far));
+}
+
+void swap(float A,float B)
+{
+float C=A;
+A=B;
+B=C;
+}
+
+float fresnel(const vec4 ray, const vec4 normal, const float ior)
+{
+    float kr;
+    float cosi = clamp(-1.f, 1.f,dot(normalize(ray), normal));
+    float etai = 1.f, etat = ior;
+    if (cosi > 0.f) { swap(etai, etat); }
+    // Compute sini using Snell's law
+    float sint = etai / etat * sqrt(max(0.f, 1.f - cosi * cosi));
+    // Total internal reflection
+    if (sint >= 1.f) {
+        kr = 1.f;
+    }
+    else {
+        float cost = sqrt(max(0.f, 1.f - sint * sint));
+        cosi = abs(cosi);
+        float Rs = ((etat * cosi) - (etai * cost)) / ((etat * cosi) + (etai * cost));
+        float Rp = ((etai * cosi) - (etat * cost)) / ((etai * cosi) + (etat * cost));
+        kr = (Rs * Rs + Rp * Rp) / 2.f;
+    }
+return kr;
+}
+
+vec3 texPos=vec3(0.f);
+float value=0.f,value1=0.f,value2=0.f,value3=0.f;
+
+float weight20[20] = float[](0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f);
+int texIndices[8] = int[](0,0,0,0,0,0,0,0);
+bool hardEdgeIndices[8] = bool[](false,false,false,false,false,false,false,false);
+bool isHardEdge=false;
+bool isSameAround=true;
+float[8] f8=float[](0.f,0.f,0.f,0.f,0.f,0.f,0.f,0.f);
+float[20] colorWeight(sampler3D blendMap0,vec3 blendPos)
+{
+    texIndices[0]=int(256.f*texelFetch(blendMap0,ivec3(blendPos + vec3(64.5f, 64.5f, 64.5f)),0).r);
+    texIndices[1]=int(256.f*texelFetch(blendMap0,ivec3(blendPos + vec3(64.5f, 64.5f, 63.5f)),0).r);
+    texIndices[2]=int(256.f*texelFetch(blendMap0,ivec3(blendPos + vec3(64.5f, 63.5f, 64.5f)),0).r);
+    texIndices[3]=int(256.f*texelFetch(blendMap0,ivec3(blendPos + vec3(64.5f, 63.5f, 63.5f)),0).r);
+    texIndices[4]=int(256.f*texelFetch(blendMap0,ivec3(blendPos + vec3(63.5f, 64.5f, 64.5f)),0).r);
+    texIndices[5]=int(256.f*texelFetch(blendMap0,ivec3(blendPos + vec3(63.5f, 64.5f, 63.5f)),0).r);
+    texIndices[6]=int(256.f*texelFetch(blendMap0,ivec3(blendPos + vec3(63.5f, 63.5f, 64.5f)),0).r);
+    texIndices[7]=int(256.f*texelFetch(blendMap0,ivec3(blendPos + vec3(63.5f, 63.5f, 63.5f)),0).r);
+    for(int i=1;i<8;i++)
+    {
+    if(texIndices[0]!=texIndices[i])isSameAround=false;
+    }
+    if(isSameAround==true)
+    {
+    weight20[texIndices[0]]=1.f;
+    }
+    else
+    {
+    float disX1=fract(blendPos.x+0.5f);
+    float disY1=fract(blendPos.y+0.5f);
+    float disZ1=fract(blendPos.z+0.5f);
+      if(texIndices[0]>=10)
+    {
+        if(disX1>0.5f&&disY1>0.5f&&disZ1>0.5f) disX1=1.f,disY1=1.f,disZ1=1.f;isHardEdge=hardEdgeIndices[0]=true;
+    }
+    if(texIndices[1]>=10)
+    {
+        if(disX1>0.5f&&disY1>0.5f&&disZ1<0.5f) disX1=1.f,disY1=1.f,disZ1=0.f;isHardEdge=hardEdgeIndices[1]=true;
+    }
+    if(texIndices[2]>=10)
+    {
+        if(disX1>0.5f&&disY1<0.5f&&disZ1>0.5f) disX1=1.f,disY1=0.f,disZ1=1.f;isHardEdge=hardEdgeIndices[2]=true;
+    }
+    if(texIndices[3]>=10)
+    {
+        if(disX1>0.5f&&disY1<0.5f&&disZ1<0.5f) disX1=1.f,disY1=0.f,disZ1=0.f;isHardEdge=hardEdgeIndices[3]=true;
+    }
+    if(texIndices[4]>=10)
+    {
+        if(disX1<0.5f&&disY1>0.5f&&disZ1>0.5f) disX1=0.f,disY1=1.f,disZ1=1.f;isHardEdge=hardEdgeIndices[4]=true;
+    }
+    if(texIndices[5]>=10)
+    {
+        if(disX1<0.5f&&disY1>0.5f&&disZ1<0.5f) disX1=0.f,disY1=1.f,disZ1=0.f;isHardEdge=hardEdgeIndices[5]=true;
+    }
+    if(texIndices[6]>=10)
+    {
+        if(disX1<0.5f&&disY1<0.5f&&disZ1>0.5f) disX1=0.f,disY1=0.f,disZ1=1.f;isHardEdge=hardEdgeIndices[6]=true;
+    }
+    if(texIndices[7]>=10)
+    {
+        if(disX1<0.5f&&disY1<0.5f&&disZ1<0.5f) disX1=0.f,disY1=0.f,disZ1=0.f;isHardEdge=hardEdgeIndices[7]=true;
+    }
+    float disX2=1.f-disX1;
+    float disY2=1.f-disY1;
+    float disZ2=1.f-disZ1;
+    f8[0]=disX1*disY1*disZ1;f8[1]=disX1*disY1*disZ2;f8[2]=disX1*disY2*disZ1;f8[3]=disX1*disY2*disZ2;
+    f8[4]=disX2*disY1*disZ1;f8[5]=disX2*disY1*disZ2;f8[6]=disX2*disY2*disZ1;f8[7]=disX2*disY2*disZ2;
+    if(isHardEdge)
+    {
+    float brightness = 0.f;
+    for(int i=0;i<8;i++)
+    {
+    if(hardEdgeIndices[i]==true&&f8[i]!=1.f)f8[i]=0.f;
+    else brightness+=f8[i];
+    }
+    for(int i=0;i<8;i++)
+    {
+    if(hardEdgeIndices[i]==false)f8[i]/=brightness;
+    }
+    }
+    for(int i=0;i<8;i++)
+    {
+    weight20[texIndices[i]]+=f8[i];
+    }
+    }
+    return weight20;
+}
+
+vec3 aces(vec3 color,float adaptedLum) {
+    color*=adaptedLum;
+    return (color * (2.51f * color + 0.03f)) / (color * (2.43f * color + 0.59f) + 0.14f);
+}
+
+// sRGB => XYZ => D65_2_D60 => AP1 => RRT_SAT
+const mat3 aces_input_mat = mat3(
+    0.59719, 0.07600, 0.02840,
+    0.35458, 0.90834, 0.13383,
+    0.04823, 0.01566, 0.83777
+    );
+
+// ODT_SAT => XYZ => D60_2_D65 => sRGB
+const mat3 aces_output_mat = mat3(
+    1.60475, -0.10208, -0.00327,
+    -0.53108,  1.10813, -0.07276,
+    -0.07367, -0.00605,  1.07602
+    );
+
+vec3 rrt_and_odt_fit(vec3 v)
+{
+    vec3 a = v * (v + 0.0245786) - 0.000090537;
+    vec3 b = v * (0.983729 * v + 0.4329510) + 0.238081;
+    return a / b;
+}
+
+vec3 aces_fitted(vec3 color,float adaptedLum)
+{
+    color*=adaptedLum;
+	color = aces_input_mat * color;
+    color = rrt_and_odt_fit(color);
+    color = aces_output_mat * color;
+    return clamp(color, 0.0, 1.0);
+}
+
+void main()
+{
+height=vs_position.y;
+
+vec3 directionLightColor=vec3(0.f);
+if(directionLight4d.direction4D.y<0.0043633f)
+{
+directionLightColor=directionLight4d.color;
+if(directionLight4d.direction4D.y>-0.0043633f)
+{
+directionLightColor=mix(directionLightColor,vec3(0.f),smoothstep(0.f,1.f,(directionLight4d.direction4D.y+0.0043633f)/(0.0043633f*2.f)));
+}
+}
+else
+{
+directionLightColor=vec3(0.f);
+}
+
+isSpecular=false;
+color=vec3(0.f);
+float weights[20] = colorWeight(blendMap,vs_position.xzw);
+for(int i=0;i<20;i++)
+{
+if(weights[i]!=0.f)
+color+=sRGB_to_rgb_space(texture(diffuse3D[i],vs_position.xzw/2.f).xyz)*weights[i];
+}
+
+
+viewDistance=gl_FragCoord.z/gl_FragCoord.w;
+
+if(length(vs_position)<1000000000000000.f){
+/////////////////
+if(height<waterHeight)
+{
+waterDepth=-height+waterHeight;
+//iTime*0.779423/4.5f
+if(normalize(directionLight4d.direction4D).y<0.f)
+{
+texPos=vs_position.xzw/4.f/0.75f/1.15f+vec3(-1.f,1.f,-1.f)*0.641878f/4.5f/2.f*iTime;
+value1 = pow(texture(caustics3D,texPos).r,2.2f);
+value=value1+0.15f;
+}
+else
+value=0.003375f;
+caustics_color=mix(vec3(0.5f),1.159f*vec3(dot(vs_normal,vec4(0.f,1.f,0.f,0.f))*(value-0.003375f)),clamp(0.4675166969581f*waterDepth-0.05625f,0.f,1.f))*1.999f;
+}
+/////////////////
+///////////////
+
+if(pointLight4DAmount>0)
+{
+vec4 positionShift4D=vs_position-cameraPosShift4D;
+lightIndex4=ivec4(256.f*texelFetch(lightMap3d,ivec3((positionShift4D.x)/8.f+16.5f,positionShift4D.y/8.f+16.5f+32*int(positionShift4D.w/8.f+16.5f),positionShift4D.z/8.f+16.5f),0));
+if(lightIndex4.r>-1)
+{
+    overlapAmount=1;
+    if(lightIndex4.g>-1)
+    {
+        overlapAmount = 2;
+        if(lightIndex4.b>-1)
+        {
+            overlapAmount = 3;
+            if(lightIndex4.a>-1)
+            {
+                overlapAmount = 4;
+                lightIndex4_2=ivec4(256.f*texelFetch(lightMap3d,ivec3((positionShift4D.x)/8.f+16.5f,positionShift4D.y/8.f+16.5f+32*int(positionShift4D.w/8.f+16.5f),positionShift4D.z/8.f+16.5f+32.f),0));
+                if(lightIndex4_2.r>-1)
+                {
+                    overlapAmount=5;
+                    if(lightIndex4_2.g>-1)
+                    {
+                        overlapAmount = 6;
+                        if(lightIndex4_2.b>-1)
+                        {
+                            overlapAmount = 7;
+                            if(lightIndex4_2.a>-1)
+                            {
+                                overlapAmount = 8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    for(i=0;i<overlapAmount;i++)
+    {
+        PointLight4D pointLight4DI=pointLights4d[i < 4 ? lightIndex4[i] : lightIndex4_2[i-4]];
+        distanceI=length(pointLight4DI.position4d - vs_position);
+	    if(distanceI<pointLight4DI.radius)
+	    {
+	        diffuseFinalI=calculate_diffuse(vs_position, vs_normal, pointLight4DI.position4d,pointLight4DI.intensity);
+	        if(diffuseFinalI>0.f)
+	        {
+	            float r=distanceI/pointLight4DI.radius;
+                float brightness=texture(brightnessMap,vec2(r,0.5f)).r;
+	            attenuationI=brightness*pointLight4DI.intensity/(distanceI*distanceI);
+                
+                diffuseFinalI*=attenuationI;
+                diffuse_color+=diffuseFinalI*pointLight4DI.color;
+                if(isSpecular==true){
+	            specularFinalI = pointLight4DI.intensity*calculate_specular(vs_position, vs_normal, vs_position-pointLight4DI.position4d, cameraPos);
+	            specularFinalI*=attenuationI/2.f;
+	            specular_color+=specularFinalI*pointLight4DI.color;
+                }
+            }
+        }
+    }
+}
+}
+direction_color=directionLight4d.intensity*directionLightColor*calculate_direction(vs_normal, directionLight4d.direction4D);
+//////////////
+}
+	ambient_color=get_ambient_color(vs_normal);
+if(height<waterHeight)
+{
+	if(isSpecular==true){
+color=color*(ambient_color*0.72f+diffuse_color+direction_color*(1.f-fresnel(directionLight4d.direction4D,vec4(0.f,1.f,0.f,0.f),n))*caustics_color)+specular_color;
+}
+if(isSpecular==false){
+color=color*(ambient_color*0.72f+diffuse_color+direction_color*(1.f-fresnel(directionLight4d.direction4D,vec4(0.f,1.f,0.f,0.f),n))*caustics_color);
+}
+}
+
+if(height>=waterHeight)
+{
+	if(isSpecular==true){
+color=color*(ambient_color+diffuse_color+direction_color)+specular_color;
+}
+if(isSpecular==false){
+color=color*(ambient_color+diffuse_color+direction_color);
+}
+}
+
+
+if(isFog==true&&height>=waterHeight)
+{
+vec3 fogColor=(globalSkyColor+groundColor)/2.f+directionLightColor/PI;
+if(viewDistance<100000.f)
+color=fog(color,fogColor,viewDistance*0.03861f*fogDensity);
+else
+color=fog(color,fogColor,0.5f);
+}
+
+
+if(height<waterHeight)
+{
+if(cameraPos.y>waterHeight)
+{
+color=mix(color,(global_sky_color(0)-directionLight4d.color*directionLight4d.direction4D.y)/4.f,clamp(1.f-exp(-0.3771236166f*waterDepth/normalize(cameraPos - vs_position).y),0.f,1.f));
+}
+if(cameraPos.y<=waterHeight)
+{
+color=fog(color,vec3(0.179f,0.436f,0.76f),viewDistance*0.1f);
+}
+}
+
+////////////////////////
+//
+if(isPainting)
+{
+if(isSphericalPainting==true){
+if (length(hittingPos4D.xzw - floor(vs_position.xzw)-vec3(0.5f)) <= paintScale / 2.f){
+
+	if(fract(vs_position.x)<0.05f||fract(vs_position.x)>0.95f||
+	fract(vs_position.z)<0.05f||fract(vs_position.z)>0.95f||
+	fract(vs_position.w)<0.05f||fract(vs_position.w)>0.95f)
+	{
+	color=vec3(1.f)-color;
+	}
+
+    }
+}
+	
+	if(isSphericalPainting==false)
+	{
+	if(abs(hittingPos4D.x - floor(vs_position.x)-0.5f)<=paintScale / 2.f&&
+	abs(hittingPos4D.z - floor(vs_position.z)-0.5f)<=paintScale / 2.f&&
+	abs(hittingPos4D.w - floor(vs_position.w)-0.5f)<=paintScale / 2.f)
+	{
+	if(fract(vs_position.x)<0.05f||fract(vs_position.x)>0.95f||
+	fract(vs_position.z)<0.05f||fract(vs_position.z)>0.95f||
+	fract(vs_position.w)<0.05f||fract(vs_position.w)>0.95f)
+	{
+	color=vec3(1.f)-color;
+	}
+	}
+	}
+
+}
+
+if(isACES)color.xyz = aces_fitted(color.xyz,adaptedLum);
+
+//
+if(isBuilding)
+{
+if(abs(hittingPos4D.x - floor(vs_position.x)-0.5f)<=0.5f&&
+	abs(hittingPos4D.z - floor(vs_position.z)-0.5f)<=0.5f&&
+	abs(hittingPos4D.w - floor(vs_position.w)-0.5f)<=0.5f)
+	{
+	color+=vec3(0.f,0.5f,0.5f);
+	}
+}
+//
+if(isAreaDeleting)
+{
+int isDeleteArea=int(256.f*texelFetch(deleteMap3d,ivec3(vs_position.xzw+vec3(64)),0).r);
+if(isDeleteArea==1){
+color+=pow(texture(area,vs_position.xzw).xyz,vec3(2.2f));
+}
+}
+//
+/////////////////////////
+fs_color=vec4(color, 1.f);
+}

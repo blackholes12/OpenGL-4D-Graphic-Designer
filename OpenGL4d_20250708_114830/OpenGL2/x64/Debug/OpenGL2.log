@@ -1,0 +1,1299 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (OpenGL2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Compiling CUDA source file main.cpp...
+  
+  C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\HostX64\x64" -x cu   -IC:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include -IC:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SOIL2\include -IC:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include -IC:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLFW\include -IC:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLEW\include -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include"  -G   --keep-dir x64\Debug  -maxrregcount=0   --machine 64 --compile -cudart static  -g  -D_DEBUG -D_CONSOLE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -Xcompiler "/Fdx64\Debug\vc143.pdb" -o C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\x64\Debug\main.cpp.obj "C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\main.cpp" 
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda.h(22252): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda.h(22958): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(94): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		           ^
+  
+  Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(94): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(95): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(95): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(143): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<2, T, Q> & operator=(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(143): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<2, T, Q> & operator=(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(98): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(98): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(99): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(99): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(176): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<3, T, Q>& operator=(vec<3, T, Q> const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(176): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<3, T, Q>& operator=(vec<3, T, Q> const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(97): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(97): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(98): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec<4, T, Q> const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(98): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec<4, T, Q> const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(249): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<4, T, Q>& operator=(vec<4, T, Q> const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(249): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<4, T, Q>& operator=(vec<4, T, Q> const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x2.hpp(35): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x2.hpp(35): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x3.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x3.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x4.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x4.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x2.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x2.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x3.hpp(35): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x3.hpp(35): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x4.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x4.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x2.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x2.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x3.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x3.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x4.hpp(35): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x4.hpp(35): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(95): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(95): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(96): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(96): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(132): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<1, T, Q> & operator=(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(132): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<1, T, Q> & operator=(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(83): warning #20012-D: __device__ annotation is ignored on a function("qua") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(83): warning #20012-D: __host__ annotation is ignored on a function("qua") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(84): warning #20012-D: __device__ annotation is ignored on a function("qua") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua(qua<T, Q> const& q) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(84): warning #20012-D: __host__ annotation is ignored on a function("qua") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua(qua<T, Q> const& q) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(119): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua<T, Q>& operator=(qua<T, Q> const& q) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(119): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua<T, Q>& operator=(qua<T, Q> const& q) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/System/String.hpp(527): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::basic_string<Uint32> m_string; 
+                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/Music.hpp(280): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::vector<Int16> m_samples;  
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/Music.hpp(282): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        Span<Uint64>       m_loopSpan; 
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundBuffer.hpp(276): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::vector<Int16> m_samples;  
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundBuffer.hpp(278): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        mutable SoundList  m_sounds;   
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundRecorder.hpp(289): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::vector<Int16> m_samples;            
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundRecorder.hpp(293): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::string        m_deviceName;         
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundBufferRecorder.hpp(99): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::vector<Int16> m_samples; 
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\EnumLists.h(37): warning #1000-D: a storage class may not be specified here
+    static struct VectorIndex
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Texture.h(242): warning #68-D: integer conversion resulted in a change of sign
+    	unsigned int pType = -1;
+    	                     ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Geometry.h(147): warning #940-D: missing return statement at end of non-void function "texcoord_position2(glm::vec4, glm::vec4, glm::vec3)"
+    }
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\InputLists.h(101): warning #940-D: missing return statement at end of non-void function "transform_input"
+    }
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\body.h(146): warning #940-D: missing return statement at end of non-void function "get_moment_inertia_scalar"
+        }
+        ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\body.h(233): warning #940-D: missing return statement at end of non-void function "get_cap_position4D(Object4D *, bool, glm::vec4, glm::vec2, glm::vec4)"
+        }
+        ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Joint.h(184): warning #1000-D: a storage class may not be specified here
+    static struct HingeConstraint4D
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Animation.h(7): warning #1000-D: a storage class may not be specified here
+    static struct PT
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(196): warning #940-D: missing return statement at end of non-void function "support"
+    }
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(396): warning #940-D: missing return statement at end of non-void function "support_distance"
+    }
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(590): warning #68-D: integer conversion resulted in a change of sign
+                unsigned int i2(-1);
+                                ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(627): warning #68-D: integer conversion resulted in a change of sign
+                        if (i2 == -1 || aoDist2 > abs(aoDist))
+                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(635): warning #68-D: integer conversion resulted in a change of sign
+                if (i2 == -1)
+                          ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(655): warning #940-D: missing return statement at end of non-void function "Simplex::nearest_simplex"
+        }
+        ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(479): warning #1000-D: a storage class may not be specified here
+    static struct Simplex
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(12): warning #1000-D: a storage class may not be specified here
+    static struct CollisionManifold
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(22): warning #1000-D: a storage class may not be specified here
+    static struct Collision
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\collision.h(5): warning #1000-D: a storage class may not be specified here
+    static struct ContactState
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\collision.h(14): warning #1000-D: a storage class may not be specified here
+    static struct CollisionConstraint
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\collision.h(33): warning #1000-D: a storage class may not be specified here
+    static struct Constraint
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\ObjectLists.h(691): warning #1000-D: a storage class may not be specified here
+    static struct RenderIndex
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\LoadAndSave.h(57): warning #940-D: missing return statement at end of non-void function "name_list"
+    }
+    ^
+  
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda.h(22252): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda.h(22958): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(94): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		           ^
+  
+  Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(94): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(95): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(95): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(143): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<2, T, Q> & operator=(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec2.hpp(143): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<2, T, Q> & operator=(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(98): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(98): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(99): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(99): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(176): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<3, T, Q>& operator=(vec<3, T, Q> const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec3.hpp(176): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<3, T, Q>& operator=(vec<3, T, Q> const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(97): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(97): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(98): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec<4, T, Q> const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(98): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec<4, T, Q> const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(249): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<4, T, Q>& operator=(vec<4, T, Q> const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_vec4.hpp(249): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<4, T, Q>& operator=(vec<4, T, Q> const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x2.hpp(35): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x2.hpp(35): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x3.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x3.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x4.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat2x4.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x2.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x2.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x3.hpp(35): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x3.hpp(35): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x4.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat3x4.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x2.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x2.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x3.hpp(36): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x3.hpp(36): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x4.hpp(35): warning #20012-D: __device__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_mat4x4.hpp(35): warning #20012-D: __host__ annotation is ignored on a function("mat") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  mat() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(95): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(95): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(96): warning #20012-D: __device__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(96): warning #20012-D: __host__ annotation is ignored on a function("vec") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(132): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<1, T, Q> & operator=(vec const& v) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\detail/type_vec1.hpp(132): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  vec<1, T, Q> & operator=(vec const& v) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(83): warning #20012-D: __device__ annotation is ignored on a function("qua") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua() = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(83): warning #20012-D: __host__ annotation is ignored on a function("qua") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua() = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(84): warning #20012-D: __device__ annotation is ignored on a function("qua") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua(qua<T, Q> const& q) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(84): warning #20012-D: __host__ annotation is ignored on a function("qua") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua(qua<T, Q> const& q) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(119): warning #20012-D: __device__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua<T, Q>& operator=(qua<T, Q> const& q) = default;
+    		           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\../detail/type_quat.hpp(119): warning #20012-D: __host__ annotation is ignored on a function("operator=") that is explicitly defaulted on its first declaration
+    		__declspec(__device__) __declspec(__host__)  qua<T, Q>& operator=(qua<T, Q> const& q) = default;
+    		                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/System/String.hpp(527): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::basic_string<Uint32> m_string; 
+                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/Music.hpp(280): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::vector<Int16> m_samples;  
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/Music.hpp(282): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        Span<Uint64>       m_loopSpan; 
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundBuffer.hpp(276): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::vector<Int16> m_samples;  
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundBuffer.hpp(278): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        mutable SoundList  m_sounds;   
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundRecorder.hpp(289): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::vector<Int16> m_samples;            
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundRecorder.hpp(293): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::string        m_deviceName;         
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\SFML\include\SFML/Audio/SoundBufferRecorder.hpp(99): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+        std::vector<Int16> m_samples; 
+                           ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\EnumLists.h(37): warning #1000-D: a storage class may not be specified here
+    static struct VectorIndex
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Texture.h(242): warning #68-D: integer conversion resulted in a change of sign
+    	unsigned int pType = -1;
+    	                     ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Geometry.h(147): warning #940-D: missing return statement at end of non-void function "texcoord_position2(glm::vec4, glm::vec4, glm::vec3)"
+    }
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Geometry.h(581): warning #550-D: variable "sign" was set but never used
+    	float sign;
+    	      ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\InputLists.h(101): warning #940-D: missing return statement at end of non-void function "transform_input"
+    }
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\body.h(146): warning #940-D: missing return statement at end of non-void function "get_moment_inertia_scalar"
+        }
+        ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\body.h(233): warning #940-D: missing return statement at end of non-void function "get_cap_position4D(Object4D *, __nv_bool, glm::vec4, glm::vec2, glm::vec4)"
+        }
+        ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Joint.h(184): warning #1000-D: a storage class may not be specified here
+    static struct HingeConstraint4D
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Animation.h(7): warning #1000-D: a storage class may not be specified here
+    static struct PT
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(196): warning #940-D: missing return statement at end of non-void function "support"
+    }
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(341): warning #550-D: variable "supportPosition4d" was set but never used
+            glm::vec4 supportPosition4d;
+                      ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(396): warning #940-D: missing return statement at end of non-void function "support_distance"
+    }
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(590): warning #68-D: integer conversion resulted in a change of sign
+                unsigned int i2(-1);
+                                ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(627): warning #68-D: integer conversion resulted in a change of sign
+                        if (i2 == -1 || aoDist2 > abs(aoDist))
+                                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(635): warning #68-D: integer conversion resulted in a change of sign
+                if (i2 == -1)
+                          ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(655): warning #940-D: missing return statement at end of non-void function "Simplex::nearest_simplex"
+        }
+        ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(479): warning #1000-D: a storage class may not be specified here
+    static struct Simplex
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(806): warning #177-D: variable "i" was declared but never referenced
+        size_t i;
+               ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(994): warning #177-D: variable "contact0" was declared but never referenced
+        glm::vec4 contact0;
+                  ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(12): warning #1000-D: a storage class may not be specified here
+    static struct CollisionManifold
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(22): warning #1000-D: a storage class may not be specified here
+    static struct Collision
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(143): warning #177-D: variable "contacts" was declared but never referenced
+                    glm::vec4 contacts;
+                              ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(553): warning #177-D: variable "detectPos4D0" was declared but never referenced
+                glm::vec4 detectPos4D0;
+                          ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(1830): warning #177-D: variable "detectPos4D0" was declared but never referenced
+                    glm::vec4 detectPos4D0;
+                              ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\collision.h(5): warning #1000-D: a storage class may not be specified here
+    static struct ContactState
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\collision.h(14): warning #1000-D: a storage class may not be specified here
+    static struct CollisionConstraint
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\collision.h(33): warning #1000-D: a storage class may not be specified here
+    static struct Constraint
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\ObjectLists.h(691): warning #1000-D: a storage class may not be specified here
+    static struct RenderIndex
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\LoadAndSave.h(57): warning #940-D: missing return statement at end of non-void function "name_list"
+    }
+    ^
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\LoadAndSave.h(216): warning #177-D: variable "temp_glint2" was declared but never referenced
+    	const char* temp_glint2("");
+    	            ^
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\scalar_constants.inl(9): warning #20013-D: calling a constexpr __host__ function("epsilon") from a __host__ __device__ function("epsilon") is not allowed. The experimental flag '--expt-relaxed-constexpr' can be used to allow this.
+    		return std::numeric_limits<genType>::epsilon();
+    		       ^
+            detected during:
+              instantiation of "genType glm::epsilon<genType>() [with genType=float]" at line 553 of C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLM\include\ext\matrix_clip_space.inl
+              instantiation of "glm::mat<4, 4, T, glm::packed_highp> glm::tweakedInfinitePerspective(T, T, T) [with T=float]" at line 330 of C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Camera.h
+  
+  main.cpp
+  tmpxft_000040ec_00000000-7_main.cudafe1.cpp
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Primitives4D.h(810): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Primitives4D.h(811): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Primitives4D.h(812): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(189): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(189): note: consider using '%zi' in the format string
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(191): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(191): note: consider using '%zi' in the format string
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(193): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(193): note: consider using '%zi' in the format string
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(195): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(195): note: consider using '%zi' in the format string
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(202): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(202): note: consider using '%zi' in the format string
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(204): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(204): note: consider using '%zi' in the format string
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(213): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(213): note: consider using '%zi' in the format string
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(806): warning C4101: 'i': unreferenced local variable
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(970): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(994): warning C4101: 'contact0': unreferenced local variable
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(74): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(88): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(88): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(143): warning C4101: 'contacts': unreferenced local variable
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(564): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(553): warning C4101: 'detectPos4D0': unreferenced local variable
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(1235): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(1830): warning C4101: 'detectPos4D0': unreferenced local variable
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(426): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(426): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(427): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(427): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(428): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(428): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(429): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(429): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(430): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(430): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(436): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(436): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(437): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(437): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(438): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(438): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(439): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(439): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(440): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(440): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(446): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(446): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(447): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(447): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(448): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(448): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(449): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(449): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(450): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(450): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(456): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(456): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(457): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(457): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(458): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(458): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(459): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(459): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(460): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(460): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(466): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(466): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(467): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(467): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(468): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(468): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(469): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(469): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(470): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(470): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(481): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(482): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(483): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(484): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(485): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(493): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(494): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(495): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(496): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(497): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\ObjectLists.h(228): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\ObjectLists.h(833): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(489): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(504): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(524): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(186): warning C4018: '<': signed/unsigned mismatch
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(487): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(502): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\LoadAndSave.h(287): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\LoadAndSave.h(293): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\main.cpp(35): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Game.cpp
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\EnumLists.h(37,15): warning C4091: 'static ': ignored on left of 'VectorIndex' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Primitives4D.h(810,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Primitives4D.h(811,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Primitives4D.h(812,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\minwindef.h(130,9): warning C4005: 'APIENTRY': macro redefinition
+  (compiling source file 'Game.cpp')
+      C:\Users\86180\Documents\OpenGL4d_20241212_114830\Dependencies_64x\GLFW\include\GLFW\glfw3.h(123,11):
+      see previous definition of 'APIENTRY'
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(189,21): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  (compiling source file 'Game.cpp')
+      C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(189,21):
+      consider using '%zi' in the format string
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(191,21): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  (compiling source file 'Game.cpp')
+      C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(191,21):
+      consider using '%zi' in the format string
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(193,21): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  (compiling source file 'Game.cpp')
+      C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(193,21):
+      consider using '%zi' in the format string
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(195,21): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  (compiling source file 'Game.cpp')
+      C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(195,21):
+      consider using '%zi' in the format string
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(202,21): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  (compiling source file 'Game.cpp')
+      C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(202,21):
+      consider using '%zi' in the format string
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(204,21): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  (compiling source file 'Game.cpp')
+      C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(204,21):
+      consider using '%zi' in the format string
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(213,21): warning C4477: 'snprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+  (compiling source file 'Game.cpp')
+      C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Light.h(213,21):
+      consider using '%zi' in the format string
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Joint.h(184,15): warning C4091: 'static ': ignored on left of 'HingeConstraint4D' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Animation.h(7,15): warning C4091: 'static ': ignored on left of 'PT' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(479,15): warning C4091: 'static ': ignored on left of 'Simplex' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(806,12): warning C4101: 'i': unreferenced local variable
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(970,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(994,15): warning C4101: 'contact0': unreferenced local variable
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(12,15): warning C4091: 'static ': ignored on left of 'CollisionManifold' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(22,15): warning C4091: 'static ': ignored on left of 'Collision' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(74,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(88,68): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(88,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(143,27): warning C4101: 'contacts': unreferenced local variable
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(564,47): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(553,23): warning C4101: 'detectPos4D0': unreferenced local variable
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(1235,34): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\colliderPhy.h(1830,27): warning C4101: 'detectPos4D0': unreferenced local variable
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\collision.h(5,15): warning C4091: 'static ': ignored on left of 'ContactState' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\collision.h(14,15): warning C4091: 'static ': ignored on left of 'CollisionConstraint' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\collision.h(33,15): warning C4091: 'static ': ignored on left of 'Constraint' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(426,67): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(426,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(427,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(427,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(428,63): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(428,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(429,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(429,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(430,69): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(430,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(436,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(436,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(437,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(437,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(438,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(438,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(439,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(439,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(440,67): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(440,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(446,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(446,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(447,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(447,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(448,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(448,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(449,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(449,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(450,67): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(450,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(456,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(456,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(457,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(457,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(458,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(458,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(459,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(459,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(460,67): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(460,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(466,68): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(466,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(467,63): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(467,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(468,64): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(468,56): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(469,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(469,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(470,70): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(470,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(481,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(482,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(483,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(484,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(485,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(493,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(494,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(495,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(496,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\PhyFunction.h(497,56): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\ObjectLists.h(228,32): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\ObjectLists.h(691,15): warning C4091: 'static ': ignored on left of 'RenderIndex' when no variable is declared
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\ObjectLists.h(833,10): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(489,31): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(489,31): warning C4267:         with
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(489,31): warning C4267:         [
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(489,31): warning C4267:             T=glm::i32
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(489,31): warning C4267:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(504,32): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(504,32): warning C4267:         with
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(504,32): warning C4267:         [
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(504,32): warning C4267:             T=glm::i32
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(504,32): warning C4267:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(524,32): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(524,32): warning C4267:         with
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(524,32): warning C4267:         [
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(524,32): warning C4267:             T=glm::i32
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Phys4D.h(524,32): warning C4267:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(18,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(24,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(25,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(186,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(487,44): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\DetectRay.h(502,38): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\LoadAndSave.h(287,109): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\LoadAndSave.h(293,115): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game_imgui.h(760,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game_imgui.h(808,80): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game_imgui.h(2346,91): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game_imgui.h(2505,40): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game_imgui.h(2581,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(56,7): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(60,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(174,29): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(181,8): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(185,15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(289,8): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(293,15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(340,15): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(462,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(463,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(464,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(465,123): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(465,123): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(465,123): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(465,123): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Structures4D.h(465,123): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(172,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(183,178): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(183,178): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(183,178): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(183,178): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(183,178): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(188,177): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(188,177): warning C4244:         with
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(188,177): warning C4244:         [
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(188,177): warning C4244:             T=float
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(188,177): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Physics.h(243,24): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(63,44): warning C4305: '-=': truncation from 'double' to 'T'
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(63,44): warning C4305:         with
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(63,44): warning C4305:         [
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(63,44): warning C4305:             T=float
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(63,44): warning C4305:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(68,44): warning C4305: '+=': truncation from 'double' to 'T'
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(68,44): warning C4305:         with
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(68,44): warning C4305:         [
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(68,44): warning C4305:             T=float
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(68,44): warning C4305:         ]
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(199,75): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(428,40): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(435,47): warning C4267: 'argument': conversion from 'size_t' to 'const unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(537,212): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(547,245): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(547,146): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(558,182): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(567,129): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(618,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(621,161): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(629,162): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(669,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(672,179): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(680,180): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Keyboard.h(744,74): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game.cpp(378,32): warning C4267: 'argument': conversion from 'size_t' to 'const GLint', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game.cpp(444,68): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game.cpp(1228,134): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game.cpp(1505,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Game.cpp(1633,58): warning C4267: 'argument': conversion from 'size_t' to 'GLint', possible loss of data
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  Generating Code...
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\body.h(233,1): warning C4715: 'get_cap_position4D': not all control paths return a value
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\InputLists.h(101,1): warning C4715: 'transform_input': not all control paths return a value
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\body.h(146,1): warning C4715: 'get_moment_inertia_scalar': not all control paths return a value
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\Geometry.h(147,1): warning C4715: 'texcoord_position2': not all control paths return a value
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\LoadAndSave.h(57,1): warning C4715: 'name_list': not all control paths return a value
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(196,1): warning C4715: 'support': not all control paths return a value
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(396,1): warning C4715: 'support_distance': not all control paths return a value
+C:\Users\86180\Documents\OpenGL4d_20241212_114830\OpenGL2\gjk.h(655,1): warning C4715: 'Simplex::nearest_simplex': not all control paths return a value
+glew32s.lib(glew.obj) : warning LNK4099: PDB '' was not found with 'glew32s.lib(glew.obj)' or at ''; linking object as if no debug info
+     Creating library C:\Users\86180\Documents\OpenGL4d_20241212_114830\x64\Debug\NewEngine.lib and object C:\Users\86180\Documents\OpenGL4d_20241212_114830\x64\Debug\NewEngine.exp
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  OpenGL2.vcxproj -> C:\Users\86180\Documents\OpenGL4d_20241212_114830\x64\Debug\NewEngine.exe

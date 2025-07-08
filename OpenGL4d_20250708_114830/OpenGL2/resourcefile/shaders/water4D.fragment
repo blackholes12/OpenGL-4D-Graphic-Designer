@@ -1,0 +1,325 @@
+#version 440
+#define PI acos(-1.f)
+const float n =1.333f;
+in vec4 vs_position;
+in vec4 vs_normal;
+in vec3 vs_texcoord;
+in vec4 orthonormalBasis[3];
+out vec4 fs_color;
+
+//Uniforms
+layout (binding = 4) uniform sampler3D diffuse3D;
+layout (binding = 5) uniform sampler3D skyPhaseMap3D;
+layout (binding = 6) uniform sampler3D normal4D;
+
+struct DirectionLight4D
+{
+	vec4 direction4D;
+	float intensity;
+	vec3 color;
+};
+uniform DirectionLight4D directionLight4d;
+uniform vec4 cameraPos;
+uniform float iTime;
+uniform bool isACES;
+uniform float adaptedLum;
+uniform bool isCloud;
+uniform bool isFog;
+uniform bool isSkyBoxFog;
+uniform float fogDensity;
+vec4 color;
+vec4 ray,reRay,reRay2;
+vec3 uv,uv2,a,a2;
+float extreme,factor;
+float transparency;
+float cloudDistance,transmittance;
+float directionFinal2;
+float calculate_direction(vec4 vs_normal, vec4 direction)
+{
+	directionFinal2 = -dot(normalize(direction),vs_normal);
+	return max(directionFinal2,0.f);
+}
+
+vec3 normalmap;
+vec3 getNormalxzw(vec3 texcoord)
+{
+    return (texture(normal4D,texcoord/64.f).xyz-vec3(0.5f))/24.f;
+}
+
+vec3 normalxzw;
+
+const float a0=0.7f*1.15f,b=0.85f*1.15f,c=0.9f*1.15f;
+vec4 getWaterNormal(vec3 m,vec4 normal)
+{
+
+normalxzw=
+getNormalxzw(2.5f/a0*m+2.3699f*iTime/a0*vec3(-0.45f,0.45f,-0.45f))+
+getNormalxzw(2.5f/b*m+2.3699f*iTime/b*vec3(0.45f,-0.45f,-0.45f))+
+getNormalxzw(2.5f/c*m+vec3(10.f)+2.3699f*iTime/c*vec3(-0.45f,-0.45f,0.45f));
+return normalize(normalxzw.x*orthonormalBasis[0]+normalxzw.y*orthonormalBasis[1]+normalxzw.z*orthonormalBasis[2]+normal);
+}
+void swap(float A,float B)
+{
+float C=A;
+A=B;
+B=C;
+}
+float fresnel(const vec4 ray, const vec4 normal, const float ior)
+{
+    float kr;
+    float cosi = dot(normalize(ray), normal);
+    float etai = 1.f, etat = ior;
+    if (cosi > 0.f) { swap(etai, etat); }
+    // Compute sini using Snell's law
+    float sint = etai / etat * sqrt(1.f - cosi * cosi);
+    // Total internal reflection
+    if (sint >= 1.f) {
+        kr = 1.f;
+    }
+    else {
+        float cost = sqrt(max(0.f, 1.f - sint * sint));
+        cosi = abs(cosi);
+        float Rs = (etat * cosi - etai * cost) / (etat * cosi + etai * cost);
+        float Rp = (etai * cosi - etat * cost) / (etai * cosi + etat * cost);
+        kr = (Rs * Rs + Rp * Rp) / 2.f;
+    }
+return kr;
+}
+vec4 refraction(vec4 ray,vec4 normal,float n)
+{
+float cosi=dot(-ray,normal);
+float factor1=1.f-cosi*cosi;
+float sini2=sqrt(factor1)/n;
+float factor2=1.f-sini2*sini2;
+float cosi2=sqrt(factor2);
+if(factor1>0&&factor2>0){
+float tani2=sini2/cosi2;
+vec4 ax=normalize(ray/cosi+normal);
+vec4 raflactDir=normalize(-normal+ax*tani2);
+return raflactDir;
+}
+else{
+return vec4(0.f);
+}
+}
+
+/* const matrices for 3d rotation */
+const mat3 rot1 = mat3(-0.37f, 0.36f, 0.85f,-0.14f,-0.93f, 0.34f,0.92f, 0.01f,0.4f);
+const mat3 rot2 = mat3(-0.55f,-0.39f, 0.74f, 0.33f,-0.91f,-0.24f,0.77f, 0.12f,0.63f);
+const mat3 rot3 = mat3(-0.71f, 0.52f,-0.47f,-0.08f,-0.72f,-0.68f,-0.7f,-0.45f,0.56f);
+
+/* directional artifacts can be reduced by rotating each octave */
+float fbm(vec3 p) {
+    return 1.39f*texture(diffuse3D,0.000002111276041665f*p).r + 1.69f*texture(diffuse3D,0.0000001051142446298915f*p).r-1.44f;
+}
+
+const vec3 sunColor = vec3(1.50541666f, 1.84791666f, 1.8875f)/1.8875f;//https://www.ossila.com/pages/the-solar-spectrum
+const vec3 skyColor1=sunColor*vec3(0.f);
+const vec3 skyColor2=sunColor*vec3(7.f,7.f,10.f)/256.f;
+const vec3 skyColor3=sunColor*vec3(11.f,18.f,31.f)/256.f;
+const vec3 skyColor4=sunColor*vec3(13.f,24.f,47.f)/256.f;
+const vec3 skyColor5=sunColor*vec3(23.f,47.f,103.f)/256.f;
+vec3 global_sky_color(int type)
+{
+    float sunLightHeight=-normalize(directionLight4d.direction4D).y;
+    if(sunLightHeight<-0.1f)
+    {
+    return type==0 ? vec3(0.f) : skyColor1;
+    }
+    else if(sunLightHeight>=-0.1f&&sunLightHeight<0.f)
+    {
+    return mix(type==0 ? vec3(0.f) : skyColor1,skyColor2,(sunLightHeight+0.1f)/0.1f);
+    }
+    else if(sunLightHeight>=0.f&&sunLightHeight<0.1f)
+    {
+    return mix(skyColor2,skyColor3,(sunLightHeight)/0.1f);
+    }
+    else if(sunLightHeight>=0.1f&&sunLightHeight<0.2f)
+    {
+    return mix(skyColor3,skyColor4,(sunLightHeight-0.1f)/0.1f);
+    }
+    else if(sunLightHeight>=0.2f)
+    {
+    return mix(skyColor4,skyColor5,(sunLightHeight-0.2f)/0.8f);
+    }
+}
+vec4 direction;
+vec3 ground_color()
+{
+   vec3 globalSkyColor=global_sky_color(1);
+   vec3 groundColor=vec3(0.4f,0.510f,0.248f)*(directionLight4d.color*directionLight4d.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4d.direction4D)+globalSkyColor);
+   vec4 V = direction;
+   if(isSkyBoxFog==true)
+   {
+   float viewDistance=cameraPos.y/(-V.y);
+   float transmittance=exp(-0.00003861f*viewDistance);
+   vec3 groundColor2=0.55f*groundColor/vec3(0.4f,0.510f,0.248f);
+   vec3 fogColor=(globalSkyColor+groundColor2)/2.f+directionLight4d.color/PI;
+   groundColor=mix(fogColor,groundColor,transmittance);
+   }
+   return groundColor;
+}
+
+vec4 read_sky_phase_map(sampler3D sampler3d,vec3 scale, vec3 texcoord)
+{
+   vec3 scaleSize = vec3(textureSize(sampler3d,0))*scale;
+   vec3 pixelPosition = clamp(scaleSize * texcoord + vec3(0.5f),vec3(0.f),scaleSize-vec3(1.f));
+   ivec3 iTexcoord = ivec3(pixelPosition);
+   vec3 weight = fract(pixelPosition);
+   vec3 weight2 = vec3(1.f) - weight;
+   vec4 color4 ;
+   color4 = 
+   (texelFetch(sampler3d,iTexcoord+ivec3(0,0,0),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x,0,0),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x*2.f,0,0),0)/4096.f)*weight2.x*weight2.y*weight2.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(1,0,0),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x,0,0),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x*2.f,0,0),0)/4096.f)*weight.x*weight2.y*weight2.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(0,1,0),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x,1,0),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x*2.f,1,0),0)/4096.f)*weight2.x*weight.y*weight2.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(1,1,0),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x,1,0),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x*2.f,1,0),0)/4096.f)*weight.x*weight.y*weight2.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(0,0,1),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x,0,1),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x*2.f,0,1),0)/4096.f)*weight2.x*weight2.y*weight.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(1,0,1),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x,0,1),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x*2.f,0,1),0)/4096.f)*weight.x*weight2.y*weight.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(0,1,1),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x,1,1),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x*2.f,1,1),0)/4096.f)*weight2.x*weight.y*weight.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(1,1,1),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x,1,1),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x*2.f,1,1),0)/4096.f)*weight.x*weight.y*weight.z;
+   return color4;
+}
+
+vec3 aces(vec3 color,float adaptedLum) {
+    color*=adaptedLum;
+    return (color * (2.51f * color + 0.03f)) / (color * (2.43f * color + 0.59f) + 0.14f);
+}
+
+// sRGB => XYZ => D65_2_D60 => AP1 => RRT_SAT
+const mat3 aces_input_mat = mat3(
+    0.59719, 0.07600, 0.02840,
+    0.35458, 0.90834, 0.13383,
+    0.04823, 0.01566, 0.83777
+    );
+
+// ODT_SAT => XYZ => D60_2_D65 => sRGB
+const mat3 aces_output_mat = mat3(
+    1.60475, -0.10208, -0.00327,
+    -0.53108,  1.10813, -0.07276,
+    -0.07367, -0.00605,  1.07602
+    );
+
+vec3 rrt_and_odt_fit(vec3 v)
+{
+    vec3 a = v * (v + 0.0245786) - 0.000090537;
+    vec3 b = v * (0.983729 * v + 0.4329510) + 0.238081;
+    return a / b;
+}
+
+vec3 aces_fitted(vec3 color,float adaptedLum)
+{
+    color*=adaptedLum;
+	color = aces_input_mat * color;
+    color = rrt_and_odt_fit(color);
+    color = aces_output_mat * color;
+    return clamp(color, 0.0, 1.0);
+}
+
+float get_cloud_distance(vec4 ray,float radius,float height)
+{
+return sqrt(radius*radius*ray.y*ray.y+2.f*height*radius+height*height)-radius*ray.y;
+}
+
+vec3 get_sky(const vec4 V, const vec4 L, vec3 atomsphereAbsorbColor) {
+   float vDotL = dot(V,L);
+   vec3 texcoord = vec3(acos(-vDotL)/PI, V.y, 0.5f*(1.f - L.y));
+   vec3 color = sunColor * pow(read_sky_phase_map(skyPhaseMap3D,vec3(1.f/3.f,1.f,1.f),texcoord).xyz,vec3(2.2f));
+   if(-vDotL>0.99999f)color+=1600.f*atomsphereAbsorbColor;
+   if(isCloud==true&&V.y>0.f)
+    {
+    float cloudDistance=get_cloud_distance(V,6371000.f,4500.f - cameraPos.y);
+    vec4 cloudPlaneCoordinate=cloudDistance*V + cameraPos;
+    float noise0_2111 = 0.8f - texture(diffuse3D,0.00000012f*1.175*(cloudPlaneCoordinate.xzw+vec3(720.f*iTime,0.f,720.f*iTime))).r;
+    float noise2_1112 = texture(diffuse3D,0.0000008f*1.175*(cloudPlaneCoordinate.xzw+vec3(720.f*iTime,0.f,720.f*iTime))).r;
+    float cloudDensity = 2.05f*max(noise0_2111*(noise2_1112*noise2_1112*noise2_1112+1.f) - 0.5f*noise0_2111-0.185f,0.f);
+    if(cloudDensity>0.f){
+    vec3 globalSkyColor=global_sky_color(1);
+    vec3 groundColor=vec3(0.4f,0.510f,0.248f)*(directionLight4d.color*directionLight4d.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4d.direction4D)+globalSkyColor);
+    vec3 cloudColor3=atomsphereAbsorbColor * (0.5f*max(-L.y, 0.f)+0.5f) + (globalSkyColor+groundColor)/2.f;
+    float transmittance=exp(-0.000001425f*1.875f*cloudDistance); 
+    color = mix(color,max(cloudColor3,vec3(0.f)),transmittance*cloudDensity);
+    }
+    }
+   return color;
+}
+
+vec3 fog(vec3 A,vec3 B,float far)
+{
+return mix(B,A,exp(-far));
+}
+
+vec4 normal4d;
+
+float brightness,fresnel0,viewDistance;
+const float waterHeight=55.5f;
+
+void main()
+{
+viewDistance=gl_FragCoord.z/gl_FragCoord.w;
+{
+//extreme=abs(vs_position.x+vs_position.y+vs_position.z+vs_position.w)/4.f;
+	//ray=(vs_position-cameraPos)/extreme;
+	ray=normalize(vs_position-cameraPos);
+	if(dot(ray,vs_normal)<0.f)
+	{
+	normal4d = getWaterNormal(vs_texcoord,vs_normal);
+	reRay=reflect(ray, normal4d);
+	brightness=fresnel(ray, normal4d, n);
+    direction=reRay;
+	color=vec4(get_sky(reRay,directionLight4d.direction4D,directionLight4d.color),1.f);
+	if(isFog==true)
+{
+vec3 directionLightColor;
+if(directionLight4d.direction4D.y<0.0043633f)
+{
+directionLightColor=directionLight4d.color;
+if(directionLight4d.direction4D.y>-0.0043633f)
+{
+directionLightColor=mix(directionLightColor,vec3(0.f),smoothstep(0.f,1.f,(directionLight4d.direction4D.y+0.0043633f)/(0.0043633f*2.f)));
+}
+}
+else
+{
+directionLightColor=vec3(0.f);
+}
+vec3 globalSkyColor=global_sky_color(1);
+vec3 fogColor=(globalSkyColor+0.55f*(directionLight4d.color*directionLight4d.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4d.direction4D)+globalSkyColor))/2.f+directionLightColor/PI;
+factor=fog(vec3(0.f),vec3(1.f),viewDistance*0.03861f*fogDensity).x;
+if(viewDistance<100000.f)
+color.xyz=fog(color.xyz,fogColor,viewDistance*0.03861f*fogDensity);
+else
+color.xyz=fog(color.xyz,fogColor,0.5f);
+}
+	}
+	if(dot(ray,vs_normal)>0.f)
+	{
+	normal4d = -getWaterNormal(vs_texcoord,vs_normal);
+	reRay2=refraction(normalize(ray), normal4d,1.f/n);
+	reRay=reflect(ray, normal4d);
+	fresnel0=fresnel(ray, normal4d, 1.f/n);
+	if(reRay2!=vec4(0.f))
+	brightness = 1.f-fresnel0;
+	else
+	brightness = 0.f;
+	direction=reRay;
+	color=fresnel0*vec4(get_sky(reRay,directionLight4d.direction4D,directionLight4d.color),1.f);
+    direction=reRay2;
+    color+=brightness*vec4(get_sky(reRay2,directionLight4d.direction4D,directionLight4d.color),1.f);
+	viewDistance=length(cameraPos-vs_position);
+	color=vec4(fog(color.xyz,vec3(0.179f,0.436f,0.76f),viewDistance*0.1f),1.f);
+	}
+	if(dot(ray,vs_normal)<0.f)
+	{
+	if(isFog==true){
+	brightness+=factor;
+	}
+    if(isACES) color.xyz = aces_fitted(color.xyz,adaptedLum);
+	fs_color = vec4(color.xyz, brightness);
+	}
+	if(dot(ray,vs_normal)>0.f)
+	{
+    if(isACES) color.xyz = aces_fitted(color.xyz,adaptedLum);
+	fs_color = vec4(color.xyz, 1.f);
+	}
+}
+}

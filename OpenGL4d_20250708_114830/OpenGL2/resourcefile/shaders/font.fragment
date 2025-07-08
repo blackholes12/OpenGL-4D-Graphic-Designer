@@ -1,0 +1,12 @@
+#version 440
+in vec2 texcoords;
+out vec4 fs_color;
+
+uniform sampler2D text;
+uniform vec4 textColor;
+
+void main()
+{    
+    vec4 sampled = textColor;sampled.w*=texture(text, texcoords).r;
+    fs_color = sampled;
+}  

@@ -1,0 +1,82 @@
+#version 440
+in vec2 vs_position;
+in vec2 vs_texcoord;
+out vec4 fs_color;
+
+uniform sampler2D texture2d;
+uniform vec4 color;
+uniform vec4 borderColor;
+uniform ivec2 size;
+uniform int borderLineThickness;
+uniform bool isUseTexture;
+uniform int cornerRadious;
+
+uniform bool isMaskOf = false;
+uniform ivec2 scrollViewOffset;
+uniform ivec2 scrollViewSize;
+
+void main()
+{    
+    if(isMaskOf == true)
+	{
+	   if(!(vs_position.x>scrollViewOffset.x&&vs_position.x<scrollViewOffset.x+scrollViewSize.x&&
+	      vs_position.y>scrollViewOffset.y&&vs_position.y<scrollViewOffset.y+scrollViewSize.y))
+		  {
+		     discard;
+		  }
+	}
+    vec4 col4 = color;
+	if(isUseTexture)
+	{
+	   col4*=texture(texture2d, vs_texcoord);
+	}
+	bool isBorderLine = borderLineThickness>0;
+	bool isCorner = false;
+	vec2 position2D = vs_texcoord*vec2(size);
+    if(cornerRadious>0)
+	{
+       if(position2D.x<cornerRadious)
+	   {
+	      if(position2D.y<cornerRadious)
+	      {
+		     isCorner = true;
+		     float distance = length(position2D - vec2(cornerRadious));
+		     if(isBorderLine)if(distance>float(cornerRadious - borderLineThickness)-0.5f)col4 = mix(borderColor, col4, max(float(cornerRadious - borderLineThickness) - distance + 0.5f,0.f));
+	         if(distance>float(cornerRadious)-0.5f)col4.w=max(float(cornerRadious) - distance + 0.5f,0.f);
+	      }
+	      else if(size.y - position2D.y<cornerRadious)
+	      {
+		     isCorner = true;
+		     float distance = length(vec2(position2D.x, size.y - position2D.y) - vec2(cornerRadious));
+		     if(isBorderLine)if(distance>float(cornerRadious - borderLineThickness)-0.5f)col4 = mix(borderColor, col4, max(float(cornerRadious - borderLineThickness) - distance + 0.5f,0.f));
+	         if(distance>float(cornerRadious)-0.5f)col4.w=max(float(cornerRadious) - distance + 0.5f,0.f);
+	      }
+	   }
+	   else if(size.x - position2D.x<cornerRadious)
+	   {
+	      if(position2D.y<cornerRadious)
+	      {
+		     isCorner = true;
+		     float distance = length(vec2(size.x - position2D.x, position2D.y) - vec2(cornerRadious));
+		     if(isBorderLine)if(distance>float(cornerRadious - borderLineThickness)-0.5f)col4 = mix(borderColor, col4, max(float(cornerRadious - borderLineThickness) - distance + 0.5f,0.f));
+	         if(distance>float(cornerRadious)-0.5f)col4.w=max(float(cornerRadious) - distance + 0.5f,0.f);
+	      }
+	      else if(size.y - position2D.y<cornerRadious)
+	      {
+		     isCorner = true;
+		     float distance = length(vec2(size.x - position2D.x, size.y - position2D.y) - vec2(cornerRadious));
+		     if(isBorderLine)if(distance>float(cornerRadious - borderLineThickness)-0.5f)col4 = mix(borderColor, col4, max(float(cornerRadious - borderLineThickness) - distance + 0.5f,0.f));
+	         if(distance>float(cornerRadious)-0.5f)col4.w=max(float(cornerRadious) - distance + 0.5f,0.f);
+	      }
+	   }
+	}
+	 if(isBorderLine)
+	   {
+	      if((position2D.x<borderLineThickness||size.x - position2D.x<borderLineThickness||position2D.y<borderLineThickness||size.y - position2D.y<borderLineThickness)&&col4.w!=0.f&&!isCorner)
+	      {
+		     col4 = borderColor;
+	      }
+
+	   }
+    fs_color = col4;
+}  

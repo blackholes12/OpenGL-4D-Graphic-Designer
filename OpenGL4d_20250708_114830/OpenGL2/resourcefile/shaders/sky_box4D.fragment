@@ -1,0 +1,217 @@
+#version 440
+#define PI acos(-1.f)
+in vec4 vs_position;
+in vec3 vs_texcoord;
+out vec4 fs_color;
+
+//Uniforms
+layout (binding = 4) uniform sampler3D diffuse3D;
+layout (binding = 5) uniform sampler3D skyPhaseMap3D;
+layout (binding = 9) uniform sampler3D area;
+layout (binding = 11) uniform sampler3D deleteMap3d;
+
+uniform int type;
+uniform vec4 paintingColor;
+uniform bool isAreaDeleting=false;
+uniform bool isCloud;
+uniform bool isSkyBoxFog;
+uniform float iTime;
+uniform bool isACES;
+uniform float adaptedLum;
+struct DirectionLight4D
+{
+	vec4 direction4D;
+	float intensity;
+	vec3 color;
+};
+uniform DirectionLight4D directionLight4d;
+uniform vec4 cameraPos;
+vec4 color=vec4(0.f);
+vec4 direction=vec4(0.f);
+vec3 uv=vec3(0.f),uv2=vec3(0.f),a=vec3(0.f),a2=vec3(0.f);
+float extreme=0.f;
+float cloudDistance=0.f,transmittance=0.f;
+float direction2=0.f,directionFinal2=0.f;
+
+float calculate_direction(vec4 vs_normal, vec4 direction)
+{
+	directionFinal2 = -dot(normalize(direction),vs_normal);
+	return max(directionFinal2,0.f);
+}
+
+//sky color1:vec3(0.294f,0.376f,0.525f)
+//sky color2:vec3(0.333f,0.451f,0.635f)
+
+/* const matrices for 3d rotation */
+const mat3 rot1 = mat3(-0.37f, 0.36f, 0.85f,-0.14f,-0.93f, 0.34f,0.92f, 0.01f,0.4f);
+const mat3 rot2 = mat3(-0.55f,-0.39f, 0.74f, 0.33f,-0.91f,-0.24f,0.77f, 0.12f,0.63f);
+const mat3 rot3 = mat3(-0.71f, 0.52f,-0.47f,-0.08f,-0.72f,-0.68f,-0.7f,-0.45f,0.56f);
+
+/* directional artifacts can be reduced by rotating each octave */
+//float fbm(vec3 p) {
+//    
+//    float f = 0.5000 * texture(diffuse3D,p/128.f).r; p = p * 2.02f;
+//    f += 0.2500 * texture(diffuse3D,p/128.f).r; p = p * 2.03f;
+//    f += 0.1250 * texture(diffuse3D,p/128.f).r; p = p * 2.01f;
+//    f += 0.0625 * texture(diffuse3D,p/128.f).r;
+//    return f / 0.9375;
+//}
+float fbm(vec3 p) {
+    return 1.39f*texture(diffuse3D,0.000002111276041665f*p).r + 1.69f*texture(diffuse3D,0.0000001051142446298915f*p).r-1.44f;
+}
+const vec3 sunColor = vec3(1.50541666f, 1.84791666f, 1.8875f)/1.8875f;//https://www.ossila.com/pages/the-solar-spectrum
+const vec3 skyColor1=sunColor*vec3(0.f);
+const vec3 skyColor2=sunColor*vec3(7.f,7.f,10.f)/256.f;
+const vec3 skyColor3=sunColor*vec3(11.f,18.f,31.f)/256.f;
+const vec3 skyColor4=sunColor*vec3(13.f,24.f,47.f)/256.f;
+const vec3 skyColor5=sunColor*vec3(23.f,47.f,103.f)/256.f;
+vec3 global_sky_color(int type)
+{
+    float sunLightHeight=-normalize(directionLight4d.direction4D).y;
+    if(sunLightHeight<-0.1f)
+    {
+    return type==0 ? vec3(0.f) : skyColor1;
+    }
+    else if(sunLightHeight>=-0.1f&&sunLightHeight<0.f)
+    {
+    return mix(type==0 ? vec3(0.f) : skyColor1,skyColor2,(sunLightHeight+0.1f)/0.1f);
+    }
+    else if(sunLightHeight>=0.f&&sunLightHeight<0.1f)
+    {
+    return mix(skyColor2,skyColor3,(sunLightHeight)/0.1f);
+    }
+    else if(sunLightHeight>=0.1f&&sunLightHeight<0.2f)
+    {
+    return mix(skyColor3,skyColor4,(sunLightHeight-0.1f)/0.1f);
+    }
+    else if(sunLightHeight>=0.2f)
+    {
+    return mix(skyColor4,skyColor5,(sunLightHeight-0.2f)/0.8f);
+    }
+}
+vec3 ground_color()
+{
+vec3 globalSkyColor=global_sky_color(1);
+vec3 groundColor=vec3(0.4f,0.510f,0.248f)*(directionLight4d.color*directionLight4d.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4d.direction4D)+globalSkyColor);
+vec4 V = direction;
+    if(isAreaDeleting)
+   {
+   if(V.y<0.f)
+   {
+      vec4 groundCoordinate=-cameraPos.y*V/V.y+cameraPos;
+      int isDeleteArea=int(256.f*texelFetch(deleteMap3d,ivec3(groundCoordinate.xzw+vec3(64.f)),0).r);
+      if(isDeleteArea==1){
+      groundColor+=texture(area,groundCoordinate.xzw).xyz;
+   }
+   }
+   }
+   if(isSkyBoxFog==true)
+    {
+   float viewDistance=cameraPos.y/(-V.y);
+   float transmittance=exp(-0.00003861f*viewDistance);
+   vec3 groundColor2=0.55f*groundColor/vec3(0.4f,0.510f,0.248f);
+   vec3 fogColor=(globalSkyColor+groundColor2)/2.f+directionLight4d.color/PI;
+   groundColor=mix(fogColor,groundColor,transmittance);
+   }
+   return groundColor;
+}
+vec3 stars_color()
+{
+return texture(skyPhaseMap3D, vs_texcoord).xyz;
+}
+
+vec4 read_sky_phase_map(sampler3D sampler3d,vec3 scale, vec3 texcoord)
+{
+   vec3 scaleSize = vec3(textureSize(sampler3d,0))*scale;
+   vec3 pixelPosition = clamp(scaleSize * texcoord + vec3(0.5f),vec3(0.f),scaleSize-vec3(1.f));
+   ivec3 iTexcoord = ivec3(pixelPosition);
+   vec3 weight = fract(pixelPosition);
+   vec3 weight2 = vec3(1.f) - weight;
+   vec4 color4 ;
+   color4 = 
+   (texelFetch(sampler3d,iTexcoord+ivec3(0,0,0),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x,0,0),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x*2.f,0,0),0)/4096.f)*weight2.x*weight2.y*weight2.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(1,0,0),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x,0,0),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x*2.f,0,0),0)/4096.f)*weight.x*weight2.y*weight2.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(0,1,0),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x,1,0),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x*2.f,1,0),0)/4096.f)*weight2.x*weight.y*weight2.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(1,1,0),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x,1,0),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x*2.f,1,0),0)/4096.f)*weight.x*weight.y*weight2.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(0,0,1),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x,0,1),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x*2.f,0,1),0)/4096.f)*weight2.x*weight2.y*weight.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(1,0,1),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x,0,1),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x*2.f,0,1),0)/4096.f)*weight.x*weight2.y*weight.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(0,1,1),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x,1,1),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(0+scaleSize.x*2.f,1,1),0)/4096.f)*weight2.x*weight.y*weight.z+
+   (texelFetch(sampler3d,iTexcoord+ivec3(1,1,1),0)*16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x,1,1),0)/16.f+texelFetch(sampler3d,iTexcoord+ivec3(1+scaleSize.x*2.f,1,1),0)/4096.f)*weight.x*weight.y*weight.z;
+   return color4;
+}
+
+vec3 aces(vec3 color,float adaptedLum) {
+    color*=adaptedLum;
+    return (color * (2.51f * color + 0.03f)) / (color * (2.43f * color + 0.59f) + 0.14f);
+}
+
+// sRGB => XYZ => D65_2_D60 => AP1 => RRT_SAT
+const mat3 aces_input_mat = mat3(
+    0.59719, 0.07600, 0.02840,
+    0.35458, 0.90834, 0.13383,
+    0.04823, 0.01566, 0.83777
+    );
+
+// ODT_SAT => XYZ => D60_2_D65 => sRGB
+const mat3 aces_output_mat = mat3(
+    1.60475, -0.10208, -0.00327,
+    -0.53108,  1.10813, -0.07276,
+    -0.07367, -0.00605,  1.07602
+    );
+
+vec3 rrt_and_odt_fit(vec3 v)
+{
+    vec3 a = v * (v + 0.0245786) - 0.000090537;
+    vec3 b = v * (0.983729 * v + 0.4329510) + 0.238081;
+    return a / b;
+}
+
+vec3 aces_fitted(vec3 color,float adaptedLum)
+{
+    color*=adaptedLum;
+	color = aces_input_mat * color;
+    color = rrt_and_odt_fit(color);
+    color = aces_output_mat * color;
+    return clamp(color, 0.0, 1.0);
+}
+
+float get_cloud_distance(vec4 ray,float radius,float height)
+{
+return sqrt(radius*radius*ray.y*ray.y+2.f*height*radius+height*height)-radius*ray.y;
+}
+
+vec3 get_sky(const vec4 V, const vec4 L, vec3 atomsphereAbsorbColor) {
+   float vDotL = dot(V,L);
+   vec3 texcoord = vec3(acos(-vDotL)/PI, V.y, 0.5f*(1.f - L.y));
+   vec3 color = sunColor * pow(read_sky_phase_map(skyPhaseMap3D,vec3(1.f/3.f,1.f,1.f),texcoord).xyz,vec3(2.2f));
+   if(-vDotL>0.99999f)color+=1600.f*atomsphereAbsorbColor;
+   if(isCloud==true&&V.y>0.f)
+    {
+    float cloudDistance=get_cloud_distance(V,6371000.f,4500.f - cameraPos.y);
+    vec4 cloudPlaneCoordinate=cloudDistance*V + cameraPos;
+    float noise0_2111 = 0.8f - texture(diffuse3D,0.00000012f*1.175*(cloudPlaneCoordinate.xzw+vec3(720.f*iTime,0.f,720.f*iTime))).r;
+    float noise2_1112 = texture(diffuse3D,0.0000008f*1.175*(cloudPlaneCoordinate.xzw+vec3(720.f*iTime,0.f,720.f*iTime))).r;
+    float cloudDensity = 2.05f*max(noise0_2111*(noise2_1112*noise2_1112*noise2_1112+1.f) - 0.5f*noise0_2111-0.185f,0.f);
+    if(cloudDensity>0.f){
+    vec3 globalSkyColor=global_sky_color(1);
+    vec3 groundColor=vec3(0.4f,0.510f,0.248f)*(directionLight4d.color*directionLight4d.intensity*calculate_direction(vec4(0.f,1.f,0.f,0.f),directionLight4d.direction4D)+globalSkyColor);
+    vec3 cloudColor3=atomsphereAbsorbColor * (0.5f*max(-L.y, 0.f)+0.5f) + (globalSkyColor+groundColor)/2.f;
+    float transmittance=exp(-0.000001425f*1.875f*cloudDistance); 
+    color = mix(color,max(cloudColor3,vec3(0.f)),transmittance*cloudDensity);
+    }
+    }
+   return color;
+}
+
+    //extreme=abs(vs_position.x+vs_position.y+vs_position.z+vs_position.w)/4.f;
+	//direction=normalize(vs_position/extreme);
+
+void main()
+{
+	direction=normalize(vs_position);
+    if(type==0)color=vec4(get_sky(direction,directionLight4d.direction4D,directionLight4d.color),1.f);
+    else if(type==1) color=vec4(pow(stars_color(),vec3(2.2f)),1.f);
+    color*=paintingColor;
+    if(isACES)color.xyz = aces_fitted(color.xyz,adaptedLum);
+	fs_color = color;
+}

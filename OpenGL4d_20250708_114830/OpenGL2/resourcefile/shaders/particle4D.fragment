@@ -1,0 +1,20 @@
+#version 440
+
+in vec4 vs_position;
+in vec4 vs_normal;
+in vec3 vs_texcoord;
+out vec4 fs_color;
+vec4 col4;
+uniform vec4 lightColor;
+layout (binding = 0) uniform sampler3D Tex3D;
+uniform bool isFog;
+uniform float fogDensity;
+uniform vec4 cameraPos;
+
+void main()
+{
+col4=texture(Tex3D,vs_texcoord);
+col4.xyz=vec3(col4.x/256.f+col4.y+col4.z*256.f);
+col4 *= lightColor;
+fs_color=col4;
+}
